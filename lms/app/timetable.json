@@ -1,0 +1,42 @@
+{
+  "MON": [
+    { "time": "09:30 - 10:30", "subject": "Integrated Session" },
+    { "time": "10:30 - 11:30", "subject": "" },
+    { "time": "11:30 - 12:30", "subject": "ES" },
+    { "time": "01:15 - 02:15", "subject": "NSS" },
+    { "time": "02:15 - 03:15", "subject": "OS" },
+    { "time": "03:15 - 04:15", "subject": "Free session" }
+  ],
+  "TUE": [
+    { "time": "09:30 - 10:30", "subject": "" },
+    { "time": "10:30 - 11:30", "subject": "LS: PPHC" },
+    { "time": "11:30 - 12:30", "subject": "ES" },
+    { "time": "01:15 - 02:15", "subject": "LS: PPHC" },
+    { "time": "02:15 - 03:15", "subject": "Practice Session (DS)" },
+    { "time": "03:15 - 04:15", "subject": "Practice Session (DS)" }
+  ],
+  "WED": [
+    { "time": "09:30 - 10:30", "subject": "DS" },
+    { "time": "10:30 - 11:30", "subject": "DS" },
+    { "time": "11:30 - 12:30", "subject": "NSS" },
+    { "time": "01:15 - 02:15", "subject": "NSS" },
+    { "time": "02:15 - 03:15", "subject": "Integrated Session" },
+    { "time": "03:15 - 04:15", "subject": "Integrated Session" }
+  ],
+  "THU": [
+    { "time": "09:30 - 10:30", "subject": "LS: PPHC" },
+    { "time": "10:30 - 11:30", "subject": "FLAT" },
+    { "time": "11:30 - 12:30", "subject": "DS" },
+    { "time": "01:15 - 02:15", "subject": "FLAT" },
+    { "time": "02:15 - 03:15", "subject": "Practice Session (DS)" },
+    { "time": "03:15 - 04:15", "subject": "Practice Session (DS)" }
+  ],
+  "FRI": [
+    { "time": "09:30 - 10:30", "subject": "Practice Session (DS)" },
+    { "time": "10:30 - 11:30", "subject": "Practice Session (DS)" },
+    { "time": "11:30 - 12:30", "subject": "FLAT" },
+    { "time": "01:15 - 02:15", "subject": "LS: PPHC" },
+    { "time": "02:15 - 03:15", "subject": "OS" },
+    { "time": "03:15 - 04:15", "subject": "OS" }
+  ]
+}
