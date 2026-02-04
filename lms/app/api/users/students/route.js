@@ -1,14 +1,15 @@
-import { pool } from "@/lib/db";
+import clientPromise from "@/lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const result = await pool.query("SELECT * from users");
-
+    const client = await clientPromise;
+    const db = client.db();
+    const users = await db.collection("users").find({}).toArray();
 
     return NextResponse.json({
       ok: true,
-      data: result.rows
+      data: users
     });
 
   } catch (err) {

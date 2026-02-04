@@ -1,19 +1,37 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function OptionCard({ item }) {
   const router = useRouter();
+  const [isPressed, setIsPressed] = useState(false);
+
+  const handleMouseDown = () => {
+    setIsPressed(true);
+  };
+
+  const handleMouseUp = () => {
+    setIsPressed(false);
+  };
 
   return (
     <div
       onClick={() => router.push(item.link)}
-      className="relative border overflow-hidden cursor-pointer w-full "
-      style={{ backgroundColor: "#BBBEC3",
-       }}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+      className="relative border overflow-hidden cursor-pointer w-full transition-all duration-100"
+      style={{
+        backgroundColor: "#BBBEC3",
+        boxShadow: isPressed
+          ? "inset 2px 2px 4px rgba(0,0,0,0.6), inset -1px -1px 2px rgba(0,0,0,0.5)"
+          : "none",
+        transform: isPressed ? "translate(3px, 3px)" : "translate(0, 0)",
+      }}
     >
       {/* TOP PART */}
-      <div className="relative h-32 flex items-center justify-center overflow-hidden">
+      <div className="relative h-20 flex items-center justify-center overflow-hidden">
         <svg
           className="absolute inset-0 w-full h-full"
           viewBox="0 0 100 100"
@@ -46,13 +64,13 @@ export default function OptionCard({ item }) {
         <img
           src={item.img}
           alt=""
-          className="relative z-10 h-12 w-12"
+          className="relative z-10 h-8 w-8"
         />
       </div>
 
       {/* BOTTOM PART */}
-      <div className="flex items-center justify-center py-3 bg-white">
-        <p className="font-medium">{item.name}</p>
+      <div className="flex items-center justify-center py-2 bg-white">
+        <p className="font-medium text-sm">{item.name}</p>
       </div>
     </div>
   );

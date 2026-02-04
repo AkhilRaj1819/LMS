@@ -1,6 +1,6 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
-import {pool} from "@/lib/db"
+import clientPromise from "@/lib/db"
 
 const handler = NextAuth({
     providers:[
@@ -22,34 +22,31 @@ const handler = NextAuth({
             if (!email) return false;
             if (!email.endsWith("@ggu.edu.in")) return false;
 
-            const res = await pool.query(
-                "SELECT id, role FROM users WHERE email = $1",
-                [email]
-            );
+            const client = await clientPromise;
+            const db = client.db();
+            const existingUser = await db.collection("users").findOne({ email });
 
-            if (res.rowCount === 0) return false;
+            if (!existingUser) return false;
 
-            return true; // Let NextAuth handle redirects
+            return true;
         },
 
         async session({ session }) {
             if (session.user?.email) {
-                const res = await pool.query(
-                    "SELECT id, full_name, role, student_id FROM users WHERE email = $1",
-                    [session.user.email]
-                );
+                const client = await clientPromise;
+                const db = client.db();
+                const user = await db.collection("users").findOne({ email: session.user.email });
 
-                if (res.rows[0]) {
-                    session.user.id = res.rows[0].id;
-                    session.user.role = res.rows[0].role;
-                    session.user.studentId = res.rows[0].student_id;
+                if (user) {
+                    session.user.id = user._id.toString();
+                    session.user.role = user.role;
+                    session.user.studentId = user.student_id;
                 }
             }
             return session;
         },
 
         async redirect({ url, baseUrl }) {
-            // Custom redirect logic after sign in
             if (url.startsWith("/")) return `${baseUrl}${url}`;
             if (new URL(url).origin === baseUrl) return url;
             return `${baseUrl}/pages/studentDashboard`;

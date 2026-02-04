@@ -1,5 +1,6 @@
 import Image from "next/image";
 import OptionCard from "@/components/OptionCard";
+import Timetable from "@/components/Timetable";
 
 export default function Home() {
 
@@ -29,19 +30,15 @@ export default function Home() {
       </section>
 
       {/* -------- Section 2 -------- */}
-      <section className="w-full flex flex-col md:flex-row items-center justify-center mt-10 gap-10 px-10 py-10">
+      <section className="w-full flex flex-col md:flex-row items-center justify-center mt-6 gap-6 px-6 py-6">
 
         {/* LEFT BLOCK */}
-        <div className="h-[60vh] w-full md:w-1/2 flex flex-col sm:flex-row">
-
-          <div className="border w-full sm:w-1/2 h-1/2 sm:h-full" />
-
-          <div className="border border-t-0 sm:border-t sm:border-l-0 w-full sm:w-1/2 h-1/2 sm:h-full" />
-
+        <div className="h-[45vh] w-full md:w-[40%] drop">
+          <Timetable />
         </div>
 
         {/* RIGHT BLOCK (buttons grid wrapper stays here) */}
-        <div className="w-full md:w-1/3 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="w-full md:w-[20%] grid grid-cols-1 sm:grid-cols-2 gap-4 ">
           {options.map((item) => (
             <OptionCard key={item.id} item={item} />
           ))}
