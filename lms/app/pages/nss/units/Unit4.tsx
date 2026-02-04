@@ -23,6 +23,34 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               <h3>Virtual Demonstration of Eco-Friendly Approaches</h3>
               <p>Sustainable living involves adopting practices that reduce environmental impact and promote ecological balance.</p>
               
+              <h4>Eco-Friendly Living Examples:</h4>
+              
+              <div className="eco-gallery">
+                <div className="eco-image">
+                  <img src="/images/solar-panels.jpg" alt="Solar panel installation" className="eco-photo" />
+                  <p>Solar energy for sustainable living</p>
+                </div>
+                <div className="eco-image">
+                  <img src="/images/vertical-garden.jpg" alt="Vertical garden" className="eco-photo" />
+                  <p>Space-efficient vertical gardening</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Sustainable Living Practices</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/jqxENMKaeCU" 
+                    title="Sustainable Living Tips and Practices"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              
               <h4>Key Eco-Friendly Approaches:</h4>
               
               <h5>1. Energy Conservation</h5>
@@ -385,6 +413,34 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
             <section className="content-section">
               <h3>Go Green Initiatives</h3>
               <p>Go Green activities promote environmental conservation and encourage sustainable practices in communities.</p>
+              
+              <h4>Tree Plantation Drive Photos:</h4>
+              
+              <div className="plantation-gallery">
+                <div className="plantation-image">
+                  <img src="/images/tree-plantation-drive.jpg" alt="Tree plantation activity" className="plantation-photo" />
+                  <p>NSS students planting trees</p>
+                </div>
+                <div className="plantation-image">
+                  <img src="/images/sapling-care.jpg" alt="Sapling care" className="plantation-photo" />
+                  <p>Caring for newly planted saplings</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>How to Plant Trees Properly</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/tJnWo5Jx3pU" 
+                    title="Tree Plantation Guide - Step by Step"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
               
               <h4>Tree Plantation Drives:</h4>
               

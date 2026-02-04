@@ -19,12 +19,14 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "The study of foreign languages",
         "The study of language teaching methods"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Linguistics is the scientific study of language and its structure, including phonetics, phonology, morphology, syntax, semantics, and pragmatics. It's not about literature or teaching methods, but about understanding how language works as a system."
     },
     {
       question: "Which of the following is NOT a core sub-field of linguistics?",
       options: ["Phonetics", "Phonology", "Morphology", "Literature"],
-      correctAnswer: 3
+      correctAnswer: 3,
+      explanation: "Literature is not a core sub-field of linguistics. The main branches are phonetics (speech sounds), phonology (sound patterns), morphology (word structure), syntax (sentence structure), semantics (meaning), and pragmatics (language use in context)."
     },
     {
       question: "What does phonetics study?",
@@ -34,7 +36,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "The meaning of words",
         "The structure of sentences"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Phonetics studies the physical properties of speech sounds - how they're produced (articulatory), their acoustic properties (acoustic), and how they're perceived (auditory). Phonology studies sound patterns, semantics studies meaning, and syntax studies sentence structure."
     },
     {
       question: "What is the difference between phonetics and phonology?",
@@ -44,7 +47,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "There is no difference",
         "Phonetics is about writing, phonology is about speaking"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Phonetics studies the physical properties of speech sounds (how they're made, what they sound like), while phonology studies how sounds function and pattern within specific languages (which sounds distinguish meaning, how they change in different contexts)."
     },
     {
       question: "What is morphology concerned with?",
@@ -54,7 +58,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Sound patterns",
         "Meaning in context"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Morphology studies word structure and formation - how morphemes (smallest meaningful units) combine to create words. Syntax studies sentence structure, phonology studies sound patterns, and pragmatics studies meaning in context."
     }
   ];
 
@@ -67,7 +72,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Writing poetry",
         "Teaching grammar"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "The IPA provides a standardized way to represent speech sounds from all languages using one symbol per sound. This eliminates the ambiguity of regular spelling systems where the same letter can represent different sounds (like 'ough' in English)."
     },
     {
       question: "Which branch of phonetics studies sound production?",
@@ -77,7 +83,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Articulatory Phonetics",
         "Experimental Phonetics"
       ],
-      correctAnswer: 2
+      correctAnswer: 2,
+      explanation: "Articulatory phonetics studies how speech sounds are produced by the vocal organs (lungs, vocal cords, tongue, lips, etc.). Acoustic phonetics studies sound waves, and auditory phonetics studies how we perceive sounds."
     },
     {
       question: "What are the three main components of consonant classification?",
@@ -87,12 +94,14 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Stress, tone, intonation",
         "Onset, nucleus, coda"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Consonants are classified by: Place (where in the mouth), Manner (how air flows), and Voicing (whether vocal cords vibrate). Height, backness, and roundedness describe vowels. Stress, tone, and intonation are prosodic features."
     },
     {
       question: "Which vowel feature refers to tongue position from front to back?",
       options: ["Height", "Backness", "Roundedness", "Length"],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Backness refers to how far forward or back the tongue is positioned. Height refers to how high or low the tongue is, roundedness refers to lip shape, and length refers to vowel duration."
     },
     {
       question: "What does 'voicing' refer to in phonetics?",
@@ -102,7 +111,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Articulation place",
         "Sound duration"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Voicing refers to whether the vocal folds (vocal cords) vibrate during sound production. Voiced sounds like /b/, /d/, /g/ have vibration; voiceless sounds like /p/, /t/, /k/ don't. You can feel this by putting your hand on your throat."
     }
   ];
 
@@ -115,7 +125,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "A letter of the alphabet",
         "A word"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "A phoneme is an abstract mental representation of a sound that can distinguish meaning in a language. For example, /p/ and /b/ are different phonemes in English because they distinguish 'pat' from 'bat'. It's not the physical sound itself, but the mental category."
     },
     {
       question: "What are allophones?",
@@ -125,7 +136,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Foreign sounds",
         "Silent letters"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Allophones are different pronunciations of the same phoneme that don't change word meaning. For example, the aspirated [pʰ] in 'pin' and unaspirated [p] in 'spin' are allophones of the phoneme /p/ - they sound different but don't create different words."
     },
     {
       question: "What is assimilation in phonology?",
@@ -135,7 +147,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Sound deletion",
         "Sound insertion"
       ],
-      correctAnswer: 0
+      correctAnswer: 0,
+      explanation: "Assimilation is when sounds become more similar to neighboring sounds to make pronunciation easier. For example, 'input' is pronounced [ɪmpʊt] where /n/ becomes [m] to match the following bilabial /p/. This makes speech more fluid."
     },
     {
       question: "What are the three parts of syllable structure?",
@@ -145,7 +158,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Consonant, vowel, consonant",
         "Prefix, root, suffix"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Syllables have three parts: Onset (initial consonant(s), optional), Nucleus (vowel or syllabic consonant, required), and Coda (final consonant(s), optional). In 'cat': /k/ is onset, /æ/ is nucleus, /t/ is coda."
     },
     {
       question: "What is prosody in phonology?",
@@ -155,7 +169,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Vowel systems",
         "Consonant clusters"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Prosody refers to suprasegmental features like stress (syllable prominence), tone (pitch patterns that distinguish meaning), and intonation (pitch patterns across phrases). These features operate above individual sounds and affect meaning and emotion."
     }
   ];
 
@@ -168,7 +183,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "A sound",
         "A word"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "A morpheme is the smallest unit that carries meaning. For example, 'unhappiness' has three morphemes: 'un-' (not), 'happy' (feeling good), and '-ness' (state of being). You can't break these down further without losing meaning."
     },
     {
       question: "What is the difference between a free morpheme and a bound morpheme?",
@@ -178,7 +194,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "There is no difference",
         "Bound morphemes are more common"
       ],
-      correctAnswer: 0
+      correctAnswer: 0,
+      explanation: "Free morphemes can stand alone as complete words (like 'cat', 'run', 'happy'), while bound morphemes must attach to other morphemes (like '-s', 'un-', '-ing'). Bound morphemes include prefixes, suffixes, and other affixes."
     },
     {
       question: "Which type of morphology changes word class?",
@@ -188,7 +205,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Compounding",
         "Conversion"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Derivational morphology often changes word class and creates new words (teach → teacher, happy → happiness). Inflectional morphology only modifies words for grammar without changing class (cat → cats, walk → walked)."
     },
     {
       question: "What is compounding?",
@@ -198,7 +216,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Combining two or more words",
         "Changing word class"
       ],
-      correctAnswer: 2
+      correctAnswer: 2,
+      explanation: "Compounding combines two or more free morphemes (complete words) to create new words, like 'bookshelf' (book + shelf), 'classroom' (class + room), or 'blackboard' (black + board). The result often has a specialized meaning."
     },
     {
       question: "Which is an example of inflectional morphology?",
@@ -208,7 +227,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "teach → teacher",
         "possible → impossible"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "'Walk → walked' is inflectional because it adds grammatical information (past tense) without changing the word class (both are verbs). The others are derivational: happiness (noun from adjective), teacher (noun from verb), impossible (negative adjective)."
     }
   ];
 
@@ -225,7 +245,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Sound systems",
         "Language change"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Syntax studies how words combine to form phrases and sentences, including word order rules, phrase structure, and grammatical relationships. It explains why 'The cat chased the mouse' is grammatical but 'Cat the mouse the chased' is not."
     },
     {
       question: "What does semantics study?",
@@ -235,7 +256,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
         "Sentence structure",
         "Language use in context"
       ],
-      correctAnswer: 1
+      correctAnswer: 1,
+      explanation: "Semantics studies meaning in language - how words, phrases, and sentences convey meaning. It includes lexical semantics (word meaning), compositional semantics (how meanings combine), and truth conditions. Pragmatics studies meaning in context."
     }
   ];
 
@@ -284,17 +306,57 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                 <li><strong>All humans can learn language:</strong> But each language is unique</li>
               </ul>
 
-              <div className="example-box">
-                <h5>Real-World Example: Why Words Are Arbitrary</h5>
-                <p>Think about the word for "water":</p>
-                <ul>
-                  <li>English: water</li>
-                  <li>Spanish: agua</li>
-                  <li>French: eau</li>
-                  <li>Hindi: पानी (paani)</li>
-                  <li>Japanese: 水 (mizu)</li>
-                </ul>
-                <p>All these words mean the same thing, but sound completely different! This proves there's no natural connection between the sound and the meaning - it's just convention.</p>
+              <div className="theory-analysis">
+                <h5>Linguistic Analysis Framework</h5>
+                <p>Examine how different linguistic branches analyze the same phenomenon:</p>
+                <div className="analysis-grid">
+                  <div className="analysis-item">
+                    <h6>Morphological Analysis</h6>
+                    <p><strong>"unhappiness"</strong> → un- (negation) + happy (root) + -ness (nominalization)</p>
+                    <p>Demonstrates derivational morphology and word formation processes</p>
+                  </div>
+                  <div className="analysis-item">
+                    <h6>Phonological Analysis</h6>
+                    <p><strong>/ʌnˈhæpɪnəs/</strong> → Shows stress placement and vowel reduction</p>
+                    <p>Illustrates prosodic patterns and phonological processes</p>
+                  </div>
+                  <div className="analysis-item">
+                    <h6>Semantic Analysis</h6>
+                    <p><strong>Compositional meaning:</strong> [NOT [STATE OF BEING HAPPY]]</p>
+                    <p>Demonstrates how morphemes contribute to overall word meaning</p>
+                  </div>
+                  <div className="analysis-item">
+                    <h6>Syntactic Analysis</h6>
+                    <p><strong>"Her unhappiness was evident"</strong> → [NP [Det Her] [N unhappiness]]</p>
+                    <p>Shows how morphologically complex words function syntactically</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="linguistic-universals">
+                <h5>Universal Properties of Human Language</h5>
+                <div className="universals-grid">
+                  <div className="universal-item">
+                    <h6>Arbitrariness</h6>
+                    <p>No inherent connection between form and meaning</p>
+                    <div className="evidence">Cross-linguistic variation: water/agua/eau/mizu</div>
+                  </div>
+                  <div className="universal-item">
+                    <h6>Productivity</h6>
+                    <p>Infinite expression from finite elements</p>
+                    <div className="evidence">Novel sentence generation and comprehension</div>
+                  </div>
+                  <div className="universal-item">
+                    <h6>Displacement</h6>
+                    <p>Reference to non-present entities and events</p>
+                    <div className="evidence">Past/future tense, hypothetical scenarios</div>
+                  </div>
+                  <div className="universal-item">
+                    <h6>Cultural Transmission</h6>
+                    <p>Learned through social interaction</p>
+                    <div className="evidence">Language acquisition in social contexts</div>
+                  </div>
+                </div>
               </div>
 
               <h4>Branches of Linguistics (What Linguists Focus On)</h4>
@@ -555,15 +617,71 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                 </li>
               </ul>
 
-              <div className="example-box">
-                <h5>Practice Exercise</h5>
-                <p>Try saying these word pairs and notice the differences:</p>
-                <ul>
-                  <li><strong>pat / bat:</strong> Same mouth position, different voicing</li>
-                  <li><strong>sip / ship:</strong> Different place (s is front, sh is back)</li>
-                  <li><strong>beat / bit:</strong> Different vowel height (high vs lower)</li>
-                  <li><strong>pool / pull:</strong> Different vowel length (long vs short)</li>
-                </ul>
+              <div className="phonetic-analysis">
+                <h5>Articulatory Analysis Framework</h5>
+                <p>Systematic approach to analyzing speech sound production:</p>
+                
+                <div className="analysis-table">
+                  <h6>Consonant Classification Matrix</h6>
+                  <table>
+                    <thead>
+                      <tr><th>Sound</th><th>Place</th><th>Manner</th><th>Voicing</th><th>Example</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>/p/</td><td>Bilabial</td><td>Stop</td><td>Voiceless</td><td>"pat" [pʰæt]</td></tr>
+                      <tr><td>/b/</td><td>Bilabial</td><td>Stop</td><td>Voiced</td><td>"bat" [bæt]</td></tr>
+                      <tr><td>/f/</td><td>Labiodental</td><td>Fricative</td><td>Voiceless</td><td>"fat" [fæt]</td></tr>
+                      <tr><td>/v/</td><td>Labiodental</td><td>Fricative</td><td>Voiced</td><td>"vat" [væt]</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="vowel-space">
+                  <h6>Vowel Classification System</h6>
+                  <div className="vowel-chart">
+                    <div className="vowel-row">
+                      <span className="vowel-label">High:</span>
+                      <span className="vowel-item">/i/ "beat"</span>
+                      <span className="vowel-item">/ɪ/ "bit"</span>
+                      <span className="vowel-item">/u/ "boot"</span>
+                      <span className="vowel-item">/ʊ/ "book"</span>
+                    </div>
+                    <div className="vowel-row">
+                      <span className="vowel-label">Mid:</span>
+                      <span className="vowel-item">/e/ "bait"</span>
+                      <span className="vowel-item">/ɛ/ "bet"</span>
+                      <span className="vowel-item">/o/ "boat"</span>
+                      <span className="vowel-item">/ɔ/ "bought"</span>
+                    </div>
+                    <div className="vowel-row">
+                      <span className="vowel-label">Low:</span>
+                      <span className="vowel-item">/æ/ "bat"</span>
+                      <span class="vowel-item">/ɑ/ "bot"</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="transcription-practice">
+                <h5>IPA Transcription Analysis</h5>
+                <p>Systematic phonetic transcription demonstrates sound-symbol correspondence:</p>
+                <div className="transcription-examples">
+                  <div className="transcription-pair">
+                    <span className="orthography">"thought"</span>
+                    <span className="ipa">[θɔt]</span>
+                    <span className="analysis">Shows /θ/ fricative, /ɔ/ back vowel</span>
+                  </div>
+                  <div className="transcription-pair">
+                    <span className="orthography">"psychology"</span>
+                    <span className="ipa">[saɪˈkɑlədʒi]</span>
+                    <span className="analysis">Demonstrates silent letters, stress placement</span>
+                  </div>
+                  <div className="transcription-pair">
+                    <span className="orthography">"strength"</span>
+                    <span className="ipa">[strɛŋkθ]</span>
+                    <span class="analysis">Complex consonant clusters, velar nasal</span>
+                  </div>
+                </div>
               </div>
 
               <div className="video-container">

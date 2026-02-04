@@ -138,30 +138,43 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>What is an Operating System?</h3>
-              <p>An Operating System (OS) is system software that acts as an intermediary between computer hardware and users. It manages hardware resources and provides services for application programs.</p>
+              <h3>Understanding Operating Systems: The System Software Foundation</h3>
+              <p>An Operating System (OS) serves as the fundamental layer of system software that manages computer hardware resources and provides essential services for application programs. It acts as an intermediary between users and the computer hardware, abstracting complex hardware details while ensuring efficient resource utilization.</p>
+              
+              <p>Modern computing systems rely heavily on sophisticated operating systems to coordinate multiple processes, manage memory hierarchies, handle I/O operations, and maintain system security. From smartphones to supercomputers, operating systems form the backbone of digital infrastructure.</p>
+              
+              <h4>Core Operating System Architecture</h4>
+              <p>The OS operates as a resource manager and control program, providing two primary functions:</p>
+              <ul>
+                <li><strong>Resource Management:</strong> Efficient allocation and coordination of CPU time, memory space, storage devices, and I/O peripherals</li>
+                <li><strong>Control Program:</strong> Supervision of program execution to prevent errors and improper use of computer resources</li>
+              </ul>
               
               <div className="image-container">
                 <img src="https://quizmanthon.com/images/examples-of-os.JPG" alt="Operating System Structure" />
                 <p className="image-caption">Figure 1.1: Operating System as an intermediary between users and hardware</p>
               </div>
 
-              <h4>Key Functions of an Operating System:</h4>
+              <h4>Essential Operating System Functions</h4>
               <ul>
-                <li><strong>Process Management:</strong> Creating, scheduling, and terminating processes</li>
-                <li><strong>Memory Management:</strong> Allocating and deallocating memory space</li>
-                <li><strong>File System Management:</strong> Creating, deleting, and managing files and directories</li>
-                <li><strong>I/O System Management:</strong> Managing input/output operations</li>
-                <li><strong>Secondary Storage Management:</strong> Managing disk space and disk scheduling</li>
-                <li><strong>Networking:</strong> Managing network connections and protocols</li>
-                <li><strong>Protection and Security:</strong> Protecting resources and ensuring system security</li>
+                <li><strong>Process Management:</strong> Creating, scheduling, synchronizing, and terminating processes and threads</li>
+                <li><strong>Memory Management:</strong> Allocating and deallocating memory space, implementing virtual memory systems</li>
+                <li><strong>File System Management:</strong> Organizing, storing, retrieving, and protecting files and directories</li>
+                <li><strong>I/O System Management:</strong> Coordinating input/output operations and device driver interactions</li>
+                <li><strong>Secondary Storage Management:</strong> Managing disk space allocation, disk scheduling, and storage optimization</li>
+                <li><strong>Network Management:</strong> Handling network protocols, connections, and distributed system coordination</li>
+                <li><strong>Protection and Security:</strong> Implementing access control, authentication, and system integrity mechanisms</li>
+                <li><strong>User Interface Management:</strong> Providing command-line and graphical interfaces for user interaction</li>
               </ul>
 
-              <h4>Goals of an Operating System:</h4>
+              <h4>Operating System Design Objectives</h4>
               <ol>
-                <li><strong>Convenience:</strong> Make the computer system convenient to use</li>
-                <li><strong>Efficiency:</strong> Use computer hardware efficiently</li>
-                <li><strong>Ability to Evolve:</strong> Permit effective development, testing, and introduction of new system functions</li>
+                <li><strong>Convenience:</strong> Simplify computer system usage through abstraction and user-friendly interfaces</li>
+                <li><strong>Efficiency:</strong> Optimize hardware resource utilization and system performance</li>
+                <li><strong>Reliability:</strong> Ensure system stability, fault tolerance, and error recovery</li>
+                <li><strong>Scalability:</strong> Support varying workloads and system configurations</li>
+                <li><strong>Security:</strong> Protect system resources and user data from unauthorized access</li>
+                <li><strong>Portability:</strong> Enable system adaptation across different hardware platforms</li>
               </ol>
 
               <div className="image-container">
@@ -169,46 +182,56 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
                 <p className="image-caption">Figure 1.2: Major functions of an Operating System</p>
               </div>
 
-              <h4>Computer System Organization:</h4>
-              <p>A modern computer system consists of:</p>
+              <h4>Computer System Architecture and Components</h4>
+              <p>A modern computer system exhibits a layered architecture with distinct components:</p>
               <ul>
-                <li><strong>Hardware:</strong> CPU, memory, I/O devices</li>
-                <li><strong>Operating System:</strong> Controls and coordinates hardware usage</li>
-                <li><strong>Application Programs:</strong> Word processors, compilers, web browsers</li>
-                <li><strong>Users:</strong> People, machines, other computers</li>
+                <li><strong>Hardware Layer:</strong> CPU, memory hierarchy (cache, RAM, storage), I/O devices, and system buses</li>
+                <li><strong>Operating System Layer:</strong> Kernel, device drivers, system services, and resource managers</li>
+                <li><strong>Application Software Layer:</strong> Compilers, databases, games, business applications</li>
+                <li><strong>User Interface Layer:</strong> Command interpreters, graphical interfaces, and user applications</li>
               </ul>
 
-              <h4>OS Interface Types:</h4>
+              <h4>Operating System Interface Mechanisms</h4>
               <ul>
-                <li><strong>Command-Line Interface (CLI):</strong> Text-based interaction (e.g., Bash, PowerShell)</li>
-                <li><strong>Graphical User Interface (GUI):</strong> Visual interface with windows and icons (e.g., Windows, macOS)</li>
-                <li><strong>System Calls:</strong> Programmatic interface for applications to request OS services</li>
-                <li><strong>Application Programming Interface (API):</strong> Standardized function calls for developers</li>
+                <li><strong>Command-Line Interface (CLI):</strong> Text-based interaction using shell commands (Bash, PowerShell, Command Prompt)</li>
+                <li><strong>Graphical User Interface (GUI):</strong> Visual interface with windows, icons, menus, and pointers (Windows Explorer, macOS Finder)</li>
+                <li><strong>System Call Interface:</strong> Programmatic interface enabling applications to request OS services</li>
+                <li><strong>Application Programming Interface (API):</strong> Standardized function libraries for software development (Win32, POSIX, Java API)</li>
+                <li><strong>Web-based Interface:</strong> Browser-based system administration and cloud service management</li>
+              </ul>
+              
+              <h4>Operating System Performance Metrics</h4>
+              <p>Key performance indicators for evaluating OS effectiveness:</p>
+              <ul>
+                <li><strong>Throughput:</strong> Number of processes completed per unit time</li>
+                <li><strong>Response Time:</strong> Time from request submission to first response</li>
+                <li><strong>Turnaround Time:</strong> Total time from process submission to completion</li>
+                <li><strong>Resource Utilization:</strong> Percentage of time resources are actively used</li>
+                <li><strong>Fairness:</strong> Equitable resource allocation among competing processes</li>
+                <li><strong>Scalability:</strong> Performance maintenance under increasing system load</li>
               </ul>
             </section>
 
-            <div className="video-embed">
-              <h4>Introduction to Operating Systems</h4>
-              <p>This video provides a comprehensive introduction to operating systems, covering basic concepts, functions, and the role of OS in computer systems.</p>
+            <div style={{margin: '24px 0'}}>
               <iframe
-                width="560"
-                height="315"
                 src="https://www.youtube.com/embed/vBURTt97EkA"
                 title="Introduction to Operating Systems"
+                frameBorder="0"
                 allowFullScreen
-              ></iframe>
+                style={{width: '50%', height: '300px'}}>
+              </iframe>
+              <p style={{marginTop: '12px', fontSize: '14px', color: '#666'}}>Comprehensive introduction to operating systems fundamentals</p>
             </div>
 
-            <div className="video-embed">
-              <h4>Operating System Basics</h4>
-              <p>Learn about the fundamental concepts of operating systems including process management, memory management, and file systems.</p>
+            <div style={{margin: '24px 0'}}>
               <iframe
-                width="560"
-                height="315"
                 src="https://www.youtube.com/embed/26QPDBe-NB8"
                 title="Operating System Basics"
+                frameBorder="0"
                 allowFullScreen
-              ></iframe>
+                style={{width: '50%', height: '300px'}}>
+              </iframe>
+              <p style={{marginTop: '12px', fontSize: '14px', color: '#666'}}>Operating system concepts including process and memory management</p>
             </div>
 
             <Quiz title="Module 1 Quiz" questions={module1Quiz} />

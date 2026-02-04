@@ -130,6 +130,34 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 <li>Establish baseline data</li>
               </ul>
 
+              <h4>Village Survey Activities:</h4>
+              
+              <div className="survey-gallery">
+                <div className="survey-image">
+                  <img src="/images/village-survey.jpg" alt="Students conducting village survey" className="survey-photo" />
+                  <p>NSS volunteers conducting village survey</p>
+                </div>
+                <div className="survey-image">
+                  <img src="/images/community-interaction.jpg" alt="Community interaction" className="survey-photo" />
+                  <p>Interacting with village community</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Village Development Through NSS</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/kQX4VHrxBps" 
+                    title="NSS Village Development Activities"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              
               <h4>Survey Areas:</h4>
               
               <h5>1. Demographics</h5>
@@ -284,6 +312,34 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 <li>Nutrition counseling sessions</li>
               </ul>
 
+              <h4>Health Awareness Campaign Photos:</h4>
+              
+              <div className="health-gallery">
+                <div className="health-image">
+                  <img src="/images/health-checkup-camp.jpg" alt="Health checkup camp" className="health-photo" />
+                  <p>Free health checkup camp in village</p>
+                </div>
+                <div className="health-image">
+                  <img src="/images/hygiene-demonstration.jpg" alt="Hygiene demonstration" className="health-photo" />
+                  <p>Handwashing demonstration</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Mental Health Awareness</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/3QIfkeA6HBY" 
+                    title="Mental Health Awareness for Students"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              
               <h4>Mental Health Awareness</h4>
               
               <h5>Key Topics:</h5>

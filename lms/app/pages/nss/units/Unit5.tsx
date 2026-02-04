@@ -23,6 +23,34 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
               <h3>Digital Environmental Awareness Activities</h3>
               <p>Using social media and digital platforms to spread environmental awareness and inspire action.</p>
               
+              <h4>Digital Awareness Campaign Examples:</h4>
+              
+              <div className="digital-gallery">
+                <div className="digital-image">
+                  <img src="/images/social-media-campaign.jpg" alt="Social media environmental campaign" className="digital-photo" />
+                  <p>Environmental awareness on social media</p>
+                </div>
+                <div className="digital-image">
+                  <img src="/images/digital-infographic.jpg" alt="Environmental infographic" className="digital-photo" />
+                  <p>Digital infographics for awareness</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Creating Effective Environmental Campaigns</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/RlBr2fyqn9g" 
+                    title="Digital Environmental Awareness Campaign"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              
               <h4>Social Media Platforms for Awareness:</h4>
               <ul>
                 <li><strong>Facebook:</strong> Create pages, groups, events</li>
@@ -395,6 +423,34 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <section className="content-section">
               <h3>Internet Safety Programs</h3>
               <p>Educating students about safe and responsible internet usage.</p>
+              
+              <h4>Cyber Safety Education:</h4>
+              
+              <div className="cyber-gallery">
+                <div className="cyber-image">
+                  <img src="/images/cyber-safety-workshop.jpg" alt="Cyber safety workshop" className="cyber-photo" />
+                  <p>Students learning about internet safety</p>
+                </div>
+                <div className="cyber-image">
+                  <img src="/images/digital-citizenship.jpg" alt="Digital citizenship class" className="cyber-photo" />
+                  <p>Digital citizenship education</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Internet Safety for Students</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/Qy9Ka_rjoNs" 
+                    title="Internet Safety Tips for Students"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
               
               <h4>Internet Safety Basics:</h4>
               <ul>

@@ -42,6 +42,34 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
                 <li><strong>Natural Materials:</strong> Wood, coconut shells, bamboo</li>
               </ul>
 
+              <h4>Best Out of Waste Project Ideas:</h4>
+              
+              <div className="project-gallery">
+                <div className="project-image">
+                  <img src="/images/waste-to-art.jpg" alt="Best out of waste projects" className="project-photo" />
+                  <p>Creative upcycling projects</p>
+                </div>
+                <div className="project-image">
+                  <img src="/images/plastic-bottle-planters.jpg" alt="Plastic bottle planters" className="project-photo" />
+                  <p>Plastic bottle planters</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>DIY Best Out of Waste Ideas</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/1BuLGKj_zqg" 
+                    title="Best Out of Waste - Creative Ideas"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              
               <h4>Creative Project Ideas:</h4>
               
               <h5>From Plastic Bottles:</h5>
@@ -119,10 +147,71 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>Environmental Awareness Through Posters</h3>
+              <h4>Poster Making for Environmental Awareness:</h4>
+              
+              <div className="activity-gallery">
+                <div className="activity-image">
+                  <img src="/images/environmental-posters.jpg" alt="Environmental awareness posters" className="activity-photo" />
+                  <p>Student-made environmental posters</p>
+                </div>
+                <div className="activity-image">
+                  <img src="/images/poster-competition.jpg" alt="Poster making competition" className="activity-photo" />
+                  <p>Poster making competition in progress</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>How to Create Effective Environmental Posters</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/2KqUvIIzIqg" 
+                    title="Environmental Poster Design Tips"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              
+              <h4>Environmental Awareness Through Posters:</h4>
               <p>Posters are powerful visual communication tools to spread environmental awareness and inspire action.</p>
               
               <h4>Poster Themes:</h4>
+              <div className="media-gallery">
+                <div className="movie-card">
+                  <img src="/images/climate-change-poster.jpg" alt="Climate Change Poster" className="movie-poster" />
+                  <h6>Climate Change</h6>
+                  <p>Global warming awareness campaigns</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/save-water-poster.jpg" alt="Save Water Poster" className="movie-poster" />
+                  <h6>Water Conservation</h6>
+                  <p>Every drop counts messaging</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/plastic-free-poster.jpg" alt="Plastic Free Poster" className="movie-poster" />
+                  <h6>Plastic-Free Living</h6>
+                  <p>Say no to single-use plastics</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Creating Impactful Environmental Posters</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/2KqUvIIzIqg" 
+                    title="Environmental Poster Design Workshop"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+
               <ul>
                 <li><strong>Climate Change:</strong> Global warming, carbon footprint</li>
                 <li><strong>Pollution:</strong> Air, water, soil, noise pollution</li>
@@ -214,6 +303,34 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <h4>Recycling Process Demonstration:</h4>
+              
+              <div className="project-gallery">
+                <div className="project-image">
+                  <img src="/images/waste-segregation.jpg" alt="Waste segregation bins" className="project-photo" />
+                  <p>Proper waste segregation system</p>
+                </div>
+                <div className="project-image">
+                  <img src="/images/recycling-process.jpg" alt="Recycling process" className="project-photo" />
+                  <p>Materials being processed for recycling</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Understanding Pollution and Its Effects</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/HQTUWK7CM-Y" 
+                    title="Environmental Pollution Awareness"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              
               <h3>Understanding Recycling</h3>
               <p>Recycling converts waste materials into new products, reducing consumption of raw materials and energy.</p>
               
@@ -249,6 +366,39 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
               <h3>Environmental Pollution</h3>
               
               <h4>Types of Pollution:</h4>
+              
+              <div className="media-gallery">
+                <div className="movie-card">
+                  <img src="/images/air-pollution.jpg" alt="Air Pollution" className="movie-poster" />
+                  <h6>Air Pollution</h6>
+                  <p>Smog and emissions affecting air quality</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/water-pollution.jpg" alt="Water Pollution" className="movie-poster" />
+                  <h6>Water Pollution</h6>
+                  <p>Industrial waste contaminating water bodies</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/plastic-pollution.jpg" alt="Plastic Pollution" className="movie-poster" />
+                  <h6>Plastic Pollution</h6>
+                  <p>Ocean and land contamination by plastics</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>The Impact of Environmental Pollution</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/HQTUWK7CM-Y" 
+                    title="Environmental Pollution Documentary"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
               
               <h5>1. Air Pollution</h5>
               <ul>
@@ -356,6 +506,34 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
                 <li>Suitable for agriculture</li>
               </ul>
 
+              <h4>Rainwater Harvesting System Components:</h4>
+              
+              <div className="system-gallery">
+                <div className="system-image">
+                  <img src="/images/rainwater-harvesting-system.jpg" alt="Rainwater harvesting setup" className="system-photo" />
+                  <p>Complete rainwater harvesting system</p>
+                </div>
+                <div className="system-image">
+                  <img src="/images/rooftop-collection.jpg" alt="Rooftop water collection" className="system-photo" />
+                  <p>Rooftop collection method</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>How to Set Up Rainwater Harvesting</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/bFqNubeuRy4" 
+                    title="Rainwater Harvesting Setup Guide"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              
               <h4>Components of Rainwater Harvesting System:</h4>
               <ol>
                 <li><strong>Catchment Area:</strong> Roof or ground surface</li>
@@ -445,6 +623,34 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <h4>Eco-Friendly Product Examples:</h4>
+              
+              <div className="project-gallery">
+                <div className="project-image">
+                  <img src="/images/eco-friendly-products.jpg" alt="Eco-friendly alternatives" className="project-photo" />
+                  <p>Sustainable product alternatives</p>
+                </div>
+                <div className="project-image">
+                  <img src="/images/bamboo-products.jpg" alt="Bamboo products" className="project-photo" />
+                  <p>Bamboo-based eco-friendly items</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>DIY Eco-Friendly Products at Home</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/nrIHxklHBdg" 
+                    title="Making Eco-Friendly Products at Home"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              
               <h3>Understanding Eco-Friendly Products</h3>
               <p>Eco-friendly products are designed to minimize environmental impact throughout their lifecycle.</p>
               
@@ -459,6 +665,39 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
               </ul>
 
               <h4>Categories of Eco-Friendly Products:</h4>
+              
+              <div className="media-gallery">
+                <div className="movie-card">
+                  <img src="/images/reusable-bags.jpg" alt="Reusable Shopping Bags" className="movie-poster" />
+                  <h6>Reusable Items</h6>
+                  <p>Cloth bags, steel bottles, containers</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/organic-products.jpg" alt="Organic Personal Care" className="movie-poster" />
+                  <h6>Organic Care</h6>
+                  <p>Natural soaps, shampoos, cosmetics</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/solar-gadgets.jpg" alt="Solar Powered Devices" className="movie-poster" />
+                  <h6>Solar Devices</h6>
+                  <p>Solar lights, chargers, cookers</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Making Natural Products at Home</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/nrIHxklHBdg" 
+                    title="DIY Natural Products Tutorial"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
               
               <h5>1. Daily Use Items</h5>
               <ul>

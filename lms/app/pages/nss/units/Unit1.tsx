@@ -242,10 +242,40 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
               <p>Biographical films provide powerful visual storytelling of inspiring lives.</p>
 
               <h5>Recommended Motivational Bio Pics:</h5>
+              <div className="media-gallery">
+                <div className="movie-card">
+                  <img src="/images/pursuit-of-happyness.jpg" alt="The Pursuit of Happyness" className="movie-poster" />
+                  <h6>The Pursuit of Happyness</h6>
+                  <p>Overcoming homelessness to achieve success</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/3-idiots.jpg" alt="3 Idiots" className="movie-poster" />
+                  <h6>3 Idiots</h6>
+                  <p>Following passion over societal pressure</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/dangal.jpg" alt="Dangal" className="movie-poster" />
+                  <h6>Dangal</h6>
+                  <p>Breaking gender barriers in sports</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Inspirational Video: Success Stories</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/gxAaO2rsdIs" 
+                    title="Success Stories - Motivational Video"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+
               <ul>
-                <li><strong>The Pursuit of Happyness:</strong> Overcoming homelessness to achieve success</li>
-                <li><strong>3 Idiots:</strong> Following passion over societal pressure</li>
-                <li><strong>Dangal:</strong> Breaking gender barriers in sports</li>
                 <li><strong>Super 30:</strong> Education as a tool for social change</li>
                 <li><strong>Pad Man:</strong> Social entrepreneurship and innovation</li>
                 <li><strong>Mary Kom:</strong> Determination and perseverance in sports</li>
@@ -343,6 +373,32 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
 
               <h4>Singing Patriotic Songs:</h4>
               <p>Patriotic songs instill national pride, unity, and cultural awareness.</p>
+              
+              <div className="activity-gallery">
+                <div className="activity-image">
+                  <img src="/images/talent-show-singing.jpg" alt="Students singing patriotic songs" className="activity-photo" />
+                  <p>Students performing patriotic songs</p>
+                </div>
+                <div className="activity-image">
+                  <img src="/images/talent-show-painting.jpg" alt="Painting competition" className="activity-photo" />
+                  <p>Art and painting competitions</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Patriotic Songs Performance</h6>
+                <div className="video-container">
+                  <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/esMnme69t2M" 
+                    title="Vande Mataram - Patriotic Song Performance"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
 
               <h5>Popular Patriotic Songs:</h5>
               <ul>

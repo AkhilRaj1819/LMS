@@ -10,7 +10,7 @@ import Unit4 from './units/Unit4';
 import Unit5 from './units/Unit5';
 import './styles.css';
 
-const EnvironmentalSciencePage = () => {
+const DataStructuresPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedModule, setSelectedModule] = useState<string | null>(null);
@@ -22,11 +22,11 @@ const EnvironmentalSciencePage = () => {
   }, [searchParams]);
 
   const handleModuleSelect = (unitId: number, moduleId: number) => {
-    router.push(`/pages/es?module=${unitId}.${moduleId}`);
+    router.push(`/pages/ds?module=${unitId}.${moduleId}`);
   };
 
   const handleBackToOverview = () => {
-    router.push('/pages/es');
+    router.push('/pages/ds');
   };
 
   const renderContent = () => {
@@ -53,7 +53,7 @@ const EnvironmentalSciencePage = () => {
   };
 
   return (
-    <div className="os-container">
+    <div className="ds-container">
       {selectedModule && (
         <>
           <button 
@@ -74,11 +74,11 @@ const EnvironmentalSciencePage = () => {
         </>
       )}
       
-      <main className={`os-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+      <main className={`ds-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
         {renderContent()}
       </main>
     </div>
   );
 };
 
-export default EnvironmentalSciencePage;
+export default DataStructuresPage;

@@ -1,0 +1,666 @@
+'use client';
+import React from 'react';
+
+interface Unit4Props {
+  currentModule: number;
+  setCurrentModule: (module: number) => void;
+  onBack?: () => void;
+}
+
+const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }) => {
+  const renderModule = () => {
+    switch (currentModule) {
+      case 1:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">4.1</div>
+              <div className="lesson-title-main">
+                <h1>Context-Free Grammars and Derivation Trees</h1>
+              </div>
+            </div>
+            
+            <section className="content-section">
+              <h3>Context-Free Grammar Definition</h3>
+              <p>Context-Free Grammars are formal systems that describe the syntax of languages. They are particularly important for describing programming languages and natural languages. The derivation tree provides a visual representation of how a string is derived from the grammar.</p>
+              
+              <div className="theory-box">
+                <h5>CFG Formal Definition</h5>
+                <p>A Context-Free Grammar is a 4-tuple G = (V, T, P, S) where:</p>
+                <ul>
+                  <li><strong>V:</strong> Finite set of non-terminal symbols (variables)</li>
+                  <li><strong>T:</strong> Finite set of terminal symbols (alphabet)</li>
+                  <li><strong>P:</strong> Finite set of productions (rules)</li>
+                  <li><strong>S:</strong> Start symbol (S ∈ V)</li>
+                </ul>
+              </div>
+              
+              <div className="media-gallery">
+                <div className="movie-card">
+                  <img src="/images/cfg-definition.jpg" alt="CFG Definition" className="movie-poster" />
+                  <h6>CFG Components</h6>
+                  <p>Variables, terminals, productions, start symbol</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/derivation-tree.jpg" alt="Derivation Tree" className="movie-poster" />
+                  <h6>Derivation Trees</h6>
+                  <p>Visual representation of string derivation</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/parse-tree.jpg" alt="Parse Tree" className="movie-poster" />
+                  <h6>Parse Trees</h6>
+                  <p>Structural analysis of sentences</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Context-Free Grammars Introduction</h6>
+                <div className="video-container">
+                  <iframe 
+                    src="https://www.youtube.com/embed/GK_vRtHJZu4" 
+                    title="Context-Free Grammars Introduction"
+                    frameBorder="0" 
+                    allowFullScreen
+                    style={{width: '400px', height: '225px'}}>
+                  </iframe>
+                </div>
+              </div>
+
+              <h4>Production Format and Context-Free Property</h4>
+              <div className="definition-box">
+                <h6>Production Rules</h6>
+                <ul>
+                  <li><strong>Production Format:</strong> A → α where A ∈ V and α ∈ (V ∪ T)*</li>
+                  <li><strong>Context-Free:</strong> Left side is always a single non-terminal</li>
+                  <li><strong>Right Side:</strong> Can be any string of terminals and non-terminals</li>
+                  <li><strong>Flexibility:</strong> More powerful than regular grammars</li>
+                </ul>
+              </div>
+
+              <h4>Derivation Trees</h4>
+              <p>A derivation tree (parse tree) visually represents how a string is derived from the start symbol.</p>
+              
+              <div className="example-box">
+                <h5>Example Derivation Tree</h5>
+                <div className="tree-example">
+                  <h6>Grammar: S → aSb | ε</h6>
+                  <h6>String: "aabb"</h6>
+                  <pre>
+{`       S
+      /|\\
+     a S b
+      /|\\
+     a S b
+      |
+     ε`}
+                  </pre>
+                  <p><strong>Derivation:</strong> S ⇒ aSb ⇒ aaSbb ⇒ aabb</p>
+                </div>
+              </div>
+
+              <h4>Tree Properties and Construction</h4>
+              <ul>
+                <li><strong>Root:</strong> Always the start symbol</li>
+                <li><strong>Interior Nodes:</strong> Non-terminal symbols</li>
+                <li><strong>Leaves:</strong> Terminal symbols (form the derived string)</li>
+                <li><strong>Branching:</strong> Corresponds to production applications</li>
+              </ul>
+
+              <div className="algorithm-box">
+                <h6>Tree Construction Process</h6>
+                <ol>
+                  <li><strong>Start:</strong> Begin with root labeled S</li>
+                  <li><strong>Expand:</strong> Apply productions to non-terminals</li>
+                  <li><strong>Terminate:</strong> Continue until only terminals remain</li>
+                  <li><strong>Result:</strong> Leaves spell out the derived string</li>
+                </ol>
+              </div>
+            </section>
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(2)} className="next-module-btn">Leftmost and Rightmost Derivations →</button>
+            </div>
+          </div>
+        );
+
+      case 2:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">4.2</div>
+              <div className="lesson-title-main">
+                <h1>Leftmost and Rightmost Derivations</h1>
+              </div>
+            </div>
+            
+            <section className="content-section">
+              <h3>Derivation Strategies</h3>
+              <p>When multiple non-terminals exist in a sentential form, we can choose which one to expand next. This leads to different derivation strategies with important implications for parsing.</p>
+              
+              <div className="theory-box">
+                <h5>Derivation Types</h5>
+                <p>Understanding different approaches to string derivation:</p>
+                <ul>
+                  <li><strong>Leftmost Derivation:</strong> Always expand the leftmost non-terminal in each step</li>
+                  <li><strong>Rightmost Derivation:</strong> Always expand the rightmost non-terminal in each step</li>
+                  <li><strong>Derivation Sequence:</strong> The order of production applications</li>
+                  <li><strong>Same Tree:</strong> Both derivations produce the same parse tree</li>
+                </ul>
+              </div>
+              
+              <div className="media-gallery">
+                <div className="movie-card">
+                  <img src="/images/leftmost-derivation.jpg" alt="Leftmost Derivation" className="movie-poster" />
+                  <h6>Leftmost Derivation</h6>
+                  <p>Expand leftmost non-terminal first</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/rightmost-derivation.jpg" alt="Rightmost Derivation" className="movie-poster" />
+                  <h6>Rightmost Derivation</h6>
+                  <p>Expand rightmost non-terminal first</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/ambiguity.jpg" alt="Grammar Ambiguity" className="movie-poster" />
+                  <h6>Grammar Ambiguity</h6>
+                  <p>Multiple parse trees for same string</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Derivation Trees and Ambiguity</h6>
+                <div className="video-container">
+                  <iframe 
+                    src="https://www.youtube.com/embed/79wmmDyTRRo" 
+                    title="Derivation Trees and Ambiguity"
+                    frameBorder="0" 
+                    allowFullScreen
+                    style={{width: '400px', height: '225px'}}>
+                  </iframe>
+                </div>
+              </div>
+
+              <h4>Leftmost Strategy</h4>
+              <div className="definition-box">
+                <h6>Leftmost Derivation Properties</h6>
+                <ul>
+                  <li><strong>Strategy:</strong> At each step, identify the leftmost non-terminal and apply a production</li>
+                  <li><strong>Parser Usage:</strong> Used by top-down parsers</li>
+                  <li><strong>Implementation:</strong> Easy to implement systematically</li>
+                  <li><strong>Tree Traversal:</strong> Corresponds to preorder traversal of parse tree</li>
+                </ul>
+              </div>
+
+              <h4>Rightmost Strategy</h4>
+              <div className="definition-box">
+                <h6>Rightmost Derivation Properties</h6>
+                <ul>
+                  <li><strong>Strategy:</strong> At each step, identify the rightmost non-terminal and apply a production</li>
+                  <li><strong>Parser Usage:</strong> Used by bottom-up parsers</li>
+                  <li><strong>Tree Traversal:</strong> Corresponds to postorder traversal of parse tree</li>
+                  <li><strong>Canonical:</strong> Also called canonical derivation</li>
+                </ul>
+              </div>
+
+              <div className="example-box">
+                <h5>Example of Leftmost and Rightmost Derivations</h5>
+                <div className="derivation-example">
+                  <h6>Grammar: S → aSb | ε</h6>
+                  <h6>String: "aabb"</h6>
+                  
+                  <h6>Leftmost Derivation:</h6>
+                  <p>S ⇒ aSb ⇒ aaSbb ⇒ aabb</p>
+                  
+                  <h6>Rightmost Derivation:</h6>
+                  <p>S ⇒ aSb ⇒ aaSbb ⇒ aabb</p>
+                  
+                  <p><strong>Note:</strong> Both derivations result in the same parse tree.</p>
+                  
+                  <h6>Key Insight</h6>
+                  <p>Different derivation orders can produce the same parse tree, but the choice of strategy affects parsing algorithm design.</p>
+                </div>
+              </div>
+
+              <h4>Ambiguity in Grammars</h4>
+              <p>A grammar is ambiguous if there exists at least one string that has more than one parse tree, or equivalently, more than one leftmost (or rightmost) derivation.</p>
+
+              <div className="example-box">
+                <h5>Ambiguous Grammar Example</h5>
+                <div className="ambiguity-example">
+                  <h6>Grammar: E → E + E | E * E | id</h6>
+                  <h6>String: "id + id * id"</h6>
+                  
+                  <h6>Two Parse Trees:</h6>
+                  <ul>
+                    <li><strong>Tree 1:</strong> (id + id) * id (addition happens first)</li>
+                    <li><strong>Tree 2:</strong> id + (id * id) (multiplication happens first)</li>
+                  </ul>
+                  
+                  <p><strong>Result:</strong> Ambiguous because meaning differs based on interpretation.</p>
+                </div>
+              </div>
+            </section>
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Context-Free Grammars</button>
+              <button onClick={() => setCurrentModule(3)} className="next-module-btn">Normal Forms →</button>
+            </div>
+          </div>
+        );
+
+      case 3:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">4.3</div>
+              <div className="lesson-title-main">
+                <h1>Normal Forms: CNF and GNF</h1>
+              </div>
+            </div>
+            
+            <section className="content-section">
+              <h3>Chomsky Normal Form (CNF)</h3>
+              <p>Normal forms provide standardized representations of context-free grammars that simplify analysis and algorithm design. CNF is particularly useful for parsing algorithms and theoretical proofs.</p>
+              
+              <div className="theory-box">
+                <h5>Chomsky Normal Form Definition</h5>
+                <p>A CFG is in CNF if each production is of the form:</p>
+                <ul>
+                  <li><strong>A → BC:</strong> where A, B, C are non-terminals</li>
+                  <li><strong>A → a:</strong> where A is a non-terminal and a is a terminal</li>
+                  <li><strong>Advantages:</strong> Simplifies parsing algorithms and proofs</li>
+                  <li><strong>Restriction:</strong> No ε-productions or unit productions</li>
+                </ul>
+              </div>
+              
+              <div className="media-gallery">
+                <div className="movie-card">
+                  <img src="/images/cnf-form.jpg" alt="Chomsky Normal Form" className="movie-poster" />
+                  <h6>Chomsky Normal Form</h6>
+                  <p>Binary productions and terminal productions</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/gnf-form.jpg" alt="Greibach Normal Form" className="movie-poster" />
+                  <h6>Greibach Normal Form</h6>
+                  <p>Productions start with terminals</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/cyk-algorithm.jpg" alt="CYK Algorithm" className="movie-poster" />
+                  <h6>CYK Algorithm</h6>
+                  <p>Parsing with CNF grammars</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Normal Forms: CNF and GNF</h6>
+                <div className="video-container">
+                  <iframe 
+                    src="https://www.youtube.com/embed/gLBE5QAYXp8" 
+                    title="Normal Forms CNF and GNF"
+                    frameBorder="0" 
+                    allowFullScreen
+                    style={{width: '400px', height: '225px'}}>
+                  </iframe>
+                </div>
+              </div>
+
+              <h4>Converting to Chomsky Normal Form</h4>
+              <div className="algorithm-box">
+                <h6>CNF Conversion Steps</h6>
+                <ol>
+                  <li><strong>Eliminate ε-productions:</strong> Remove productions of form A → ε</li>
+                  <li><strong>Eliminate unit productions:</strong> Remove productions of form A → B</li>
+                  <li><strong>Eliminate mixed terminals:</strong> Replace terminals in long productions</li>
+                  <li><strong>Break long productions:</strong> Convert to binary form</li>
+                </ol>
+              </div>
+
+              <div className="example-box">
+                <h5>CNF Conversion Example</h5>
+                <div className="cnf-example">
+                  <h6>Original Grammar:</h6>
+                  <ul>
+                    <li>S → aAS | a | ASaA | SAS | SS</li>
+                    <li>A → SbS | a | bS</li>
+                  </ul>
+                  
+                  <h6>After CNF Conversion:</h6>
+                  <ul>
+                    <li>S → AX₁ | a | AX₂ | SX₃ | SS</li>
+                    <li>X₁ → AS, X₂ → SaA, X₃ → AS</li>
+                    <li>A → SX₄ | a | BX₅</li>
+                    <li>X₄ → bS, X₅ → bS</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4>Properties of CNF</h4>
+              <ul>
+                <li><strong>Derivation Length:</strong> Every derivation of a string of length n has 2n-1 steps</li>
+                <li><strong>Parse Trees:</strong> All parse trees are binary trees</li>
+                <li><strong>CYK Algorithm:</strong> Useful for CYK parsing algorithm</li>
+                <li><strong>Theoretical Analysis:</strong> Simplifies proofs about context-free languages</li>
+              </ul>
+
+              <h4>Greibach Normal Form (GNF)</h4>
+              <div className="definition-box">
+                <h6>GNF Definition and Properties</h6>
+                <p>A CFG is in GNF if each production is of the form:</p>
+                <ul>
+                  <li><strong>A → aα:</strong> where A is non-terminal, a is terminal, α is string of non-terminals</li>
+                  <li><strong>Property:</strong> Every production starts with a terminal symbol</li>
+                  <li><strong>Advantage:</strong> Useful for proving properties about CFLs</li>
+                  <li><strong>Real-time:</strong> Related to real-time pushdown automata</li>
+                </ul>
+              </div>
+
+              <div className="algorithm-box">
+                <h6>GNF Conversion Algorithm</h6>
+                <ol>
+                  <li><strong>Order non-terminals:</strong> A₁, A₂, ..., Aₙ</li>
+                  <li><strong>Eliminate left recursion:</strong> For each Aᵢ involving Aⱼ where j &lt; i</li>
+                  <li><strong>Substitute upward:</strong> Aᵢ productions in order</li>
+                  <li><strong>Convert to GNF:</strong> Remaining productions to GNF form</li>
+                </ol>
+              </div>
+
+              <h4>GNF Properties</h4>
+              <ul>
+                <li><strong>Left-to-Right:</strong> Every derivation produces terminals from left to right</li>
+                <li><strong>Closure Properties:</strong> Useful for proving closure properties of CFLs</li>
+                <li><strong>PDA Correspondence:</strong> Natural correspondence with pushdown automata</li>
+                <li><strong>Real-time Processing:</strong> Enables real-time language recognition</li>
+              </ul>
+            </section>
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Leftmost and Rightmost Derivations</button>
+              <button onClick={() => setCurrentModule(4)} className="next-module-btn">Pushdown Automata →</button>
+            </div>
+          </div>
+        );
+
+      case 4:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">4.4</div>
+              <div className="lesson-title-main">
+                <h1>Pushdown Automata (PDA)</h1>
+              </div>
+            </div>
+            
+            <section className="content-section">
+              <h3>PDA Formal Definition</h3>
+              <p>A Pushdown Automaton extends finite automata with a stack, providing the computational power needed to recognize context-free languages. The stack enables the PDA to remember an unbounded amount of information.</p>
+              
+              <div className="theory-box">
+                <h5>PDA Components</h5>
+                <p>A Pushdown Automaton is a 7-tuple P = (Q, Σ, Γ, δ, q₀, Z₀, F) where:</p>
+                <ul>
+                  <li><strong>Q:</strong> Finite set of states</li>
+                  <li><strong>Σ:</strong> Input alphabet</li>
+                  <li><strong>Γ:</strong> Stack alphabet</li>
+                  <li><strong>δ:</strong> Transition function</li>
+                  <li><strong>q₀:</strong> Initial state</li>
+                  <li><strong>Z₀:</strong> Initial stack symbol</li>
+                  <li><strong>F:</strong> Set of accepting states</li>
+                </ul>
+              </div>
+              
+              <div className="media-gallery">
+                <div className="movie-card">
+                  <img src="/images/pda-structure.jpg" alt="PDA Structure" className="movie-poster" />
+                  <h6>PDA Structure</h6>
+                  <p>States, input tape, and stack</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/stack-operations.jpg" alt="Stack Operations" className="movie-poster" />
+                  <h6>Stack Operations</h6>
+                  <p>Push, pop, and peek operations</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/pda-transitions.jpg" alt="PDA Transitions" className="movie-poster" />
+                  <h6>PDA Transitions</h6>
+                  <p>State changes with stack manipulation</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>Pushdown Automata Basics</h6>
+                <div className="video-container">
+                  <iframe 
+                    src="https://www.youtube.com/embed/QQYgCxu988s" 
+                    title="Pushdown Automata Basics"
+                    frameBorder="0" 
+                    allowFullScreen
+                    style={{width: '400px', height: '225px'}}>
+                  </iframe>
+                </div>
+              </div>
+
+              <h4>Transition Function</h4>
+              <div className="definition-box">
+                <h6>Transition Notation</h6>
+                <p>δ: Q × (Σ ∪ ε) × Γ → finite subsets of Q × Γ*</p>
+                <ul>
+                  <li><strong>δ(q, a, X) = (p₁, γ₁), (p₂, γ₂), ...:</strong> From state q, reading 'a', with X on stack top</li>
+                  <li><strong>Go to state pᵢ:</strong> Change to new state</li>
+                  <li><strong>Replace X with γᵢ:</strong> Update stack top</li>
+                  <li><strong>ε in input:</strong> No input consumption (epsilon transition)</li>
+                </ul>
+              </div>
+
+              <h4>Stack Operations</h4>
+              <ul>
+                <li><strong>Push:</strong> Replace stack symbol with longer string</li>
+                <li><strong>Pop:</strong> Replace stack symbol with ε (empty)</li>
+                <li><strong>Preserve:</strong> Replace stack symbol with itself</li>
+                <li><strong>Replace:</strong> Replace with different symbol/string</li>
+              </ul>
+
+              <div className="example-box">
+                <h5>PDA Example for Language a^n b^n</h5>
+                <div className="pda-example">
+                  <h6>Language: strings of equal a's and b's where n ≥ 0</h6>
+                  <h6>States: q₀, q₁, q₂</h6>
+                  <h6>Input: a, b</h6>
+                  <h6>Stack: Z₀, A</h6>
+                  
+                  <h6>Transitions:</h6>
+                  <ul>
+                    <li><strong>δ(q₀, a, Z₀) = (q₀, AZ₀):</strong> Push A for first 'a'</li>
+                    <li><strong>δ(q₀, a, A) = (q₀, AA):</strong> Push A for subsequent 'a's</li>
+                    <li><strong>δ(q₀, b, A) = (q₁, ε):</strong> Pop A for each 'b'</li>
+                    <li><strong>δ(q₁, b, A) = (q₁, ε):</strong> Continue popping for 'b's</li>
+                    <li><strong>δ(q₁, ε, Z₀) = (q₂, Z₀):</strong> Accept if stack has only Z₀</li>
+                  </ul>
+                  
+                  <h6>Graphical Representation:</h6>
+                  <pre>
+{`q₀ --a,Z₀/AZ₀--> q₀ (push A on first 'a')
+q₀ --a,A/AA----> q₀ (push A on subsequent 'a's)
+q₀ --b,A/ε-----> q₁ (pop A for 'b')
+q₁ --b,A/ε-----> q₁ (continue popping)
+q₁ --ε,Z₀/Z₀---> q₂ (accept when stack empty)`}
+                  </pre>
+                </div>
+              </div>
+
+              <h4>Acceptance Methods</h4>
+              <div className="definition-box">
+                <h6>Two Acceptance Criteria</h6>
+                <ul>
+                  <li><strong>Acceptance by Final State:</strong> PDA accepts if entire input is consumed and PDA is in final state</li>
+                  <li><strong>Acceptance by Empty Stack:</strong> PDA accepts if entire input is consumed and stack is empty</li>
+                  <li><strong>Equivalence:</strong> Both methods have same power - define same class of languages</li>
+                  <li><strong>Conversion:</strong> Can convert between the two acceptance methods</li>
+                </ul>
+              </div>
+            </section>
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Normal Forms</button>
+              <button onClick={() => setCurrentModule(5)} className="next-module-btn">CFG-PDA Equivalence →</button>
+            </div>
+          </div>
+        );
+
+      case 5:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">4.5</div>
+              <div className="lesson-title-main">
+                <h1>Equivalence of CFGs and PDAs</h1>
+              </div>
+            </div>
+            
+            <section className="content-section">
+              <h3>Formal Equivalence</h3>
+              <p>Context-Free Grammars and Pushdown Automata recognize exactly the same class of languages: Context-Free Languages. This fundamental equivalence provides different perspectives on the same computational concept.</p>
+              
+              <div className="theory-box">
+                <h5>Equivalence Theorem</h5>
+                <p>The fundamental relationship between CFGs and PDAs:</p>
+                <ul>
+                  <li><strong>Same Power:</strong> CFGs and PDAs recognize exactly the same class of languages</li>
+                  <li><strong>Context-Free Languages:</strong> Both define the class of context-free languages</li>
+                  <li><strong>Bidirectional Conversion:</strong> Can convert CFG to PDA and vice versa</li>
+                  <li><strong>Different Perspectives:</strong> Generative vs. recognitive models</li>
+                </ul>
+              </div>
+              
+              <div className="media-gallery">
+                <div className="movie-card">
+                  <img src="/images/cfg-to-pda.jpg" alt="CFG to PDA" className="movie-poster" />
+                  <h6>CFG to PDA</h6>
+                  <p>Converting grammars to automata</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/pda-to-cfg.jpg" alt="PDA to CFG" className="movie-poster" />
+                  <h6>PDA to CFG</h6>
+                  <p>Converting automata to grammars</p>
+                </div>
+                <div className="movie-card">
+                  <img src="/images/context-sensitive.jpg" alt="Context Sensitive" className="movie-poster" />
+                  <h6>Context Sensitive</h6>
+                  <p>Beyond context-free languages</p>
+                </div>
+              </div>
+              
+              <div className="video-section">
+                <h6>CFG-PDA Equivalence</h6>
+                <div className="video-container">
+                  <iframe 
+                    src="https://www.youtube.com/embed/79wmmDyTRRo" 
+                    title="CFG PDA Equivalence"
+                    frameBorder="0" 
+                    allowFullScreen
+                    style={{width: '400px', height: '225px'}}>
+                  </iframe>
+                </div>
+              </div>
+
+              <h4>CFG to PDA Construction</h4>
+              <div className="algorithm-box">
+                <h6>Construction Method</h6>
+                <p>Given a CFG G, construct PDA P such that L(P) = L(G):</p>
+                <ul>
+                  <li><strong>Simulation:</strong> PDA simulates leftmost derivations</li>
+                  <li><strong>Stack Usage:</strong> Uses stack to store sentential forms</li>
+                  <li><strong>Production Application:</strong> Applies productions by expanding non-terminals</li>
+                  <li><strong>Terminal Matching:</strong> Matches terminals with input</li>
+                </ul>
+              </div>
+
+              <h4>PDA to CFG Construction</h4>
+              <div className="algorithm-box">
+                <h6>Construction Method</h6>
+                <p>Given a PDA P, construct CFG G such that L(G) = L(P):</p>
+                <ul>
+                  <li><strong>Variables:</strong> Create variables [pAq] for each pair of states</li>
+                  <li><strong>Productions:</strong> [pAq] → a[rBs] if δ(p, a, A) contains (r, Bs)</li>
+                  <li><strong>Multiple Symbols:</strong> Add productions for multiple stack symbols</li>
+                  <li><strong>Start Symbol:</strong> [q₀Z₀f] for each final state f</li>
+                </ul>
+              </div>
+
+              <div className="example-box">
+                <h5>Construction Example</h5>
+                <div className="construction-example">
+                  <h6>CFG to PDA Example</h6>
+                  <p><strong>Grammar:</strong> S → aSb | ε</p>
+                  
+                  <h6>Corresponding PDA:</h6>
+                  <ul>
+                    <li>States: q₀, q₁, q₂</li>
+                    <li>Push S onto stack initially</li>
+                    <li>For production S → aSb: pop S, push bSa</li>
+                    <li>For production S → ε: pop S</li>
+                    <li>Match terminals with input</li>
+                  </ul>
+                  
+                  <h6>Key Insight</h6>
+                  <p>The PDA stack maintains the current sentential form, and transitions correspond to production applications and terminal matching.</p>
+                </div>
+              </div>
+
+              <h4>Introduction to Context Sensitive Grammar (CSG)</h4>
+              <div className="definition-box">
+                <h6>Context Sensitive Grammar Definition</h6>
+                <p>A Context Sensitive Grammar has productions of the form αAβ → αγβ where:</p>
+                <ul>
+                  <li><strong>A:</strong> A non-terminal</li>
+                  <li><strong>α, β:</strong> Possibly empty strings of terminals and non-terminals</li>
+                  <li><strong>γ:</strong> Non-empty string of terminals and non-terminals</li>
+                  <li><strong>Constraint:</strong> |αAβ| ≤ |αγβ| (length non-decreasing)</li>
+                </ul>
+              </div>
+
+              <h4>Context Sensitive Languages</h4>
+              <ul>
+                <li><strong>Language Class:</strong> Proper superset of context-free languages</li>
+                <li><strong>Recognition:</strong> Recognized by Linear Bounded Automata (LBA)</li>
+                <li><strong>Closure Properties:</strong> Closed under union, intersection, complement, concatenation</li>
+                <li><strong>Examples:</strong> Languages like a^n b^n c^n where n ≥ 1</li>
+              </ul>
+
+              <div className="example-box">
+                <h5>CSG Example</h5>
+                <div className="csg-example">
+                  <h6>Language: a^n b^n c^n where n ≥ 1</h6>
+                  <p>This language cannot be generated by any context-free grammar but can be generated by a context-sensitive grammar.</p>
+                  
+                  <h6>Why Not Context-Free?</h6>
+                  <ul>
+                    <li>Requires matching three different symbols</li>
+                    <li>Context-free grammars can only match two (using stack)</li>
+                    <li>Violates pumping lemma for context-free languages</li>
+                    <li>Needs more computational power than PDA provides</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Pushdown Automata</button>
+              {onBack && (
+                <button onClick={onBack} className="next-module-btn">Back to Course →</button>
+              )}
+            </div>
+          </div>
+        );
+
+      default:
+        return (
+          <div className="module-content">
+            <h2>Select a module to begin</h2>
+          </div>
+        );
+    }
+  };
+
+  return <div className="unit-container">{renderModule()}</div>;
+};
+
+export default Unit4;

@@ -10,7 +10,7 @@ import Unit4 from './units/Unit4';
 import Unit5 from './units/Unit5';
 import './styles.css';
 
-const EnvironmentalSciencePage = () => {
+const FLATPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedModule, setSelectedModule] = useState<string | null>(null);
@@ -22,11 +22,11 @@ const EnvironmentalSciencePage = () => {
   }, [searchParams]);
 
   const handleModuleSelect = (unitId: number, moduleId: number) => {
-    router.push(`/pages/es?module=${unitId}.${moduleId}`);
+    router.push(`/pages/flat?module=${unitId}.${moduleId}`);
   };
 
   const handleBackToOverview = () => {
-    router.push('/pages/es');
+    router.push('/pages/flat');
   };
 
   const renderContent = () => {
@@ -81,4 +81,4 @@ const EnvironmentalSciencePage = () => {
   );
 };
 
-export default EnvironmentalSciencePage;
+export default FLATPage;

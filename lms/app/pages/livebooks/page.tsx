@@ -26,7 +26,7 @@ const page = () => {
   ];
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#FAFAFA' }}>
+    <div className="min-h-screen">
       
       {/* Top Navigation Bar */}
       <header className="bg-white h-16 flex items-center justify-between px-6 border-b" style={{ borderColor: '#EFEFEF' }}>
