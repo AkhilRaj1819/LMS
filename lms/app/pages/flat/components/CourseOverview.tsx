@@ -19,7 +19,8 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
         { id: '1.2', title: 'Language Operations', description: 'Union, concatenation, and Kleene star operations' },
         { id: '1.3', title: 'Finite State Machines', description: 'Introduction to automata and string acceptance' },
         { id: '1.4', title: 'DFA and NFA', description: 'Deterministic and non-deterministic finite automata' },
-        { id: '1.5', title: 'Transition Diagrams', description: 'Visual representation of automata' }
+        { id: '1.5', title: 'Transition Diagrams', description: 'Visual representation of automata' },
+        { id: '1.6', title: 'Unit 1 Quiz', description: 'Test your understanding of formal languages' }
       ]
     },
     {
@@ -31,7 +32,8 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
         { id: '2.2', title: 'DFA and NFA Equivalence', description: 'Theoretical equivalence of deterministic and non-deterministic automata' },
         { id: '2.3', title: 'NFA to DFA Conversion', description: 'Subset construction algorithm' },
         { id: '2.4', title: 'Epsilon Transitions', description: 'NFA with epsilon moves and their elimination' },
-        { id: '2.5', title: 'Automata Minimization', description: 'State minimization and optimization techniques' }
+        { id: '2.5', title: 'Automata Minimization', description: 'State minimization and optimization techniques' },
+        { id: '2.6', title: 'Unit 2 Quiz', description: 'Test your understanding of finite automata' }
       ]
     },
     {
@@ -43,7 +45,8 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
         { id: '3.2', title: 'Regular Expression Operations', description: 'Union, concatenation, and Kleene star operations' },
         { id: '3.3', title: 'Applications and Conversions', description: 'Practical applications and Thompson\'s construction' },
         { id: '3.4', title: 'Pumping Lemma', description: 'Tool for proving non-regularity of languages' },
-        { id: '3.5', title: 'Regular Grammars', description: 'Right-linear and left-linear grammars' }
+        { id: '3.5', title: 'Regular Grammars', description: 'Right-linear and left-linear grammars' },
+        { id: '3.6', title: 'Unit 3 Quiz', description: 'Test your understanding of regular languages' }
       ]
     },
     {
@@ -55,7 +58,8 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
         { id: '4.2', title: 'Leftmost and Rightmost Derivations', description: 'Different derivation strategies and ambiguity' },
         { id: '4.3', title: 'Normal Forms', description: 'Chomsky and Greibach normal forms' },
         { id: '4.4', title: 'Pushdown Automata', description: 'Stack-based automata for context-free languages' },
-        { id: '4.5', title: 'CFG-PDA Equivalence', description: 'Equivalence between CFGs and PDAs' }
+        { id: '4.5', title: 'CFG-PDA Equivalence', description: 'Equivalence between CFGs and PDAs' },
+        { id: '4.6', title: 'Unit 4 Quiz', description: 'Test your understanding of context-free languages' }
       ]
     },
     {
@@ -67,7 +71,8 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
         { id: '5.2', title: 'Turing Machine Definition', description: 'Formal definition and computational model' },
         { id: '5.3', title: 'Post Correspondence Problem', description: 'Fundamental undecidable problem' },
         { id: '5.4', title: 'Decidable Problems', description: 'Problems with algorithmic solutions' },
-        { id: '5.5', title: 'Undecidable Problems', description: 'Halting problem and computational limits' }
+        { id: '5.5', title: 'Undecidable Problems', description: 'Halting problem and computational limits' },
+        { id: '5.6', title: 'Unit 5 Quiz', description: 'Test your understanding of Turing machines and computability' }
       ]
     }
   ];

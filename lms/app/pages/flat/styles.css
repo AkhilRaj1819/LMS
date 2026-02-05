@@ -54,7 +54,7 @@
 .sidebar {
   width: 280px;
   background: #FAFBFC;
-  color: #2B2B2B;
+  color: #7CB342;
   padding: 24px 16px;
   overflow-y: auto;
   position: fixed;
@@ -99,20 +99,21 @@
   display: block;
   padding: 10px 12px;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-  color: #FFFFFF;
+  background: #F8F9FA;
+  color: #7CB342;
   text-decoration: none;
   border-radius: 6px;
   font-size: 0.9rem;
   font-weight: 600;
   text-align: center;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E0E0E0;
 }
 
 .back-to-livebooks:hover {
-  background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
-  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+  background: #F0F0F0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transform: translateY(-1px);
 }
 
@@ -158,7 +159,7 @@
 }
 
 .unit-button.active {
-  background: #E8F5E9;
+  background: #F0F0F0;
   color: #2B2B2B;
 }
 
@@ -210,7 +211,7 @@
 }
 
 .module-button.active::before {
-  background: #4CAF50;
+  background: #2B2B2B;
 }
 
 .os-content {
@@ -255,7 +256,7 @@
 
 .lesson-progress-fill {
   height: 100%;
-  background: #4CAF50;
+  background: #2B2B2B;
   border-radius: 2px;
   position: relative;
 }
@@ -267,7 +268,7 @@
   transform: translateY(-50%);
   width: 12px;
   height: 12px;
-  background: #4CAF50;
+  background: #2B2B2B;
   border: 2px solid #FFFFFF;
   border-radius: 50%;
   box-shadow: 0 0 0 1px #E8E8E8;
@@ -283,7 +284,7 @@
 .lesson-number-badge {
   width: 48px;
   height: 48px;
-  background: #4CAF50;
+  background: #7CB342;
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -547,11 +548,11 @@
 }
 
 .segment.completed {
-  background: #4CAF50;
+  background: #7CB342;
 }
 
 .segment.mastery {
-  background: #C8E6C9;
+  background: #E0E0E0;
 }
 
 .progress-text {
@@ -698,7 +699,7 @@
   left: -28px;
   width: 40px;
   height: 40px;
-  background: #4CAF50;
+  background: #7CB342;
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -729,8 +730,7 @@
 .example-box {
   margin: 32px 0;
   padding: 24px;
-  background: #F1F8E9;
-  border-left: 4px solid #4CAF50;
+  background: #F8F9FA;
   border-radius: 4px;
 }
 
@@ -882,14 +882,13 @@
 .theory-box {
   margin: 32px 0;
   padding: 24px;
-  background: linear-gradient(135deg, #E3F2FD 0%, #F3E5F5 100%);
-  border-left: 4px solid #2196F3;
+  background: #F8F9FA;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
+  border: 1px solid #E0E0E0;
 }
 
 .theory-box h5 {
-  color: #1565C0;
+  color: #2B2B2B;
   font-size: 1.1rem;
   margin: 0 0 16px 0;
   font-weight: 700;
@@ -904,7 +903,7 @@
 }
 
 .theory-box p {
-  color: #424242;
+  color: #616161;
   line-height: 1.7;
   margin: 12px 0;
   font-size: 0.95rem;
@@ -913,7 +912,7 @@
 .theory-box ul {
   margin: 16px 0;
   padding-left: 24px;
-  color: #424242;
+  color: #616161;
 }
 
 .theory-box li {
@@ -924,14 +923,13 @@
 .definition-box {
   margin: 32px 0;
   padding: 24px;
-  background: #FFF3E0;
-  border-left: 4px solid #FF9800;
+  background: #F8F9FA;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.1);
+  border: 1px solid #E0E0E0;
 }
 
 .definition-box h6 {
-  color: #E65100;
+  color: #2B2B2B;
   font-size: 1rem;
   margin: 0 0 16px 0;
   font-weight: 700;
@@ -948,7 +946,7 @@
 .definition-box ul {
   margin: 16px 0;
   padding-left: 24px;
-  color: #424242;
+  color: #616161;
 }
 
 .definition-box li {
@@ -961,14 +959,13 @@
 .algorithm-box {
   margin: 32px 0;
   padding: 24px;
-  background: #F1F8E9;
-  border-left: 4px solid #4CAF50;
+  background: #F8F9FA;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
+  border: 1px solid #E0E0E0;
 }
 
 .algorithm-box h6 {
-  color: #2E7D32;
+  color: #2B2B2B;
   font-size: 1rem;
   margin: 0 0 16px 0;
   font-weight: 700;
@@ -986,11 +983,11 @@
   background: #FFFFFF;
   padding: 16px;
   border-radius: 6px;
-  border: 1px solid #C8E6C9;
+  border: 1px solid #E0E0E0;
   font-family: 'Courier New', monospace;
   font-size: 0.85rem;
   line-height: 1.5;
-  color: #2E7D32;
+  color: #2B2B2B;
   overflow-x: auto;
   margin: 16px 0;
 }
@@ -998,7 +995,7 @@
 .algorithm-box ol {
   margin: 16px 0;
   padding-left: 24px;
-  color: #424242;
+  color: #616161;
 }
 
 .algorithm-box li {
@@ -1011,7 +1008,7 @@
 }
 
 .property-analysis h6 {
-  color: #1976D2;
+  color: #2B2B2B;
   font-size: 1rem;
   margin: 20px 0 12px 0;
   font-weight: 600;
@@ -1020,13 +1017,12 @@
 .advantages-box {
   margin: 32px 0;
   padding: 24px;
-  background: #E8F5E9;
-  border-left: 4px solid #4CAF50;
+  background: #F8F9FA;
   border-radius: 8px;
 }
 
 .advantages-box h6 {
-  color: #2E7D32;
+  color: #2B2B2B;
   font-size: 1rem;
   margin: 0 0 16px 0;
   font-weight: 700;
@@ -1043,21 +1039,20 @@
 .nfa-analysis {
   margin: 24px 0;
   padding: 20px;
-  background: #FFF8E1;
+  background: #F8F9FA;
   border-radius: 6px;
-  border: 1px solid #FFE082;
+  border: 1px solid #E0E0E0;
 }
 
 .equivalence-theorem {
   margin: 32px 0;
   padding: 24px;
-  background: #F3E5F5;
-  border-left: 4px solid #9C27B0;
+  background: #F8F9FA;
   border-radius: 8px;
 }
 
 .equivalence-theorem h6 {
-  color: #6A1B9A;
+  color: #2B2B2B;
   font-size: 1rem;
   margin: 0 0 16px 0;
   font-weight: 700;
@@ -1078,7 +1073,7 @@
 }
 
 .example-category h6 {
-  color: #1976D2;
+  color: #2B2B2B;
   font-size: 1rem;
   margin: 0 0 12px 0;
   font-weight: 600;
@@ -1089,7 +1084,7 @@
 }
 
 .operation-details h6 {
-  color: #D32F2F;
+  color: #2B2B2B;
   font-size: 0.95rem;
   margin: 16px 0 8px 0;
   font-weight: 600;
@@ -1100,38 +1095,37 @@
   padding: 16px;
   background: #FFFFFF;
   border-radius: 6px;
-  border: 1px solid #E1BEE7;
+  border: 1px solid #E0E0E0;
 }
 
 .example-calculations {
   margin: 20px 0;
   padding: 16px;
-  background: #F9FBE7;
+  background: #F8F9FA;
   border-radius: 6px;
-  border: 1px solid #DCEDC8;
+  border: 1px solid #E0E0E0;
 }
 
 .diagram-specification {
   margin: 24px 0;
   padding: 20px;
-  background: #E1F5FE;
+  background: #F8F9FA;
   border-radius: 8px;
-  border: 1px solid #B3E5FC;
+  border: 1px solid #E0E0E0;
 }
 
 .construction-methodology {
   margin: 24px 0;
   padding: 20px;
-  background: #FFF3E0;
+  background: #F8F9FA;
   border-radius: 8px;
-  border: 1px solid #FFCC02;
+  border: 1px solid #E0E0E0;
 }
 
 .recognition-algorithms {
   margin: 32px 0;
   padding: 24px;
-  background: #F1F8E9;
-  border-left: 4px solid #4CAF50;
+  background: #F8F9FA;
   border-radius: 8px;
 }
 
@@ -1140,7 +1134,7 @@
 }
 
 .applications-analysis h6 {
-  color: #1976D2;
+  color: #2B2B2B;
   font-size: 1rem;
   margin: 24px 0 12px 0;
   font-weight: 600;
@@ -1163,7 +1157,7 @@
 }
 
 .construction-example h6 {
-  color: #D32F2F;
+  color: #2B2B2B;
   font-size: 0.95rem;
   margin: 20px 0 12px 0;
   font-weight: 600;
@@ -1296,7 +1290,6 @@
 .proof-steps {
   background: #F8F9FA;
   padding: 12px;
-  border-left: 3px solid #6C757D;
   margin: 8px 0;
 }
 
@@ -1435,7 +1428,6 @@
 .sequence-analysis {
   background: #F8F9FA;
   padding: 12px;
-  border-left: 3px solid #6C757D;
   margin: 12px 0;
 }
 
