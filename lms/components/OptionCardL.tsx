@@ -18,7 +18,7 @@ const OptionCardL = ({
   return (
     <Link href={href} className="block group">
       <div
-        className="bg-white rounded-2xl p-6 transition-all duration-300
+        className="bg-white rounded-2xl p-6 transition-all duration-300 border border-gray-200
                    hover:-translate-y-1 hover:shadow-[0px_12px_28px_rgba(0,0,0,0.1)]"
         style={{
           boxShadow: "0px 6px 18px rgba(0,0,0,0.04)",

@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import MainSidebar from '@/components/Sidebar';
 import Sidebar from './components/Sidebar';
 import CourseOverview from './components/CourseOverview';
 import Unit1 from './units/Unit1';
@@ -53,7 +54,8 @@ const DataStructuresPage = () => {
   };
 
   return (
-    <div className="ds-container">
+    <div className="flex">
+      <div className="ds-container flex-1">
       {selectedModule && (
         <>
           <button 
@@ -77,6 +79,7 @@ const DataStructuresPage = () => {
       <main className={`ds-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
         {renderContent()}
       </main>
+    </div>
     </div>
   );
 };

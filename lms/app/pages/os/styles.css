@@ -242,8 +242,8 @@
   border-radius: 0;
   border: none;
   width: 100%;
-  max-width: none;
-  margin: 0;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .lesson-progress-bar {

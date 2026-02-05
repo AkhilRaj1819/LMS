@@ -26,12 +26,12 @@ export default function OptionCard({ item }) {
         backgroundColor: "#BBBEC3",
         boxShadow: isPressed
           ? "inset 2px 2px 4px rgba(0,0,0,0.6), inset -1px -1px 2px rgba(0,0,0,0.5)"
-          : "none",
+          : "4px 4px 0px 0px rgba(0,0,0,0.5)",
         transform: isPressed ? "translate(3px, 3px)" : "translate(0, 0)",
       }}
     >
       {/* TOP PART */}
-      <div className="relative h-20 flex items-center justify-center overflow-hidden">
+      <div className="relative h-24 w-32 flex items-center justify-center overflow-hidden">
         <svg
           className="absolute inset-0 w-full h-full"
           viewBox="0 0 100 100"
@@ -64,7 +64,7 @@ export default function OptionCard({ item }) {
         <img
           src={item.img}
           alt=""
-          className="relative z-10 h-8 w-8"
+          className="relative z-10 h-9 w-9"
         />
       </div>
 

@@ -70,11 +70,13 @@ export default function Timetable() {
   };
 
   const loadData = async () => {
-    const res = await fetch("/timetable.json");
-    const json: TimetableData = await res.json();
-    const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-    const today = days[new Date().getDay()];
-    setData(json[today] || []);
+    const res = await fetch("/api/timetable");
+    const json = await res.json();
+    if (json.ok) {
+      const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+      const today = days[new Date().getDay()];
+      setData(json.data[today] || []);
+    }
   };
 
   const parseTime = (timeStr: string) => {
@@ -173,20 +175,34 @@ export default function Timetable() {
   const renderDetails = () => {
     if (!selected) return <div style={styles.details}>No period selected</div>;
     const [start, end] = selected.time.split(" - ");
+    const subjectLink = `/pages/${selected.subject?.toLowerCase().replace(/\s+/g, '')}`;
+    
     return (
       <div style={styles.details}>
-        <h2 style={styles.detailSubject}>{selected.subject || "Free Period"}</h2>
-        <div style={styles.detailTime}>
-          {start} – {end}
-        </div>
-        {selected.teacher && (
-          <div style={styles.detailField}>
-            <strong>Teacher:</strong> {selected.teacher}
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <h2 style={styles.detailSubject}>{selected.subject || "Free Period"}</h2>
+            {selected.subject && (
+              <a href={subjectLink} style={styles.subjectLink}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </a>
+            )}
           </div>
-        )}
+          {selected.teacher && (
+            <div style={styles.detailField}>
+              {selected.teacher}
+            </div>
+          )}
+          <div style={styles.detailTime}>
+            {start} – {end}
+          </div>
+        </div>
+        
         {selected.description && (
-          <div style={styles.detailField}>
-            <strong>Description:</strong> {selected.description}
+          <div style={styles.detailDescription}>
+            {selected.description}
           </div>
         )}
       </div>
@@ -206,10 +222,10 @@ const styles: { [key: string]: React.CSSProperties } = {
     display: "flex",
     height: "100%",
     width: "100%",
-    border: "1px solid #999",
+    border: "2px solid #333",
   },
   timeline: {
-    flex: "0 0 40%",
+    flex: "0 0 35%",
     overflowY: "auto",
     borderRight: "2px dotted #999",
     position: "relative",
@@ -234,12 +250,12 @@ const styles: { [key: string]: React.CSSProperties } = {
     transition: "background 0.2s",
   },
   timeText: {
-    fontSize: "14px",
+    fontSize: "13px",
     color: "#666",
     marginBottom: "8px",
   },
   subjectText: {
-    fontSize: "16px",
+    fontSize: "15px",
     fontWeight: "500",
     color: "#333",
   },
@@ -271,21 +287,40 @@ const styles: { [key: string]: React.CSSProperties } = {
     flex: 1,
     padding: "30px",
     background: "white",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   detailSubject: {
-    fontSize: "28px",
+    fontSize: "24px",
     fontWeight: "600",
-    marginBottom: "15px",
+    marginBottom: "5px",
     color: "#333",
   },
+  subjectLink: {
+    color: "#666",
+    textDecoration: "none",
+    display: "flex",
+    alignItems: "center",
+    transition: "color 0.2s",
+  },
   detailTime: {
-    fontSize: "18px",
+    fontSize: "16px",
     color: "#666",
     marginBottom: "20px",
   },
   detailField: {
-    fontSize: "16px",
-    marginBottom: "10px",
+    fontSize: "12px",
+    marginBottom: "5px",
     color: "#555",
+  },
+  detailDescription: {
+    fontSize: "13px",
+    padding: "12px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "6px",
+    color: "#666",
+    lineHeight: "1.6",
+    marginTop: "auto",
   },
 };

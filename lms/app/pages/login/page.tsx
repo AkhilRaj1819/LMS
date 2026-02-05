@@ -2,6 +2,8 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { signIn } from 'next-auth/react'
+
 const login = () => {
   return (
     <div
@@ -18,7 +20,7 @@ const login = () => {
       <p className="max-w-md pt-5 pb-5">Sign in to access your courses, assignments, grades and announcements at
     your university.</p>
     <button onClick={()=> signIn("google",{
-      callbackUrl: "/pages/studentDashboard",
+      callbackUrl: "/",
     })} className="border w-fit p-1.5 flex gap-2 cursor-pointer">
       <Image src={`https://kalvium.community/assets/google_icon-c3f37307.svg`} alt="google_Logo" width={20} height={20}></Image>
       Continue with Google

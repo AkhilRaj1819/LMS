@@ -1,5 +1,9 @@
+"use client";
+
 import React from "react";
+import { useSession } from "next-auth/react";
 import OptionCardL from "@/components/OptionCardL";
+import Sidebar from "@/components/Sidebar";
 import Planet from "@/public/icons/planet-earth.png"
 import Nss from "@/public/icons/nss.png"
 import Os from "@/public/icons/os.png"
@@ -26,10 +30,17 @@ const page = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full flex bg-white">
+      <Sidebar />
       
+      <div className="flex-1 bg-transparent relative">
+        <div className="absolute inset-0 opacity-50" style={{
+          backgroundImage: 'radial-gradient(circle, #d1d5db 2px, transparent 2px)',
+          backgroundSize: '20px 20px'
+        }}></div>
+
       {/* Top Navigation Bar */}
-      <header className="bg-white h-16 flex items-center justify-between px-6 border-b" style={{ borderColor: '#EFEFEF' }}>
+      <header className="bg-white h-16 flex items-center justify-between px-6 border-b relative z-10" style={{ borderColor: '#EFEFEF' }}>
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#C6B7F2' }}>
             <span className="text-white font-bold text-sm">L</span>
@@ -51,9 +62,9 @@ const page = () => {
         </div>
       </header>
 
-      <div className="flex">
+      <div className="flex relative z-10">
         {/* Left Sidebar */}
-        <aside className="w-56 p-6" style={{ backgroundColor: 'rgba(250, 250, 250, 0.5)' }}>
+        <aside className="w-56 p-6 bg-white bg-opacity-50">
           <div className="space-y-3">
             <div className="rounded-xl p-4 relative" style={{ backgroundColor: '#FFF2CC' }}>
               <div className="flex items-center justify-between mb-3">
@@ -95,10 +106,14 @@ const page = () => {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 p-8">
-          <h1 className="text-2xl font-bold mb-8" style={{ color: '#1F2933' }}>Semester 4</h1>
+        <main className="flex-1 p-8 bg-transparent relative">
+          <div className="absolute inset-0 opacity-30" style={{
+            backgroundImage: 'radial-gradient(circle, #d1d5db 1.5px, transparent 1.5px)',
+            backgroundSize: '20px 20px'
+          }}></div>
+          <h1 className="text-2xl font-bold mb-8 relative z-10" style={{ color: '#1F2933' }}>Semester 4</h1>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
             {options.map((item) => (
               <OptionCardL
                 key={item.id}
@@ -111,6 +126,7 @@ const page = () => {
             ))}
           </div>
         </main>
+      </div>
       </div>
     </div>
   );
