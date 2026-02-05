@@ -21,12 +21,12 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>Understanding Biodiversity: Nature's Ultimate Database 🧬</h3>
+              <h3>Understanding Biodiversity: Nature's Ultimate Database </h3>
               <div className="theory-box">
-                <p>Hey future engineers! 👋 Think of biodiversity as nature's massive distributed database system - it's got three levels of organization, each more complex than the last. Just like how your code has different layers (functions, classes, modules), biodiversity has genetic, species, and ecosystem levels. And trust me, this "database" is way more sophisticated than anything we've built! 😄</p>
+                <p>Hey future engineers!  Think of biodiversity as nature's massive distributed database system - it's got three levels of organization, each more complex than the last. Just like how your code has different layers (functions, classes, modules), biodiversity has genetic, species, and ecosystem levels. And trust me, this "database" is way more sophisticated than anything we've built! </p>
                 
                 <div className="performance-metrics">
-                  <h4>Biodiversity Stats That'll Blow Your Mind 📊</h4>
+                  <h4>Biodiversity Stats That'll Blow Your Mind </h4>
                   <ul>
                     <li><strong>Total Species:</strong> 8-10 million estimated (we've only cataloged 1.2 million!)</li>
                     <li><strong>Genetic Diversity:</strong> Humans share 99.9% DNA but that 0.1% creates all our differences</li>
@@ -36,10 +36,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </div>
               </div>
               
-              <h4>The Three Levels of Biodiversity 🏗️</h4>
+              <h4>The Three Levels of Biodiversity </h4>
               <p>Biodiversity refers to the variety of life on Earth and the natural patterns it forms. It encompasses three main levels of biological organization that are interconnected and essential for ecosystem functioning.</p>
               
-              <h5>Genetic Diversity - The Source Code Level 💻</h5>
+              <h5>Genetic Diversity - The Source Code Level </h5>
               <div className="example-box">
                 <p>Think of genetic diversity as different versions of the same software - same basic function, but with unique features and capabilities!</p>
                 <ul>
@@ -65,7 +65,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Ecosystem Diversity - The System Architecture Level 🌍</h5>
+              <h5>Ecosystem Diversity - The System Architecture Level </h5>
               <div className="example-box">
                 <p>Ecosystem diversity is like having different operating systems - each optimized for different environments and conditions!</p>
                 <ul>
@@ -78,10 +78,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Why This Matters for Engineers 🔧</h4>
+              <h4>Why This Matters for Engineers </h4>
               
               <div className="career-opportunities">
-                <h5>Biomimicry Applications 🦎</h5>
+                <h5>Biomimicry Applications </h5>
                 <ul>
                   <li><strong>Structural Engineering:</strong> Honeycomb structures, bird wing aerodynamics</li>
                   <li><strong>Materials Science:</strong> Spider silk strength, gecko adhesion</li>
@@ -89,7 +89,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>Algorithms:</strong> Ant colony optimization, genetic algorithms</li>
                 </ul>
 
-                <h5>Career Opportunities 🚀</h5>
+                <h5>Career Opportunities </h5>
                 <ul>
                   <li><strong>Bioinformatics Engineers:</strong> Analyzing genetic databases and DNA sequences</li>
                   <li><strong>Environmental Sensors:</strong> IoT devices for biodiversity monitoring</li>
@@ -102,13 +102,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Biodiversity and Conservation</h4>
               <p>Understanding the importance of biodiversity and conservation strategies.</p>
-              <iframe
-                width="50%"
-                height="300"
-                src="https://www.youtube.com/embed/GK_vRtHJZu4"
-                title="Biodiversity and Conservation"
-                allowFullScreen
-              ></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/8LXJu1U-yUk?si=rHJtIFWewJRfbbIY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -128,12 +122,12 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>Value of Biodiversity: Nature's Economic Engine 💰</h3>
+              <h3>Value of Biodiversity: Nature's Economic Engine </h3>
               <div className="theory-box">
                 <p>Alright engineers, let's talk business! 💼 Biodiversity isn't just pretty to look at - it's a massive economic powerhouse that drives industries worth trillions of dollars. From the medicines in your cabinet to the algorithms in your code, nature has been humanity's original R&D department. Understanding these values helps you see opportunities where biology meets technology!</p>
                 
                 <div className="performance-metrics">
-                  <h4>Biodiversity's Economic Impact 📈</h4>
+                  <h4>Biodiversity's Economic Impact </h4>
                   <ul>
                     <li><strong>Pharmaceutical Industry:</strong> 25% of drugs come from plants - $40 billion market</li>
                     <li><strong>Agriculture:</strong> Genetic diversity in crops worth $115 billion annually</li>
@@ -143,10 +137,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </div>
               </div>
               
-              <h4>Economic and Non-Economic Values of Biodiversity 💎</h4>
+              <h4>Economic and Non-Economic Values of Biodiversity </h4>
               <p>Biodiversity provides numerous values that can be categorized into different types based on how humans interact with and benefit from biological diversity.</p>
               
-              <h5>Consumptive Use Values - Direct Benefits 🍎</h5>
+              <h5>Consumptive Use Values - Direct Benefits</h5>
               <div className="example-box">
                 <p>These are like open-source resources - directly used without going through markets!</p>
                 <ul>
@@ -158,7 +152,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Productive Use Values - Commercial Applications 🏭</h5>
+              <h5>Productive Use Values - Commercial Applications </h5>
               <div className="example-box">
                 <p>These are like commercial software - biological resources that generate revenue through markets!</p>
                 <ul>
@@ -171,7 +165,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Social Values - Cultural Operating System 👥</h5>
+              <h5>Social Values - Cultural Operating System </h5>
               <div className="example-box">
                 <p>Like the cultural protocols that make human societies function!</p>
                 <ul>
@@ -184,9 +178,9 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Additional Biodiversity Values 🌟</h4>
+              <h4>Additional Biodiversity Values </h4>
               
-              <h5>Ethical Values - The Moral Code 🤝</h5>
+              <h5>Ethical Values - The Moral Code </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Intrinsic rights:</strong> Species have a right to exist (like basic human rights)</li>
@@ -197,7 +191,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Aesthetic Values - Nature's User Interface 🎨</h5>
+              <h5>Aesthetic Values - Nature's User Interface </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Natural beauty:</strong> Landscapes that inspire and refresh</li>
@@ -205,11 +199,11 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>Artistic inspiration:</strong> Nature as muse for creativity</li>
                   <li><strong>Recreation settings:</strong> Beautiful places for relaxation</li>
                   <li><strong>Tourism attractions:</strong> Economic value of natural beauty</li>
-                  <li><strong>Photography subjects:</strong> Instagram-worthy natural scenes! 📸</li>
+                  <li><strong>Photography subjects:</strong> Instagram-worthy natural scenes! </li>
                 </ul>
               </div>
 
-              <h5>Option Values - Future Potential 🔮</h5>
+              <h5>Option Values - Future Potential </h5>
               <div className="example-box">
                 <p>Like keeping your options open in software development - you never know what you might need!</p>
                 <ul>
@@ -221,10 +215,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Engineering Applications of Biodiversity Values 🔧</h4>
+              <h4>Engineering Applications of Biodiversity Values </h4>
               
               <div className="career-opportunities">
-                <h5>Tech Opportunities 💻</h5>
+                <h5>Tech Opportunities </h5>
                 <ul>
                   <li><strong>Bioprospecting Apps:</strong> AI to identify valuable compounds in nature</li>
                   <li><strong>Ecosystem Valuation:</strong> Software to calculate ecosystem service values</li>
@@ -232,7 +226,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>Sustainable Supply Chains:</strong> Tracking biodiversity impact in products</li>
                 </ul>
 
-                <h5>Career Paths 🚀</h5>
+                <h5>Career Paths </h5>
                 <ul>
                   <li><strong>Environmental Economists:</strong> Quantifying nature's economic value</li>
                   <li><strong>Biotech Entrepreneurs:</strong> Commercializing biological innovations</li>
@@ -245,13 +239,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>India's Biodiversity Hotspots</h4>
               <p>Exploring India's exceptional biodiversity and conservation challenges.</p>
-              <iframe
-                width="50%"
-                height="300"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="India's Biodiversity Hotspots"
-                allowFullScreen
-              ></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/xcHZFuq270g?si=IV3buww5Zff-Gs73&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -272,12 +260,12 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>Biodiversity Distribution: From Global to Local Scale 🌍</h3>
+              <h3>Biodiversity Distribution: From Global to Local Scale </h3>
               <div className="theory-box">
                 <p>Think of biodiversity distribution like network architecture - you've got global infrastructure, national networks, and local nodes, each with different characteristics and challenges! 🌐 Just like how internet traffic isn't evenly distributed (some servers get way more hits), biodiversity isn't spread evenly across the planet. Some places are like biological data centers - packed with incredible diversity!</p>
                 
                 <div className="performance-metrics">
-                  <h4>Biodiversity Distribution Facts 📊</h4>
+                  <h4>Biodiversity Distribution Facts </h4>
                   <ul>
                     <li><strong>Tropical Bias:</strong> 50% of species in just 7% of Earth's land area</li>
                     <li><strong>Ocean Mystery:</strong> 80% of ocean species still undiscovered</li>
@@ -287,10 +275,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </div>
               </div>
               
-              <h4>Biodiversity Distribution Across Scales 🔍</h4>
+              <h4>Biodiversity Distribution Across Scales </h4>
               <p>Biodiversity varies significantly across different spatial scales, with patterns of richness and endemism changing from global to national to local levels.</p>
               
-              <h5>Global Biodiversity Patterns 🌎</h5>
+              <h5>Global Biodiversity Patterns </h5>
               <div className="example-box">
                 <p>The global scale is like looking at the entire internet - massive, complex, and with clear patterns!</p>
                 <ul>
@@ -316,7 +304,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Local Biodiversity Patterns 🏘️</h5>
+              <h5>Local Biodiversity Patterns </h5>
               <div className="example-box">
                 <p>Local scale is like your neighborhood network - specific, manageable, but still complex!</p>
                 <ul>
@@ -331,7 +319,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
 
               <h4>India as a Mega-Diversity Nation 🇮🇳</h4>
               
-              <h5>India's Exceptional Biodiversity 🏆</h5>
+              <h5>India's Exceptional Biodiversity </h5>
               <div className="example-box">
                 <p>India is like a biological supercomputer - incredible processing power packed into a relatively small space!</p>
                 <ul>
@@ -344,7 +332,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>India's Biogeographic Zones 🗺️</h5>
+              <h5>India's Biogeographic Zones </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Trans-Himalayan:</strong> Cold desert conditions (like high-altitude servers!)</li>
@@ -356,7 +344,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Endemic Richness in India 🌺</h5>
+              <h5>Endemic Richness in India </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Plant endemism:</strong> 33% of Indian flora found nowhere else</li>
@@ -368,10 +356,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Engineering Applications 🔧</h4>
+              <h4>Engineering Applications </h4>
               
               <div className="career-opportunities">
-                <h5>Technology Solutions 💻</h5>
+                <h5>Technology Solutions </h5>
                 <ul>
                   <li><strong>Biodiversity Mapping:</strong> GIS and remote sensing for species distribution</li>
                   <li><strong>Citizen Science Apps:</strong> Crowdsourcing biodiversity data collection</li>
@@ -379,7 +367,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>Conservation Prioritization:</strong> Algorithms to optimize protection efforts</li>
                 </ul>
 
-                <h5>Career Opportunities 🚀</h5>
+                <h5>Career Opportunities</h5>
                 <ul>
                   <li><strong>Biodiversity Informatics:</strong> Managing and analyzing biological data</li>
                   <li><strong>Conservation Technology:</strong> Developing tools for biodiversity monitoring</li>
@@ -392,13 +380,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>In-situ vs Ex-situ Conservation</h4>
               <p>Comparing different approaches to biodiversity conservation.</p>
-              <iframe
-                width="50%"
-                height="300"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Conservation Methods"
-                allowFullScreen
-              ></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/jnz2Xq9T0dk?si=U8jX29I_FpF01Nka&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -419,12 +401,12 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>Threats to Biodiversity: System Vulnerabilities 🚨</h3>
+              <h3>Threats to Biodiversity: System Vulnerabilities </h3>
               <div className="theory-box">
-                <p>Alright engineers, time for some cybersecurity thinking! 🔒 Just like how computer systems face various threats (malware, DDoS attacks, data breaches), biodiversity faces multiple threats that can crash entire ecosystems. Understanding these threats is like doing a security audit on nature - we need to identify vulnerabilities and patch them before the whole system goes down!</p>
+                <p>Alright engineers, time for some cybersecurity thinking!  Just like how computer systems face various threats (malware, DDoS attacks, data breaches), biodiversity faces multiple threats that can crash entire ecosystems. Understanding these threats is like doing a security audit on nature - we need to identify vulnerabilities and patch them before the whole system goes down!</p>
                 
                 <div className="performance-metrics">
-                  <h4>Biodiversity Threat Statistics 📊</h4>
+                  <h4>Biodiversity Threat Statistics </h4>
                   <ul>
                     <li><strong>Extinction Rate:</strong> 1,000-10,000x faster than natural background rate</li>
                     <li><strong>Habitat Loss:</strong> Primary threat to 85% of endangered species</li>
@@ -434,10 +416,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </div>
               </div>
               
-              <h4>Major Threats to Biodiversity 💀</h4>
+              <h4>Major Threats to Biodiversity </h4>
               <p>Biodiversity faces unprecedented threats from human activities, with habitat destruction, direct exploitation, and human-wildlife conflicts being among the most pressing challenges.</p>
               
-              <h5>Habitat Loss - The Ultimate System Crash 🏗️</h5>
+              <h5>Habitat Loss - The Ultimate System Crash </h5>
               <div className="example-box">
                 <p>Habitat loss is like deleting the operating system - everything else stops working!</p>
                 <ul>
@@ -450,7 +432,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Poaching of Wildlife - Unauthorized Access 🎯</h5>
+              <h5>Poaching of Wildlife - Unauthorized Access </h5>
               <div className="example-box">
                 <p>Poaching is like hacking into protected systems - illegal access with devastating consequences!</p>
                 <ul>
@@ -463,7 +445,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Man-Wildlife Conflicts - System Incompatibility 🤝💥</h5>
+              <h5>Man-Wildlife Conflicts - System Incompatibility </h5>
               <div className="example-box">
                 <p>Like software conflicts where two programs can't run together - humans and wildlife competing for the same resources!</p>
                 <ul>
@@ -476,9 +458,9 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Additional Threats to Biodiversity ⚠️</h4>
+              <h4>Additional Threats to Biodiversity </h4>
               
-              <h5>Climate Change Impacts - System Overheating 🌡️</h5>
+              <h5>Climate Change Impacts - System Overheating </h5>
               <div className="example-box">
                 <p>Climate change is like your computer overheating - everything starts malfunctioning!</p>
                 <ul>
@@ -491,7 +473,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Pollution Effects - System Contamination 🏭</h5>
+              <h5>Pollution Effects - System Contamination </h5>
               <div className="example-box">
                 <p>Pollution is like malware - it spreads through systems and corrupts everything!</p>
                 <ul>
@@ -504,7 +486,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Invasive Species - Malicious Code Injection 👾</h5>
+              <h5>Invasive Species - Malicious Code Injection </h5>
               <div className="example-box">
                 <p>Invasive species are like computer viruses - they get into systems where they don't belong and cause chaos!</p>
                 <ul>
@@ -517,10 +499,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Engineering Solutions to Biodiversity Threats 🛡️</h4>
+              <h4>Engineering Solutions to Biodiversity Threats </h4>
               
               <div className="career-opportunities">
-                <h5>Technology Applications 💻</h5>
+                <h5>Technology Applications </h5>
                 <ul>
                   <li><strong>Anti-Poaching Tech:</strong> Drones, sensors, and AI for wildlife protection</li>
                   <li><strong>Conflict Mitigation:</strong> Early warning systems for human-wildlife conflicts</li>
@@ -528,7 +510,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>Climate Adaptation:</strong> Modeling tools for species migration corridors</li>
                 </ul>
 
-                <h5>Career Opportunities 🚀</h5>
+                <h5>Career Opportunities </h5>
                 <ul>
                   <li><strong>Conservation Technology:</strong> Developing tools to combat biodiversity threats</li>
                   <li><strong>Environmental Forensics:</strong> Using tech to investigate wildlife crimes</li>
@@ -541,13 +523,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Threats to Biodiversity</h4>
               <p>Understanding the major threats facing global biodiversity.</p>
-              <iframe
-                width="50%"
-                height="300"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Biodiversity Threats"
-                allowFullScreen
-              ></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/705DHheuG6w?si=kjpwXjBu5-kKRUYw&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -568,12 +544,12 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>Conservation of Biodiversity: System Backup and Recovery 💾</h3>
+              <h3>Conservation of Biodiversity: System Backup and Recovery </h3>
               <div className="theory-box">
-                <p>Time for the most important part - conservation! 🛡️ Think of biodiversity conservation like IT disaster recovery planning. You need multiple backup strategies: some keep systems running in their original environment (in-situ), others create backup copies in secure locations (ex-situ). Just like how you wouldn't trust your important data to just one backup method, we can't rely on just one conservation approach!</p>
+                <p>Time for the most important part - conservation! Think of biodiversity conservation like IT disaster recovery planning. You need multiple backup strategies: some keep systems running in their original environment (in-situ), others create backup copies in secure locations (ex-situ). Just like how you wouldn't trust your important data to just one backup method, we can't rely on just one conservation approach!</p>
                 
                 <div className="performance-metrics">
-                  <h4>Conservation Success Stories 📊</h4>
+                  <h4>Conservation Success Stories </h4>
                   <ul>
                     <li><strong>Protected Areas:</strong> 18% of land surface now under protection</li>
                     <li><strong>Species Recovery:</strong> California condor: 27 → 500+ individuals</li>
@@ -583,10 +559,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </div>
               </div>
               
-              <h4>Biodiversity Conservation Approaches 🎯</h4>
+              <h4>Biodiversity Conservation Approaches </h4>
               <p>Conservation strategies are broadly classified into two categories: in-situ conservation which protects species in their natural habitats, and ex-situ conservation which involves protecting species outside their natural habitats.</p>
               
-              <h5>In-situ Conservation - Live System Protection 🏞️</h5>
+              <h5>In-situ Conservation - Live System Protection </h5>
               <div className="example-box">
                 <p>In-situ is like keeping your servers running in their original data center - maintaining all the connections and relationships!</p>
                 <ul>
@@ -599,7 +575,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Ex-situ Conservation - Backup and Recovery 🏛️</h5>
+              <h5>Ex-situ Conservation - Backup and Recovery </h5>
               <div className="example-box">
                 <p>Ex-situ is like cloud backup - storing copies of important data in secure, controlled environments!</p>
                 <ul>
@@ -612,7 +588,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>In-situ Conservation Methods 🌳</h4>
+              <h4>In-situ Conservation Methods </h4>
               
               <h5>Protected Area Systems 🏛️</h5>
               <div className="example-box">
@@ -626,7 +602,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Legal Frameworks 📜</h5>
+              <h5>Legal Frameworks </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Wildlife Protection Act, 1972:</strong> India's main wildlife law</li>
@@ -638,7 +614,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Community-Based Conservation 👥</h5>
+              <h5>Community-Based Conservation </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Joint Forest Management:</strong> Communities managing forests with government</li>
@@ -650,9 +626,9 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Ex-situ Conservation Methods 🏢</h4>
+              <h4>Ex-situ Conservation Methods </h4>
               
-              <h5>Living Collections 🦁</h5>
+              <h5>Living Collections </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Botanical Gardens:</strong> Plant conservation and research centers</li>
@@ -664,7 +640,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Genetic Resource Banks 🧬</h5>
+              <h5>Genetic Resource Banks </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Cryopreservation:</strong> Freezing gametes and embryos</li>
@@ -676,7 +652,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Reintroduction Programs 🔄</h5>
+              <h5>Reintroduction Programs </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Species recovery:</strong> Bringing species back to the wild</li>
@@ -688,10 +664,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Engineering Applications in Conservation 🔧</h4>
+              <h4>Engineering Applications in Conservation </h4>
               
               <div className="career-opportunities">
-                <h5>Technology Solutions 💻</h5>
+                <h5>Technology Solutions </h5>
                 <ul>
                   <li><strong>Conservation Drones:</strong> Monitoring wildlife and habitats</li>
                   <li><strong>Genetic Analysis:</strong> DNA barcoding and population genetics</li>
@@ -699,7 +675,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>Habitat Modeling:</strong> AI for predicting suitable conservation areas</li>
                 </ul>
 
-                <h5>Career Opportunities 🚀</h5>
+                <h5>Career Opportunities </h5>
                 <ul>
                   <li><strong>Conservation Technologist:</strong> Developing tools for species protection</li>
                   <li><strong>Wildlife Bioinformatics:</strong> Managing genetic data for conservation</li>
@@ -712,13 +688,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Conservation Success Stories</h4>
               <p>Learn about successful biodiversity conservation efforts around the world.</p>
-              <iframe
-                width="50%"
-                height="300"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Conservation Success"
-                allowFullScreen
-              ></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/ZrrdDYmzoME?si=k5BTTpGGqK-61fxd&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div className="navigation-buttons">

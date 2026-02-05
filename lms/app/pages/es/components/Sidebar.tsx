@@ -26,10 +26,10 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
       id: 2,
       title: 'Unit 2: Natural Resources',
       modules: [
-        'Air Pollution',
-        'Water Pollution',
-        'Soil Pollution',
-        'Noise Pollution',
+        'Renewable and Non-Renewable Energy Resources',
+        'Forest Resources: Use and Over-exploitation',
+        'Water Resources Management',
+        'Mineral Resources and Environmental Effects',
         'Unit 2 Quiz'
       ]
     },
