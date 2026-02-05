@@ -8,6 +8,38 @@ interface Unit5Props {
 }
 
 const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
+  const unit5Quiz = [
+    {
+      question: "What is the primary cause of population explosion in developing countries?",
+      options: ["High birth rates", "Declining death rates due to improved healthcare", "Increased immigration", "Economic growth"],
+      correctAnswer: 1,
+      explanation: "Population explosion is primarily caused by declining death rates due to improved healthcare, sanitation, and nutrition, while birth rates remain high."
+    },
+    {
+      question: "Which factor is most effective in controlling population growth?",
+      options: ["Government policies", "Economic development", "Women's education and empowerment", "Religious beliefs"],
+      correctAnswer: 2,
+      explanation: "Women's education and empowerment is the most effective factor in controlling population growth, as educated women tend to have fewer children and make informed reproductive choices."
+    },
+    {
+      question: "What is the main cause of global warming?",
+      options: ["Solar radiation", "Volcanic eruptions", "Greenhouse gas emissions from human activities", "Natural climate cycles"],
+      correctAnswer: 2,
+      explanation: "Global warming is primarily caused by increased greenhouse gas emissions from human activities, particularly burning fossil fuels and deforestation."
+    },
+    {
+      question: "Which of the following is NOT a major environmental issue?",
+      options: ["Acid rain", "Ozone layer depletion", "Soil erosion", "Magnetic field changes"],
+      correctAnswer: 3,
+      explanation: "Magnetic field changes are natural phenomena and not considered a major environmental issue like acid rain, ozone depletion, or soil erosion."
+    },
+    {
+      question: "How can information technology help in environmental monitoring?",
+      options: ["By replacing natural ecosystems", "Through real-time data collection and analysis using sensors and satellites", "By eliminating the need for environmental protection", "By increasing industrial production"],
+      correctAnswer: 1,
+      explanation: "Information technology helps environmental monitoring through real-time data collection and analysis using IoT sensors, satellites, and advanced data processing systems."
+    }
+  ];
   const renderModule = () => {
     switch (currentModule) {
       case 1:
@@ -21,12 +53,12 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>Population Growth: When Users Multiply Exponentially 👥</h3>
+              <h3>Population Growth: When Users Multiply Exponentially</h3>
               <div className="theory-box">
-                <p>Hey future engineers! 👋 Think of population growth like user growth on a platform - it starts slow, then suddenly explodes! 📈 Just like how Instagram went from 0 to 2 billion users, human population has grown from 1 billion in 1800 to over 8 billion today. Understanding population dynamics is crucial because more users (people) mean more demand for resources, infrastructure, and... well, everything you'll be designing!</p>
+                <p>Hey future engineers! Think of population growth like user growth on a platform - it starts slow, then suddenly explodes! Just like how Instagram went from 0 to 2 billion users, human population has grown from 1 billion in 1800 to over 8 billion today. Understanding population dynamics is crucial because more users (people) mean more demand for resources, infrastructure, and... well, everything you'll be designing!</p>
                 
                 <div className="performance-metrics">
-                  <h4>Population Growth Stats 📊</h4>
+                  <h4>Population Growth Stats</h4>
                   <ul>
                     <li><strong>Current Global Population:</strong> 8+ billion people (and counting!)</li>
                     <li><strong>Growth Rate:</strong> Adding 67 million people annually</li>
@@ -36,10 +68,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </div>
               </div>
               
-              <h4>Understanding Population Growth Patterns 📈</h4>
+              <h4>Understanding Population Growth Patterns</h4>
               <p>Population growth refers to the change in the number of inhabitants during a specific period, determined by birth rates, death rates, immigration, and emigration.</p>
               
-              <h5>Population Growth Models 🔢</h5>
+              <h5>Population Growth Models</h5>
               <div className="example-box">
                 <p>Population growth follows predictable patterns, just like user adoption curves in tech!</p>
                 <ul>
@@ -52,7 +84,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Factors Affecting Growth 🎯</h5>
+              <h5>Factors Affecting Growth</h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Birth rates:</strong> New "user registrations" per year</li>
@@ -64,9 +96,9 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Global Population Trends 🌍</h4>
+              <h4>Global Population Trends</h4>
               
-              <h5>Historical Growth Pattern 📚</h5>
+              <h5>Historical Growth Pattern</h5>
               <div className="example-box">
                 <p>Human population growth is like the history of computing - slow start, then exponential acceleration!</p>
                 <ul>
@@ -78,7 +110,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Regional Variations 🗺️</h5>
+              <h5>Regional Variations</h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Developing countries:</strong> High growth rates (like emerging markets)</li>
@@ -90,9 +122,9 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Population Explosion: When Growth Goes Viral 🚀</h4>
+              <h4>Population Explosion: When Growth Goes Viral</h4>
               
-              <h5>Understanding Population Explosion 💥</h5>
+              <h5>Understanding Population Explosion</h5>
               <p>Population explosion is like a viral app going from 0 to millions of users overnight - rapid, overwhelming, and with massive infrastructure implications!</p>
               
               <div className="example-box">
@@ -107,7 +139,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Consequences of Population Explosion ⚠️</h5>
+              <h5>Consequences of Population Explosion</h5>
               <div className="example-box">
                 <h6>Environmental Consequences</h6>
                 <ul>
@@ -130,10 +162,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Engineering Implications 🔧</h4>
+              <h4>Engineering Implications</h4>
               
               <div className="career-opportunities">
-                <h5>Technology Solutions 💻</h5>
+                <h5>Technology Solutions</h5>
                 <ul>
                   <li><strong>Smart Cities:</strong> IoT systems for efficient urban management</li>
                   <li><strong>Population Analytics:</strong> Big data for demographic planning</li>
@@ -141,7 +173,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>Infrastructure Scaling:</strong> Designing systems for population growth</li>
                 </ul>
 
-                <h5>Career Opportunities 🚀</h5>
+                <h5>Career Opportunities</h5>
                 <ul>
                   <li><strong>Urban Planning Engineers:</strong> Designing sustainable cities</li>
                   <li><strong>Demographics Data Scientists:</strong> Population trend analysis</li>
@@ -154,13 +186,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Population Growth and Environment</h4>
               <p>Understanding the relationship between population dynamics and environmental impacts.</p>
-              <iframe
-                width="50%"
-                height="300"
-                src="https://www.youtube.com/embed/QsBT5EQt348"
-                title="Population Growth"
-                allowFullScreen
-              ></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/QsBT5EQt348?si=RYi6bpG33chGIg3h&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -180,12 +206,12 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>Women Empowerment: The Ultimate Population Control Algorithm 👩‍💻</h3>
+              <h3>Women Empowerment: The Ultimate Population Control Algorithm </h3>
               <div className="theory-box">
-                <p>Here's something amazing - women's empowerment is like the most effective optimization algorithm for population control! 🎯 When women get education and opportunities, birth rates naturally decrease. It's not magic, it's data science! Countries that invested in women's education saw dramatic drops in fertility rates. As engineers, understanding this correlation helps you see how social solutions can be more effective than technical ones!</p>
+                <p>Here's something amazing - women's empowerment is like the most effective optimization algorithm for population control!  When women get education and opportunities, birth rates naturally decrease. It's not magic, it's data science! Countries that invested in women's education saw dramatic drops in fertility rates. As engineers, understanding this correlation helps you see how social solutions can be more effective than technical ones!</p>
                 
                 <div className="performance-metrics">
-                  <h4>Women Empowerment Impact Stats 📊</h4>
+                  <h4>Women Empowerment Impact Stats </h4>
                   <ul>
                     <li><strong>Education Effect:</strong> Each year of schooling reduces fertility by 0.26 children</li>
                     <li><strong>Economic Impact:</strong> Women's workforce participation boosts GDP by 35%</li>
@@ -195,10 +221,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </div>
               </div>
               
-              <h4>Women Empowerment and Population Dynamics 🔗</h4>
+              <h4>Women Empowerment and Population Dynamics </h4>
               <p>Women empowerment plays a crucial role in controlling population growth and achieving sustainable development. Educated and empowered women tend to have fewer children and make informed reproductive choices.</p>
               
-              <h5>The Correlation: Education → Empowerment → Population Control 📈</h5>
+              <h5>The Correlation: Education → Empowerment → Population Control </h5>
               <div className="example-box">
                 <p>It's like a perfectly designed feedback loop in programming!</p>
                 <ul>
@@ -211,10 +237,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Strategies for Women Empowerment 🎯</h4>
+              <h4>Strategies for Women Empowerment </h4>
               
               <div className="example-box">
-                <h5>Education and Skills Development 🎓</h5>
+                <h5>Education and Skills Development </h5>
                 <ul>
                   <li><strong>Universal girls' education:</strong> Ensuring access to quality schooling</li>
                   <li><strong>Technical skills training:</strong> Preparing women for modern jobs</li>
@@ -223,7 +249,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>Lifelong learning:</strong> Continuous skill development</li>
                 </ul>
 
-                <h5>Economic Empowerment 💰</h5>
+                <h5>Economic Empowerment </h5>
                 <ul>
                   <li><strong>Employment opportunities:</strong> Creating jobs for women</li>
                   <li><strong>Entrepreneurship support:</strong> Business development programs</li>
@@ -232,7 +258,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>Equal pay initiatives:</strong> Closing gender wage gaps</li>
                 </ul>
 
-                <h5>Health and Rights 🏥</h5>
+                <h5>Health and Rights </h5>
                 <ul>
                   <li><strong>Reproductive healthcare:</strong> Family planning services</li>
                   <li><strong>Maternal health programs:</strong> Safe pregnancy and childbirth</li>
@@ -241,10 +267,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Global and National Initiatives 🌍</h4>
+              <h4>Global and National Initiatives </h4>
               
               <div className="example-box">
-                <h5>International Frameworks 🌐</h5>
+                <h5>International Frameworks </h5>
                 <ul>
                   <li><strong>UN SDG 5:</strong> Gender Equality as global priority</li>
                   <li><strong>CEDAW:</strong> Convention eliminating discrimination against women</li>
@@ -253,7 +279,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>HeForShe campaign:</strong> Engaging men in gender equality</li>
                 </ul>
 
-                <h5>Indian National Programs 🇮🇳</h5>
+                <h5>Indian National Programs </h5>
                 <ul>
                   <li><strong>Beti Bachao Beti Padhao:</strong> Save and educate the girl child</li>
                   <li><strong>Sarva Shiksha Abhiyan:</strong> Universal elementary education</li>
@@ -263,10 +289,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Technology and Women Empowerment 💻</h4>
+              <h4>Technology and Women Empowerment </h4>
               
               <div className="career-opportunities">
-                <h5>Tech Solutions for Empowerment 🔧</h5>
+                <h5>Tech Solutions for Empowerment </h5>
                 <ul>
                   <li><strong>EdTech Platforms:</strong> Online education for women and girls</li>
                   <li><strong>Financial Inclusion Apps:</strong> Digital banking and microfinance</li>
@@ -275,7 +301,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>Safety Apps:</strong> Women's security and emergency response</li>
                 </ul>
 
-                <h5>Career Opportunities 🚀</h5>
+                <h5>Career Opportunities </h5>
                 <ul>
                   <li><strong>Social Impact Engineers:</strong> Technology for social change</li>
                   <li><strong>EdTech Developers:</strong> Educational platforms and apps</li>
@@ -285,20 +311,14 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>The Engineering Perspective 🔍</h4>
+              <h4>The Engineering Perspective </h4>
               <p>Women's empowerment is like optimizing a complex system - when you improve one variable (education), it positively affects multiple other variables (health, economy, population). As engineers, you can design technologies that accelerate this optimization process and create scalable solutions for women's empowerment worldwide!</p>
             </section>
 
             <div className="video-embed">
               <h4>Women Empowerment and Demographics</h4>
               <p>Exploring how women's education and empowerment affect population trends.</p>
-              <iframe
-                width="50%"
-                height="300"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Women Empowerment"
-                allowFullScreen
-              ></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/1EVGIPrV-oI?si=cLCq8Q_wXpaF1fGw&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -319,12 +339,12 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>Environmental Issues: When Earth's Systems Get Corrupted 🌍</h3>
+              <h3>Environmental Issues: When Earth's Systems Get Corrupted </h3>
               <div className="theory-box">
-                <p>Think of Earth as a massive distributed system, and these environmental issues are like critical system failures! 💻 Global warming is like overheating, acid rain is like corrosive data corruption, and ozone depletion is like a security vulnerability. As engineers, understanding these "bugs" in Earth's system helps you design solutions to patch them!</p>
+                <p>Think of Earth as a massive distributed system, and these environmental issues are like critical system failures!  Global warming is like overheating, acid rain is like corrosive data corruption, and ozone depletion is like a security vulnerability. As engineers, understanding these "bugs" in Earth's system helps you design solutions to patch them!</p>
                 
                 <div className="performance-metrics">
-                  <h4>Environmental Crisis Stats 📊</h4>
+                  <h4>Environmental Crisis Stats </h4>
                   <ul>
                     <li><strong>Global Temperature:</strong> 1.1°C increase since pre-industrial times</li>
                     <li><strong>CO₂ Levels:</strong> 421 ppm (highest in 3+ million years)</li>
@@ -334,10 +354,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </div>
               </div>
               
-              <h4>Global Warming: Earth's Overheating Problem 🌡️</h4>
+              <h4>Global Warming: Earth's Overheating Problem </h4>
               <p>Global warming refers to the long-term rise in Earth's average temperature, primarily caused by human activities that increase greenhouse gas concentrations.</p>
               
-              <h5>Causes of Global Warming 🏭</h5>
+              <h5>Causes of Global Warming </h5>
               <div className="example-box">
                 <p>Like a computer overheating from too many processes running simultaneously!</p>
                 <ul>
@@ -350,7 +370,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Effects of Global Warming 💀</h5>
+              <h5>Effects of Global Warming </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Rising temperatures:</strong> Global average increase (like system overheating)</li>
@@ -362,10 +382,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Acid Rain: Atmospheric Data Corruption 🌧️</h4>
+              <h4>Acid Rain: Atmospheric Data Corruption </h4>
               <p>Acid rain is precipitation with elevated hydrogen ions (low pH), resulting from sulfur dioxide and nitrogen oxide emissions.</p>
               
-              <h5>Formation Process 🔄</h5>
+              <h5>Formation Process </h5>
               <div className="example-box">
                 <p>Like malicious code corrupting clean data as it travels through the network!</p>
                 <ul>
@@ -377,7 +397,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Effects of Acid Rain 💀</h5>
+              <h5>Effects of Acid Rain </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Water acidification:</strong> Lakes and streams become acidic</li>
@@ -389,10 +409,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Ozone Layer Depletion: Earth's Security Breach 🛡️</h4>
+              <h4>Ozone Layer Depletion: Earth's Security Breach </h4>
               <p>Ozone layer depletion is the gradual thinning of Earth's protective ozone layer, caused by human-made chemicals.</p>
               
-              <h5>Causes of Ozone Depletion ⚠️</h5>
+              <h5>Causes of Ozone Depletion </h5>
               <div className="example-box">
                 <p>Like malicious software attacking your antivirus protection!</p>
                 <ul>
@@ -404,7 +424,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h5>Effects of Ozone Depletion 💀</h5>
+              <h5>Effects of Ozone Depletion </h5>
               <div className="example-box">
                 <ul>
                   <li><strong>Increased UV radiation:</strong> More harmful rays reaching Earth</li>
@@ -416,10 +436,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Engineering Solutions 🔧</h4>
+              <h4>Engineering Solutions </h4>
               
               <div className="career-opportunities">
-                <h5>Technology Applications 💻</h5>
+                <h5>Technology Applications </h5>
                 <ul>
                   <li><strong>Climate Monitoring:</strong> Satellite systems and IoT sensors</li>
                   <li><strong>Emission Control:</strong> Clean technology and carbon capture</li>
@@ -427,7 +447,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                   <li><strong>Environmental Modeling:</strong> AI for climate prediction and analysis</li>
                 </ul>
 
-                <h5>Career Opportunities 🚀</h5>
+                <h5>Career Opportunities </h5>
                 <ul>
                   <li><strong>Climate Engineers:</strong> Designing carbon capture and storage systems</li>
                   <li><strong>Environmental Monitoring:</strong> Satellite and sensor system development</li>
@@ -440,13 +460,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Global Environmental Issues</h4>
               <p>Examining global warming, acid rain, and ozone depletion.</p>
-              <iframe
-                width="50%"
-                height="300"
-                src="https://www.youtube.com/embed/dcBRdlzoAZ4"
-                title="Environmental Issues"
-                allowFullScreen
-              ></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/aTrWtFR_FrQ?si=fnUd72gFGqzQss88&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -467,15 +481,15 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>IT in Environment: When Technology Becomes the Solution 💻🌱</h3>
+              <h3>IT in Environment: When Technology Becomes the Solution </h3>
               <div className="theory-box">
-                <p>Plot twist! 🎭 While technology contributed to many environmental problems, it's also becoming our superhero for solving them! IT is like having a Swiss Army knife for environmental challenges - monitoring, predicting, optimizing, and automating solutions. As future engineers, you're not just building apps and systems, you're building the tools to save the planet!</p>
+                <p>Plot twist!  While technology contributed to many environmental problems, it's also becoming our superhero for solving them! IT is like having a Swiss Army knife for environmental challenges - monitoring, predicting, optimizing, and automating solutions. As future engineers, you're not just building apps and systems, you're building the tools to save the planet!</p>
               </div>
               
-              <h4>Information Technology Applications in Environment 🌍</h4>
+              <h4>Information Technology Applications in Environment </h4>
               <p>Information technology plays an increasingly important role in environmental monitoring, management, and human health protection through advanced data collection, analysis, and communication systems.</p>
               
-              <h5>Environmental Monitoring Systems 📶</h5>
+              <h5>Environmental Monitoring Systems </h5>
               <div className="example-box">
                 <p>Like having a real-time dashboard for Planet Earth!</p>
                 <ul>
@@ -488,10 +502,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
                 </ul>
               </div>
 
-              <h4>Engineering Career Opportunities in Environmental IT 🚀</h4>
+              <h4>Engineering Career Opportunities in Environmental IT </h4>
               
               <div className="career-opportunities">
-                <h5>Software Engineering Roles 💻</h5>
+                <h5>Software Engineering Roles </h5>
                 <ul>
                   <li><strong>Environmental Data Scientists:</strong> Analyzing climate and pollution data</li>
                   <li><strong>IoT Developers:</strong> Building sensor networks for environmental monitoring</li>
@@ -504,13 +518,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>IT in Environmental Health</h4>
               <p>Role of information technology in environmental monitoring and health protection.</p>
-              <iframe
-                width="50%"
-                height="300"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="IT Environmental Applications"
-                allowFullScreen
-              ></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/kMONRrLd-NU?si=ZsyQcTob0SARNXcp&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -531,60 +539,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>Field Work: Real-World Environmental Data Collection 🌿</h3>
-              <div className="theory-box">
-                <p>Time to get your hands dirty! 😄 Field work is like beta testing in the real world - you take your theoretical knowledge and test it against actual environmental conditions. It's where you become an environmental detective, documenting assets, investigating pollution, and collecting data that could influence policy decisions!</p>
-              </div>
-              
-              <h4>Environmental Asset Documentation 📊</h4>
-              <p>Field visits are essential for understanding and documenting local environmental assets such as rivers, forests, grasslands, hills, and mountains.</p>
-              
-              <h5>Documentation Process 📋</h5>
-              <div className="example-box">
-                <p>Like conducting a comprehensive system audit in the field!</p>
-                <ul>
-                  <li><strong>Pre-visit research:</strong> Background study and planning</li>
-                  <li><strong>GPS mapping:</strong> Precise location documentation</li>
-                  <li><strong>Photographic documentation:</strong> Visual evidence collection</li>
-                  <li><strong>Species cataloging:</strong> Biodiversity inventory</li>
-                  <li><strong>Parameter measurements:</strong> Environmental data collection</li>
-                  <li><strong>Community interviews:</strong> Stakeholder input gathering</li>
-                </ul>
-              </div>
-
-              <h4>Technology Integration in Field Work 📱</h4>
-              
-              <div className="career-opportunities">
-                <h5>Digital Tools for Field Studies 🔧</h5>
-                <ul>
-                  <li><strong>GPS and GIS apps:</strong> Location mapping and spatial analysis</li>
-                  <li><strong>Environmental sensors:</strong> Real-time parameter measurement</li>
-                  <li><strong>Species identification apps:</strong> AI-powered biodiversity tools</li>
-                  <li><strong>Data collection platforms:</strong> Digital forms and databases</li>
-                  <li><strong>Drone technology:</strong> Aerial surveys and documentation</li>
-                </ul>
-
-                <h5>Career Applications 🚀</h5>
-                <ul>
-                  <li><strong>Environmental Consultants:</strong> Field assessment and reporting</li>
-                  <li><strong>Ecological Surveyors:</strong> Biodiversity and habitat assessment</li>
-                  <li><strong>Environmental Monitors:</strong> Pollution and compliance tracking</li>
-                  <li><strong>Field Data Scientists:</strong> Environmental data collection and analysis</li>
-                </ul>
-              </div>
+              <Quiz title="Human Population and Environment Quiz" questions={unit5Quiz} />
             </section>
 
-            <div className="video-embed">
-              <h4>Environmental Field Work Methods</h4>
-              <p>Learn about field study techniques and environmental documentation.</p>
-              <iframe
-                width="50%"
-                height="300"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Field Work Methods"
-                allowFullScreen
-              ></iframe>
-            </div>
+         
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← IT in Environment</button>
