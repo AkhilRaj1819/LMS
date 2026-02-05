@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
-/* Global dot background animation */
+/* Global background */
 body {
-  background: #F8F8F8;
-  background-image: radial-gradient(circle, #D8D8D8 1px, transparent 1px);
+  background: #FFFFFF;
+  background-image: radial-gradient(circle, #E0E0E0 1px, transparent 1px);
   background-size: 20px 20px;
   min-height: 100vh;
 }
