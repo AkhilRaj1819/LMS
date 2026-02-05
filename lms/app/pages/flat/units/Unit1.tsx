@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Quiz from '../components/Quiz';
 
 interface Unit1Props {
   currentModule: number;
@@ -8,6 +9,88 @@ interface Unit1Props {
 }
 
 const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }) => {
+  
+  const unitQuiz = [
+    {
+      question: "What is an alphabet in formal language theory?",
+      options: [
+        "A set of letters from A to Z",
+        "A finite non-empty set of symbols",
+        "A collection of words",
+        "A type of grammar"
+      ],
+      correctAnswer: 1,
+      explanation: "An alphabet (Sigma) is a finite non-empty set of symbols that serves as the basic building blocks for constructing strings and languages."
+    },
+    {
+      question: "What is the length of the empty string (epsilon)?",
+      options: ["1", "0", "Undefined", "Infinity"],
+      correctAnswer: 1,
+      explanation: "The empty string epsilon has length 0, denoted as |epsilon| = 0. It is the unique string containing no symbols."
+    },
+    {
+      question: "What is the result of L* (Kleene star) when L = {a}?",
+      options: [
+        "Only {a}",
+        "{epsilon, a}",
+        "{epsilon, a, aa, aaa, ...}",
+        "Empty set"
+      ],
+      correctAnswer: 2,
+      explanation: "Kleene star L* represents zero or more concatenations of strings from L, resulting in {epsilon, a, aa, aaa, aaaa, ...}."
+    },
+    {
+      question: "In a DFA, how many next states can exist for a given state and input symbol?",
+      options: ["Zero", "Exactly one", "One or more", "Any number"],
+      correctAnswer: 1,
+      explanation: "In a Deterministic Finite Automaton (DFA), the transition function delta: Q × Sigma → Q maps each (state, symbol) pair to exactly one next state."
+    },
+    {
+      question: "What is the main difference between DFA and NFA?",
+      options: [
+        "DFA is faster than NFA",
+        "NFA can have multiple transitions for same input, DFA cannot",
+        "DFA accepts more languages than NFA",
+        "NFA requires more states than DFA"
+      ],
+      correctAnswer: 1,
+      explanation: "NFA allows multiple transitions (including epsilon transitions) for the same state-symbol pair, while DFA requires exactly one transition. However, they are equivalent in expressive power."
+    },
+    {
+      question: "What does a double circle represent in a transition diagram?",
+      options: [
+        "Start state",
+        "Accept/Final state",
+        "Intermediate state",
+        "Error state"
+      ],
+      correctAnswer: 1,
+      explanation: "In transition diagrams, double circles denote accepting or final states. A string is accepted if processing ends in one of these states."
+    },
+    {
+      question: "What is the concatenation of L1 = {a, b} and L2 = {1, 2}?",
+      options: [
+        "{a, b, 1, 2}",
+        "{a1, a2, b1, b2}",
+        "{ab, 12}",
+        "{a, b, ab, 1, 2, 12}"
+      ],
+      correctAnswer: 1,
+      explanation: "Concatenation L1L2 creates all strings formed by joining each string from L1 with each string from L2: {a1, a2, b1, b2}."
+    },
+    {
+      question: "Which component is NOT part of the 5-tuple definition of a finite automaton?",
+      options: [
+        "Set of states (Q)",
+        "Transition function (delta)",
+        "Output alphabet",
+        "Initial state (q0)"
+      ],
+      correctAnswer: 2,
+      explanation: "A finite automaton is defined as M = (Q, Sigma, delta, q0, F). It does not have an output alphabet - it only accepts or rejects strings."
+    }
+  ];
+
   const renderModule = () => {
     switch (currentModule) {
       case 1:
@@ -696,6 +779,25 @@ function ACCEPT(M, w):
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← DFA and NFA</button>
+              <button onClick={() => setCurrentModule(6)} className="next-module-btn">Unit 1 Quiz →</button>
+            </div>
+          </div>
+        );
+
+      case 6:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">1.6</div>
+              <div className="lesson-title-main">
+                <h1>Unit 1 Quiz</h1>
+              </div>
+            </div>
+            
+            <Quiz title="Unit 1 Comprehensive Quiz: Introduction to Formal Languages" questions={unitQuiz} passingScore={70} />
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(5)} className="prev-module-btn">← Transition Diagrams</button>
               {onBack && (
                 <button onClick={onBack} className="next-module-btn">Back to Course →</button>
               )}

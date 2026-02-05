@@ -19,7 +19,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
         'Language Operations',
         'Finite State Machines',
         'DFA and NFA',
-        'Transition Diagrams'
+        'Transition Diagrams',
+        'Unit 1 Quiz'
       ]
     },
     {
@@ -30,7 +31,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
         'DFA and NFA Equivalence',
         'NFA to DFA Conversion',
         'Epsilon Transitions',
-        'Automata Minimization'
+        'Automata Minimization',
+        'Unit 2 Quiz'
       ]
     },
     {
@@ -41,7 +43,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
         'Regular Expression Operations',
         'Applications and Conversions',
         'Pumping Lemma',
-        'Regular Grammars'
+        'Regular Grammars',
+        'Unit 3 Quiz'
       ]
     },
     {
@@ -52,7 +55,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
         'Leftmost and Rightmost Derivations',
         'Normal Forms',
         'Pushdown Automata',
-        'CFG-PDA Equivalence'
+        'CFG-PDA Equivalence',
+        'Unit 4 Quiz'
       ]
     },
     {
@@ -63,7 +67,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
         'Turing Machine Definition',
         'Post Correspondence Problem',
         'Decidable Problems',
-        'Undecidable Problems'
+        'Undecidable Problems',
+        'Unit 5 Quiz'
       ]
     }
   ];
