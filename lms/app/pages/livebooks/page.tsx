@@ -29,18 +29,21 @@ const page = () => {
     { id: 6, name: "FLAT" , link:"/pages/flat", description: "Formal Languages & Automata Theory", icon: <img src={Fsm.src} className="w-12 h-12" />, color: "", stats: { Credits: 4, Modules: 156,} },
   ];
 
+
   return (
-    <div className="min-h-screen w-full flex bg-white">
-      <Sidebar />
-      
-      <div className="flex-1 bg-transparent relative">
-        <div className="absolute inset-0 opacity-50" style={{
-          backgroundImage: 'radial-gradient(circle, #d1d5db 2px, transparent 2px)',
-          backgroundSize: '20px 20px'
-        }}></div>
+    <div className="flex h-screen">
+      <div className="fixed left-0 top-0 h-screen overflow-hidden z-50 w-16">
+        <Sidebar />
+      </div>
+      <div className="flex-1 h-screen bg-transparent relative ml-16" style={{
+        backgroundImage: 'radial-gradient(circle, #D8D8D8 1px, transparent 1px)',
+        backgroundSize: '20px 20px',
+        backgroundColor: '#F8F8F8'
+      }}>
 
       {/* Top Navigation Bar */}
       <header className="bg-white h-16 flex items-center justify-between px-6 border-b relative z-10" style={{ borderColor: '#EFEFEF' }}>
+        
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#C6B7F2' }}>
             <span className="text-white font-bold text-sm">L</span>
@@ -62,9 +65,9 @@ const page = () => {
         </div>
       </header>
 
-      <div className="flex relative z-10">
+      <div className="flex h-screen flex-1">
         {/* Left Sidebar */}
-        <aside className="w-56 p-6 bg-white bg-opacity-50">
+        <aside className="w-56 h-screen p-6 bg-white bg-opacity-50 overflow-y-auto">
           <div className="space-y-3">
             <div className="rounded-xl p-4 relative" style={{ backgroundColor: '#FFF2CC' }}>
               <div className="flex items-center justify-between mb-3">
@@ -107,10 +110,6 @@ const page = () => {
 
         {/* Main Content */}
         <main className="flex-1 p-8 bg-transparent relative">
-          <div className="absolute inset-0 opacity-30" style={{
-            backgroundImage: 'radial-gradient(circle, #d1d5db 1.5px, transparent 1.5px)',
-            backgroundSize: '20px 20px'
-          }}></div>
           <h1 className="text-2xl font-bold mb-8 relative z-10" style={{ color: '#1F2933' }}>Semester 4</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">

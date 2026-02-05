@@ -29,10 +29,10 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="w-16 bg-white border-r flex flex-col justify-between py-4">
+    <aside className="fixed left-0 top-0 h-screen w-16 bg-white border-r flex flex-col justify-between py-4 overflow-hidden">
       {/* Home at top */}
       <div className="flex flex-col items-center">
-        <button onClick={handleHomeClick} className="p-3 hover:bg-gray-100 rounded border-r-4 border-blue-600 cursor-pointer">
+        <button onClick={handleHomeClick} className="p-3 hover:bg-gray-100    cursor-pointer">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
           </svg>
@@ -52,7 +52,7 @@ export default function Sidebar() {
         </button>
         
         {showProfile && (
-          <div className="absolute bottom-full left-full ml-2 mb-2 bg-white border rounded shadow-lg py-2 w-40">
+          <div className="fixed bottom-4 left-20 bg-white border rounded shadow-lg py-2 w-40 z-50">
             <button onClick={() => signOut({ callbackUrl: "/pages/login" })} className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600">
               Logout
             </button>

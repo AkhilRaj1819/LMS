@@ -7,7 +7,7 @@ export async function GET() {
     const db = client.db();
     const timetable = await db.collection("timetable").findOne({ id: "main" });
     
-    return NextResponse.json({ ok: true, data: timetable?.schedule || [] });
+    return NextResponse.json({ ok: true, data: timetable?.schedule || timetable || {} });
   } catch (err: any) {
     return NextResponse.json({ ok: false, error: err.message }, { status: 500 });
   }

@@ -255,7 +255,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     marginBottom: "8px",
   },
   subjectText: {
-    fontSize: "15px",
+    fontSize: "12px",
     fontWeight: "500",
     color: "#333",
   },
@@ -292,7 +292,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     justifyContent: "space-between",
   },
   detailSubject: {
-    fontSize: "24px",
+    fontSize: "14px",
     fontWeight: "600",
     marginBottom: "5px",
     color: "#333",

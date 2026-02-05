@@ -731,7 +731,6 @@
   margin: 32px 0;
   padding: 24px;
   background: transparent;
-  border-left: 4px solid #4CAF50;
   border-radius: 4px;
 }
 
@@ -746,7 +745,7 @@
 }
 
 .example-box h5::before {
-  content: '🌱';
+  content: '▸';
   font-size: 1.2rem;
 }
 
@@ -815,7 +814,6 @@
   margin: 32px 0;
   padding: 24px;
   background: transparent;
-  border-left: 4px solid #4CAF50;
   border-radius: 4px;
 }
 

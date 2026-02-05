@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import MainSidebar from '@/components/Sidebar';
 
 interface CourseOverviewProps {
   onModuleSelect: (unitId: number, moduleId: number) => void;
@@ -67,8 +68,13 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
   ];
 
   return (
-    <div className="lms-dashboard">
-      <div className="lms-container">
+    <div className="flex">
+      <div className="fixed left-0 top-0 h-screen overflow-hidden">
+        <MainSidebar />
+      </div>
+      <div className="flex-1">
+        <div className="lms-dashboard">
+          <div className="lms-container">
         <div className="lms-header">
           <div className="header-left">
             <svg className="megaphone-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -144,7 +150,9 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
             </div>
           ))}
         </div>
+        </div>
       </div>
+    </div>
     </div>
   );
 };
