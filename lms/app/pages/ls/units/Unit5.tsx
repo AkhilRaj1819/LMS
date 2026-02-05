@@ -81,11 +81,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Language and culture are inseparable - language reflects cultural values, transmits cultural knowledge, and even shapes how we think about the world.</p>
 
            
-                <iframe 
-                  src="https://www.youtube.com/embed/RKK7wGAYP6k" 
-                  title="Language and Culture"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/PAhZLMEY4TU?si=NYKdTH6O9Yq_Xi8m" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
           
@@ -311,11 +307,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Do men and women speak differently? How does language construct gender identity? Can language be sexist? Let's explore the complex relationship between language and gender!</p>
 
              
-                <iframe 
-                  src="https://www.youtube.com/embed/OPbMFt0sCbI?si=s-iwQ9UrF089NIUe" 
-                  title="Language and Gender"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/OPbMFt0sCbI?si=rAT2ScdAf2yR1eln" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
             
@@ -1017,12 +1009,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               <p>From recording conversations to brain scans, linguists use diverse methods to understand language. Let's explore the tools of linguistic research and where the field is heading!</p>
 
             
-                <iframe 
-                  src="https://www.youtube.com/embed/nS13_oAUlQM?si=mZiMeGnKNI-g2itz" 
-                  title="Research Methods in Linguistics"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                   style={{width: '550px', height: '325px'}}
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/E6588DlZW-c?si=RwKn14mCOy_wOIe0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                 ></iframe>
              
 

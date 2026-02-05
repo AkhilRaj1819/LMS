@@ -73,11 +73,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Sociolinguistics studies the fascinating relationship between language and society - how social factors like age, gender, class, and region influence the way we speak.</p>
               
               
-                <iframe 
-                  src="https://www.youtube.com/embed/PBGlHNDdBbo?si=teX8vXKZNCBq2_ns" 
-                  title="Sociolinguistics"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/of4XzrbkknM?si=IPi2K2yORkjzczbU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
              
@@ -279,11 +275,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Should English be the official language? Should schools teach in minority languages? How do we save endangered languages? These are questions of language policy and planning!</p>
               
              
-                <iframe 
-                  src="https://www.youtube.com/embed/5NyYnogUJ8o?si=NCBq2_ns8vXKZteX" 
-                  title="Language Policy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mvkRT0_Un_4?si=Ykwfz6ppnjCJ65Xd" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
               
@@ -383,11 +375,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Your language isn't just how you communicate - it's part of your identity! The way you speak tells others where you're from, what groups you belong to, and who you are.</p>
               
               
-                <iframe 
-                  src="https://www.youtube.com/embed/lkWfkic_qeM?si=8vXKZteXNCBq2_ns" 
-                  title="Language and Identity"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/SP0bAQ8J6C0?si=6ObEuNBrb6pb-WpG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
               
@@ -457,11 +445,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <p>From Siri to Google Translate, technology is transforming how we use and study language. Welcome to computational linguistics!</p>
               
              
-                <iframe 
-                  src="https://www.youtube.com/embed/fOvTtapxa9c?si=NCBq2_ns8vXKZteX" 
-                  title="Language and Technology"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/CPfU5XSIzmc?si=b-mkpS6D0yeiM8jp" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
               

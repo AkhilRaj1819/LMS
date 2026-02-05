@@ -278,13 +278,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Imagine you're learning a new language or wondering why we say "I am" but "he is". Linguistics is the science that answers these questions! It's the systematic study of how human language works - from the sounds we make to the meanings we create.</p>
               
               
-                <iframe 
-                  src="https://www.youtube.com/embed/3yLXNzDUH58" 
-                  title="Introduction to Linguistics"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                  style={{width: '550px', height: '325px'}}
-                ></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3yLXNzDUH58?si=KCHYH7vkcUsesNjZ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{width: '550px', height: '325px'}}></iframe>
               
 
               <h4>What Do Linguists Study?</h4>
@@ -469,14 +463,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <p><strong>Think of it this way:</strong> When you say "pat" and "bat", your mouth does almost the same thing. The only difference? Your vocal cords vibrate for "b" but not for "p". Try it - put your hand on your throat and feel the difference!</p>
               
              
-                <iframe 
-                  src="https://www.youtube.com/embed/dfoRdKuPF9I" 
-                  title="Introduction to Phonetics"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                  style={{width: '550px', height: '325px'}}
-                ></iframe>
-             
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ugppjNn8uIE?si=kTCEuvmkZnpyclin" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen 
+             style={{width: '550px', height: '325px'}}></iframe>
 
               <h4>Three Ways to Study Speech Sounds</h4>
               
@@ -687,13 +675,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
 
               
-                <iframe 
-                  src="https://www.youtube.com/embed/xMEFr7ghMTg" 
-                  title="IPA Consonants"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                  style={{width: '550px', height: '325px'}}
-                ></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2pxrDWjEBoE?si=LnLs5_dL82hCKELO" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style={{width: '550px', height: '325px'}}></iframe>
             
             </section>
 
@@ -730,11 +712,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Phonology is the study of sound systems in languages, examining how sounds function and pattern within particular linguistic systems. Unlike phonetics (which studies physical sounds), phonology studies abstract sound patterns.</p>
               
            
-                <iframe 
-                  src="https://www.youtube.com/embed/imH7hdOgxrU?si=xd3NUssdKe3v7xsh" 
-                  title="Introduction to Phonology"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/imH7hdOgxrU?si=JaT_sZx0WLvZdIdz" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                   style={{width: '550px', height: '325px'}}
                 ></iframe>
           
@@ -989,11 +967,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Morphology is the study of word structure and the rules governing word formation in languages. It examines how morphemes (smallest meaningful units) combine to create words.</p>
               
              
-                <iframe 
-                  src="https://www.youtube.com/embed/93sK4jTGrss?si=mEgfddepgnl6QNZ4"
-                  title="Introduction to Morphology"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/93sK4jTGrss?si=7KPZLNEzyPsKZT7I" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                   style={{width: '550px', height: '325px'}}
                 ></iframe>
               
