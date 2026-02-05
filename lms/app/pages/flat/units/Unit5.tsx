@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Quiz from '../components/Quiz';
 
 interface Unit5Props {
   currentModule: number;
@@ -8,6 +9,98 @@ interface Unit5Props {
 }
 
 const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }) => {
+  
+  const unitQuiz = [
+    {
+      question: "What are the four levels of the Chomsky Hierarchy?",
+      options: [
+        "Regular, Context-Free, Context-Sensitive, Unrestricted",
+        "Type-0, Type-1, Type-2, Type-3",
+        "DFA, PDA, LBA, TM",
+        "All of the above"
+      ],
+      correctAnswer: 3,
+      explanation: "The Chomsky Hierarchy has four levels: Type-3 (Regular), Type-2 (Context-Free), Type-1 (Context-Sensitive), and Type-0 (Unrestricted), recognized by FA, PDA, LBA, and TM respectively."
+    },
+    {
+      question: "What is a Turing Machine?",
+      options: [
+        "A finite automaton with a stack",
+        "A finite automaton with an infinite tape",
+        "A pushdown automaton with two stacks",
+        "A linear bounded automaton"
+      ],
+      correctAnswer: 1,
+      explanation: "A Turing Machine is a finite automaton augmented with an infinite tape that can be read from and written to, providing unlimited memory for computation."
+    },
+    {
+      question: "What is the Post Correspondence Problem (PCP)?",
+      options: [
+        "A decidable problem about string matching",
+        "An undecidable problem about finding matching sequences",
+        "A problem about context-free languages",
+        "A problem about regular expressions"
+      ],
+      correctAnswer: 1,
+      explanation: "The Post Correspondence Problem is a fundamental undecidable problem that asks whether a sequence of domino tiles can be arranged so the top and bottom strings match."
+    },
+    {
+      question: "What is a decidable problem?",
+      options: [
+        "A problem that can be solved in polynomial time",
+        "A problem for which an algorithm exists that always halts with correct answer",
+        "A problem that can be solved by a finite automaton",
+        "A problem that has no solution"
+      ],
+      correctAnswer: 1,
+      explanation: "A decidable (recursive) problem is one for which there exists an algorithm that always terminates and gives the correct yes/no answer for all instances."
+    },
+    {
+      question: "What is the Halting Problem?",
+      options: [
+        "Determining if a TM accepts a string",
+        "Determining if a TM halts on a given input",
+        "Determining if a language is regular",
+        "Determining if a grammar is ambiguous"
+      ],
+      correctAnswer: 1,
+      explanation: "The Halting Problem asks: given a Turing Machine M and input w, does M halt on w? This problem is undecidable, proven by Alan Turing using diagonalization."
+    },
+    {
+      question: "What does Rice's Theorem state?",
+      options: [
+        "All problems are decidable",
+        "Any non-trivial property of RE languages is undecidable",
+        "The Halting Problem is decidable",
+        "All context-free languages are decidable"
+      ],
+      correctAnswer: 1,
+      explanation: "Rice's Theorem states that any non-trivial semantic property of recursively enumerable languages is undecidable, meaning we cannot algorithmically determine most properties of programs."
+    },
+    {
+      question: "Which of the following is decidable?",
+      options: [
+        "Halting Problem",
+        "Post Correspondence Problem",
+        "DFA emptiness problem",
+        "CFG equivalence problem"
+      ],
+      correctAnswer: 2,
+      explanation: "The DFA emptiness problem (determining if L(M) = ∅) is decidable and can be solved by checking if any final state is reachable from the start state."
+    },
+    {
+      question: "What is the Church-Turing Thesis?",
+      options: [
+        "All problems are computable",
+        "Turing Machines capture the notion of effective computability",
+        "The Halting Problem is decidable",
+        "All languages are context-free"
+      ],
+      correctAnswer: 1,
+      explanation: "The Church-Turing Thesis states that Turing Machines (and equivalent models) capture the intuitive notion of what can be effectively computed by any algorithmic process."
+    }
+  ];
+
   const renderModule = () => {
     switch (currentModule) {
       case 1:
@@ -650,6 +743,25 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Decidable Problems</button>
+              <button onClick={() => setCurrentModule(6)} className="next-module-btn">Unit 5 Quiz →</button>
+            </div>
+          </div>
+        );
+
+      case 6:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">5.6</div>
+              <div className="lesson-title-main">
+                <h1>Unit 5 Quiz</h1>
+              </div>
+            </div>
+            
+            <Quiz title="Unit 5 Comprehensive Quiz: Turing Machines and Computability" questions={unitQuiz} passingScore={70} />
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(5)} className="prev-module-btn">← Undecidable Problems</button>
               {onBack && (
                 <button onClick={onBack} className="next-module-btn">Back to Course →</button>
               )}

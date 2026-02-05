@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Quiz from '../components/Quiz';
 
 interface Unit3Props {
   currentModule: number;
@@ -8,6 +9,98 @@ interface Unit3Props {
 }
 
 const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }) => {
+  
+  const unitQuiz = [
+    {
+      question: "What is a regular expression?",
+      options: [
+        "A type of finite automaton",
+        "A notation for describing regular languages",
+        "A programming language",
+        "A type of grammar"
+      ],
+      correctAnswer: 1,
+      explanation: "A regular expression is a notation for describing regular sets/languages using special symbols and operators like union, concatenation, and Kleene star."
+    },
+    {
+      question: "Which operation has the highest precedence in regular expressions?",
+      options: [
+        "Union (+)",
+        "Concatenation (·)",
+        "Kleene star (*)",
+        "All have equal precedence"
+      ],
+      correctAnswer: 2,
+      explanation: "Kleene star (*) has the highest precedence, followed by concatenation (·), and then union (+) has the lowest precedence."
+    },
+    {
+      question: "What does the regular expression (a+b)* represent?",
+      options: [
+        "Only strings 'a' and 'b'",
+        "All strings over alphabet {a, b}",
+        "Strings with equal a's and b's",
+        "Empty string only"
+      ],
+      correctAnswer: 1,
+      explanation: "(a+b)* represents all possible strings (including empty string) that can be formed using symbols 'a' and 'b', which is the set of all strings over alphabet {a, b}."
+    },
+    {
+      question: "What is Thompson's construction used for?",
+      options: [
+        "Converting DFA to NFA",
+        "Converting regular expression to NFA",
+        "Minimizing automata",
+        "Converting NFA to DFA"
+      ],
+      correctAnswer: 1,
+      explanation: "Thompson's construction is an algorithm that converts a regular expression into an equivalent NFA with epsilon-transitions."
+    },
+    {
+      question: "What does the Pumping Lemma help prove?",
+      options: [
+        "A language is regular",
+        "A language is not regular",
+        "Two languages are equivalent",
+        "An automaton is minimal"
+      ],
+      correctAnswer: 1,
+      explanation: "The Pumping Lemma is used to prove that certain languages are NOT regular by showing they fail to satisfy the necessary conditions that all regular languages must meet."
+    },
+    {
+      question: "In the Pumping Lemma, what must be true about the middle part 'y'?",
+      options: [
+        "|y| = 0 (y can be empty)",
+        "|y| ≥ 1 (y must be non-empty)",
+        "|y| ≤ p (y length at most p)",
+        "|y| = p (y length exactly p)"
+      ],
+      correctAnswer: 1,
+      explanation: "In the Pumping Lemma decomposition w = xyz, the middle part y must be non-empty (|y| ≥ 1), ensuring there's actually something to pump."
+    },
+    {
+      question: "What is a right-linear grammar?",
+      options: [
+        "Grammar with productions A → aB or A → a",
+        "Grammar with productions A → Ba or A → a",
+        "Grammar with no restrictions",
+        "Grammar that generates context-free languages"
+      ],
+      correctAnswer: 0,
+      explanation: "A right-linear grammar has productions where the non-terminal appears on the RIGHT side: A → aB or A → a or A → ε. These grammars generate regular languages."
+    },
+    {
+      question: "Which of the following languages is NOT regular?",
+      options: [
+        "All strings over {a,b}",
+        "Strings ending with 'ab'",
+        "a^n b^n where n ≥ 0",
+        "Strings with even number of a's"
+      ],
+      correctAnswer: 2,
+      explanation: "The language a^n b^n (equal numbers of a's and b's) is not regular, as can be proven using the Pumping Lemma. The other languages are all regular."
+    }
+  ];
+
   const renderModule = () => {
     switch (currentModule) {
       case 1:
@@ -682,6 +775,25 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Pumping Lemma</button>
+              <button onClick={() => setCurrentModule(6)} className="next-module-btn">Unit 3 Quiz →</button>
+            </div>
+          </div>
+        );
+
+      case 6:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">3.6</div>
+              <div className="lesson-title-main">
+                <h1>Unit 3 Quiz</h1>
+              </div>
+            </div>
+            
+            <Quiz title="Unit 3 Comprehensive Quiz: Regular Languages" questions={unitQuiz} passingScore={70} />
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(5)} className="prev-module-btn">← Regular Grammars</button>
               {onBack && (
                 <button onClick={onBack} className="next-module-btn">Back to Course →</button>
               )}

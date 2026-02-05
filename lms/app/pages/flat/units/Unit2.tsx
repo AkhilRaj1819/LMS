@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Quiz from '../components/Quiz';
 
 interface Unit2Props {
   currentModule: number;
@@ -8,6 +9,98 @@ interface Unit2Props {
 }
 
 const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }) => {
+  
+  const unitQuiz = [
+    {
+      question: "What determines if a string is accepted by a finite automaton?",
+      options: [
+        "The length of the string",
+        "Whether the final state after processing is an accepting state",
+        "The number of transitions taken",
+        "The alphabet used"
+      ],
+      correctAnswer: 1,
+      explanation: "A string is accepted if, after processing all symbols, the automaton ends in a state that belongs to the set of accepting states F."
+    },
+    {
+      question: "What is the main theoretical result about DFA and NFA?",
+      options: [
+        "DFA is more powerful than NFA",
+        "NFA is more powerful than DFA",
+        "DFA and NFA are equivalent in expressive power",
+        "They recognize different language classes"
+      ],
+      correctAnswer: 2,
+      explanation: "DFA and NFA are equivalent in expressive power - both recognize exactly the regular languages. Any language accepted by an NFA can be accepted by some DFA, and vice versa."
+    },
+    {
+      question: "In subset construction, what does each DFA state represent?",
+      options: [
+        "A single NFA state",
+        "A subset of NFA states",
+        "A transition function",
+        "An input symbol"
+      ],
+      correctAnswer: 1,
+      explanation: "In subset construction (powerset construction), each DFA state corresponds to a subset of NFA states, allowing the DFA to simulate all possible NFA computations simultaneously."
+    },
+    {
+      question: "What is an epsilon-transition?",
+      options: [
+        "A transition that requires two input symbols",
+        "A transition without consuming any input symbol",
+        "A transition to the start state",
+        "A transition that rejects the string"
+      ],
+      correctAnswer: 1,
+      explanation: "An epsilon-transition (ε-transition) allows the automaton to change states without reading any input symbol, providing additional flexibility in NFA design."
+    },
+    {
+      question: "What is the epsilon-closure of a state?",
+      options: [
+        "All states reachable via epsilon-transitions",
+        "All accepting states",
+        "All states with outgoing transitions",
+        "The start state only"
+      ],
+      correctAnswer: 0,
+      explanation: "The epsilon-closure of a state is the set of all states reachable from that state using only epsilon-transitions (including the state itself)."
+    },
+    {
+      question: "What is the goal of automata minimization?",
+      options: [
+        "To reduce the alphabet size",
+        "To reduce the number of states while preserving the language",
+        "To convert NFA to DFA",
+        "To eliminate accepting states"
+      ],
+      correctAnswer: 1,
+      explanation: "Minimization aims to reduce the number of states in an automaton to the minimum possible while still recognizing the same language, creating the most efficient representation."
+    },
+    {
+      question: "According to the Myhill-Nerode theorem, when are two states equivalent?",
+      options: [
+        "When they have the same label",
+        "When they behave identically for all future inputs",
+        "When they are both accepting states",
+        "When they have the same number of transitions"
+      ],
+      correctAnswer: 1,
+      explanation: "Two states are equivalent if they cannot be distinguished by any future input string - they lead to the same acceptance/rejection behavior for all possible continuations."
+    },
+    {
+      question: "In the worst case, how many states might a DFA have when converted from an n-state NFA?",
+      options: [
+        "n states",
+        "n^2 states",
+        "2^n states",
+        "n! states"
+      ],
+      correctAnswer: 2,
+      explanation: "In the worst case, subset construction can produce a DFA with 2^n states from an n-state NFA, since each DFA state represents a subset of NFA states and there are 2^n possible subsets."
+    }
+  ];
+
   const renderModule = () => {
     switch (currentModule) {
       case 1:
@@ -649,6 +742,25 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Epsilon Transitions</button>
+              <button onClick={() => setCurrentModule(6)} className="next-module-btn">Unit 2 Quiz →</button>
+            </div>
+          </div>
+        );
+
+      case 6:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">2.6</div>
+              <div className="lesson-title-main">
+                <h1>Unit 2 Quiz</h1>
+              </div>
+            </div>
+            
+            <Quiz title="Unit 2 Comprehensive Quiz: Finite Automata" questions={unitQuiz} passingScore={70} />
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(5)} className="prev-module-btn">← Automata Minimization</button>
               {onBack && (
                 <button onClick={onBack} className="next-module-btn">Back to Course →</button>
               )}
