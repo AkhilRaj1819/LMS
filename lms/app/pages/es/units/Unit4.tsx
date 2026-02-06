@@ -8,6 +8,38 @@ interface Unit4Props {
 }
 
 const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
+  const unit4Quiz = [
+    {
+      question: "What is the primary cause of air pollution in urban areas?",
+      options: ["Natural sources", "Vehicular emissions", "Agricultural activities", "Ocean evaporation"],
+      correctAnswer: 1,
+      explanation: "Vehicular emissions are the primary cause of air pollution in urban areas, contributing significantly to particulate matter, nitrogen oxides, and carbon monoxide levels."
+    },
+    {
+      question: "Which water treatment process removes dissolved impurities?",
+      options: ["Filtration", "Sedimentation", "Reverse osmosis", "Chlorination"],
+      correctAnswer: 2,
+      explanation: "Reverse osmosis is a membrane filtration process that effectively removes dissolved impurities, salts, and contaminants from water."
+    },
+    {
+      question: "What is the most effective method for soil remediation?",
+      options: ["Soil washing", "Bioremediation", "Chemical treatment", "All methods are equally effective"],
+      correctAnswer: 1,
+      explanation: "Bioremediation using microorganisms is often the most effective and environmentally friendly method for soil remediation as it naturally breaks down contaminants."
+    },
+    {
+      question: "Which type of radiation is most dangerous to human health?",
+      options: ["Alpha radiation", "Beta radiation", "Gamma radiation", "All are equally dangerous"],
+      correctAnswer: 2,
+      explanation: "Gamma radiation is most dangerous as it has high penetrating power and can cause severe internal damage to organs and tissues."
+    },
+    {
+      question: "What is the first priority in the waste management hierarchy?",
+      options: ["Recycle", "Reuse", "Reduce", "Recover"],
+      correctAnswer: 2,
+      explanation: "Reduce is the first priority in the waste management hierarchy as preventing waste generation is more effective than managing waste after it's created."
+    }
+  ];
   const renderModule = () => {
     switch (currentModule) {
       case 1:
@@ -117,8 +149,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Air Pollution Causes and Effects</h4>
               <p>Understanding air pollution sources, impacts, and control measures.</p>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/GPnDn2Kfb-g?si=W2vrbIGtd9U6o7kE&amp;start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/GPnDn2Kfb-g?si=W2vrbIGtd9U6o7kE&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>            </div>
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Water Pollution →</button>
@@ -370,7 +401,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Soil and Noise Pollution</h4>
               <p>Understanding soil contamination and noise pollution impacts.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/iIHw8gf6LqY?si=Z40xDBbZjLs8URZe&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/iIHw8gf6LqY?si=Z40xDBbZjLs8URZe&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -522,7 +553,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Nuclear Safety and Waste Management</h4>
               <p>Understanding nuclear hazards and solid waste management strategies.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/2oXMJi3RODc?si=YeykjkkHQMWL17z3&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/2oXMJi3RODc?si=YeykjkkHQMWL17z3&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -658,6 +689,10 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               <p>Understanding disaster preparedness, response, and recovery strategies.</p>
               <iframe width="50%" height="300" src="https://www.youtube.com/embed/BaWnRznp1AU?si=VuQUYtgqMK6L6Wxp&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
+
+            <section className="content-section">
+              <Quiz title="Unit 4: Environmental Pollution and Control Quiz" questions={unit4Quiz} />
+            </section>
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Nuclear Hazards</button>

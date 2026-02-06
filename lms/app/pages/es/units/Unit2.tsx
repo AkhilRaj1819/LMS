@@ -1,69 +1,55 @@
 'use client';
 import React from 'react';
-import Quiz from '../components/Quiz.tsx';
-import { COMPLETE_COURSE_DATA } from '../unit1Data';
+import Quiz from '../components/Quiz';
 
 interface Unit2Props {
   currentModule: number;
   setCurrentModule: (module: number) => void;
-  onBack: () => void;
 }
 
-const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }) => {
-  const unit = COMPLETE_COURSE_DATA.units[1];
-  const module = unit.modules[currentModule - 1];
-  const content = module?.content as any;
-
+const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
+  const unit2Quiz = [
+    {
+      question: "What is the primary source of renewable energy?",
+      options: ["Coal", "Solar energy", "Natural gas", "Nuclear energy"],
+      correctAnswer: 1,
+      explanation: "Solar energy is a primary renewable energy source that harnesses sunlight to generate electricity through photovoltaic cells or solar thermal systems."
+    },
+    {
+      question: "Which of the following is the main cause of deforestation?",
+      options: ["Natural disasters", "Agricultural expansion", "Climate change", "Urban development"],
+      correctAnswer: 1,
+      explanation: "Agricultural expansion, particularly cattle ranching and crop farming, accounts for approximately 80% of global deforestation."
+    },
+    {
+      question: "What percentage of freshwater is consumed by agriculture globally?",
+      options: ["30%", "50%", "70%", "90%"],
+      correctAnswer: 2,
+      explanation: "Agriculture consumes approximately 70% of global freshwater resources, making it the largest consumer of water worldwide."
+    },
+    {
+      question: "Which mineral is essential for smartphone manufacturing?",
+      options: ["Iron", "Rare earth elements", "Aluminum", "Copper"],
+      correctAnswer: 1,
+      explanation: "Rare earth elements are crucial for smartphone manufacturing, used in components like screens, speakers, and batteries."
+    },
+    {
+      question: "What is the main environmental impact of mining?",
+      options: ["Air pollution only", "Water contamination only", "Land degradation and multiple environmental impacts", "Noise pollution only"],
+      correctAnswer: 2,
+      explanation: "Mining causes multiple environmental impacts including land degradation, water contamination, air pollution, and biodiversity loss."
+    }
+  ];
   const renderModule = () => {
-    if (!module) return <div>Module not found</div>;
-
-    return (
-      <div className="module-content">
-        <div className="lesson-header">
-          <div className="lesson-number-badge">{currentModule}</div>
-          <div className="lesson-title-main"><h1>{module.title}</h1></div>
-        </div>
-
-        <section className="content-section">
-          {content.definition && <><h3>Definition</h3><p>{content.definition}</p></>}
-          {content.simpleExplanation && <><h3>Understanding</h3><p>{content.simpleExplanation}</p></>}
-          {content.scope && <><h3>Scope</h3><p>{content.scope}</p>{content.scopeDetails && <ul>{content.scopeDetails.map((d: string, i: number) => <li key={i}>{d}</li>)}</ul>}</>}
-          {content.importance && <><h3>Importance</h3><ul>{content.importance.map((i: string, idx: number) => <li key={idx}>{i}</li>)}</ul></>}
-          {content.renewable && <><h3>Renewable Energy</h3><p>{content.renewable.definition}</p><ul>{content.renewable.types.map((t: string, i: number) => <li key={i}>{t}</li>)}</ul></>}
-          {content.nonRenewable && <><h3>Non-Renewable Energy</h3><p>{content.nonRenewable.definition}</p><ul>{content.nonRenewable.types.map((t: string, i: number) => <li key={i}>{t}</li>)}</ul></>}
-          {content.uses && <><h3>Uses</h3><ul>{content.uses.map((u: string, i: number) => <li key={i}>{u}</li>)}</ul></>}
-          {content.deforestation && <><h3>Deforestation</h3><h4>Causes</h4><ul>{content.deforestation.causes.map((c: string, i: number) => <li key={i}>{c}</li>)}</ul><h4>Effects</h4><ul>{content.deforestation.effects.map((e: string, i: number) => <li key={i}>{e}</li>)}</ul></>}
-          {content.conservation && <><h3>Conservation</h3><ul>{content.conservation.map((c: string, i: number) => <li key={i}>{c}</li>)}</ul></>}
-          {content.sources && <><h3>Water Sources</h3><h4>Surface Water</h4><ul>{content.sources.surface.map((s: string, i: number) => <li key={i}>{s}</li>)}</ul><h4>Groundwater</h4><ul>{content.sources.ground.map((g: string, i: number) => <li key={i}>{g}</li>)}</ul></>}
-          {content.problems && <><h3>Problems</h3><ul>{content.problems.map((p: string, i: number) => <li key={i}>{p}</li>)}</ul></>}
-          {content.dams && <><h3>Dams</h3><h4>Benefits</h4><ul>{content.dams.benefits.map((b: string, i: number) => <li key={i}>{b}</li>)}</ul><h4>Problems</h4><ul>{content.dams.problems.map((p: string, i: number) => <li key={i}>{p}</li>)}</ul></>}
-          {content.types && <><h3>Types</h3>{Object.entries(content.types).map(([k, v]: [string, any]) => <div key={k}><h4>{k}</h4><ul>{Array.isArray(v) ? v.map((i: string, idx: number) => <li key={idx}>{i}</li>) : Object.entries(v).map(([k2, v2]: [string, any]) => <div key={k2}><h5>{k2}</h5><ul>{Array.isArray(v2) && v2.map((item: string, idx: number) => <li key={idx}>{item}</li>)}</ul></div>)}</ul></div>)}</>}
-          {content.extraction && <><h3>Extraction Methods</h3><h4>Methods</h4><ul>{content.extraction.methods.map((m: string, i: number) => <li key={i}>{m}</li>)}</ul><h4>Impacts</h4><ul>{content.extraction.impacts.map((imp: string, i: number) => <li key={i}>{imp}</li>)}</ul></>}
-          {content.worldProblems && <><h3>World Food Problems</h3><ul>{content.worldProblems.map((p: string, i: number) => <li key={i}>{p}</li>)}</ul></>}
-          {content.modernAgriculture && <><h3>Modern Agriculture</h3><h4>Benefits</h4><ul>{content.modernAgriculture.benefits.map((b: string, i: number) => <li key={i}>{b}</li>)}</ul><h4>Problems</h4><ul>{content.modernAgriculture.problems.map((p: string, i: number) => <li key={i}>{p}</li>)}</ul></>}
-          {content.overgrazing && <><h3>Overgrazing</h3><ul>{content.overgrazing.map((o: string, i: number) => <li key={i}>{o}</li>)}</ul></>}
-          {content.solutions && <><h3>Solutions</h3><ul>{content.solutions.map((s: string, i: number) => <li key={i}>{s}</li>)}</ul></>}
-        </section>
-
-        {content.images && content.images.length > 0 && (
-          <section className="content-section">
-            <h3>Visual Resources</h3>
-            {content.images.map((img: string, idx: number) => (
-              <div key={idx} className="image-container">
-                <img src={img} alt={`Module visual ${idx + 1}`} />
+    switch (currentModule) {
+      case 1:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">2.1</div>
+              <div className="lesson-title-main">
+                <h1>Renewable and Non-Renewable Energy Resources</h1>
               </div>
-<<<<<<< HEAD
-            ))}
-          </section>
-        )}
-
-        {content.videos && content.videos.length > 0 && (
-          <section className="content-section">
-            <h3>Video Resources</h3>
-            {content.videos.map((videoId: string, idx: number) => (
-              <div key={idx} className="video-embed">
-                <iframe width="100%" height="400" src={`https://www.youtube.com/embed/${videoId}`} title={`Video ${idx + 1}`} allowFullScreen></iframe>
-=======
             </div>
             
             <section className="content-section">
@@ -94,27 +80,18 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
                   <li><strong>Engineering applications:</strong> Powers satellites, remote sensors, IoT devices</li>
                   <li><strong>Career opportunities:</strong> Smart inverters, energy storage, grid integration</li>
                 </ul>
->>>>>>> 4a17a066705d8e6a58fa22b145978157cede9e38
               </div>
-            ))}
-          </section>
-        )}
 
-        {content.quiz && content.quiz.questions && (
-          <section className="content-section">
-            <h3>Module Quiz</h3>
-            <Quiz title={`${module.title} Quiz`} questions={content.quiz.questions.map((q: any) => ({question: q.question, options: q.options, correctAnswer: q.correct, explanation: `Correct: ${q.options[q.correct]}`}))} />
-          </section>
-        )}
+              <div className="example-box">
+                <h6>Wind Energy - Kinetic to Electrical Conversion</h6>
+                <ul>
+                  <li><strong>Process:</strong> Kinetic energy → rotational motion → electrical generation</li>
+                  <li><strong>Smart technology:</strong> Modern turbines use AI for optimal positioning</li>
+                  <li><strong>Offshore potential:</strong> Floating wind farms in deep waters</li>
+                  <li><strong>Grid integration:</strong> Variable output requires smart grid solutions</li>
+                </ul>
+              </div>
 
-<<<<<<< HEAD
-        <div className="navigation-buttons">
-          {currentModule > 1 && <button onClick={() => setCurrentModule(currentModule - 1)} className="prev-module-btn">← Previous</button>}
-          {currentModule < unit.modules.length && <button onClick={() => setCurrentModule(currentModule + 1)} className="next-module-btn">Next →</button>}
-        </div>
-      </div>
-    );
-=======
               <div className="example-box">
                 <h6>Other Renewable Sources</h6>
                 <ul>
@@ -201,7 +178,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
             <div className="video-embed">
               <h4>Renewable Energy Revolution</h4>
               <p>See how renewable energy is transforming the global energy landscape.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/PLBK1ux5b7U?si=mWIp1BOJujIMC8Az" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/PLBK1ux5b7U?si=mWIp1BOJujIMC8Az" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -347,7 +324,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
             <div className="video-embed">
               <h4>Deforestation and Technology Solutions</h4>
               <p>See how technology is being used to monitor and combat deforestation.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/S_GuLdbMveQ?si=O-Ufn4Zm4j6M4YR-" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/S_GuLdbMveQ?si=O-Ufn4Zm4j6M4YR-" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -518,7 +495,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
             <div className="video-embed">
               <h4>Water Scarcity and Technology Solutions</h4>
               <p>Explore how technology is addressing global water challenges.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/5zyxsOMw634?si=K4iyIwP8e1PaHOdX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/5zyxsOMw634?si=K4iyIwP8e1PaHOdX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -659,7 +636,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
             <div className="video-embed">
               <h4>Environmental Impact of Mining</h4>
               <p>Understand the environmental challenges of mineral extraction.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/ynN39sfqT8w?si=D9zVaaWoAssu3Ulg" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/ynN39sfqT8w?si=D9zVaaWoAssu3Ulg" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -789,8 +766,12 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
             <div className="video-embed">
               <h4>Future of Agriculture Technology</h4>
               <p>Explore how technology is revolutionizing agriculture.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/Qmla9NLFBvU?si=iaUV3-S0OQAxt7pU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/Qmla9NLFBvU?si=iaUV3-S0OQAxt7pU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <section className="content-section">
+              <Quiz title="Unit 2: Natural Resources Quiz" questions={unit2Quiz} />
+            </section>
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Mineral Resources</button>
@@ -801,7 +782,6 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
       default:
         return <div>Module not found</div>;
     }
->>>>>>> 4a17a066705d8e6a58fa22b145978157cede9e38
   };
 
   return <div className="unit-container">{renderModule()}</div>;

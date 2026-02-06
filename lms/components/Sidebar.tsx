@@ -29,7 +29,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-16 bg-white border-r flex flex-col justify-between py-4 overflow-hidden">
+    <aside className="fixed left-0 top-0 h-screen w-14 bg-white border-r-2 border-gray-700 flex flex-col justify-between py-4 overflow-hidden">
       {/* Home at top */}
       <div className="flex flex-col items-center">
         <button onClick={handleHomeClick} className="p-3 hover:bg-gray-100    cursor-pointer">
@@ -52,9 +52,9 @@ export default function Sidebar() {
         </button>
         
         {showProfile && (
-          <div className="fixed bottom-4 left-20 bg-white border rounded shadow-lg py-2 w-40 z-50">
-            <button onClick={() => signOut({ callbackUrl: "/pages/login" })} className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600">
-              Logout
+          <div className="fixed bottom-4 left-20 bg-white border-2 border-black z-50" style={{boxShadow: '3px 3px 0px 0px #454545'}}>
+            <button onClick={() => signOut({ callbackUrl: "/pages/login" })} className="w-full text-center px-4 py-2 hover:bg-gray-100 text-black font-bold uppercase text-sm">
+              LOGOUT
             </button>
           </div>
         )}

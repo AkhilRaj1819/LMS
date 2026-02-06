@@ -149,8 +149,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Finite Automata Acceptance of Languages</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/kfCZlZTVm4Q?si=38wZ5V1nKkldygRb" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/kfCZlZTVm4Q?si=38wZ5V1nKkldygRb" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>                </div>
               </div>
 
               <h4>Acceptance Process Steps</h4>

@@ -23,10 +23,10 @@ export default function OptionCard({ item }) {
       onMouseLeave={handleMouseUp}
       className="relative border overflow-hidden cursor-pointer w-full transition-all duration-100"
       style={{
-        backgroundColor: "#BBBEC3",
+        backgroundColor: "#ffffff",
         boxShadow: isPressed
           ? "inset 2px 2px 4px rgba(0,0,0,0.6), inset -1px -1px 2px rgba(0,0,0,0.5)"
-          : "4px 4px 0px 0px rgba(0,0,0,0.5)",
+          : "4px 4px 0px 0px rgba(0,0,0,0.7)",
         transform: isPressed ? "translate(3px, 3px)" : "translate(0, 0)",
       }}
     >

@@ -20,6 +20,11 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Best out of waste creative projects" className="content-image" />
+                <p className="image-caption">Creative upcycling and waste transformation projects</p>
+              </div>
+              
               <h3>Introduction to Best Out of Waste</h3>
               <p>Best out of waste competitions encourage creativity while promoting waste reduction and recycling. These activities transform discarded materials into useful or decorative items.</p>
               
@@ -46,11 +51,11 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="project-gallery">
                 <div className="project-image">
-                  <img src="/images/waste-to-art.jpg" alt="Best out of waste projects" className="project-photo" />
+                  <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Best out of waste projects" className="project-photo" />
                   <p>Creative upcycling projects</p>
                 </div>
                 <div className="project-image">
-                  <img src="/images/plastic-bottle-planters.jpg" alt="Plastic bottle planters" className="project-photo" />
+                  <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Plastic bottle planters" className="project-photo" />
                   <p>Plastic bottle planters</p>
                 </div>
               </div>
@@ -61,7 +66,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
                   <iframe 
                     width="560" 
                     height="315" 
-                    src="https://www.youtube.com/embed/1BuLGKj_zqg" 
+                    src="https://www.youtube.com/embed/Iz-8CSa9xj8" 
                     title="Best Out of Waste - Creative Ideas"
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -147,15 +152,20 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students making environmental posters" className="content-image" />
+                <p className="image-caption">Students creating environmental awareness posters</p>
+              </div>
+              
               <h4>Poster Making for Environmental Awareness:</h4>
               
               <div className="activity-gallery">
                 <div className="activity-image">
-                  <img src="/images/environmental-posters.jpg" alt="Environmental awareness posters" className="activity-photo" />
+                  <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Environmental awareness posters" className="activity-photo" />
                   <p>Student-made environmental posters</p>
                 </div>
                 <div className="activity-image">
-                  <img src="/images/poster-competition.jpg" alt="Poster making competition" className="activity-photo" />
+                  <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Poster making competition" className="activity-photo" />
                   <p>Poster making competition in progress</p>
                 </div>
               </div>
@@ -181,17 +191,17 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
               <h4>Poster Themes:</h4>
               <div className="media-gallery">
                 <div className="movie-card">
-                  <img src="/images/climate-change-poster.jpg" alt="Climate Change Poster" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1569163139394-de4e4f43e4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Climate Change Poster" className="movie-poster" />
                   <h6>Climate Change</h6>
                   <p>Global warming awareness campaigns</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/save-water-poster.jpg" alt="Save Water Poster" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Save Water Poster" className="movie-poster" />
                   <h6>Water Conservation</h6>
                   <p>Every drop counts messaging</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/plastic-free-poster.jpg" alt="Plastic Free Poster" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Plastic Free Poster" className="movie-poster" />
                   <h6>Plastic-Free Living</h6>
                   <p>Say no to single-use plastics</p>
                 </div>
@@ -303,15 +313,20 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Recycling and waste management" className="content-image" />
+                <p className="image-caption">Recycling process and environmental protection</p>
+              </div>
+              
               <h4>Recycling Process Demonstration:</h4>
               
               <div className="project-gallery">
                 <div className="project-image">
-                  <img src="/images/waste-segregation.jpg" alt="Waste segregation bins" className="project-photo" />
+                  <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Waste segregation bins" className="project-photo" />
                   <p>Proper waste segregation system</p>
                 </div>
                 <div className="project-image">
-                  <img src="/images/recycling-process.jpg" alt="Recycling process" className="project-photo" />
+                  <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Recycling process" className="project-photo" />
                   <p>Materials being processed for recycling</p>
                 </div>
               </div>
@@ -369,17 +384,17 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="media-gallery">
                 <div className="movie-card">
-                  <img src="/images/air-pollution.jpg" alt="Air Pollution" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Air Pollution" className="movie-poster" />
                   <h6>Air Pollution</h6>
                   <p>Smog and emissions affecting air quality</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/water-pollution.jpg" alt="Water Pollution" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Water Pollution" className="movie-poster" />
                   <h6>Water Pollution</h6>
                   <p>Industrial waste contaminating water bodies</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/plastic-pollution.jpg" alt="Plastic Pollution" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Plastic Pollution" className="movie-poster" />
                   <h6>Plastic Pollution</h6>
                   <p>Ocean and land contamination by plastics</p>
                 </div>
@@ -475,6 +490,11 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rainwater harvesting system" className="content-image" />
+                <p className="image-caption">Sustainable water management through rainwater harvesting</p>
+              </div>
+              
               <h3>Introduction to Rainwater Harvesting</h3>
               <p>Rainwater harvesting is the collection and storage of rainwater for reuse before it reaches the ground.</p>
               
@@ -510,11 +530,11 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="system-gallery">
                 <div className="system-image">
-                  <img src="/images/rainwater-harvesting-system.jpg" alt="Rainwater harvesting setup" className="system-photo" />
+                  <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rainwater harvesting setup" className="system-photo" />
                   <p>Complete rainwater harvesting system</p>
                 </div>
                 <div className="system-image">
-                  <img src="/images/rooftop-collection.jpg" alt="Rooftop water collection" className="system-photo" />
+                  <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Rooftop water collection" className="system-photo" />
                   <p>Rooftop collection method</p>
                 </div>
               </div>
@@ -623,15 +643,20 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eco-friendly sustainable products" className="content-image" />
+                <p className="image-caption">Sustainable and eco-friendly product alternatives</p>
+              </div>
+              
               <h4>Eco-Friendly Product Examples:</h4>
               
               <div className="project-gallery">
                 <div className="project-image">
-                  <img src="/images/eco-friendly-products.jpg" alt="Eco-friendly alternatives" className="project-photo" />
+                  <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Eco-friendly alternatives" className="project-photo" />
                   <p>Sustainable product alternatives</p>
                 </div>
                 <div className="project-image">
-                  <img src="/images/bamboo-products.jpg" alt="Bamboo products" className="project-photo" />
+                  <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bamboo products" className="project-photo" />
                   <p>Bamboo-based eco-friendly items</p>
                 </div>
               </div>
@@ -668,17 +693,17 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="media-gallery">
                 <div className="movie-card">
-                  <img src="/images/reusable-bags.jpg" alt="Reusable Shopping Bags" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Reusable Shopping Bags" className="movie-poster" />
                   <h6>Reusable Items</h6>
                   <p>Cloth bags, steel bottles, containers</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/organic-products.jpg" alt="Organic Personal Care" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Organic Personal Care" className="movie-poster" />
                   <h6>Organic Care</h6>
                   <p>Natural soaps, shampoos, cosmetics</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/solar-gadgets.jpg" alt="Solar Powered Devices" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Solar Powered Devices" className="movie-poster" />
                   <h6>Solar Devices</h6>
                   <p>Solar lights, chargers, cookers</p>
                 </div>

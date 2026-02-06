@@ -38,7 +38,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               
               <div className="video-section">
                 <h6>Array Data Structure Explained</h6>
-                <div className="video-container">
+               
                   <iframe 
                     src="https://www.youtube.com/embed/55l-aZ7_F24" 
                     title="Array Data Structure Explained"
@@ -46,24 +46,24 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                     allowFullScreen
                     style={{width: '400px', height: '225px'}}>
                   </iframe>
-                </div>
+                
               </div>
               
               <div className="media-gallery">
                 <div className="movie-card">
-                  <img src="/images/array-memory.jpg" alt="Array Memory Layout" className="movie-poster" />
+                  <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230302091959/Arrays-in-C.png" alt="Array Memory Layout" className="movie-poster" />
                   <h6>Memory Architecture</h6>
                   <p>Contiguous memory allocation patterns</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/array-operations.jpg" alt="Array Operations" className="movie-poster" />
+                  <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220721080308/array.png" alt="Array Operations" className="movie-poster" />
                   <h6>Array Operations</h6>
                   <p>Insertion, deletion, and traversal algorithms</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/cache-locality.jpg" alt="Cache Locality" className="movie-poster" />
-                  <h6>Performance Optimization</h6>
-                  <p>Cache-friendly data access patterns</p>
+                  <img src="data:image/png;base64,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" alt="Array Structure" className="movie-poster" />
+                  <h6>Array Structure</h6>
+                  <p>Index-based element access patterns</p>
                 </div>
               </div>
 
@@ -89,7 +89,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               
               <div className="video-section">
                 <h6>Array Operations and Algorithms</h6>
-                <div className="video-container">
+                
                   <iframe 
                     src="https://www.youtube.com/embed/QJNwK2uJyGs" 
                     title="Array Operations and Algorithms"
@@ -97,7 +97,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                     allowFullScreen
                     style={{width: '400px', height: '225px'}}>
                   </iframe>
-                </div>
+             
               </div>
 
               <h4>Mathematical Memory Address Calculation</h4>
@@ -189,15 +189,15 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               
               <div className="video-section">
                 <h6>Sparse Matrix Representation</h6>
-                <div className="video-container">
+                
                   <iframe 
-                    src="https://www.youtube.com/embed/Yy6394X0cSQ" 
+                    src="https://www.youtube.com/embed/O64RH5Y9ZjU?si=AK6qXgVXTAojfnCu" 
                     title="Sparse Matrix Representation"
                     frameBorder="0" 
                     allowFullScreen
                     style={{width: '400px', height: '225px'}}>
                   </iframe>
-                </div>
+                
               </div>
               
               <h4>Advantages of Sparse Matrix Representation</h4>
@@ -291,7 +291,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               
               <div className="video-section">
                 <h6>Stack Data Structure Operations</h6>
-                <div className="video-container">
+               
                   <iframe 
                     src="https://www.youtube.com/embed/F1F2imiOJfk" 
                     title="Stack Data Structure Operations"
@@ -299,7 +299,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                     allowFullScreen
                     style={{width: '400px', height: '225px'}}>
                   </iframe>
-                </div>
+                
               </div>
               
               <h4>Stack Implementation and Applications</h4>
@@ -397,7 +397,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               
               <div className="video-section">
                 <h6>Queue Data Structure Operations</h6>
-                <div className="video-container">
+                
                   <iframe 
                     src="https://www.youtube.com/embed/okr-XE8yTO8" 
                     title="Queue Data Structure Operations"
@@ -405,7 +405,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                     allowFullScreen
                     style={{width: '400px', height: '225px'}}>
                   </iframe>
-                </div>
+              
               </div>
               
               <h4>Types of Queues</h4>
@@ -481,7 +481,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               
               <div className="video-section">
                 <h6>Advanced Data Structure Experiments</h6>
-                <div className="video-container">
+             
                   <iframe 
                     src="https://www.youtube.com/embed/MeRb_1bddWg" 
                     title="Advanced Data Structure Experiments"
@@ -489,7 +489,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                     allowFullScreen
                     style={{width: '400px', height: '225px'}}>
                   </iframe>
-                </div>
+               
               </div>
               
               <h4>Two Stacks in Single Array</h4>

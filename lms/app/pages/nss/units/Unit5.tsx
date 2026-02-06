@@ -20,6 +20,11 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Digital environmental awareness campaign" className="content-image" />
+                <p className="image-caption">Using digital platforms for environmental awareness</p>
+              </div>
+              
               <h3>Digital Environmental Awareness Activities</h3>
               <p>Using social media and digital platforms to spread environmental awareness and inspire action.</p>
               
@@ -27,11 +32,11 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="digital-gallery">
                 <div className="digital-image">
-                  <img src="/images/social-media-campaign.jpg" alt="Social media environmental campaign" className="digital-photo" />
+                  <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Social media environmental campaign" className="digital-photo" />
                   <p>Environmental awareness on social media</p>
                 </div>
                 <div className="digital-image">
-                  <img src="/images/digital-infographic.jpg" alt="Environmental infographic" className="digital-photo" />
+                  <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Environmental infographic" className="digital-photo" />
                   <p>Digital infographics for awareness</p>
                 </div>
               </div>
@@ -428,11 +433,11 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="cyber-gallery">
                 <div className="cyber-image">
-                  <img src="/images/cyber-safety-workshop.jpg" alt="Cyber safety workshop" className="cyber-photo" />
+                  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cyber safety workshop" className="cyber-photo" />
                   <p>Students learning about internet safety</p>
                 </div>
                 <div className="cyber-image">
-                  <img src="/images/digital-citizenship.jpg" alt="Digital citizenship class" className="cyber-photo" />
+                  <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Digital citizenship class" className="cyber-photo" />
                   <p>Digital citizenship education</p>
                 </div>
               </div>

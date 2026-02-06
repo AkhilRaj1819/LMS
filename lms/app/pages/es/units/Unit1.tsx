@@ -131,8 +131,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
               <h4>Introduction to Environmental Science</h4>
               <p>Understanding the interdisciplinary nature and importance of environmental studies.</p>
               
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/7G3eXI_DPn8?si=FaulseZDH7cEFppZ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/7G3eXI_DPn8?si=FaulseZDH7cEFppZ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>            </div>
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Concept of an Ecosystem →</button>
@@ -221,7 +220,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Ecosystem Basics</h4>
               <p>Introduction to ecosystems, their components, and functions.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/pc7sJg1sdFU?si=dEGkty7PANYRcm2n" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/pc7sJg1sdFU?si=dEGkty7PANYRcm2n" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -301,7 +300,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Food Relationships</h4>
               <p>Understanding food chains, webs, and energy flow in ecosystems.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/j78g5iRnYBM?si=-e4icIMBghEfm9oO" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/j78g5iRnYBM?si=-e4icIMBghEfm9oO" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -381,7 +380,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Ecological Succession</h4>
               <p>How ecosystems change over time through succession.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/8ceDE01iWLE?si=LYhQzWxfQiIwNOnt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/8ceDE01iWLE?si=LYhQzWxfQiIwNOnt" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -505,8 +504,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Ecosystem Diversity</h4>
               <p>Different types of ecosystems and their characteristics.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/R8q_iRRabT4?si=ww2quNC3X3O7SeZm" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/R8q_iRRabT4?si=ww2quNC3X3O7SeZm" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>            </div>
 
             <Quiz title="Environment and Ecosystem Quiz" questions={unit1Quiz} />
 

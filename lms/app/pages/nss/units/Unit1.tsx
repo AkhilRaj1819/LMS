@@ -20,6 +20,11 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students in career orientation session" className="content-image" />
+                <p className="image-caption">Career orientation and planning session</p>
+              </div>
+              
               <h3>Conducting Orientation Programs for Students</h3>
               <p>Orientation programs are essential for helping students understand their future plans, activities, and creating a roadmap for their career journey.</p>
               
@@ -43,6 +48,10 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
 
               <h4>Creating a Career Roadmap:</h4>
               <p>A career roadmap is a strategic plan that outlines the steps needed to achieve career goals:</p>
+              <div className="roadmap-image">
+                <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Career roadmap planning" className="activity-image" />
+                <p className="image-caption">Creating a strategic career roadmap</p>
+              </div>
               <ul>
                 <li>Define your career vision and mission</li>
                 <li>Identify required skills and qualifications</li>
@@ -101,6 +110,11 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students participating in ice breaking activities" className="content-image" />
+                <p className="image-caption">Ice breaking and team building activities</p>
+              </div>
+              
               <h3>Ice Breaking Sessions</h3>
               <p>Ice breaking activities help students feel comfortable, build connections, and create a positive learning environment.</p>
               
@@ -143,6 +157,10 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
 
               <h4>Knowing Personal Talents and Skills:</h4>
               <p>Self-awareness is crucial for personal and professional development.</p>
+              <div className="skills-image">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Personal skills development" className="activity-image" />
+                <p className="image-caption">Identifying and developing personal talents</p>
+              </div>
 
               <h5>Identifying Your Talents:</h5>
               <ul>
@@ -203,6 +221,11 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Success and achievement celebration" className="content-image" />
+                <p className="image-caption">Celebrating success stories and achievements</p>
+              </div>
+              
               <h3>Displaying Success Stories</h3>
               <p>Success stories inspire and motivate students to pursue their dreams and overcome challenges.</p>
               
@@ -244,17 +267,17 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
               <h5>Recommended Motivational Bio Pics:</h5>
               <div className="media-gallery">
                 <div className="movie-card">
-                  <img src="/images/pursuit-of-happyness.jpg" alt="The Pursuit of Happyness" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1489599735734-79b4af4125ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="The Pursuit of Happyness" className="movie-poster" />
                   <h6>The Pursuit of Happyness</h6>
                   <p>Overcoming homelessness to achieve success</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/3-idiots.jpg" alt="3 Idiots" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="3 Idiots" className="movie-poster" />
                   <h6>3 Idiots</h6>
                   <p>Following passion over societal pressure</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/dangal.jpg" alt="Dangal" className="movie-poster" />
+                  <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dangal" className="movie-poster" />
                   <h6>Dangal</h6>
                   <p>Breaking gender barriers in sports</p>
                 </div>
@@ -266,7 +289,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
                   <iframe 
                     width="560" 
                     height="315" 
-                    src="https://www.youtube.com/embed/gxAaO2rsdIs" 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
                     title="Success Stories - Motivational Video"
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -358,6 +381,11 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students performing in talent show" className="content-image" />
+                <p className="image-caption">Students showcasing their talents on stage</p>
+              </div>
+              
               <h3>Conducting Talent Shows</h3>
               <p>Talent shows provide a platform for students to showcase their abilities, build confidence, and celebrate diversity.</p>
               
@@ -376,11 +404,11 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="activity-gallery">
                 <div className="activity-image">
-                  <img src="/images/talent-show-singing.jpg" alt="Students singing patriotic songs" className="activity-photo" />
+                  <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Students singing patriotic songs" className="activity-photo" />
                   <p>Students performing patriotic songs</p>
                 </div>
                 <div className="activity-image">
-                  <img src="/images/talent-show-painting.jpg" alt="Painting competition" className="activity-photo" />
+                  <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Painting competition" className="activity-photo" />
                   <p>Art and painting competitions</p>
                 </div>
               </div>
@@ -391,7 +419,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
                   <iframe 
                     width="560" 
                     height="315" 
-                    src="https://www.youtube.com/embed/esMnme69t2M" 
+                    src="https://www.youtube.com/embed/kJQP7kiw5Fk" 
                     title="Vande Mataram - Patriotic Song Performance"
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -529,6 +557,11 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Environmental books and literature" className="content-image" />
+                <p className="image-caption">Environmental literature and reading materials</p>
+              </div>
+              
               <h3>Writing Summary on Environmental Books</h3>
               <p>Reading and analyzing environmental literature helps develop awareness about ecological issues and sustainable practices.</p>
               
@@ -552,6 +585,10 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
               </ul>
 
               <h5>Contemporary Environmental Books:</h5>
+              <div className="books-gallery">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Environmental books collection" className="books-image" />
+                <p className="image-caption">Collection of environmental literature and books</p>
+              </div>
               <ul>
                 <li><strong>The Sixth Extinction by Elizabeth Kolbert:</strong> Biodiversity loss</li>
                 <li><strong>This Changes Everything by Naomi Klein:</strong> Climate change and capitalism</li>

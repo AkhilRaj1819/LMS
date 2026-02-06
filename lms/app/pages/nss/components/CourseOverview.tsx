@@ -75,8 +75,8 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
 
   return (
     <div className="flex">
-      <div className="fixed left-0 top-0 h-screen overflow-hidden">
-        <MainSidebar />
+      <div>
+      <MainSidebar />
       </div>
       <div className="flex-1">
         <div className="lms-dashboard">
@@ -107,11 +107,17 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
             </svg>
             Learning Path
           </button>
-          <button className={`tab ${activeTab === 'activities' ? 'active' : ''}`} onClick={() => setActiveTab('activities')}>
+          <button className={`tab ${activeTab === 'sessions' ? 'active' : ''}`} onClick={() => setActiveTab('sessions')}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
               <rect x="3" y="3" width="10" height="10" stroke="currentColor" strokeWidth="1.5" fill="none"/>
             </svg>
-            Activities
+            Sessions
+          </button>
+          <button className={`tab ${activeTab === 'assessments' ? 'active' : ''}`} onClick={() => setActiveTab('assessments')}>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 2v12M2 8h12" stroke="currentColor" strokeWidth="1.5"/>
+            </svg>
+            Assessments
           </button>
           <button className={`tab ${activeTab === 'about' ? 'active' : ''}`} onClick={() => setActiveTab('about')}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -129,7 +135,7 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
             <div key={unit.id} className="unit-block">
               <div className="unit-header-block" onClick={() => setExpandedUnit(expandedUnit === unit.id ? null : unit.id)}>
                 <div className="module-badge">
-                  <div className="badge-label">Unit</div>
+                  <div className="badge-label">Module</div>
                   <div className="badge-number">{unit.id}</div>
                 </div>
                 <div className="unit-description">
@@ -162,9 +168,9 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
             </div>
           ))}
         </div>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

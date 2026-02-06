@@ -463,7 +463,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <p><strong>Think of it this way:</strong> When you say "pat" and "bat", your mouth does almost the same thing. The only difference? Your vocal cords vibrate for "b" but not for "p". Try it - put your hand on your throat and feel the difference!</p>
               
              
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/ugppjNn8uIE?si=kTCEuvmkZnpyclin" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen 
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ugppjNn8uIE?si=kTCEuvmkZnpyclin" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen 
              style={{width: '550px', height: '325px'}}></iframe>
 
               <h4>Three Ways to Study Speech Sounds</h4>
@@ -675,7 +675,8 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
 
               
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/2pxrDWjEBoE?si=LnLs5_dL82hCKELO" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style={{width: '550px', height: '325px'}}></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2pxrDWjEBoE?si=LnLs5_dL82hCKELO" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerP
+                olicy="strict-origin-when-cross-origin" allowfullscreen style={{width: '550px', height: '325px'}}></iframe>
             
             </section>
 
@@ -712,7 +713,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Phonology is the study of sound systems in languages, examining how sounds function and pattern within particular linguistic systems. Unlike phonetics (which studies physical sounds), phonology studies abstract sound patterns.</p>
               
            
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/imH7hdOgxrU?si=JaT_sZx0WLvZdIdz" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/imH7hdOgxrU?si=JaT_sZx0WLvZdIdz" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen
                   style={{width: '550px', height: '325px'}}
                 ></iframe>
           

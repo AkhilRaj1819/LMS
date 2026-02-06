@@ -186,8 +186,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Population Growth and Environment</h4>
               <p>Understanding the relationship between population dynamics and environmental impacts.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/QsBT5EQt348?si=RYi6bpG33chGIg3h&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+                          <iframe width="50%" height="300"  src="https://www.youtube.com/embed/QsBT5EQt348?si=RYi6bpG33chGIg3h&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>          </div>
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Women Empowerment →</button>
@@ -318,7 +317,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Women Empowerment and Demographics</h4>
               <p>Exploring how women's education and empowerment affect population trends.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/1EVGIPrV-oI?si=cLCq8Q_wXpaF1fGw&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/1EVGIPrV-oI?si=cLCq8Q_wXpaF1fGw&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -460,7 +459,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Global Environmental Issues</h4>
               <p>Examining global warming, acid rain, and ozone depletion.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/aTrWtFR_FrQ?si=fnUd72gFGqzQss88&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/aTrWtFR_FrQ?si=fnUd72gFGqzQss88&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">
@@ -518,7 +517,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>IT in Environmental Health</h4>
               <p>Role of information technology in environmental monitoring and health protection.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/kMONRrLd-NU?si=ZsyQcTob0SARNXcp&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/kMONRrLd-NU?si=ZsyQcTob0SARNXcp&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
 
             <div className="navigation-buttons">

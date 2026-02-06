@@ -20,6 +20,11 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustainable living practices" className="content-image" />
+                <p className="image-caption">Eco-friendly approaches for sustainable living</p>
+              </div>
+              
               <h3>Virtual Demonstration of Eco-Friendly Approaches</h3>
               <p>Sustainable living involves adopting practices that reduce environmental impact and promote ecological balance.</p>
               
@@ -27,11 +32,11 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="eco-gallery">
                 <div className="eco-image">
-                  <img src="/images/solar-panels.jpg" alt="Solar panel installation" className="eco-photo" />
+                  <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Solar panel installation" className="eco-photo" />
                   <p>Solar energy for sustainable living</p>
                 </div>
                 <div className="eco-image">
-                  <img src="/images/vertical-garden.jpg" alt="Vertical garden" className="eco-photo" />
+                  <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Vertical garden" className="eco-photo" />
                   <p>Space-efficient vertical gardening</p>
                 </div>
               </div>
@@ -418,11 +423,11 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="plantation-gallery">
                 <div className="plantation-image">
-                  <img src="/images/tree-plantation-drive.jpg" alt="Tree plantation activity" className="plantation-photo" />
+                  <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tree plantation activity" className="plantation-photo" />
                   <p>NSS students planting trees</p>
                 </div>
                 <div className="plantation-image">
-                  <img src="/images/sapling-care.jpg" alt="Sapling care" className="plantation-photo" />
+                  <img src="https://images.unsplash.com/photo-1574263867128-a3d5c1b1deaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sapling care" className="plantation-photo" />
                   <p>Caring for newly planted saplings</p>
                 </div>
               </div>

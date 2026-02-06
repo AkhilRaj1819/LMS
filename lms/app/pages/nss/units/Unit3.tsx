@@ -20,6 +20,11 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="NSS students in village camp" className="content-image" />
+                <p className="image-caption">NSS volunteers conducting village outreach programs</p>
+              </div>
+              
               <h3>Conducting Village Camps</h3>
               <p>One-day special camps provide opportunities for students to engage directly with rural communities and understand ground realities.</p>
               
@@ -134,11 +139,11 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="survey-gallery">
                 <div className="survey-image">
-                  <img src="/images/village-survey.jpg" alt="Students conducting village survey" className="survey-photo" />
+                  <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Students conducting village survey" className="survey-photo" />
                   <p>NSS volunteers conducting village survey</p>
                 </div>
                 <div className="survey-image">
-                  <img src="/images/community-interaction.jpg" alt="Community interaction" className="survey-photo" />
+                  <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Community interaction" className="survey-photo" />
                   <p>Interacting with village community</p>
                 </div>
               </div>
@@ -316,11 +321,11 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="health-gallery">
                 <div className="health-image">
-                  <img src="/images/health-checkup-camp.jpg" alt="Health checkup camp" className="health-photo" />
+                  <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Health checkup camp" className="health-photo" />
                   <p>Free health checkup camp in village</p>
                 </div>
                 <div className="health-image">
-                  <img src="/images/hygiene-demonstration.jpg" alt="Hygiene demonstration" className="health-photo" />
+                  <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hygiene demonstration" className="health-photo" />
                   <p>Handwashing demonstration</p>
                 </div>
               </div>

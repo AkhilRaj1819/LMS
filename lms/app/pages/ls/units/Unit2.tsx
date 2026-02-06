@@ -625,7 +625,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               <p><strong>Why it matters:</strong> By comparing languages, we discover universal patterns in human language and understand what makes each language unique.</p>
               
               
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/2_nsXrTr7bA?si=xrL0uUqLktyPz_v-" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2_nsXrTr7bA?si=xrL0uUqLktyPz_v-" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowfullscreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
              
