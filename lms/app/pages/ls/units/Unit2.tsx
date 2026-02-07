@@ -347,7 +347,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               <p>All are correct in their own languages! Syntax rules vary, but every language has them.</p>
             </section>
 
-            <Quiz title="Module 2.1 Quiz" questions={module1Quiz} />
+            <Quiz title="Module 2.1 Quiz" questions={module1Quiz} subject="LS" unitId={2} moduleId={1} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -590,7 +590,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               </ul>
             </section>
 
-            <Quiz title="Module 2.2 Quiz" questions={module2Quiz} />
+            <Quiz title="Module 2.2 Quiz" questions={module2Quiz} subject="LS" unitId={2} moduleId={2} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -625,7 +625,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               <p><strong>Why it matters:</strong> By comparing languages, we discover universal patterns in human language and understand what makes each language unique.</p>
               
               
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/2_nsXrTr7bA?si=xrL0uUqLktyPz_v-" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2_nsXrTr7bA?si=xrL0uUqLktyPz_v-" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
              
@@ -800,18 +800,37 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 2.3 Quiz" questions={module3Quiz} />
-            
-            <div className="reference-section">
-              <h3>Reference Materials</h3>
-              <ul>
-                <li><a href="https://wals.info/" target="_blank" rel="noopener noreferrer">World Atlas of Language Structures</a></li>
-                <li><a href="https://www.ethnologue.com/" target="_blank" rel="noopener noreferrer">Ethnologue - Languages of the World</a></li>
-                <li><a href="https://www.linguisticsociety.org/resource/language-typology" target="_blank" rel="noopener noreferrer">Linguistic Society - Typology</a></li>
-              </ul>
-            </div>
+            <Quiz title="Module 2.3 Quiz" questions={module3Quiz} subject="LS" unitId={2} moduleId={3} />
 
-            <Quiz title="Unit 2 Comprehensive Quiz" questions={unitQuiz} passingScore={75} />
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Semantics</button>
+              <button onClick={() => setCurrentModule(4)} className="next-module-btn">Unit 2 Quiz →</button>
+            </div>
+          </div>
+        );
+
+      case 4:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">2.4</div>
+              <div className="lesson-title-main">
+                <h1>Unit 2 Comprehensive Assessment</h1>
+              </div>
+            </div>
+            
+            <section className="content-section">
+              <h3>Test Your Knowledge of Unit 2</h3>
+              <p>This comprehensive quiz covers all topics from Unit 2: Syntax and Semantics. It includes questions from:</p>
+              <ul>
+                <li><strong>Module 2.1:</strong> Syntax and Syntactic Structures</li>
+                <li><strong>Module 2.2:</strong> Semantics and Semantic Structures</li>
+                <li><strong>Module 2.3:</strong> Language Typology</li>
+              </ul>
+              <p>Take your time and demonstrate your understanding of syntax, semantics, and language typology!</p>
+            </section>
+
+            <Quiz title="Unit 2 Comprehensive Quiz" questions={unitQuiz} subject="LS" unitId={2} moduleId={4} />
 
             <div className="reference-section">
               <h3>Unit 2 Complete - Additional Resources</h3>
@@ -823,7 +842,8 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
             </div>
 
             <div className="navigation-buttons">
-              <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Semantics</button>
+              <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Language Typology</button>
+              <button onClick={onBack} className="next-module-btn">Back to Overview →</button>
             </div>
           </div>
         );
@@ -837,3 +857,5 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
 };
 
 export default Unit2;
+
+

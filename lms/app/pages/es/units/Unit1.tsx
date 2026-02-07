@@ -8,36 +8,168 @@ interface Unit1Props {
 }
 
 const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
-  const unit1Quiz = [
+  const module1Quiz = [
     {
-      question: "What is the primary definition of an ecosystem?",
-      options: ["A collection of plants only", "A community of living organisms interacting with each other and their physical environment", "A group of animals in a specific area", "A type of climate condition"],
+      question: "What is the primary definition of environmental science?",
+      options: ["Study of plants only", "Interdisciplinary study of environment and solutions to environmental problems", "Study of animals", "Study of weather"],
       correctAnswer: 1,
-      explanation: "An ecosystem is a community of living organisms (biotic factors) interacting with each other and their physical environment (abiotic factors) as a system."
+      explanation: "Environmental science is an interdisciplinary field that integrates physical, biological, and social sciences to study the environment and solve environmental problems."
     },
     {
-      question: "Which of the following is NOT considered an abiotic factor in an ecosystem?",
-      options: ["Temperature", "Water availability", "Soil composition", "Plants"],
+      question: "Which of the following is NOT a component of the environment?",
+      options: ["Biotic factors", "Abiotic factors", "Human-made structures", "None of the above"],
       correctAnswer: 3,
-      explanation: "Plants are biotic (living) factors. Abiotic factors are non-living components like temperature, water, and soil."
+      explanation: "All three - biotic factors, abiotic factors, and human-made structures - are components of the environment."
     },
     {
-      question: "What is the role of producers in an ecosystem?",
-      options: ["They consume other organisms", "They decompose organic matter", "They convert solar energy into chemical energy through photosynthesis", "They serve as habitat for other species"],
+      question: "What is the scope of environmental studies?",
+      options: ["Only natural sciences", "Only social sciences", "Interdisciplinary covering natural, social, and applied sciences", "Only engineering"],
       correctAnswer: 2,
-      explanation: "Producers (autotrophs) convert solar energy into chemical energy through photosynthesis, forming the base of food chains."
+      explanation: "Environmental studies has a broad interdisciplinary scope covering natural sciences, social sciences, engineering, and applied sciences."
     },
     {
-      question: "What is the 10% law in ecology?",
-      options: ["Only 10% of species are important in an ecosystem", "Approximately 10% of energy is transferred from one trophic level to the next", "10% of Earth is covered by ecosystems", "10% of water is available for ecosystems"],
+      question: "Why is environmental education important?",
+      options: ["To pass exams", "To create awareness and promote sustainable practices", "To memorize facts", "To study animals"],
       correctAnswer: 1,
-      explanation: "The 10% law states that only about 10% of energy is transferred from one trophic level to the next, with the rest lost as heat."
+      explanation: "Environmental education is crucial for creating awareness about environmental issues and promoting sustainable practices among individuals and communities."
+    },
+    {
+      question: "Which field studies the relationship between organisms and their environment?",
+      options: ["Physics", "Chemistry", "Ecology", "Geology"],
+      correctAnswer: 2,
+      explanation: "Ecology is the branch of biology that studies the relationships between organisms and their physical environment."
+    }
+  ];
+
+  const module2Quiz = [
+    {
+      question: "What is an ecosystem?",
+      options: ["A collection of plants", "A community of living organisms interacting with their physical environment", "A group of animals", "A type of climate"],
+      correctAnswer: 1,
+      explanation: "An ecosystem is a community of living organisms (biotic factors) interacting with each other and their physical environment (abiotic factors)."
+    },
+    {
+      question: "Which of the following is an abiotic factor?",
+      options: ["Plants", "Animals", "Temperature", "Bacteria"],
+      correctAnswer: 2,
+      explanation: "Temperature is an abiotic (non-living) factor. Plants, animals, and bacteria are biotic (living) factors."
+    },
+    {
+      question: "What are the two main components of an ecosystem?",
+      options: ["Plants and animals", "Biotic and abiotic", "Water and soil", "Producers and consumers"],
+      correctAnswer: 1,
+      explanation: "The two main components of an ecosystem are biotic (living) and abiotic (non-living) components."
+    },
+    {
+      question: "What is ecosystem structure?",
+      options: ["Energy flow", "The composition and organization of biotic and abiotic components", "Nutrient cycling", "Food chains"],
+      correctAnswer: 1,
+      explanation: "Ecosystem structure refers to the composition and organization of biotic and abiotic components in an ecosystem."
+    },
+    {
+      question: "What is ecosystem function?",
+      options: ["Species diversity", "The processes like energy flow and nutrient cycling", "Spatial arrangement", "Biomass distribution"],
+      correctAnswer: 1,
+      explanation: "Ecosystem function refers to the processes that occur in an ecosystem, such as energy flow, nutrient cycling, and productivity."
+    }
+  ];
+
+  const module3Quiz = [
+    {
+      question: "What are producers in an ecosystem?",
+      options: ["Organisms that eat other organisms", "Organisms that make their own food through photosynthesis", "Organisms that decompose matter", "Organisms that hunt"],
+      correctAnswer: 1,
+      explanation: "Producers (autotrophs) are organisms that make their own food through photosynthesis, converting solar energy into chemical energy."
+    },
+    {
+      question: "What are primary consumers?",
+      options: ["Carnivores", "Herbivores", "Decomposers", "Producers"],
+      correctAnswer: 1,
+      explanation: "Primary consumers are herbivores that feed directly on producers (plants)."
+    },
+    {
+      question: "What is the role of decomposers?",
+      options: ["Produce food", "Eat plants", "Break down dead organic matter and return nutrients", "Hunt animals"],
+      correctAnswer: 2,
+      explanation: "Decomposers (bacteria and fungi) break down dead organic matter and return nutrients to the ecosystem, completing the nutrient cycle."
     },
     {
       question: "What is ecological succession?",
-      options: ["The study of animal populations", "The process by which biological communities change over time in a predictable sequence", "The movement of nutrients through an ecosystem", "The classification of different habitats"],
+      options: ["Movement of animals", "Predictable change in biological communities over time", "Food chain", "Energy flow"],
       correctAnswer: 1,
-      explanation: "Ecological succession is the process by which biological communities change over time in a predictable sequence, leading to a stable climax community."
+      explanation: "Ecological succession is the process by which biological communities change over time in a predictable sequence."
+    },
+    {
+      question: "What is a climax community?",
+      options: ["Initial stage of succession", "Disturbed ecosystem", "Stable, mature community at the end of succession", "Pioneer species"],
+      correctAnswer: 2,
+      explanation: "A climax community is a stable, mature biological community that represents the final stage of ecological succession."
+    }
+  ];
+
+  const module4Quiz = [
+    {
+      question: "What is a food chain?",
+      options: ["Complex network of feeding relationships", "Linear sequence of energy transfer from one organism to another", "Type of ecosystem", "Nutrient cycle"],
+      correctAnswer: 1,
+      explanation: "A food chain is a linear sequence showing how energy and nutrients are transferred from one organism to another through feeding relationships."
+    },
+    {
+      question: "What is a food web?",
+      options: ["Single food chain", "Complex network of interconnected food chains", "Type of pyramid", "Energy source"],
+      correctAnswer: 1,
+      explanation: "A food web is a complex network of interconnected food chains showing multiple feeding relationships in an ecosystem."
+    },
+    {
+      question: "What is the 10% energy transfer rule?",
+      options: ["All energy is transferred", "About 10% of energy is transferred to the next trophic level", "90% energy is transferred", "No energy is lost"],
+      correctAnswer: 1,
+      explanation: "The 10% rule states that approximately 10% of energy is transferred from one trophic level to the next, with 90% lost as heat."
+    },
+    {
+      question: "What is a pyramid of energy?",
+      options: ["Shows organism count", "Shows biomass", "Shows energy flow through trophic levels", "Shows species diversity"],
+      correctAnswer: 2,
+      explanation: "A pyramid of energy shows the flow of energy through different trophic levels in an ecosystem, always upright in shape."
+    },
+    {
+      question: "Why are food webs more stable than food chains?",
+      options: ["They are simpler", "They have multiple feeding relationships providing alternative pathways", "They have less energy", "They have fewer organisms"],
+      correctAnswer: 1,
+      explanation: "Food webs are more stable because they have multiple feeding relationships, providing alternative pathways if one species is affected."
+    }
+  ];
+
+  const module5Quiz = [
+    {
+      question: "What are terrestrial ecosystems?",
+      options: ["Water-based ecosystems", "Land-based ecosystems", "Underground ecosystems", "Artificial ecosystems"],
+      correctAnswer: 1,
+      explanation: "Terrestrial ecosystems are land-based ecosystems including forests, grasslands, deserts, and tundra."
+    },
+    {
+      question: "Which is an example of an aquatic ecosystem?",
+      options: ["Forest", "Desert", "Ocean", "Grassland"],
+      correctAnswer: 2,
+      explanation: "Oceans are aquatic (water-based) ecosystems. Forests, deserts, and grasslands are terrestrial ecosystems."
+    },
+    {
+      question: "What are artificial ecosystems?",
+      options: ["Natural forests", "Human-created or managed ecosystems like farms and cities", "Oceans", "Mountains"],
+      correctAnswer: 1,
+      explanation: "Artificial ecosystems are human-created or managed systems like agricultural lands, urban areas, and gardens."
+    },
+    {
+      question: "What characterizes a forest ecosystem?",
+      options: ["Lack of trees", "High tree density and biodiversity", "Desert conditions", "Only grass"],
+      correctAnswer: 1,
+      explanation: "Forest ecosystems are characterized by high tree density, multiple layers of vegetation, and high biodiversity."
+    },
+    {
+      question: "What is an estuary?",
+      options: ["Desert area", "Transitional ecosystem where freshwater meets saltwater", "Mountain ecosystem", "Grassland"],
+      correctAnswer: 1,
+      explanation: "An estuary is a transitional ecosystem where freshwater from rivers meets and mixes with saltwater from the ocean."
     }
   ];
   const renderModule = () => {
@@ -131,8 +263,9 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
               <h4>Introduction to Environmental Science</h4>
               <p>Understanding the interdisciplinary nature and importance of environmental studies.</p>
               
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/7G3eXI_DPn8?si=FaulseZDH7cEFppZ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/7G3eXI_DPn8?si=FaulseZDH7cEFppZ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>            </div>
+
+            <Quiz title="Introduction to Environmental Science Quiz" questions={module1Quiz} subject="ES" unitId={1} moduleId={1} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Concept of an Ecosystem →</button>
@@ -221,8 +354,10 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Ecosystem Basics</h4>
               <p>Introduction to ecosystems, their components, and functions.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/pc7sJg1sdFU?si=dEGkty7PANYRcm2n" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/pc7sJg1sdFU?si=dEGkty7PANYRcm2n" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Ecosystems and Biodiversity Quiz" questions={module2Quiz} subject="ES" unitId={1} moduleId={2} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Definition and Scope</button>
@@ -301,8 +436,10 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Food Relationships</h4>
               <p>Understanding food chains, webs, and energy flow in ecosystems.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/j78g5iRnYBM?si=-e4icIMBghEfm9oO" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/j78g5iRnYBM?si=-e4icIMBghEfm9oO" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Natural Resources Quiz" questions={module3Quiz} subject="ES" unitId={1} moduleId={3} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Concept of an Ecosystem</button>
@@ -381,8 +518,10 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Ecological Succession</h4>
               <p>How ecosystems change over time through succession.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/8ceDE01iWLE?si=LYhQzWxfQiIwNOnt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/8ceDE01iWLE?si=LYhQzWxfQiIwNOnt" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Environmental Ethics Quiz" questions={module4Quiz} subject="ES" unitId={1} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Producers, Consumers and Decomposers</button>
@@ -505,10 +644,9 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Ecosystem Diversity</h4>
               <p>Different types of ecosystems and their characteristics.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/R8q_iRRabT4?si=ww2quNC3X3O7SeZm" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/R8q_iRRabT4?si=ww2quNC3X3O7SeZm" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>            </div>
 
-            <Quiz title="Environment and Ecosystem Quiz" questions={unit1Quiz} />
+            <Quiz title="Unit 1 Complete Quiz" questions={module5Quiz} subject="ES" unitId={1} moduleId={5} />
 
             <div className="reference-section">
               <h3>Unit 1 Summary</h3>

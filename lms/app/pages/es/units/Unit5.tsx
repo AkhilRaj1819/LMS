@@ -8,13 +8,40 @@ interface Unit5Props {
 }
 
 const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
-  const unit5Quiz = [
+  const module1Quiz = [
+    {
+      question: "What is the current global population?",
+      options: ["6 billion", "7 billion", "8+ billion", "10 billion"],
+      correctAnswer: 2,
+      explanation: "The current global population is over 8 billion people and continues to grow, though at a slowing rate in many regions."
+    },
+    {
+      question: "How many people are added to the global population annually?",
+      options: ["25 million", "45 million", "67 million", "100 million"],
+      correctAnswer: 2,
+      explanation: "Approximately 67 million people are added to the global population annually, though this rate is gradually declining."
+    },
+    {
+      question: "What is the projected peak global population?",
+      options: ["9 billion", "10.4 billion", "12 billion", "15 billion"],
+      correctAnswer: 1,
+      explanation: "The global population is projected to peak at around 10.4 billion by the 2080s before potentially declining."
+    },
     {
       question: "What is the primary cause of population explosion in developing countries?",
-      options: ["High birth rates", "Declining death rates due to improved healthcare", "Increased immigration", "Economic growth"],
+      options: ["High birth rates", "Declining death rates with improved healthcare", "Increased immigration", "Economic growth"],
       correctAnswer: 1,
       explanation: "Population explosion is primarily caused by declining death rates due to improved healthcare, sanitation, and nutrition, while birth rates remain high."
     },
+    {
+      question: "Which region has the highest population growth rate?",
+      options: ["Europe", "East Asia", "Sub-Saharan Africa", "North America"],
+      correctAnswer: 2,
+      explanation: "Sub-Saharan Africa has the highest population growth rates globally, while Europe and East Asia have declining populations."
+    }
+  ];
+
+  const module2Quiz = [
     {
       question: "Which factor is most effective in controlling population growth?",
       options: ["Government policies", "Economic development", "Women's education and empowerment", "Religious beliefs"],
@@ -22,22 +49,127 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
       explanation: "Women's education and empowerment is the most effective factor in controlling population growth, as educated women tend to have fewer children and make informed reproductive choices."
     },
     {
+      question: "By how much does each year of schooling reduce fertility?",
+      options: ["0.1 children", "0.26 children", "0.5 children", "1 child"],
+      correctAnswer: 1,
+      explanation: "Research shows that each additional year of schooling for women reduces fertility by approximately 0.26 children on average."
+    },
+    {
+      question: "How much can women's workforce participation boost GDP?",
+      options: ["10%", "20%", "35%", "50%"],
+      correctAnswer: 2,
+      explanation: "Women's workforce participation can boost GDP by approximately 35%, demonstrating the significant economic impact of gender equality."
+    },
+    {
+      question: "What is the reduction in child mortality for educated mothers?",
+      options: ["20%", "35%", "50%", "75%"],
+      correctAnswer: 2,
+      explanation: "Educated mothers have approximately 50% lower child mortality rates compared to uneducated mothers, showing the health benefits of education."
+    },
+    {
+      question: "Which UN Sustainable Development Goal focuses on gender equality?",
+      options: ["SDG 3", "SDG 5", "SDG 8", "SDG 13"],
+      correctAnswer: 1,
+      explanation: "SDG 5 (Sustainable Development Goal 5) specifically focuses on achieving gender equality and empowering all women and girls."
+    }
+  ];
+
+  const module3Quiz = [
+    {
       question: "What is the main cause of global warming?",
       options: ["Solar radiation", "Volcanic eruptions", "Greenhouse gas emissions from human activities", "Natural climate cycles"],
       correctAnswer: 2,
       explanation: "Global warming is primarily caused by increased greenhouse gas emissions from human activities, particularly burning fossil fuels and deforestation."
     },
     {
-      question: "Which of the following is NOT a major environmental issue?",
-      options: ["Acid rain", "Ozone layer depletion", "Soil erosion", "Magnetic field changes"],
-      correctAnswer: 3,
-      explanation: "Magnetic field changes are natural phenomena and not considered a major environmental issue like acid rain, ozone depletion, or soil erosion."
+      question: "By how much has global temperature increased since pre-industrial times?",
+      options: ["0.5°C", "1.1°C", "2.0°C", "3.5°C"],
+      correctAnswer: 1,
+      explanation: "Global average temperature has increased by approximately 1.1°C since pre-industrial times, with significant environmental impacts."
     },
     {
+      question: "What is the current atmospheric CO₂ level?",
+      options: ["350 ppm", "380 ppm", "421 ppm", "500 ppm"],
+      correctAnswer: 2,
+      explanation: "Current atmospheric CO₂ levels are approximately 421 parts per million (ppm), the highest in over 3 million years."
+    },
+    {
+      question: "What is the normal pH of rain?",
+      options: ["4.5", "5.6", "7.0", "8.2"],
+      correctAnswer: 1,
+      explanation: "Normal rain has a pH of approximately 5.6 due to dissolved CO₂. Acid rain has a pH below 5.6, sometimes dropping to 4.2-4.4."
+    },
+    {
+      question: "What chemicals primarily cause ozone layer depletion?",
+      options: ["Carbon dioxide", "Methane", "CFCs (Chlorofluorocarbons)", "Nitrogen oxides"],
+      correctAnswer: 2,
+      explanation: "CFCs (Chlorofluorocarbons) are the primary chemicals causing ozone layer depletion, formerly used in refrigerants and aerosols."
+    }
+  ];
+
+  const module4Quiz = [
+    {
       question: "How can information technology help in environmental monitoring?",
-      options: ["By replacing natural ecosystems", "Through real-time data collection and analysis using sensors and satellites", "By eliminating the need for environmental protection", "By increasing industrial production"],
+      options: ["By replacing natural ecosystems", "Through real-time data collection using sensors and satellites", "By eliminating environmental protection", "By increasing industrial production"],
       correctAnswer: 1,
       explanation: "Information technology helps environmental monitoring through real-time data collection and analysis using IoT sensors, satellites, and advanced data processing systems."
+    },
+    {
+      question: "What technology is used for global environmental surveillance?",
+      options: ["Radio waves", "Satellite imagery", "Telephone networks", "Bluetooth"],
+      correctAnswer: 1,
+      explanation: "Satellite imagery provides global environmental surveillance, enabling monitoring of deforestation, climate change, pollution, and natural disasters."
+    },
+    {
+      question: "What does GIS stand for in environmental applications?",
+      options: ["Global Information System", "Geographic Information System", "General Internet Service", "Green Infrastructure System"],
+      correctAnswer: 1,
+      explanation: "GIS stands for Geographic Information System, used for spatial analysis and visualization of environmental data."
+    },
+    {
+      question: "Which technology enables continuous pollution tracking?",
+      options: ["Social media", "IoT sensors", "Email systems", "Video games"],
+      correctAnswer: 1,
+      explanation: "IoT (Internet of Things) sensors enable continuous, real-time pollution tracking for air quality, water quality, and other environmental parameters."
+    },
+    {
+      question: "What role does AI play in environmental protection?",
+      options: ["Replacing humans entirely", "Predictive modeling and pattern analysis", "Increasing pollution", "Eliminating wildlife"],
+      correctAnswer: 1,
+      explanation: "AI plays a crucial role in environmental protection through predictive modeling, pattern analysis, optimization of resource use, and early warning systems."
+    }
+  ];
+
+  const module5Quiz = [
+    {
+      question: "What is the primary purpose of environmental field work?",
+      options: ["Tourism", "Data collection and observation", "Entertainment", "Exercise"],
+      correctAnswer: 1,
+      explanation: "Environmental field work primarily involves data collection, direct observation, and hands-on study of ecosystems and environmental conditions."
+    },
+    {
+      question: "Which tool is essential for field-based environmental monitoring?",
+      options: ["Gaming console", "Portable sensors and measurement devices", "Television", "Microwave"],
+      correctAnswer: 1,
+      explanation: "Portable sensors and measurement devices are essential for field-based environmental monitoring, enabling on-site data collection."
+    },
+    {
+      question: "What is the benefit of combining field work with IT systems?",
+      options: ["Reduced accuracy", "Real-time data upload and analysis", "Increased costs only", "Slower processing"],
+      correctAnswer: 1,
+      explanation: "Combining field work with IT systems enables real-time data upload, immediate analysis, and faster decision-making for environmental management."
+    },
+    {
+      question: "Which career combines environmental science with technology?",
+      options: ["Traditional farming", "Environmental informatics", "Manual labor", "Retail management"],
+      correctAnswer: 1,
+      explanation: "Environmental informatics combines environmental science with information technology, creating careers in data analysis, monitoring systems, and environmental modeling."
+    },
+    {
+      question: "What is the future trend in environmental monitoring?",
+      options: ["Less technology use", "Manual methods only", "Integration of AI, IoT, and big data", "Elimination of monitoring"],
+      correctAnswer: 2,
+      explanation: "The future of environmental monitoring involves integration of AI, IoT sensors, big data analytics, and automated systems for comprehensive environmental management."
     }
   ];
   const renderModule = () => {
@@ -186,8 +318,9 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Population Growth and Environment</h4>
               <p>Understanding the relationship between population dynamics and environmental impacts.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/QsBT5EQt348?si=RYi6bpG33chGIg3h&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+                          <iframe width="50%" height="300"  src="https://www.youtube.com/embed/QsBT5EQt348?si=RYi6bpG33chGIg3h&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>          </div>
+
+            <Quiz title="Module 5.1: Population Growth" questions={module1Quiz} subject="ES" unitId={5} moduleId={1} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Women Empowerment →</button>
@@ -318,8 +451,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Women Empowerment and Demographics</h4>
               <p>Exploring how women's education and empowerment affect population trends.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/1EVGIPrV-oI?si=cLCq8Q_wXpaF1fGw&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/1EVGIPrV-oI?si=cLCq8Q_wXpaF1fGw&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Module 5.2: Women Empowerment" questions={module2Quiz} subject="ES" unitId={5} moduleId={2} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Population Growth</button>
@@ -460,8 +595,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Global Environmental Issues</h4>
               <p>Examining global warming, acid rain, and ozone depletion.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/aTrWtFR_FrQ?si=fnUd72gFGqzQss88&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/aTrWtFR_FrQ?si=fnUd72gFGqzQss88&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Module 5.3: Environmental Issues" questions={module3Quiz} subject="ES" unitId={5} moduleId={3} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Women Empowerment</button>
@@ -518,8 +655,10 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>IT in Environmental Health</h4>
               <p>Role of information technology in environmental monitoring and health protection.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/kMONRrLd-NU?si=ZsyQcTob0SARNXcp&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/kMONRrLd-NU?si=ZsyQcTob0SARNXcp&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Module 5.4: IT in Environment" questions={module4Quiz} subject="ES" unitId={5} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Environmental Issues</button>
@@ -539,8 +678,35 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <Quiz title="Human Population and Environment Quiz" questions={unit5Quiz} />
+              <h3>Environmental Field Work: Hands-On Learning 🌿</h3>
+              <div className="theory-box">
+                <p>Field work is like beta testing in the real world - you take your knowledge out of the classroom and test it in actual environments! It's where theory meets practice, and you get to see environmental concepts in action.</p>
+              </div>
+              
+              <h4>Importance of Field Work 🔬</h4>
+              <div className="example-box">
+                <ul>
+                  <li><strong>Direct observation:</strong> See environmental processes firsthand</li>
+                  <li><strong>Data collection:</strong> Gather real-world measurements and samples</li>
+                  <li><strong>Skill development:</strong> Learn to use monitoring equipment</li>
+                  <li><strong>Problem identification:</strong> Spot environmental issues in real settings</li>
+                  <li><strong>Practical application:</strong> Apply classroom knowledge to real situations</li>
+                </ul>
+              </div>
+
+              <h4>Modern Field Work Tools 📡</h4>
+              <div className="example-box">
+                <ul>
+                  <li><strong>Mobile apps:</strong> Digital data collection and GPS mapping</li>
+                  <li><strong>Portable sensors:</strong> Real-time environmental measurements</li>
+                  <li><strong>Drones:</strong> Aerial surveys and monitoring</li>
+                  <li><strong>Cloud storage:</strong> Instant data upload and sharing</li>
+                  <li><strong>GIS integration:</strong> Mapping and spatial analysis</li>
+                </ul>
+              </div>
             </section>
+
+            <Quiz title="Module 5.5: Field Work and Integration" questions={module5Quiz} subject="ES" unitId={5} moduleId={5} />
 
          
 

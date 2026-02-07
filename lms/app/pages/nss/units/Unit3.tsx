@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Quiz from '../components/Quiz';
 
 interface Unit3Props {
   currentModule: number;
@@ -7,6 +8,170 @@ interface Unit3Props {
 }
 
 const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
+  const module1Quiz = [
+    {
+      question: "What is the primary objective of one-day village camps?",
+      options: ["Tourism", "Understand rural life and provide assistance", "Entertainment", "Shopping"],
+      correctAnswer: 1,
+      explanation: "One-day village camps aim to understand rural life and challenges, build community connections, provide immediate assistance, and develop social responsibility among students."
+    },
+    {
+      question: "Who should be contacted first when planning a village camp?",
+      options: ["Random villagers", "Sarpanch or village head", "City officials", "No one"],
+      correctAnswer: 1,
+      explanation: "The Sarpanch or village head is the primary contact for obtaining permissions and understanding village needs before conducting camps."
+    },
+    {
+      question: "What time should a typical one-day camp start?",
+      options: ["Afternoon", "Evening", "Early morning (7-9 AM)", "Night"],
+      correctAnswer: 2,
+      explanation: "One-day camps typically start early morning (7-9 AM) to maximize productive hours and complete activities before evening departure."
+    },
+    {
+      question: "Which team is responsible for photos, videos, and reports?",
+      options: ["Logistics team", "Documentation team", "Activity leaders", "Communication team"],
+      correctAnswer: 1,
+      explanation: "The documentation team is responsible for capturing photos, videos, and preparing reports of camp activities."
+    },
+    {
+      question: "What should be done after completing a village camp?",
+      options: ["Forget about it", "Compile feedback and prepare reports", "Never return", "Ignore villagers"],
+      correctAnswer: 1,
+      explanation: "Post-camp activities include compiling feedback, preparing detailed reports, sharing experiences, planning follow-ups, and thanking village leaders."
+    }
+  ];
+
+  const module2Quiz = [
+    {
+      question: "What is the main purpose of village surveys?",
+      options: ["Entertainment", "Identify problems and assess needs", "Waste time", "Tourism"],
+      correctAnswer: 1,
+      explanation: "Village surveys help identify real problems, understand demographics, assess resources, prioritize interventions, and establish baseline data for effective community development."
+    },
+    {
+      question: "Which survey method involves door-to-door questionnaires?",
+      options: ["Focus groups", "Household surveys", "Observation only", "Interviews only"],
+      correctAnswer: 1,
+      explanation: "Household surveys involve door-to-door questionnaires to collect detailed information from individual families about their needs and challenges."
+    },
+    {
+      question: "What is a common rural problem identified through surveys?",
+      options: ["Too much water", "Water scarcity and poor sanitation", "Excessive wealth", "Too many jobs"],
+      correctAnswer: 1,
+      explanation: "Common rural problems include water scarcity, poor sanitation, limited healthcare access, education gaps, unemployment, and agricultural challenges."
+    },
+    {
+      question: "How can problems be addressed through media?",
+      options: ["Ignore them", "Write articles and create awareness campaigns", "Hide information", "Avoid publicity"],
+      correctAnswer: 1,
+      explanation: "Problems can be addressed through media by writing articles, creating social media campaigns, contacting TV/radio stations, and documenting issues through videos."
+    },
+    {
+      question: "Who should be consulted for health-related village problems?",
+      options: ["Only students", "Doctors and health experts", "No one", "Politicians only"],
+      correctAnswer: 1,
+      explanation: "Health-related problems should be addressed by consulting doctors, health professionals, and involving relevant medical experts for proper solutions."
+    }
+  ];
+
+  const module3Quiz = [
+    {
+      question: "What is a key topic in general health awareness?",
+      options: ["Ignoring hygiene", "Personal hygiene and nutrition", "Avoiding doctors", "Skipping meals"],
+      correctAnswer: 1,
+      explanation: "General health awareness covers personal hygiene, nutrition, sanitation, disease prevention, vaccination, and first aid basics."
+    },
+    {
+      question: "Which is a warning sign of mental health issues?",
+      options: ["Regular exercise", "Persistent sadness and withdrawal", "Good sleep", "Healthy eating"],
+      correctAnswer: 1,
+      explanation: "Mental health warning signs include persistent sadness, withdrawal from activities, sleep/appetite changes, difficulty concentrating, and extreme mood swings."
+    },
+    {
+      question: "How is HIV NOT transmitted?",
+      options: ["Blood transfusion", "Hugging and sharing food", "Sexual contact", "Mother to child"],
+      correctAnswer: 1,
+      explanation: "HIV is NOT spread through hugging, shaking hands, sharing food, or mosquito bites. It spreads through blood, sexual contact, and mother-to-child transmission."
+    },
+    {
+      question: "What is an important component of spiritual health?",
+      options: ["Stress and anxiety", "Inner peace and meditation", "Isolation", "Negativity"],
+      correctAnswer: 1,
+      explanation: "Spiritual health components include inner peace through meditation, finding purpose and meaning, values and ethics, community connection, and gratitude practices."
+    },
+    {
+      question: "Who should be invited as resource persons for health programs?",
+      options: ["Only students", "Doctors, psychologists, and nutritionists", "No experts needed", "Random people"],
+      correctAnswer: 1,
+      explanation: "Health programs should involve doctors, nurses, psychologists, counselors, nutritionists, yoga instructors, and social workers as resource persons."
+    }
+  ];
+
+  const module4Quiz = [
+    {
+      question: "What is a fundamental consumer right in India?",
+      options: ["Right to be exploited", "Right to safety and information", "No rights", "Right to overpay"],
+      correctAnswer: 1,
+      explanation: "Consumer rights include right to safety, information, choice, be heard, redressal, and consumer education as per Consumer Protection Act."
+    },
+    {
+      question: "What does MRP stand for?",
+      options: ["Minimum Retail Price", "Maximum Retail Price", "Market Rate Price", "Monthly Rate Price"],
+      correctAnswer: 1,
+      explanation: "MRP stands for Maximum Retail Price - the maximum price at which a product can be sold, including all taxes, and sellers cannot charge above it."
+    },
+    {
+      question: "Which forum handles consumer complaints up to ₹1 crore?",
+      options: ["National Commission", "District Forum", "State Commission", "Supreme Court"],
+      correctAnswer: 1,
+      explanation: "District Forum handles consumer complaints up to ₹1 crore, State Commission handles ₹1-10 crore, and National Commission handles above ₹10 crore."
+    },
+    {
+      question: "What is the National Consumer Helpline number?",
+      options: ["100", "1800-11-4000", "911", "1234"],
+      correctAnswer: 1,
+      explanation: "The National Consumer Helpline number is 1800-11-4000, providing assistance for consumer complaints and grievances."
+    },
+    {
+      question: "What should consumers always ask for when purchasing?",
+      options: ["Nothing", "Bills and receipts", "Discounts only", "Free items"],
+      correctAnswer: 1,
+      explanation: "Consumers should always ask for bills and receipts as proof of purchase, which are essential for warranty claims and filing complaints."
+    }
+  ];
+
+  const module5Quiz = [
+    {
+      question: "What is a benefit of collaborating with NGOs?",
+      options: ["No benefits", "Access to expertise and wider impact", "More problems", "Waste of time"],
+      correctAnswer: 1,
+      explanation: "Collaboration with NGOs provides access to expertise, wider reach, resource sharing, sustainability of initiatives, and learning opportunities for students."
+    },
+    {
+      question: "What document formalizes partnership between NSS and NGOs?",
+      options: ["Verbal agreement", "MoU (Memorandum of Understanding)", "No document needed", "Email only"],
+      correctAnswer: 1,
+      explanation: "An MoU (Memorandum of Understanding) is signed to formalize partnerships, defining roles, responsibilities, and terms of collaboration."
+    },
+    {
+      question: "Which is an example of a collaborative education program?",
+      options: ["Ignoring children", "Remedial classes for underprivileged children", "Closing schools", "No programs"],
+      correctAnswer: 1,
+      explanation: "Collaborative education programs include remedial classes, digital literacy, career guidance, scholarship distribution, and library setup in villages."
+    },
+    {
+      question: "What should be checked when identifying partner organizations?",
+      options: ["Nothing", "Registration, credibility, and track record", "Only name", "Random selection"],
+      correctAnswer: 1,
+      explanation: "When identifying partners, check their registration, credibility, track record, alignment with NSS objectives, and visit their ongoing projects."
+    },
+    {
+      question: "What is essential for sustaining partnerships?",
+      options: ["Ignoring partners", "Regular communication and mutual respect", "No contact", "Competition"],
+      correctAnswer: 1,
+      explanation: "Sustaining partnerships requires regular communication, mutual respect and trust, transparent operations, shared credit, and long-term commitment."
+    }
+  ];
   const renderModule = () => {
     switch (currentModule) {
       case 1:
@@ -20,6 +185,11 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="NSS students in village camp" className="content-image" />
+                <p className="image-caption">NSS volunteers conducting village outreach programs</p>
+              </div>
+              
               <h3>Conducting Village Camps</h3>
               <p>One-day special camps provide opportunities for students to engage directly with rural communities and understand ground realities.</p>
               
@@ -101,6 +271,8 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
               </ul>
             </section>
 
+            <Quiz title="Module 3.1: Village Camp" questions={module1Quiz} subject="NSS" unitId={3} moduleId={1} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Village Survey & Problem Identification →</button>
             </div>
@@ -134,11 +306,11 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="survey-gallery">
                 <div className="survey-image">
-                  <img src="/images/village-survey.jpg" alt="Students conducting village survey" className="survey-photo" />
+                  <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Students conducting village survey" className="survey-photo" />
                   <p>NSS volunteers conducting village survey</p>
                 </div>
                 <div className="survey-image">
-                  <img src="/images/community-interaction.jpg" alt="Community interaction" className="survey-photo" />
+                  <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Community interaction" className="survey-photo" />
                   <p>Interacting with village community</p>
                 </div>
               </div>
@@ -149,7 +321,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                   <iframe 
                     width="560" 
                     height="315" 
-                    src="https://www.youtube.com/embed/kQX4VHrxBps" 
+                    src="https://www.youtube.com/embed/0aoParwdiHo?si=CpYBEpQjUB2VAmC9"
                     title="NSS Village Development Activities"
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -270,6 +442,8 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
               </ul>
             </section>
 
+            <Quiz title="Module 3.2: Village Survey" questions={module2Quiz} subject="NSS" unitId={3} moduleId={2} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Village Camp</button>
               <button onClick={() => setCurrentModule(3)} className="next-module-btn">Health Awareness Programs →</button>
@@ -316,11 +490,11 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="health-gallery">
                 <div className="health-image">
-                  <img src="/images/health-checkup-camp.jpg" alt="Health checkup camp" className="health-photo" />
+                  <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Health checkup camp" className="health-photo" />
                   <p>Free health checkup camp in village</p>
                 </div>
                 <div className="health-image">
-                  <img src="/images/hygiene-demonstration.jpg" alt="Hygiene demonstration" className="health-photo" />
+                  <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hygiene demonstration" className="health-photo" />
                   <p>Handwashing demonstration</p>
                 </div>
               </div>
@@ -331,7 +505,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                   <iframe 
                     width="560" 
                     height="315" 
-                    src="https://www.youtube.com/embed/3QIfkeA6HBY" 
+                    src="https://www.youtube.com/embed/GfCWUX9gnDc?si=N3i6EiNWFNGOITQb"
                     title="Mental Health Awareness for Students"
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -443,6 +617,8 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 <li>NGO representatives</li>
               </ul>
             </section>
+
+            <Quiz title="Module 3.3: Health Awareness" questions={module3Quiz} subject="NSS" unitId={3} moduleId={3} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Village Survey</button>
@@ -582,6 +758,8 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 <li>Report fraudulent websites</li>
               </ul>
             </section>
+
+            <Quiz title="Module 3.4: Consumer Awareness" questions={module4Quiz} subject="NSS" unitId={3} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Health Awareness</button>
@@ -752,6 +930,8 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
                 <li>Plan for future collaboration</li>
               </ul>
             </section>
+
+            <Quiz title="Module 3.5: NGO Collaboration" questions={module5Quiz} subject="NSS" unitId={3} moduleId={5} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>

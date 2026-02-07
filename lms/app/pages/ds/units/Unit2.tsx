@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Quiz from '../components/Quiz';
 
 interface Unit2Props {
   currentModule: number;
@@ -8,6 +9,172 @@ interface Unit2Props {
 }
 
 const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }) => {
+  
+  const module1Quiz = [
+    {
+      question: "What is the main advantage of a singly linked list over an array?",
+      options: ["Random access", "Dynamic size", "Cache locality", "Less memory usage"],
+      correctAnswer: 1,
+      explanation: "Singly linked lists have dynamic size and can grow/shrink at runtime without predetermined size limitations, unlike arrays which have fixed size."
+    },
+    {
+      question: "What is the time complexity of inserting a node at the beginning of a singly linked list?",
+      options: ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+      correctAnswer: 0,
+      explanation: "Inserting at the beginning requires only updating the head pointer and the new node's next pointer, which is O(1) constant time."
+    },
+    {
+      question: "What does the 'next' pointer of the last node in a singly linked list point to?",
+      options: ["First node", "NULL", "Previous node", "Itself"],
+      correctAnswer: 1,
+      explanation: "In a singly linked list, the last node's next pointer points to NULL to indicate the end of the list."
+    },
+    {
+      question: "What is the time complexity of deleting a node from the end of a singly linked list?",
+      options: ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+      correctAnswer: 1,
+      explanation: "Deleting from the end requires traversing to the second-to-last node, which takes O(n) time in a singly linked list."
+    },
+    {
+      question: "Which operation is more efficient in a linked list compared to an array?",
+      options: ["Random access", "Insertion at beginning", "Binary search", "Cache performance"],
+      correctAnswer: 1,
+      explanation: "Insertion at the beginning is O(1) in linked lists but O(n) in arrays due to shifting elements. Arrays are better for random access and cache performance."
+    }
+  ];
+
+  const module2Quiz = [
+    {
+      question: "In a linked list implementation of a stack, where should push and pop operations occur?",
+      options: ["At the tail", "At the head", "In the middle", "At random positions"],
+      correctAnswer: 1,
+      explanation: "Push and pop operations should occur at the head for O(1) time complexity, as accessing the head is immediate in a linked list."
+    },
+    {
+      question: "What is the main advantage of implementing a queue using a linked list?",
+      options: ["Fixed size", "No size limitations", "Faster access", "Less memory"],
+      correctAnswer: 1,
+      explanation: "Linked list implementation eliminates the fixed size limitation of array-based queues, allowing dynamic growth as needed."
+    },
+    {
+      question: "For efficient queue operations, what pointers should be maintained?",
+      options: ["Only head", "Only tail", "Both head and tail", "Head, tail, and middle"],
+      correctAnswer: 2,
+      explanation: "Maintaining both head and tail pointers allows O(1) enqueue (at tail) and dequeue (at head) operations."
+    },
+    {
+      question: "What is the time complexity of push operation in a linked list-based stack?",
+      options: ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+      correctAnswer: 0,
+      explanation: "Push operation at the head of a linked list is O(1) as it only involves creating a new node and updating the head pointer."
+    },
+    {
+      question: "Which data structure benefits most from linked list implementation?",
+      options: ["Array", "Stack with unknown size", "Binary search", "Sorting algorithms"],
+      correctAnswer: 1,
+      explanation: "Stacks with unknown or varying sizes benefit most from linked list implementation due to dynamic memory allocation."
+    }
+  ];
+
+  const module3Quiz = [
+    {
+      question: "What is the main advantage of a doubly linked list over a singly linked list?",
+      options: ["Less memory", "Bidirectional traversal", "Faster insertion", "Simpler implementation"],
+      correctAnswer: 1,
+      explanation: "Doubly linked lists allow bidirectional traversal (forward and backward) through both next and previous pointers."
+    },
+    {
+      question: "In a circular linked list, what does the last node's next pointer point to?",
+      options: ["NULL", "First node", "Previous node", "Itself"],
+      correctAnswer: 1,
+      explanation: "In a circular linked list, the last node's next pointer points back to the first node, creating a circular structure."
+    },
+    {
+      question: "What is the time complexity of deleting a given node in a doubly linked list?",
+      options: ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+      correctAnswer: 0,
+      explanation: "With a reference to the node, deletion in a doubly linked list is O(1) as we can directly access both previous and next nodes."
+    },
+    {
+      question: "Which problem is best solved using a circular linked list?",
+      options: ["Binary search", "Josephus problem", "Sorting", "Matrix multiplication"],
+      correctAnswer: 1,
+      explanation: "The Josephus problem (eliminating every k-th person in a circle) is naturally solved using a circular linked list."
+    },
+    {
+      question: "What is the memory overhead of a doubly linked list compared to a singly linked list?",
+      options: ["Same", "One extra pointer per node", "Two extra pointers per node", "Half the memory"],
+      correctAnswer: 1,
+      explanation: "Doubly linked lists require one additional pointer (previous) per node compared to singly linked lists, increasing memory by approximately 33%."
+    }
+  ];
+
+  const module4Quiz = [
+    {
+      question: "Which data structure uses linked lists for collision resolution?",
+      options: ["Array", "Hash table with chaining", "Binary tree", "Heap"],
+      correctAnswer: 1,
+      explanation: "Hash tables use linked lists in separate chaining method to handle collisions where multiple keys hash to the same bucket."
+    },
+    {
+      question: "How are adjacency lists in graphs typically implemented?",
+      options: ["Using arrays only", "Using linked lists", "Using matrices", "Using stacks"],
+      correctAnswer: 1,
+      explanation: "Adjacency lists use linked lists to store neighbors of each vertex, providing space-efficient graph representation."
+    },
+    {
+      question: "Which application uses doubly linked lists for efficient operations?",
+      options: ["Stack", "Queue", "LRU Cache", "Binary search"],
+      correctAnswer: 2,
+      explanation: "LRU (Least Recently Used) Cache uses doubly linked lists for O(1) insertion, deletion, and moving elements to maintain access order."
+    },
+    {
+      question: "What is the primary use of linked lists in operating systems?",
+      options: ["File storage", "Process scheduling", "Memory allocation", "All of the above"],
+      correctAnswer: 3,
+      explanation: "Operating systems use linked lists for process scheduling queues, memory management (free block lists), and file system structures."
+    },
+    {
+      question: "How are polynomials efficiently represented using linked lists?",
+      options: ["Store all coefficients", "Store only non-zero terms", "Store only exponents", "Store in array"],
+      correctAnswer: 1,
+      explanation: "Linked lists efficiently represent sparse polynomials by storing only non-zero terms with their coefficients and exponents."
+    }
+  ];
+
+  const module5Quiz = [
+    {
+      question: "What is the best approach to reverse a singly linked list?",
+      options: ["Use recursion", "Use iteration with three pointers", "Use a stack", "All of the above"],
+      correctAnswer: 3,
+      explanation: "All three approaches work: recursion uses call stack, iteration uses three pointers (prev, curr, next), and explicit stack stores nodes."
+    },
+    {
+      question: "What is the time complexity of removing duplicates from an unsorted linked list using a hash table?",
+      options: ["O(1)", "O(n)", "O(n²)", "O(n log n)"],
+      correctAnswer: 1,
+      explanation: "Using a hash table to track seen values allows O(n) time complexity for duplicate removal with single traversal."
+    },
+    {
+      question: "In a priority queue implemented with a linked list, where should insertion occur?",
+      options: ["Always at head", "Always at tail", "Based on priority", "Random position"],
+      correctAnswer: 2,
+      explanation: "Elements are inserted based on priority to maintain sorted order, ensuring highest priority element is always accessible."
+    },
+    {
+      question: "What is the space complexity of displaying a linked list in reverse using recursion?",
+      options: ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+      correctAnswer: 1,
+      explanation: "Recursive approach uses O(n) space on the call stack as each node requires a recursive call until the end is reached."
+    },
+    {
+      question: "Which algorithm is most efficient for detecting a cycle in a linked list?",
+      options: ["Brute force", "Floyd's cycle detection", "Using hash table", "Sorting"],
+      correctAnswer: 1,
+      explanation: "Floyd's cycle detection (tortoise and hare) uses two pointers at different speeds with O(n) time and O(1) space complexity."
+    }
+  ];
+  
   const renderModule = () => {
     switch (currentModule) {
       case 1:
@@ -36,17 +203,17 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               
               <div className="media-gallery">
                 <div className="movie-card">
-                  <img src="/images/singly-linked-list.jpg" alt="Singly Linked List" className="movie-poster" />
+                  <img src="https://cdn.programiz.com/sites/tutorial2program/files/linked-list-concept_0.png" alt="Singly Linked List" className="movie-poster" />
                   <h6>Singly Linked List</h6>
                   <p>Basic structure with nodes and pointers</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/linked-list-operations.jpg" alt="Linked List Operations" className="movie-poster" />
+                  <img src="https://cdn.programiz.com/sites/tutorial2program/files/linked-list-with-data.png" alt="Linked List Operations" className="movie-poster" />
                   <h6>List Operations</h6>
                   <p>Insertion, deletion, and traversal</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/memory-allocation.jpg" alt="Memory Allocation" className="movie-poster" />
+                  <img src="data:image/png;base64,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" alt="Memory Allocation" className="movie-poster" />
                   <h6>Memory Management</h6>
                   <p>Dynamic allocation and deallocation</p>
                 </div>
@@ -162,6 +329,8 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <Quiz title="Module 2.1 Quiz: Singly Linked Lists" questions={module1Quiz} subject="DS" unitId={2} moduleId={1} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Stack & Queue Implementation →</button>
             </div>
@@ -193,17 +362,17 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               
               <div className="media-gallery">
                 <div className="movie-card">
-                  <img src="/images/stack-linked-list.jpg" alt="Stack using Linked List" className="movie-poster" />
+                  <img src="https://cdn.programiz.com/sites/tutorial2program/files/stack.png" alt="Stack using Linked List" className="movie-poster" />
                   <h6>Stack Implementation</h6>
                   <p>LIFO operations with linked nodes</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/queue-linked-list.jpg" alt="Queue using Linked List" className="movie-poster" />
+                  <img src="https://cdn.programiz.com/sites/tutorial2program/files/queue.png" alt="Queue using Linked List" className="movie-poster" />
                   <h6>Queue Implementation</h6>
                   <p>FIFO operations with head/tail pointers</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/dynamic-memory.jpg" alt="Dynamic Memory Management" className="movie-poster" />
+                  <img src="data:image/png;base64,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" alt="Dynamic Memory Management" className="movie-poster" />
                   <h6>Memory Management</h6>
                   <p>Runtime allocation and deallocation</p>
                 </div>
@@ -321,6 +490,8 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <Quiz title="Module 2.2 Quiz: Stack & Queue Implementation" questions={module2Quiz} subject="DS" unitId={2} moduleId={2} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Singly Linked Lists</button>
               <button onClick={() => setCurrentModule(3)} className="next-module-btn">Doubly & Circular Lists →</button>
@@ -355,17 +526,17 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               
               <div className="media-gallery">
                 <div className="movie-card">
-                  <img src="/images/doubly-linked-list.jpg" alt="Doubly Linked List" className="movie-poster" />
+                  <img src="https://cdn.programiz.com/sites/tutorial2program/files/doubly-linked-list-concept.png" alt="Doubly Linked List" className="movie-poster" />
                   <h6>Doubly Linked List</h6>
                   <p>Bidirectional navigation structure</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/circular-linked-list.jpg" alt="Circular Linked List" className="movie-poster" />
+                  <img src="https://cdn.programiz.com/sites/tutorial2program/files/circular-linked-list.png" alt="Circular Linked List" className="movie-poster" />
                   <h6>Circular Linked List</h6>
                   <p>Continuous loop architecture</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/doubly-circular-list.jpg" alt="Doubly Circular List" className="movie-poster" />
+                  <img src="https://cdn.programiz.com/sites/tutorial2program/files/doubly-linked-list-concept.png" alt="Doubly Circular List" className="movie-poster" />
                   <h6>Doubly Circular List</h6>
                   <p>Advanced hybrid structure</p>
                 </div>
@@ -526,6 +697,8 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <Quiz title="Module 2.3 Quiz: Doubly & Circular Lists" questions={module3Quiz} subject="DS" unitId={2} moduleId={3} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Stack & Queue Implementation</button>
               <button onClick={() => setCurrentModule(4)} className="next-module-btn">Applications →</button>
@@ -560,17 +733,17 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               
               <div className="media-gallery">
                 <div className="movie-card">
-                  <img src="/images/linked-list-applications.jpg" alt="Linked List Applications" className="movie-poster" />
+                  <img src="https://cdn.programiz.com/sites/tutorial2program/files/linked-list-concept_0.png" alt="Linked List Applications" className="movie-poster" />
                   <h6>System Applications</h6>
                   <p>OS, compilers, and system software</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/data-structure-apps.jpg" alt="Data Structure Applications" className="movie-poster" />
+                  <img src="https://cdn.programiz.com/sites/tutorial2program/files/linked-list-with-data.png" alt="Data Structure Applications" className="movie-poster" />
                   <h6>Algorithm Implementation</h6>
                   <p>Hash tables, graphs, and trees</p>
                 </div>
                 <div className="movie-card">
-                  <img src="/images/real-world-linked-lists.jpg" alt="Real World Applications" className="movie-poster" />
+                  <img src="https://cdn.programiz.com/sites/tutorial2program/files/stack.png" alt="Real World Applications" className="movie-poster" />
                   <h6>Real-World Usage</h6>
                   <p>Software applications and systems</p>
                 </div>
@@ -739,6 +912,8 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <Quiz title="Module 2.4 Quiz: Linked List Applications" questions={module4Quiz} subject="DS" unitId={2} moduleId={4} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Doubly & Circular Lists</button>
               <button onClick={() => setCurrentModule(5)} className="next-module-btn">Practical Experiments →</button>
@@ -862,6 +1037,8 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
                 ></iframe>
               </div>
             </section>
+
+            <Quiz title="Module 2.5 Quiz: Practical Experiments" questions={module5Quiz} subject="DS" unitId={2} moduleId={5} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Applications</button>

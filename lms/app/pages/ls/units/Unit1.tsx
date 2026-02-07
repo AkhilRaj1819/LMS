@@ -428,7 +428,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               </ul>
             </section>
 
-            <Quiz title="Module 1.1 Quiz: Overview of Linguistics" questions={module1Quiz} />
+            <Quiz title="Module 1.1 Quiz: Overview of Linguistics" questions={module1Quiz} subject="LS" unitId={1} moduleId={1} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -463,7 +463,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <p><strong>Think of it this way:</strong> When you say "pat" and "bat", your mouth does almost the same thing. The only difference? Your vocal cords vibrate for "b" but not for "p". Try it - put your hand on your throat and feel the difference!</p>
               
              
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/ugppjNn8uIE?si=kTCEuvmkZnpyclin" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen 
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ugppjNn8uIE?si=kTCEuvmkZnpyclin" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen 
              style={{width: '550px', height: '325px'}}></iframe>
 
               <h4>Three Ways to Study Speech Sounds</h4>
@@ -675,11 +675,12 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
 
               
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/2pxrDWjEBoE?si=LnLs5_dL82hCKELO" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style={{width: '550px', height: '325px'}}></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2pxrDWjEBoE?si=LnLs5_dL82hCKELO" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerP
+                olicy="strict-origin-when-cross-origin" allowFullScreen style={{width: '550px', height: '325px'}}></iframe>
             
             </section>
 
-            <Quiz title="Module 1.2 Quiz: Phonetics" questions={module2Quiz} />
+            <Quiz title="Module 1.2 Quiz: Phonetics" questions={module2Quiz} subject="LS" unitId={1} moduleId={2} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -712,7 +713,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Phonology is the study of sound systems in languages, examining how sounds function and pattern within particular linguistic systems. Unlike phonetics (which studies physical sounds), phonology studies abstract sound patterns.</p>
               
            
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/imH7hdOgxrU?si=JaT_sZx0WLvZdIdz" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/imH7hdOgxrU?si=JaT_sZx0WLvZdIdz" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
                   style={{width: '550px', height: '325px'}}
                 ></iframe>
           
@@ -934,7 +935,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 1.3 Quiz: Phonology" questions={module3Quiz} />
+            <Quiz title="Module 1.3 Quiz: Phonology" questions={module3Quiz} subject="LS" unitId={1} moduleId={3} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -967,7 +968,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Morphology is the study of word structure and the rules governing word formation in languages. It examines how morphemes (smallest meaningful units) combine to create words.</p>
               
              
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/93sK4jTGrss?si=7KPZLNEzyPsKZT7I" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/93sK4jTGrss?si=7KPZLNEzyPsKZT7I" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
                   style={{width: '550px', height: '325px'}}
                 ></iframe>
               
@@ -1207,7 +1208,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 1.4 Quiz: Morphology" questions={module4Quiz} />
+            <Quiz title="Module 1.4 Quiz: Morphology" questions={module4Quiz} subject="LS" unitId={1} moduleId={4} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -1220,9 +1221,34 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Phonology</button>
+              <button onClick={() => setCurrentModule(5)} className="next-module-btn">Unit 1 Quiz →</button>
             </div>
+          </div>
+        );
 
-            <Quiz title="Unit 1 Comprehensive Quiz" questions={unitQuiz} passingScore={75} />
+      case 5:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">1.5</div>
+              <div className="lesson-title-main">
+                <h1>Unit 1 Comprehensive Assessment</h1>
+              </div>
+            </div>
+            
+            <section className="content-section">
+              <h3>Test Your Knowledge of Unit 1</h3>
+              <p>This comprehensive quiz covers all topics from Unit 1: Introduction to Linguistics. It includes questions from:</p>
+              <ul>
+                <li><strong>Module 1.1:</strong> Overview of Linguistics and its Sub-fields</li>
+                <li><strong>Module 1.2:</strong> Phonetics</li>
+                <li><strong>Module 1.3:</strong> Phonology</li>
+                <li><strong>Module 1.4:</strong> Morphology</li>
+              </ul>
+              <p>Take your time and demonstrate your understanding of the fundamental concepts in linguistics!</p>
+            </section>
+
+            <Quiz title="Unit 1 Comprehensive Quiz" questions={unitQuiz} passingScore={75} subject="LS" unitId={1} moduleId={5} />
 
             <div className="reference-section">
               <h3>Unit 1 Complete - Additional Resources</h3>
@@ -1232,6 +1258,11 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                 <li><a href="https://ocw.mit.edu/courses/linguistics-and-philosophy/" target="_blank" rel="noopener noreferrer">MIT OpenCourseWare - Linguistics</a></li>
                 <li><a href="https://www.youtube.com/c/LingSpace" target="_blank" rel="noopener noreferrer">The Ling Space - YouTube Channel</a></li>
               </ul>
+            </div>
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Morphology</button>
+              <button onClick={onBack} className="next-module-btn">Back to Overview →</button>
             </div>
           </div>
         );
@@ -1245,3 +1276,5 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
 };
 
 export default Unit1;
+
+

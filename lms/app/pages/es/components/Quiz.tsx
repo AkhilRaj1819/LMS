@@ -1,5 +1,6 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 
 interface Question {
   question: string;
@@ -11,13 +12,72 @@ interface Question {
 interface QuizProps {
   title: string;
   questions: Question[];
+  subject: string;
+  unitId: number;
+  moduleId: number;
 }
 
-const Quiz: React.FC<QuizProps> = ({ title, questions }) => {
+const Quiz: React.FC<QuizProps> = ({ title, questions, subject, unitId, moduleId }) => {
+  const { data: session } = useSession();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<number[]>(new Array(questions.length).fill(-1));
   const [showResults, setShowResults] = useState(false);
   const [score, setScore] = useState(0);
+  const [previousScore, setPreviousScore] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (session) {
+      fetchProgress();
+    } else if (session === null) {
+      setLoading(false);
+    }
+  }, [session]);
+
+  const fetchProgress = async () => {
+    if (!session?.user?.email) return;
+    try {
+      const res = await fetch(`/api/progress?userEmail=${session.user.email}&subject=${subject}`);
+      const data = await res.json();
+      if (data.success) {
+        const progress = data.data.find((p: any) => p.unitId === unitId && p.moduleId === moduleId);
+        if (progress) {
+          setPreviousScore(progress.score);
+        }
+      }
+    } catch (error) {
+      console.error('Failed to fetch progress');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const saveProgress = async (finalScore: number) => {
+    if (!session?.user?.email) return;
+    try {
+      console.log('Saving progress:', { userEmail: session.user.email, subject, unitId, moduleId, score: finalScore });
+      const response = await fetch('/api/progress', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userEmail: session.user.email,
+          subject,
+          unitId,
+          moduleId,
+          score: finalScore,
+          totalQuestions: questions.length,
+          completed: finalScore >= Math.ceil(questions.length * 0.6)
+        })
+      });
+      const data = await response.json();
+      console.log('Save response:', data);
+      if (response.ok && data.success) {
+        setPreviousScore(finalScore);
+      }
+    } catch (error) {
+      console.error('Failed to save progress:', error);
+    }
+  };
 
   const handleAnswerSelect = (answerIndex: number) => {
     const newAnswers = [...selectedAnswers];
@@ -37,7 +97,7 @@ const Quiz: React.FC<QuizProps> = ({ title, questions }) => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     let correctCount = 0;
     selectedAnswers.forEach((answer, index) => {
       if (answer === questions[index].correctAnswer) {
@@ -45,6 +105,7 @@ const Quiz: React.FC<QuizProps> = ({ title, questions }) => {
       }
     });
     setScore(correctCount);
+    await saveProgress(correctCount);
     setShowResults(true);
   };
 
@@ -83,12 +144,12 @@ const Quiz: React.FC<QuizProps> = ({ title, questions }) => {
                 <h3>It's Quiz Time</h3>
               </div>
               <div className="quiz-best-score">
-                <div className="score-label">Best Score</div>
+                <div className="score-label">{previousScore !== null ? 'Your Score' : 'Score'}</div>
                 <div className="score-value">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 1L10 5.5L15 6L11.5 9.5L12.5 14.5L8 12L3.5 14.5L4.5 9.5L1 6L6 5.5L8 1Z" fill="#FFB300"/>
                   </svg>
-                  <span>{score}/{questions.length}</span>
+                  <span>{score}/{questions.length} ({Math.round((score/questions.length)*100)}%)</span>
                 </div>
               </div>
             </div>
@@ -113,14 +174,13 @@ const Quiz: React.FC<QuizProps> = ({ title, questions }) => {
                 <span>60m</span>
               </div>
             </div>
+            {previousScore !== null && previousScore !== score && (
+              <div className="previous-score-info">
+                <span>Previous Score: {previousScore}/{questions.length} ({Math.round((previousScore/questions.length)*100)}%)</span>
+              </div>
+            )}
             <button className="quiz-retake-button" onClick={handleRetake}>
               Retake Quiz
-            </button>
-            <button className="quiz-show-attempts">
-              Show Previous Attempts
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 5L6 8L9 5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
             </button>
           </div>
         </div>
@@ -128,9 +188,18 @@ const Quiz: React.FC<QuizProps> = ({ title, questions }) => {
     );
   }
 
+  if (loading) {
+    return <div className="quiz-container">Loading...</div>;
+  }
+
   return (
     <div className="quiz-container">
       <h3>{title}</h3>
+      {previousScore !== null && !showResults && (
+        <div className="previous-attempt-badge">
+          Previous: {previousScore}/{questions.length} ({Math.round((previousScore/questions.length)*100)}%)
+        </div>
+      )}
       <div className="quiz-progress">
         Question {currentQuestion + 1} of {questions.length}
       </div>

@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Quiz from '../components/Quiz';
 
 interface Unit4Props {
   currentModule: number;
@@ -7,6 +8,170 @@ interface Unit4Props {
 }
 
 const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
+  const module1Quiz = [
+    {
+      question: "What is a key component of sustainable living?",
+      options: ["Wasting resources", "Energy conservation and water conservation", "Ignoring environment", "Using more plastics"],
+      correctAnswer: 1,
+      explanation: "Sustainable living involves energy conservation (solar panels, LED lights), water conservation (rainwater harvesting), waste reduction, and sustainable food practices."
+    },
+    {
+      question: "Which lighting option is most energy-efficient?",
+      options: ["Incandescent bulbs", "LED bulbs", "Halogen lights", "Fluorescent tubes"],
+      correctAnswer: 1,
+      explanation: "LED bulbs are the most energy-efficient lighting option, consuming significantly less electricity and lasting longer than traditional bulbs."
+    },
+    {
+      question: "What is composting?",
+      options: ["Burning waste", "Converting organic waste to fertilizer", "Throwing waste anywhere", "Burying plastic"],
+      correctAnswer: 1,
+      explanation: "Composting is the process of converting organic waste (food scraps, garden waste) into nutrient-rich fertilizer for plants."
+    },
+    {
+      question: "Which is a sustainable transportation option?",
+      options: ["Driving alone daily", "Using public transport or cycling", "Wasting fuel", "Never maintaining vehicle"],
+      correctAnswer: 1,
+      explanation: "Sustainable transportation includes using public transport, carpooling, cycling, walking, or electric vehicles to reduce carbon emissions."
+    },
+    {
+      question: "What is a benefit of sustainable living?",
+      options: ["Increases pollution", "Reduces environmental impact and saves money", "Wastes resources", "Harms health"],
+      correctAnswer: 1,
+      explanation: "Sustainable living reduces environmental pollution, saves money on utilities, improves health, preserves resources, and creates positive community impact."
+    }
+  ];
+
+  const module2Quiz = [
+    {
+      question: "Why is regular vehicle maintenance important?",
+      options: ["Waste money", "Ensures safety and reduces emissions", "Damages vehicle", "No benefits"],
+      correctAnswer: 1,
+      explanation: "Regular vehicle maintenance ensures safety, reduces emissions, improves fuel efficiency, extends vehicle life, and prevents costly repairs."
+    },
+    {
+      question: "How often should tire pressure be checked?",
+      options: ["Never", "Weekly", "Yearly", "Only when flat"],
+      correctAnswer: 1,
+      explanation: "Tire pressure should be checked weekly to ensure safety, improve fuel efficiency, and extend tire life. Maintain recommended PSI levels."
+    },
+    {
+      question: "What does PUC certificate stand for?",
+      options: ["Public Use Certificate", "Pollution Under Control", "Personal Use Card", "Private User Certificate"],
+      correctAnswer: 1,
+      explanation: "PUC stands for Pollution Under Control certificate, which certifies that a vehicle's emissions are within permissible limits."
+    },
+    {
+      question: "Which practice improves fuel efficiency?",
+      options: ["Sudden acceleration", "Maintaining steady speed", "Overloading vehicle", "Ignoring maintenance"],
+      correctAnswer: 1,
+      explanation: "Maintaining steady speed, avoiding sudden acceleration, removing unnecessary weight, and regular maintenance improve fuel efficiency."
+    },
+    {
+      question: "What should be checked in the brake system?",
+      options: ["Nothing", "Brake pads, fluid, and lines", "Only color", "Just sound"],
+      correctAnswer: 1,
+      explanation: "Brake system maintenance includes checking brake pads for wear, maintaining proper brake fluid levels, inspecting brake lines for leaks, and testing functionality."
+    }
+  ];
+
+  const module3Quiz = [
+    {
+      question: "What is the primary goal of road safety campaigns?",
+      options: ["Increase accidents", "Raise awareness and promote safe practices", "Sell vehicles", "Create traffic"],
+      correctAnswer: 1,
+      explanation: "Road safety campaigns aim to raise awareness about traffic rules, promote safe driving practices, and reduce accidents through education."
+    },
+    {
+      question: "Which safety equipment is mandatory for two-wheeler riders?",
+      options: ["Sunglasses", "Helmet", "Gloves only", "Nothing"],
+      correctAnswer: 1,
+      explanation: "Helmets are mandatory safety equipment for two-wheeler riders, protecting against head injuries in accidents."
+    },
+    {
+      question: "What is the first action in earthquake safety?",
+      options: ["Run outside", "Drop, cover, and hold on", "Use elevator", "Stand near windows"],
+      correctAnswer: 1,
+      explanation: "During an earthquake, the correct action is to Drop (to hands and knees), Cover (head and neck under sturdy furniture), and Hold on until shaking stops."
+    },
+    {
+      question: "Which is a fire safety practice?",
+      options: ["Overload electrical outlets", "Keep fire extinguishers and know evacuation routes", "Block exits", "Ignore smoke detectors"],
+      correctAnswer: 1,
+      explanation: "Fire safety includes keeping fire extinguishers accessible, knowing evacuation routes, installing smoke detectors, and avoiding electrical overload."
+    },
+    {
+      question: "What should be avoided while driving?",
+      options: ["Wearing seat belt", "Texting and drunk driving", "Following traffic rules", "Using mirrors"],
+      correctAnswer: 1,
+      explanation: "Texting while driving and drunk driving are extremely dangerous and should be strictly avoided to prevent accidents."
+    }
+  ];
+
+  const module4Quiz = [
+    {
+      question: "What is the purpose of tree plantation drives?",
+      options: ["Deforestation", "Environmental conservation and air purification", "Waste land", "Create pollution"],
+      correctAnswer: 1,
+      explanation: "Tree plantation drives promote environmental conservation, improve air quality, reduce urban heat, enhance biodiversity, and combat climate change."
+    },
+    {
+      question: "Which tree is known for high oxygen production?",
+      options: ["Plastic tree", "Peepal tree", "Dead tree", "Artificial tree"],
+      correctAnswer: 1,
+      explanation: "Peepal tree is known for high oxygen production and provides excellent shade, making it ideal for plantation drives."
+    },
+    {
+      question: "What size pit should be dug for tree plantation?",
+      options: ["1x1x1 feet", "2x2x2 feet", "No pit needed", "10x10x10 feet"],
+      correctAnswer: 1,
+      explanation: "A pit of 2x2x2 feet should be dug for tree plantation to provide adequate space for root growth and proper establishment."
+    },
+    {
+      question: "What is a green campus initiative?",
+      options: ["Increase plastic use", "Plastic-free campus and energy saving", "Waste water", "Cut all trees"],
+      correctAnswer: 1,
+      explanation: "Green campus initiatives include plastic-free policies, paper conservation, energy saving with LEDs/solar, water conservation, and waste segregation."
+    },
+    {
+      question: "What is vertical gardening?",
+      options: ["Underground farming", "Wall-mounted planters for space efficiency", "Cutting trees", "Wasting space"],
+      correctAnswer: 1,
+      explanation: "Vertical gardening uses wall-mounted planters to grow plants efficiently in limited space, ideal for urban areas."
+    }
+  ];
+
+  const module5Quiz = [
+    {
+      question: "What is the main objective of clean campus programs?",
+      options: ["Create mess", "Maintain cleanliness and promote hygiene", "Waste resources", "Ignore cleanliness"],
+      correctAnswer: 1,
+      explanation: "Clean campus programs aim to maintain cleanliness and hygiene, develop responsibility, reduce waste, promote sustainability, and create a healthy environment."
+    },
+    {
+      question: "How should waste be managed on campus?",
+      options: ["Mix all waste", "Segregate into wet, dry, and hazardous", "Throw anywhere", "Burn everything"],
+      correctAnswer: 1,
+      explanation: "Proper waste management requires segregation into wet (organic), dry (recyclable), and hazardous waste using separate bins for proper disposal."
+    },
+    {
+      question: "What is Swachh Bharat Mission?",
+      options: ["Pollution campaign", "National cleanliness campaign", "Waste creation", "Littering program"],
+      correctAnswer: 1,
+      explanation: "Swachh Bharat Mission is India's national cleanliness campaign promoting toilet usage, hygiene, solid waste management, and behavioral change."
+    },
+    {
+      question: "What is Shramdaan?",
+      options: ["Paid work", "Voluntary labor for cleaning", "Avoiding work", "Creating waste"],
+      correctAnswer: 1,
+      explanation: "Shramdaan means voluntary labor or contribution, where people voluntarily participate in cleaning and community service activities."
+    },
+    {
+      question: "What should be used for eco-friendly cleaning?",
+      options: ["Harmful chemicals", "Natural products like vinegar and baking soda", "Toxic substances", "Polluting agents"],
+      correctAnswer: 1,
+      explanation: "Eco-friendly cleaning uses natural products like vinegar, baking soda, and natural disinfectants instead of harmful chemicals."
+    }
+  ];
   const renderModule = () => {
     switch (currentModule) {
       case 1:
@@ -20,6 +185,11 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
+              <div className="module-image">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sustainable living practices" className="content-image" />
+                <p className="image-caption">Eco-friendly approaches for sustainable living</p>
+              </div>
+              
               <h3>Virtual Demonstration of Eco-Friendly Approaches</h3>
               <p>Sustainable living involves adopting practices that reduce environmental impact and promote ecological balance.</p>
               
@@ -27,11 +197,11 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               
               <div className="eco-gallery">
                 <div className="eco-image">
-                  <img src="/images/solar-panels.jpg" alt="Solar panel installation" className="eco-photo" />
+                  <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Solar panel installation" className="eco-photo" />
                   <p>Solar energy for sustainable living</p>
                 </div>
                 <div className="eco-image">
-                  <img src="/images/vertical-garden.jpg" alt="Vertical garden" className="eco-photo" />
+                  <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Vertical garden" className="eco-photo" />
                   <p>Space-efficient vertical gardening</p>
                 </div>
               </div>
@@ -42,7 +212,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
                   <iframe 
                     width="560" 
                     height="315" 
-                    src="https://www.youtube.com/embed/jqxENMKaeCU" 
+                    src="https://www.youtube.com/embed/WMrpByDbHZE?si=CalOc6HND_0cnvXL" 
                     title="Sustainable Living Tips and Practices"
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -137,6 +307,8 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
                 <li>Creates positive community impact</li>
               </ul>
             </section>
+
+            <Quiz title="Module 4.1: Sustainable Living" questions={module1Quiz} subject="NSS" unitId={4} moduleId={1} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Vehicle Maintenance →</button>
@@ -259,6 +431,8 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
                 <li>Distribute maintenance guides</li>
               </ul>
             </section>
+
+            <Quiz title="Module 4.2: Vehicle Maintenance" questions={module2Quiz} subject="NSS" unitId={4} moduleId={2} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Eco-Friendly Approaches</button>
@@ -393,6 +567,8 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               </ul>
             </section>
 
+            <Quiz title="Module 4.3: Safety Campaigns" questions={module3Quiz} subject="NSS" unitId={4} moduleId={3} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Vehicle Maintenance</button>
               <button onClick={() => setCurrentModule(4)} className="next-module-btn">Go Green Activities →</button>
@@ -414,18 +590,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               <h3>Go Green Initiatives</h3>
               <p>Go Green activities promote environmental conservation and encourage sustainable practices in communities.</p>
               
-              <h4>Tree Plantation Drive Photos:</h4>
-              
-              <div className="plantation-gallery">
-                <div className="plantation-image">
-                  <img src="/images/tree-plantation-drive.jpg" alt="Tree plantation activity" className="plantation-photo" />
-                  <p>NSS students planting trees</p>
-                </div>
-                <div className="plantation-image">
-                  <img src="/images/sapling-care.jpg" alt="Sapling care" className="plantation-photo" />
-                  <p>Caring for newly planted saplings</p>
-                </div>
-              </div>
+           
               
               <div className="video-section">
                 <h6>How to Plant Trees Properly</h6>
@@ -433,7 +598,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
                   <iframe 
                     width="560" 
                     height="315" 
-                    src="https://www.youtube.com/embed/tJnWo5Jx3pU" 
+                    src="https://www.youtube.com/embed/-k6j8lqQgTk?si=5eEwf0nr4QREwztf"
                     title="Tree Plantation Guide - Step by Step"
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -556,6 +721,8 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
                 <li>Creates environmental awareness</li>
               </ul>
             </section>
+
+            <Quiz title="Module 4.4: Go Green Activities" questions={module4Quiz} subject="NSS" unitId={4} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Safety Campaign</button>
@@ -709,6 +876,8 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
                 <li>Life-long cleanliness habits</li>
               </ul>
             </section>
+
+            <Quiz title="Module 4.5: Clean Campus Program" questions={module5Quiz} subject="NSS" unitId={4} moduleId={5} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>

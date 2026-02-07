@@ -17,8 +17,13 @@ export default withAuth(
       return NextResponse.redirect(new URL("/", req.url));
     }
 
+    // Prevent non-admins from accessing admin progress page
+    if (path.startsWith("/pages/adminProgress") && !isAdmin) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+
     // Prevent admins from accessing student pages (except livebooks and subjects)
-    if (isAdmin && path.startsWith("/pages/") && !path.startsWith("/pages/adminDashboard") && !path.startsWith("/pages/adminLogin") && !path.startsWith("/pages/livebooks") && !path.startsWith("/pages/es") && !path.startsWith("/pages/ds") && !path.startsWith("/pages/os") && !path.startsWith("/pages/nss") && !path.startsWith("/pages/ls") && !path.startsWith("/pages/flat")) {
+    if (isAdmin && path.startsWith("/pages/") && !path.startsWith("/pages/adminDashboard") && !path.startsWith("/pages/adminLogin") && !path.startsWith("/pages/adminProgress") && !path.startsWith("/pages/livebooks") && !path.startsWith("/pages/es") && !path.startsWith("/pages/ds") && !path.startsWith("/pages/os") && !path.startsWith("/pages/nss") && !path.startsWith("/pages/ls") && !path.startsWith("/pages/flat")) {
       return NextResponse.redirect(new URL("/pages/adminDashboard", req.url));
     }
 

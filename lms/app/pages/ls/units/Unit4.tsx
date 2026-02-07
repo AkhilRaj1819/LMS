@@ -73,7 +73,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Sociolinguistics studies the fascinating relationship between language and society - how social factors like age, gender, class, and region influence the way we speak.</p>
               
               
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/of4XzrbkknM?si=IPi2K2yORkjzczbU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/of4XzrbkknM?si=IPi2K2yORkjzczbU" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
              
@@ -243,7 +243,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 4.1 Quiz" questions={module1Quiz} />
+            <Quiz title="Module 4.1 Quiz" questions={module1Quiz} subject="LS" unitId={4} moduleId={1} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -275,7 +275,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Should English be the official language? Should schools teach in minority languages? How do we save endangered languages? These are questions of language policy and planning!</p>
               
              
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/mvkRT0_Un_4?si=Ykwfz6ppnjCJ65Xd" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mvkRT0_Un_4?si=Ykwfz6ppnjCJ65Xd" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
               
@@ -344,7 +344,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 4.2 Quiz" questions={module2Quiz} />
+            <Quiz title="Module 4.2 Quiz" questions={module2Quiz} subject="LS" unitId={4} moduleId={2} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -375,7 +375,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Your language isn't just how you communicate - it's part of your identity! The way you speak tells others where you're from, what groups you belong to, and who you are.</p>
               
               
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/SP0bAQ8J6C0?si=6ObEuNBrb6pb-WpG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/SP0bAQ8J6C0?si=6ObEuNBrb6pb-WpG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
               
@@ -414,7 +414,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               </ul>
             </section>
 
-            <Quiz title="Module 4.3 Quiz" questions={module3Quiz} />
+            <Quiz title="Module 4.3 Quiz" questions={module3Quiz} subject="LS" unitId={4} moduleId={3} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -445,7 +445,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <p>From Siri to Google Translate, technology is transforming how we use and study language. Welcome to computational linguistics!</p>
               
              
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/CPfU5XSIzmc?si=b-mkpS6D0yeiM8jp" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/CPfU5XSIzmc?si=b-mkpS6D0yeiM8jp" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
               
@@ -513,8 +513,35 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 4.4 Quiz" questions={module4Quiz} />
-            <Quiz title="Unit 4 Comprehensive Quiz" questions={unitQuiz} />
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Language & Identity</button>
+              <button onClick={() => setCurrentModule(5)} className="next-module-btn">Unit 4 Quiz →</button>
+            </div>
+          </div>
+        );
+      case 5:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">4.5</div>
+              <div className="lesson-title-main">
+                <h1>Unit 4 Comprehensive Assessment</h1>
+              </div>
+            </div>
+            
+            <section className="content-section">
+              <h3>Test Your Knowledge of Unit 4</h3>
+              <p>This comprehensive quiz covers all topics from Unit 4: Sociolinguistics. It includes questions from:</p>
+              <ul>
+                <li><strong>Module 4.1:</strong> Sociolinguistics and Language Variation</li>
+                <li><strong>Module 4.2:</strong> Language Policy and Planning</li>
+                <li><strong>Module 4.3:</strong> Language and Identity</li>
+                <li><strong>Module 4.4:</strong> Language and Technology</li>
+              </ul>
+              <p>Take your time and demonstrate your understanding of sociolinguistics and applied linguistics!</p>
+            </section>
+
+            <Quiz title="Unit 4 Comprehensive Quiz" questions={unitQuiz} passingScore={75} subject="LS" unitId={4} moduleId={5} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -525,7 +552,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
             </div>
 
             <div className="navigation-buttons">
-              <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Language & Identity</button>
+              <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Language & Technology</button>
               <button onClick={onBack} className="next-module-btn">Back to Overview →</button>
             </div>
           </div>
@@ -539,3 +566,5 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
 };
 
 export default Unit4;
+
+

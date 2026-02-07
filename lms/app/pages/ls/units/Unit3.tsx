@@ -249,7 +249,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 3.1 Quiz" questions={module1Quiz} />
+            <Quiz title="Module 3.1 Quiz" questions={module1Quiz} subject="LS" unitId={3} moduleId={1} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -497,7 +497,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 3.2 Quiz" questions={module2Quiz} />
+            <Quiz title="Module 3.2 Quiz" questions={module2Quiz} subject="LS" unitId={3} moduleId={2} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -808,8 +808,34 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 3.3 Quiz" questions={module3Quiz} />
-            <Quiz title="Unit 3 Comprehensive Quiz" questions={unitQuiz} />
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Language Change</button>
+              <button onClick={() => setCurrentModule(4)} className="next-module-btn">Unit 3 Quiz →</button>
+            </div>
+          </div>
+        );
+      case 4:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">3.4</div>
+              <div className="lesson-title-main">
+                <h1>Unit 3 Comprehensive Assessment</h1>
+              </div>
+            </div>
+            
+            <section className="content-section">
+              <h3>Test Your Knowledge of Unit 3</h3>
+              <p>This comprehensive quiz covers all topics from Unit 3: Language Acquisition. It includes questions from:</p>
+              <ul>
+                <li><strong>Module 3.1:</strong> First and Second Language Acquisition</li>
+                <li><strong>Module 3.2:</strong> Language Change and Language Contact</li>
+                <li><strong>Module 3.3:</strong> Historical Linguistics</li>
+              </ul>
+              <p>Take your time and demonstrate your understanding of language acquisition, change, and history!</p>
+            </section>
+
+            <Quiz title="Unit 3 Comprehensive Quiz" questions={unitQuiz} subject="LS" unitId={3} moduleId={4} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -822,7 +848,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
             </div>
 
             <div className="navigation-buttons">
-              <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Language Change</button>
+              <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Historical Linguistics</button>
               <button onClick={onBack} className="next-module-btn">Back to Overview →</button>
             </div>
           </div>
@@ -836,3 +862,6 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
 };
 
 export default Unit3;
+
+
+

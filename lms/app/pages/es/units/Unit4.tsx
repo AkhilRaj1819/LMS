@@ -8,6 +8,170 @@ interface Unit4Props {
 }
 
 const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
+  const module1Quiz = [
+    {
+      question: "What is the primary cause of air pollution in urban areas?",
+      options: ["Natural sources", "Vehicular emissions", "Agricultural activities", "Ocean evaporation"],
+      correctAnswer: 1,
+      explanation: "Vehicular emissions are the primary cause of air pollution in urban areas, contributing significantly to particulate matter, nitrogen oxides, and carbon monoxide levels."
+    },
+    {
+      question: "How many premature deaths occur annually due to air pollution globally?",
+      options: ["1 million", "3 million", "7 million", "10 million"],
+      correctAnswer: 2,
+      explanation: "Approximately 7 million premature deaths occur annually worldwide due to air pollution, making it one of the leading environmental health risks."
+    },
+    {
+      question: "What is the economic cost of air pollution globally?",
+      options: ["$500 billion", "$1.5 trillion", "$2.9 trillion", "$5 trillion"],
+      correctAnswer: 2,
+      explanation: "Air pollution causes approximately $2.9 trillion in health and productivity losses globally, representing a massive economic burden."
+    },
+    {
+      question: "Which device reduces vehicular emissions?",
+      options: ["Air filter", "Catalytic converter", "Muffler", "Radiator"],
+      correctAnswer: 1,
+      explanation: "Catalytic converters are emission control devices that reduce harmful pollutants from vehicle exhaust by converting them into less harmful substances."
+    },
+    {
+      question: "What is the air quality monitoring market expected to be worth by 2025?",
+      options: ["$1.5 billion", "$3.5 billion", "$5.5 billion", "$10 billion"],
+      correctAnswer: 2,
+      explanation: "The air quality monitoring market is expected to reach $5.5 billion by 2025, driven by increasing awareness and regulatory requirements."
+    }
+  ];
+
+  const module2Quiz = [
+    {
+      question: "Which water treatment process removes dissolved impurities?",
+      options: ["Filtration", "Sedimentation", "Reverse osmosis", "Chlorination"],
+      correctAnswer: 2,
+      explanation: "Reverse osmosis is a membrane filtration process that effectively removes dissolved impurities, salts, and contaminants from water."
+    },
+    {
+      question: "How many people globally lack safely managed drinking water?",
+      options: ["500 million", "1 billion", "2 billion", "3 billion"],
+      correctAnswer: 2,
+      explanation: "Approximately 2 billion people globally lack access to safely managed drinking water, representing a major public health challenge."
+    },
+    {
+      question: "What is the annual economic loss due to water pollution?",
+      options: ["$50 billion", "$100 billion", "$260 billion", "$500 billion"],
+      correctAnswer: 2,
+      explanation: "Water pollution causes approximately $260 billion in economic losses annually through health impacts, ecosystem damage, and reduced productivity."
+    },
+    {
+      question: "What does STP stand for in water treatment?",
+      options: ["Standard Treatment Process", "Sewage Treatment Plant", "Safe Treatment Protocol", "System Treatment Procedure"],
+      correctAnswer: 1,
+      explanation: "STP stands for Sewage Treatment Plant, which treats municipal wastewater before discharge or reuse."
+    },
+    {
+      question: "What is the water treatment technology market expected to be worth by 2030?",
+      options: ["$200 billion", "$400 billion", "$674 billion", "$1 trillion"],
+      correctAnswer: 2,
+      explanation: "The water treatment technology market is projected to reach $674 billion by 2030, reflecting growing demand for clean water solutions."
+    }
+  ];
+
+  const module3Quiz = [
+    {
+      question: "What percentage of Earth's soil is degraded or polluted?",
+      options: ["10%", "20%", "33%", "50%"],
+      correctAnswer: 2,
+      explanation: "Approximately 33% of Earth's soil is degraded or polluted, affecting food security and ecosystem health globally."
+    },
+    {
+      question: "What is the most effective method for soil remediation?",
+      options: ["Soil washing", "Bioremediation", "Chemical treatment", "Thermal treatment"],
+      correctAnswer: 1,
+      explanation: "Bioremediation using microorganisms is often the most effective and environmentally friendly method for soil remediation as it naturally breaks down contaminants."
+    },
+    {
+      question: "What is the annual economic loss due to soil degradation?",
+      options: ["$2 trillion", "$5 trillion", "$10.6 trillion", "$20 trillion"],
+      correctAnswer: 2,
+      explanation: "Soil degradation causes approximately $10.6 trillion in economic losses annually through reduced agricultural productivity and ecosystem services."
+    },
+    {
+      question: "Which technique uses plants to absorb soil pollutants?",
+      options: ["Bioremediation", "Phytoremediation", "Soil washing", "Chemical treatment"],
+      correctAnswer: 1,
+      explanation: "Phytoremediation uses plants to absorb, accumulate, and remove pollutants from contaminated soil, providing a natural cleanup method."
+    },
+    {
+      question: "What causes hearing loss from noise pollution?",
+      options: ["Low frequency sounds", "Prolonged exposure to loud sounds", "Brief exposure to any sound", "Only industrial noise"],
+      correctAnswer: 1,
+      explanation: "Prolonged exposure to loud sounds (above 85 decibels) can cause permanent hearing loss by damaging the delicate structures in the inner ear."
+    }
+  ];
+
+  const module4Quiz = [
+    {
+      question: "Which type of radiation is most dangerous to human health?",
+      options: ["Alpha radiation", "Beta radiation", "Gamma radiation", "All are equally dangerous"],
+      correctAnswer: 2,
+      explanation: "Gamma radiation is most dangerous as it has high penetrating power and can cause severe internal damage to organs and tissues."
+    },
+    {
+      question: "How many nuclear reactors are operating globally?",
+      options: ["220", "330", "440", "550"],
+      correctAnswer: 2,
+      explanation: "There are approximately 440 nuclear reactors operating in 30 countries worldwide, generating about 10% of global electricity."
+    },
+    {
+      question: "How much nuclear waste exists worldwide?",
+      options: ["70,000 tons", "170,000 tons", "370,000 tons", "570,000 tons"],
+      correctAnswer: 2,
+      explanation: "Approximately 370,000 tons of nuclear waste exists worldwide, presenting long-term storage and disposal challenges."
+    },
+    {
+      question: "What is the first priority in the waste management hierarchy?",
+      options: ["Recycle", "Reuse", "Reduce", "Recover"],
+      correctAnswer: 2,
+      explanation: "Reduce is the first priority in the waste management hierarchy as preventing waste generation is more effective than managing waste after it's created."
+    },
+    {
+      question: "What percentage of waste can be diverted from landfills through proper management?",
+      options: ["30-40%", "50-60%", "70-80%", "90-95%"],
+      correctAnswer: 2,
+      explanation: "With proper waste management including recycling, composting, and recovery, 70-80% of waste can be diverted from landfills."
+    }
+  ];
+
+  const module5Quiz = [
+    {
+      question: "How many natural disasters occur annually worldwide?",
+      options: ["100-200", "350-500", "700-900", "1000+"],
+      correctAnswer: 1,
+      explanation: "Approximately 350-500 natural disasters occur annually worldwide, affecting over 200 million people and causing significant economic losses."
+    },
+    {
+      question: "What is the annual economic loss from disasters globally?",
+      options: ["$50-100 billion", "$150-200 billion", "$280-300 billion", "$500 billion"],
+      correctAnswer: 2,
+      explanation: "Natural disasters cause approximately $280-300 billion in economic losses annually through infrastructure damage, business disruption, and recovery costs."
+    },
+    {
+      question: "By how much can early warning systems reduce disaster losses?",
+      options: ["10-20%", "30-50%", "60-70%", "80-90%"],
+      correctAnswer: 1,
+      explanation: "Effective early warning systems can reduce disaster losses by 30-50% by enabling timely evacuation and preparedness measures."
+    },
+    {
+      question: "What does DRR stand for in disaster management?",
+      options: ["Disaster Response and Recovery", "Disaster Risk Reduction", "Disaster Relief and Rehabilitation", "Disaster Readiness and Resilience"],
+      correctAnswer: 1,
+      explanation: "DRR stands for Disaster Risk Reduction, which focuses on proactive strategies to minimize disaster impacts before they occur."
+    },
+    {
+      question: "What is the disaster management systems market expected to be worth by 2030?",
+      options: ["$150 billion", "$280 billion", "$432 billion", "$600 billion"],
+      correctAnswer: 2,
+      explanation: "The disaster management systems market is expected to reach $432 billion by 2030, driven by increasing disaster frequency and technological advances."
+    }
+  ];
   const renderModule = () => {
     switch (currentModule) {
       case 1:
@@ -117,8 +281,9 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Air Pollution Causes and Effects</h4>
               <p>Understanding air pollution sources, impacts, and control measures.</p>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/GPnDn2Kfb-g?si=W2vrbIGtd9U6o7kE&amp;start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/GPnDn2Kfb-g?si=W2vrbIGtd9U6o7kE&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>            </div>
+
+            <Quiz title="Module 4.1: Air Pollution" questions={module1Quiz} subject="ES" unitId={4} moduleId={1} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Water Pollution →</button>
@@ -241,6 +406,8 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
                 allowFullScreen
               ></iframe>
             </div>
+
+            <Quiz title="Module 4.2: Water Pollution" questions={module2Quiz} subject="ES" unitId={4} moduleId={2} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Air Pollution</button>
@@ -370,8 +537,10 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Soil and Noise Pollution</h4>
               <p>Understanding soil contamination and noise pollution impacts.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/iIHw8gf6LqY?si=Z40xDBbZjLs8URZe&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/iIHw8gf6LqY?si=Z40xDBbZjLs8URZe&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Module 4.3: Soil and Noise Pollution" questions={module3Quiz} subject="ES" unitId={4} moduleId={3} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Water Pollution</button>
@@ -522,8 +691,10 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Nuclear Safety and Waste Management</h4>
               <p>Understanding nuclear hazards and solid waste management strategies.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/2oXMJi3RODc?si=YeykjkkHQMWL17z3&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/2oXMJi3RODc?si=YeykjkkHQMWL17z3&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Module 4.4: Nuclear Hazards and Waste Management" questions={module4Quiz} subject="ES" unitId={4} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Soil & Noise Pollution</button>
@@ -656,8 +827,10 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Disaster Management</h4>
               <p>Understanding disaster preparedness, response, and recovery strategies.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/BaWnRznp1AU?si=VuQUYtgqMK6L6Wxp&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/BaWnRznp1AU?si=VuQUYtgqMK6L6Wxp&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Module 4.5: Disaster Management" questions={module5Quiz} subject="ES" unitId={4} moduleId={5} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Nuclear Hazards</button>

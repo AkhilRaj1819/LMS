@@ -234,7 +234,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
               <p style={{marginTop: '12px', fontSize: '14px', color: '#666'}}>Operating system concepts including process and memory management</p>
             </div>
 
-            <Quiz title="Module 1 Quiz" questions={module1Quiz} />
+            <Quiz title="Module 1 Quiz" questions={module1Quiz} subject="OS" unitId={1} moduleId={1} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">OS Types and Generation →</button>
@@ -421,7 +421,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
               ></iframe>
             </div>
 
-            <Quiz title="Module 2 Quiz" questions={module2Quiz} />
+            <Quiz title="Module 2 Quiz" questions={module2Quiz} subject="OS" unitId={1} moduleId={2} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Overview of Operating Systems</button>
@@ -573,7 +573,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
               ></iframe>
             </div>
 
-            <Quiz title="Module 3 Quiz" questions={module3Quiz} />
+            <Quiz title="Module 3 Quiz" questions={module3Quiz} subject="OS" unitId={1} moduleId={3} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← OS Types and Generation</button>
@@ -850,7 +850,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
               ></iframe>
             </div>
 
-            <Quiz title="Module 4 Quiz" questions={module4Quiz} />
+            <Quiz title="Module 4 Quiz" questions={module4Quiz} subject="OS" unitId={1} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← OS Operations & Security</button>
@@ -875,7 +875,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
               </ul>
             </section>
 
-            <Quiz title="Unit 1 Comprehensive Quiz" questions={unit1Quiz} />
+            <Quiz title="Unit 1 Comprehensive Quiz" questions={unit1Quiz} subject="OS" unitId={1} moduleId={5} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>

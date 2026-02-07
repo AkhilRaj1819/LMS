@@ -330,7 +330,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               ></iframe>
             </div>
 
-            <Quiz title="Module 1 Quiz" questions={module1Quiz} />
+            <Quiz title="Module 1 Quiz" questions={module1Quiz} subject="OS" unitId={4} moduleId={1} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Paging & Segmentation →</button>
@@ -578,7 +578,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               ></iframe>
             </div>
 
-            <Quiz title="Module 2 Quiz" questions={module2Quiz} />
+            <Quiz title="Module 2 Quiz" questions={module2Quiz} subject="OS" unitId={4} moduleId={2} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Swapping & Contiguous Allocation</button>
@@ -744,7 +744,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               ></iframe>
             </div>
 
-            <Quiz title="Module 3 Quiz" questions={module3Quiz} />
+            <Quiz title="Module 3 Quiz" questions={module3Quiz} subject="OS" unitId={4} moduleId={3} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Paging & Segmentation</button>
@@ -1026,7 +1026,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               ></iframe>
             </div>
 
-            <Quiz title="Module 4 Quiz" questions={module4Quiz} />
+            <Quiz title="Module 4 Quiz" questions={module4Quiz} subject="OS" unitId={4} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Virtual Memory & Demand Paging</button>
@@ -1052,7 +1052,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
               </ul>
             </section>
 
-            <Quiz title="Unit 4 Comprehensive Quiz" questions={unit4Quiz} />
+            <Quiz title="Unit 4 Comprehensive Quiz" questions={unit4Quiz} subject="OS" unitId={4} moduleId={5} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -1080,3 +1080,4 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
 };
 
 export default Unit4;
+

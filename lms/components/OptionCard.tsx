@@ -26,7 +26,7 @@ export default function OptionCard({ item }) {
         backgroundColor: "#BBBEC3",
         boxShadow: isPressed
           ? "inset 2px 2px 4px rgba(0,0,0,0.6), inset -1px -1px 2px rgba(0,0,0,0.5)"
-          : "4px 4px 0px 0px rgba(0,0,0,0.5)",
+          : "4px 4px 0px 0px rgba(0,0,0,0.7)",
         transform: isPressed ? "translate(3px, 3px)" : "translate(0, 0)",
       }}
     >
@@ -64,12 +64,13 @@ export default function OptionCard({ item }) {
         <img
           src={item.img}
           alt=""
-          className="relative z-10 h-9 w-9"
+          className={`relative z-10 object-contain ${item.id === 6 ? 'h-14 w-14' : 'h-9 w-9'}`}
+          style={{ marginLeft: item.id === 6 ? '-12px' : '-8px' }}
         />
       </div>
 
       {/* BOTTOM PART */}
-      <div className="flex items-center justify-center py-2 bg-white">
+      <div className="flex items-center justify-center py-2 bg-white border-t-[0.8]">
         <p className="font-medium text-sm">{item.name}</p>
       </div>
     </div>

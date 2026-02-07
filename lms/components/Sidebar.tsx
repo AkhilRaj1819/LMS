@@ -21,18 +21,14 @@ export default function Sidebar() {
   }, []);
 
   const handleHomeClick = () => {
-    if (session?.user?.isAdmin) {
-      router.push("/pages/adminDashboard");
-    } else {
-      router.push("/");
-    }
+    router.push("/");
   };
 
   return (
-    <aside className="w-16 bg-white border-r flex flex-col justify-between py-4">
+    <aside className="fixed left-0 top-0 h-screen w-14 bg-white border-r-2 border-gray-700 flex flex-col justify-between py-4 overflow-hidden">
       {/* Home at top */}
       <div className="flex flex-col items-center">
-        <button onClick={handleHomeClick} className="p-3 hover:bg-gray-100 rounded border-r-4 border-blue-600 cursor-pointer">
+        <button onClick={handleHomeClick} className="p-3 hover:bg-gray-100    cursor-pointer">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
           </svg>
@@ -42,19 +38,15 @@ export default function Sidebar() {
       {/* Profile at bottom */}
       <div ref={profileRef} className="relative flex flex-col items-center">
         <button onClick={() => setShowProfile(!showProfile)} className="p-2 hover:bg-gray-100 rounded cursor-pointer">
-          {session?.user?.image ? (
-            <img src={session.user.image} alt="" className="w-8 h-8 rounded-full" />
-          ) : (
-            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-            </svg>
-          )}
+          <svg className="w-8 h-8" fill="#000000" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+          </svg>
         </button>
         
         {showProfile && (
-          <div className="absolute bottom-full left-full ml-2 mb-2 bg-white border rounded shadow-lg py-2 w-40">
-            <button onClick={() => signOut({ callbackUrl: "/pages/login" })} className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600">
-              Logout
+          <div className="fixed bottom-4 left-20 bg-white border-2 border-black z-50" style={{boxShadow: '3px 3px 0px 0px #454545'}}>
+            <button onClick={() => signOut({ callbackUrl: "/pages/login" })} className="w-full text-center px-4 py-2 hover:bg-gray-100 text-black font-bold uppercase text-sm">
+              LOGOUT
             </button>
           </div>
         )}

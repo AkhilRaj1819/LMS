@@ -4,6 +4,35 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Image Styles for NSS Content */
+.module-image, .roadmap-image, .skills-image, .books-gallery {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.content-image, .activity-image, .books-image {
+  width: 100%;
+  max-width: 800px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-image:hover, .activity-image:hover, .books-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.image-caption {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  line-height: 1.4;
+}
+
 /* Media Gallery Styles */
 .media-gallery, .activity-gallery, .project-gallery, .system-gallery, 
 .survey-gallery, .health-gallery, .eco-gallery, .plantation-gallery, 

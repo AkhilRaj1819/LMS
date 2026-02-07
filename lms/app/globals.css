@@ -3,7 +3,7 @@
 /* Global background */
 body {
   background: #FFFFFF;
-  background-image: radial-gradient(circle, #E0E0E0 1px, transparent 1px);
+  background-image: radial-gradient(circle, #FFFFFF 1px, transparent 1px);
   background-size: 20px 20px;
   min-height: 100vh;
 }
@@ -19,7 +19,7 @@ body {
 
 /* Remove dot background from course unit pages */
 .no-dot-background {
-  background: #FAFBFC !important;
+  background: #FFFFFF !important;
   background-image: none !important;
 }
 

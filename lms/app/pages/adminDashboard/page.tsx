@@ -19,6 +19,9 @@ export default function AdminDashboard() {
   const [subjectForm, setSubjectForm] = useState({ professor: "", description: "" });
   const [searchQuery, setSearchQuery] = useState("");
   const [newAdminEmail, setNewAdminEmail] = useState("");
+  const [studentProgress, setStudentProgress] = useState<any[]>([]);
+  const [selectedStudent, setSelectedStudent] = useState<string | null>(null);
+  const [feedback, setFeedback] = useState([]);
 
   useEffect(() => {
     if (session === null) return;
@@ -30,6 +33,7 @@ export default function AdminDashboard() {
       fetchUsers();
       fetchTimetable();
       fetchLeaves();
+      fetchFeedback();
     }
   }, [session]);
 
@@ -177,6 +181,21 @@ export default function AdminDashboard() {
     setLeaves(data);
   };
 
+  const fetchFeedback = async () => {
+    const res = await fetch("/api/feedback");
+    const data = await res.json();
+    setFeedback(data);
+  };
+
+  const fetchStudentProgress = async (email: string) => {
+    const res = await fetch(`/api/progress?userEmail=${email}`);
+    const data = await res.json();
+    if (data.success) {
+      setStudentProgress(data.data);
+      setSelectedStudent(email);
+    }
+  };
+
   const deleteLeave = async (id) => {
     if (!confirm("Delete this leave application?")) return;
     await fetch("/api/leaves", {
@@ -250,10 +269,15 @@ export default function AdminDashboard() {
                   <p className="text-2xl font-bold text-gray-800">{leaves.length}</p>
                   <p className="text-xs text-gray-500 mt-2">To review</p>
                 </div>
+                <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200 hover:shadow-md transition">
+                  <p className="text-gray-600 text-sm mb-1">Feedback</p>
+                  <p className="text-2xl font-bold text-gray-800">{feedback.length}</p>
+                  <p className="text-xs text-gray-500 mt-2">Anonymous</p>
+                </div>
               </div>
 
               <h2 className="text-lg font-semibold mb-4 text-gray-800">Quick Access</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-5">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-5">
                 <button onClick={() => router.push("/pages/livebooks")} className="relative border overflow-hidden cursor-pointer w-full transition-all duration-100 hover:translate-x-1 hover:translate-y-1" style={{ backgroundColor: "#BBBEC3", boxShadow: "4px 4px 0px 0px rgba(0,0,0,0.5)" }}>
                   <div className="relative h-24 w-full flex items-center justify-center overflow-hidden">
                     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -321,6 +345,40 @@ export default function AdminDashboard() {
                     <p className="font-medium text-sm">Timetable</p>
                   </div>
                 </button>
+
+                <button onClick={() => router.push("/pages/adminProgress")} className="relative border overflow-hidden cursor-pointer w-full transition-all duration-100 hover:translate-x-1 hover:translate-y-1" style={{ backgroundColor: "#BBBEC3", boxShadow: "4px 4px 0px 0px rgba(0,0,0,0.5)" }}>
+                  <div className="relative h-24 w-full flex items-center justify-center overflow-hidden">
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <defs>
+                        <pattern id="mesh-5" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)">
+                          <path d="M 3 0 L 0 0 0 3" fill="none" stroke="#8B869B" strokeWidth="0.8" />
+                        </pattern>
+                      </defs>
+                      <rect width="100%" height="100%" fill="url(#mesh-5)" />
+                    </svg>
+                    <span className="relative z-10 text-4xl">📊</span>
+                  </div>
+                  <div className="flex items-center justify-center py-2 bg-white">
+                    <p className="font-medium text-sm">Student Progress</p>
+                  </div>
+                </button>
+
+                <button onClick={() => setActiveTab("feedback")} className="relative border overflow-hidden cursor-pointer w-full transition-all duration-100 hover:translate-x-1 hover:translate-y-1" style={{ backgroundColor: "#BBBEC3", boxShadow: "4px 4px 0px 0px rgba(0,0,0,0.5)" }}>
+                  <div className="relative h-24 w-full flex items-center justify-center overflow-hidden">
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                      <defs>
+                        <pattern id="mesh-6" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)">
+                          <path d="M 3 0 L 0 0 0 3" fill="none" stroke="#FFA07A" strokeWidth="0.8" />
+                        </pattern>
+                      </defs>
+                      <rect width="100%" height="100%" fill="url(#mesh-6)" />
+                    </svg>
+                    <span className="relative z-10 text-4xl">💬</span>
+                  </div>
+                  <div className="flex items-center justify-center py-2 bg-white">
+                    <p className="font-medium text-sm">Feedback</p>
+                  </div>
+                </button>
               </div>
             </>
           ) : (
@@ -335,7 +393,7 @@ export default function AdminDashboard() {
                   <div className="bg-blue-50 p-6 rounded-lg mb-8 border border-blue-200">
                     <h3 className="text-sm font-semibold text-blue-900 mb-4">Add New Student</h3>
                     <div className="flex gap-3">
-                      <input type="email" placeholder="Email (@ggu.edu.in)" value={newUserEmail} onChange={(e) => setNewUserEmail(e.target.value)} className="border border-blue-300 p-2.5 rounded-lg flex-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                      <input type="email" placeholder="Student Email" value={newUserEmail} onChange={(e) => setNewUserEmail(e.target.value)} className="border border-blue-300 p-2.5 rounded-lg flex-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
                       <button onClick={addUser} className="bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition text-sm font-medium">+ Add</button>
                     </div>
                   </div>
@@ -343,7 +401,7 @@ export default function AdminDashboard() {
                   <div className="bg-purple-50 p-6 rounded-lg mb-8 border border-purple-200">
                     <h3 className="text-sm font-semibold text-purple-900 mb-4">Add New Admin</h3>
                     <div className="flex gap-3">
-                      <input type="email" placeholder="Email (@ggu.edu.in)" value={newAdminEmail} onChange={(e) => setNewAdminEmail(e.target.value)} className="border border-purple-300 p-2.5 rounded-lg flex-1 text-sm focus:outline-none focus:ring-2 focus:ring-purple-400" />
+                      <input type="email" placeholder="Admin Email" value={newAdminEmail} onChange={(e) => setNewAdminEmail(e.target.value)} className="border border-purple-300 p-2.5 rounded-lg flex-1 text-sm focus:outline-none focus:ring-2 focus:ring-purple-400" />
                       <button onClick={addAdmin} className="bg-purple-600 text-white px-6 py-2.5 rounded-lg hover:bg-purple-700 transition text-sm font-medium">+ Add Admin</button>
                     </div>
                   </div>
@@ -366,7 +424,10 @@ export default function AdminDashboard() {
                         </div>
                         <div className="flex gap-2">
                           <button onClick={() => openEditModal(user)} className="flex-1 text-white px-3 py-2 rounded-lg transition text-sm font-medium" style={{backgroundColor: '#9CCFFF', color: '#000'}}>Edit</button>
-                          {!user.isAdmin && <button onClick={() => deleteUser(user.email)} className="flex-1 text-white px-3 py-2 rounded-lg transition text-sm font-medium" style={{backgroundColor: '#FF5B5B'}}>Delete</button>}
+                          {!user.isAdmin && (
+                            <button onClick={() => fetchStudentProgress(user.email)} className="flex-1 text-white px-3 py-2 rounded-lg transition text-sm font-medium" style={{backgroundColor: '#7CB342'}}>Progress</button>
+                          )}
+                          <button onClick={() => deleteUser(user.email)} className="flex-1 text-white px-3 py-2 rounded-lg transition text-sm font-medium" style={{backgroundColor: '#FF5B5B'}}>Delete</button>
                         </div>
                       </div>
                     ))}
@@ -429,6 +490,34 @@ export default function AdminDashboard() {
                   </div>
                 </div>
               )}
+
+              {activeTab === "feedback" && (
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
+                  <div className="mb-8">
+                    <button onClick={() => setActiveTab("")} className="text-blue-600 hover:text-blue-700 text-sm font-medium mb-3 inline-block">← Back</button>
+                    <h2 className="text-2xl font-bold text-gray-800">💬 Student Feedback</h2>
+                    <p className="text-sm text-gray-600 mt-2">Anonymous submissions • Auto-delete after 90 days</p>
+                  </div>
+                  {feedback.length === 0 ? (
+                    <div className="text-center py-12">
+                      <p className="text-gray-500 text-lg">No feedback submissions</p>
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      {feedback.map((item: any) => (
+                        <div key={item._id} className="border border-orange-200 rounded-lg p-5 hover:shadow-md transition bg-orange-50">
+                          <div className="flex justify-between items-start mb-3">
+                            <span className="px-2.5 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium">Anonymous</span>
+                            <span className="text-xs text-gray-500">{new Date(item.createdAt).toLocaleString()}</span>
+                          </div>
+                          <p className="text-sm text-gray-800 bg-white p-4 rounded-lg mb-2">{item.message}</p>
+                          <p className="text-xs text-gray-500">Expires: {new Date(item.expiresAt).toLocaleDateString()}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
             </>
           )}
         </div>
@@ -459,6 +548,40 @@ export default function AdminDashboard() {
               <button onClick={updateSubject} className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-teal-700">Save</button>
               <button onClick={() => setEditSubject(null)} className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {selectedStudent && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg w-[600px] max-h-[80vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold text-gray-800">Student Progress: {selectedStudent}</h2>
+              <button onClick={() => setSelectedStudent(null)} className="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            {studentProgress.length === 0 ? (
+              <p className="text-gray-500 text-center py-8">No quiz attempts yet</p>
+            ) : (
+              <div className="space-y-3">
+                {studentProgress.map((progress, idx) => (
+                  <div key={idx} className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <h3 className="font-semibold text-gray-800">{progress.subject}</h3>
+                        <p className="text-sm text-gray-600">Unit {progress.unitId} - Module {progress.moduleId}</p>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-gray-800">{progress.percentage}%</div>
+                        <div className="text-sm text-gray-600">{progress.score}/{progress.totalQuestions}</div>
+                      </div>
+                    </div>
+                    <div className="text-xs text-gray-500 mt-2">
+                      Completed: {new Date(progress.completedAt).toLocaleString()}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}

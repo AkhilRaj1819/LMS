@@ -149,8 +149,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Finite Automata Acceptance of Languages</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/kfCZlZTVm4Q?si=38wZ5V1nKkldygRb" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/kfCZlZTVm4Q?si=38wZ5V1nKkldygRb" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>                </div>
               </div>
 
               <h4>Acceptance Process Steps</h4>
@@ -208,6 +207,106 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <section className="content-section">
+              <h3>Module 1 Quiz: Test Your Understanding</h3>
+              <Quiz 
+                title="Acceptance of Languages Quiz" 
+                questions={[
+                  {
+                    question: "What determines if a string is accepted by a finite automaton?",
+                    options: [
+                      "The length of the string",
+                      "Whether the final state after processing is an accepting state",
+                      "The number of transitions taken",
+                      "The alphabet used"
+                    ],
+                    correctAnswer: 1,
+                    explanation: "A string is accepted if, after processing all symbols, the automaton ends in a state that belongs to the set of accepting states F."
+                  },
+                  {
+                    question: "In a DFA, what happens when processing a string symbol by symbol?",
+                    options: [
+                      "Multiple transitions can be taken simultaneously",
+                      "Exactly one transition is taken for each symbol",
+                      "No transition is needed for some symbols",
+                      "The automaton can skip symbols"
+                    ],
+                    correctAnswer: 1,
+                    explanation: "In a DFA, for each state and input symbol, there is exactly one transition to follow, making the process deterministic."
+                  },
+                  {
+                    question: "What is the language L(M) of an automaton M?",
+                    options: [
+                      "The set of all possible strings",
+                      "The set of all states in the automaton",
+                      "The set of all strings accepted by the automaton",
+                      "The set of all transitions in the automaton"
+                    ],
+                    correctAnswer: 2,
+                    explanation: "L(M) represents the language accepted by automaton M, which is the set of all strings that lead to an accepting state."
+                  },
+                  {
+                    question: "What is the initial state of an automaton called?",
+                    options: [
+                      "Accept state",
+                      "Start state or initial state",
+                      "Final state",
+                      "Transition state"
+                    ],
+                    correctAnswer: 1,
+                    explanation: "The initial state (often denoted q0) is where the automaton begins processing any input string."
+                  },
+                  {
+                    question: "Can an automaton have multiple accepting states?",
+                    options: [
+                      "No, only one accepting state is allowed",
+                      "Yes, an automaton can have multiple accepting states",
+                      "Only NFAs can have multiple accepting states",
+                      "Only DFAs can have multiple accepting states"
+                    ],
+                    correctAnswer: 1,
+                    explanation: "Both DFAs and NFAs can have multiple accepting states. A string is accepted if it ends in any one of these accepting states."
+                  },
+                  {
+                    question: "What happens if a DFA processes a string and ends in a non-accepting state?",
+                    options: [
+                      "The string is accepted",
+                      "The string is rejected",
+                      "The automaton restarts",
+                      "An error occurs"
+                    ],
+                    correctAnswer: 1,
+                    explanation: "If the final state after processing all input symbols is not in the set of accepting states, the string is rejected."
+                  },
+                  {
+                    question: "In the context of language acceptance, what is a 'run' of an automaton?",
+                    options: [
+                      "The speed at which the automaton processes input",
+                      "The sequence of states visited while processing a string",
+                      "The number of accepting states",
+                      "The total number of transitions"
+                    ],
+                    correctAnswer: 1,
+                    explanation: "A run is the sequence of states that the automaton goes through while processing an input string from start to finish."
+                  },
+                  {
+                    question: "What is the extended transition function δ* used for?",
+                    options: [
+                      "To process single symbols only",
+                      "To process entire strings of symbols",
+                      "To add new states to the automaton",
+                      "To remove transitions from the automaton"
+                    ],
+                    correctAnswer: 1,
+                    explanation: "The extended transition function δ* extends the basic transition function to process complete strings rather than just single symbols."
+                  }
+                ]} 
+                subject="flat" 
+                unitId={2} 
+                moduleId={1} 
+              />
+            </section>
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">DFA and NFA Equivalence →</button>
             </div>
@@ -260,7 +359,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>DFA and NFA Equivalence</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/LkyNl1CFJv4?si=VjjVgI2SVmPLsXPm" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/LkyNl1CFJv4?si=VjjVgI2SVmPLsXPm" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -378,7 +477,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>NFA to DFA Conversion</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/6aOtnyL40X8?si=K0-pwVzeKPsOiZZq" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/6aOtnyL40X8?si=K0-pwVzeKPsOiZZq" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -498,7 +597,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Epsilon Transitions in NFA</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/84oNUttWlN4?si=Zn-6bkl7eJJwTJ8K" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/84oNUttWlN4?si=Zn-6bkl7eJJwTJ8K" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -630,7 +729,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Automata Minimization</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/rGxyc-CJGRk?si=cEY1ZzKFpkNGbBuf" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/rGxyc-CJGRk?si=cEY1ZzKFpkNGbBuf" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -723,11 +822,125 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
             <div className="lesson-header">
               <div className="lesson-number-badge">2.6</div>
               <div className="lesson-title-main">
-                <h1>Unit 2 Quiz</h1>
+                <h1>Module 1 Quiz: Acceptance of Languages</h1>
               </div>
             </div>
             
-            <Quiz title="Unit 2 Comprehensive Quiz: Finite Automata" questions={unitQuiz} passingScore={70} />
+            <Quiz 
+              title="Module 1 Quiz: Acceptance of Languages" 
+              questions={[
+                {
+                  question: "What determines if a string is accepted by a finite automaton?",
+                  options: [
+                    "The length of the string",
+                    "Whether the final state after processing is an accepting state",
+                    "The number of transitions taken",
+                    "The alphabet used"
+                  ],
+                  correctAnswer: 1,
+                  explanation: "A string is accepted if, after processing all symbols, the automaton ends in a state that belongs to the set of accepting states F."
+                },
+                {
+                  question: "In a DFA, what happens when processing a string symbol by symbol?",
+                  options: [
+                    "Multiple transitions can be taken simultaneously",
+                    "Exactly one transition is taken for each symbol",
+                    "No transition is needed for some symbols",
+                    "The automaton can skip symbols"
+                  ],
+                  correctAnswer: 1,
+                  explanation: "In a DFA, for each state and input symbol, there is exactly one transition to follow, making the process deterministic."
+                },
+                {
+                  question: "What is the language L(M) of an automaton M?",
+                  options: [
+                    "The set of all possible strings",
+                    "The set of all states in the automaton",
+                    "The set of all strings accepted by the automaton",
+                    "The set of all transitions in the automaton"
+                  ],
+                  correctAnswer: 2,
+                  explanation: "L(M) represents the language accepted by automaton M, which is the set of all strings that lead to an accepting state."
+                },
+                {
+                  question: "What is the initial state of an automaton called?",
+                  options: [
+                    "Accept state",
+                    "Start state or initial state",
+                    "Final state",
+                    "Transition state"
+                  ],
+                  correctAnswer: 1,
+                  explanation: "The initial state (often denoted q0) is where the automaton begins processing any input string."
+                },
+                {
+                  question: "Can an automaton have multiple accepting states?",
+                  options: [
+                    "No, only one accepting state is allowed",
+                    "Yes, an automaton can have multiple accepting states",
+                    "Only NFAs can have multiple accepting states",
+                    "Only DFAs can have multiple accepting states"
+                  ],
+                  correctAnswer: 1,
+                  explanation: "Both DFAs and NFAs can have multiple accepting states. A string is accepted if it ends in any one of these accepting states."
+                },
+                {
+                  question: "What happens if a DFA processes a string and ends in a non-accepting state?",
+                  options: [
+                    "The string is accepted",
+                    "The string is rejected",
+                    "The automaton restarts",
+                    "An error occurs"
+                  ],
+                  correctAnswer: 1,
+                  explanation: "If the final state after processing all input symbols is not in the set of accepting states, the string is rejected."
+                },
+                {
+                  question: "In the context of language acceptance, what is a 'run' of an automaton?",
+                  options: [
+                    "The speed at which the automaton processes input",
+                    "The sequence of states visited while processing a string",
+                    "The number of accepting states",
+                    "The total number of transitions"
+                  ],
+                  correctAnswer: 1,
+                  explanation: "A run is the sequence of states that the automaton goes through while processing an input string from start to finish."
+                },
+                {
+                  question: "What is the extended transition function δ* used for?",
+                  options: [
+                    "To process single symbols only",
+                    "To process entire strings of symbols",
+                    "To add new states to the automaton",
+                    "To remove transitions from the automaton"
+                  ],
+                  correctAnswer: 1,
+                  explanation: "The extended transition function δ* extends the basic transition function to process complete strings rather than just single symbols."
+                }
+              ]} 
+              subject="flat" 
+              unitId={2} 
+              moduleId={1} 
+            />
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Back to Module</button>
+              <button onClick={() => setCurrentModule(2)} className="next-module-btn">Next Module →</button>
+            </div>
+          </div>
+        );
+
+      case 7:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">2.7</div>
+              <div className="lesson-title-main">
+                <h1>Unit 2 Comprehensive Quiz</h1>
+              </div>
+            </div>
+            
+            <Quiz title="Unit 2 Comprehensive Quiz: Finite Automata" questions={unitQuiz} subject="flat" unitId={2} moduleId={7} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(5)} className="prev-module-btn">← Automata Minimization</button>

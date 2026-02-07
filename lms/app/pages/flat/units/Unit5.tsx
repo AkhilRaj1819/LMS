@@ -144,8 +144,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Chomsky Hierarchy Explained</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/b4ThUo3epeA?si=XcxLW02z22VI930Q" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/b4ThUo3epeA?si=XcxLW02z22VI930Q" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>                </div>
               </div>
 
               <h4>Language Inclusion Hierarchy</h4>

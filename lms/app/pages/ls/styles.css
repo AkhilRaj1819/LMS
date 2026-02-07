@@ -1609,3 +1609,26 @@
     gap: 8px;
   }
 }
+
+/* Quiz Previous Attempt Styles */
+.previous-attempt-badge {
+  background: #e3f2fd;
+  border: 1px solid #2196f3;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  color: #1976d2;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.previous-score-info {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: #fff3e0;
+  border-left: 3px solid #ff9800;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #e65100;
+}

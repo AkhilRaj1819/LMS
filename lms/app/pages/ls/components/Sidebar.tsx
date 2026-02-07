@@ -20,7 +20,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
         'Overview of Linguistics',
         'Phonetics',
         'Phonology',
-        'Morphology'
+        'Morphology',
+        'Unit 1 Quiz'
       ]
     },
     {
@@ -29,7 +30,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
       modules: [
         'Syntax and Syntactic Structures',
         'Semantics and Semantic Structures',
-        'Language Typology'
+        'Language Typology',
+        'Unit 2 Quiz'
       ]
     },
     {
@@ -38,7 +40,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
       modules: [
         'First and Second Language Acquisition',
         'Language Change and Contact',
-        'Historical Linguistics'
+        'Historical Linguistics',
+        'Unit 3 Quiz'
       ]
     },
     {
@@ -48,7 +51,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
         'Sociolinguistics and Variation',
         'Language Policy and Planning',
         'Language and Identity',
-        'Language and Technology'
+        'Language and Technology',
+        'Unit 4 Quiz'
       ]
     },
     {
@@ -59,7 +63,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
         'Language and Gender',
         'Language and Power',
         'Language and Globalization',
-        'Research Methods in Linguistics'
+        'Research Methods in Linguistics',
+        'Unit 5 Quiz'
       ]
     }
   ];

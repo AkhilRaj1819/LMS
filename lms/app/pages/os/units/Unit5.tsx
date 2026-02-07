@@ -339,7 +339,7 @@ read(record_number=10)
               ></iframe>
             </div>
 
-            <Quiz title="Module 1 Quiz" questions={module1Quiz} />
+            <Quiz title="Module 1 Quiz" questions={module1Quiz} subject="OS" unitId={5} moduleId={1} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Directory Structure & Mounting →</button>
@@ -631,7 +631,7 @@ Numeric: 644
               ></iframe>
             </div>
 
-            <Quiz title="Module 2 Quiz" questions={module2Quiz} />
+            <Quiz title="Module 2 Quiz" questions={module2Quiz} subject="OS" unitId={5} moduleId={2} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← File System Interface</button>
@@ -837,7 +837,7 @@ Numeric: 644
               ></iframe>
             </div>
 
-            <Quiz title="Module 3 Quiz" questions={module3Quiz} />
+            <Quiz title="Module 3 Quiz" questions={module3Quiz} subject="OS" unitId={5} moduleId={3} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Directory Structure & Mounting</button>
@@ -1123,7 +1123,7 @@ Current: 124 → Closest: 183 (distance 59)`}
               ></iframe>
             </div>
 
-            <Quiz title="Module 4 Quiz" questions={module4Quiz} />
+            <Quiz title="Module 4 Quiz" questions={module4Quiz} subject="OS" unitId={5} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Mass Storage Structure</button>
@@ -1149,7 +1149,7 @@ Current: 124 → Closest: 183 (distance 59)`}
               </ul>
             </section>
 
-            <Quiz title="Unit 5 Comprehensive Quiz" questions={unit5Quiz} />
+            <Quiz title="Unit 5 Comprehensive Quiz" questions={unit5Quiz} subject="OS" unitId={5} moduleId={5} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -1177,3 +1177,4 @@ Current: 124 → Closest: 183 (distance 59)`}
 };
 
 export default Unit5;
+

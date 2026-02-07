@@ -175,7 +175,14 @@ export default function Timetable() {
   const renderDetails = () => {
     if (!selected) return <div style={styles.details}>No period selected</div>;
     const [start, end] = selected.time.split(" - ");
-    const subjectLink = `/pages/${selected.subject?.toLowerCase().replace(/\s+/g, '')}`;
+    
+    // Handle subject link generation
+    let subjectLink = '';
+    if (selected.subject) {
+      // Extract the main subject code (e.g., "LS" from "LS: PPHC")
+      const subjectCode = selected.subject.split(':')[0].trim().toLowerCase();
+      subjectLink = `/pages/${subjectCode}`;
+    }
     
     return (
       <div style={styles.details}>
@@ -191,13 +198,13 @@ export default function Timetable() {
             )}
           </div>
           {selected.teacher && (
-            <div style={styles.detailField}>
-              {selected.teacher}
-            </div>
+            <h2 style={styles.detailField}>
+              {selected.teacher.toLowerCase()}
+            </h2>
           )}
-          <div style={styles.detailTime}>
+          <h3 style={styles.detailTime}>
             {start} – {end}
-          </div>
+          </h3>
         </div>
         
         {selected.description && (
@@ -255,7 +262,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     marginBottom: "8px",
   },
   subjectText: {
-    fontSize: "15px",
+    fontSize: "12px",
     fontWeight: "500",
     color: "#333",
   },
@@ -286,16 +293,18 @@ const styles: { [key: string]: React.CSSProperties } = {
   details: {
     flex: 1,
     padding: "30px",
-    background: "white",
+    background: "#FFFFFF",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+    backgroundImage: "radial-gradient(circle, #D8D8D8 1px, transparent 1px)",
+    backgroundSize: "20px 20px",
   },
   detailSubject: {
-    fontSize: "24px",
-    fontWeight: "600",
+    fontSize: "16px",
+    fontWeight: "700",
     marginBottom: "5px",
-    color: "#333",
+    color: "#1a1a1a",
   },
   subjectLink: {
     color: "#666",
@@ -305,22 +314,25 @@ const styles: { [key: string]: React.CSSProperties } = {
     transition: "color 0.2s",
   },
   detailTime: {
-    fontSize: "16px",
-    color: "#666",
+    fontSize: "14px",
+    color: "#3a3a3a",
     marginBottom: "20px",
   },
   detailField: {
-    fontSize: "12px",
+    fontSize: "13px",
     marginBottom: "5px",
-    color: "#555",
+    color: "#2a2a2a",
   },
   detailDescription: {
-    fontSize: "13px",
+    fontSize: "12px",
     padding: "12px",
-    backgroundColor: "#f5f5f5",
-    borderRadius: "6px",
-    color: "#666",
+    backgroundColor: "#FFFFFF",
+    borderRadius: "0",
+    color: "#666666",
     lineHeight: "1.6",
     marginTop: "auto",
+    fontWeight: "400",
+    backgroundImage: "radial-gradient(circle, #D8D8D8 1px, transparent 1px)",
+    backgroundSize: "20px 20px",
   },
 };

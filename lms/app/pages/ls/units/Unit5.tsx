@@ -81,7 +81,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Language and culture are inseparable - language reflects cultural values, transmits cultural knowledge, and even shapes how we think about the world.</p>
 
            
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/PAhZLMEY4TU?si=NYKdTH6O9Yq_Xi8m" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/PAhZLMEY4TU?si=NYKdTH6O9Yq_Xi8m" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
           
@@ -284,7 +284,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 5.1 Quiz" questions={module1Quiz} />
+            <Quiz title="Module 5.1 Quiz" questions={module1Quiz} subject="LS" unitId={5} moduleId={1} />
 
             <div className="navigation-buttons">
               <button onClick={onBack} className="prev-module-btn">← Back to Overview</button>
@@ -307,7 +307,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Do men and women speak differently? How does language construct gender identity? Can language be sexist? Let's explore the complex relationship between language and gender!</p>
 
              
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/OPbMFt0sCbI?si=rAT2ScdAf2yR1eln" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/OPbMFt0sCbI?si=rAT2ScdAf2yR1eln" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
                    style={{width: '550px', height: '325px'}}
                 ></iframe>
             
@@ -514,7 +514,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 5.2 Quiz" questions={module2Quiz} />
+            <Quiz title="Module 5.2 Quiz" questions={module2Quiz} subject="LS" unitId={5} moduleId={2} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Language & Culture</button>
@@ -741,7 +741,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 5.3 Quiz" questions={module3Quiz} />
+            <Quiz title="Module 5.3 Quiz" questions={module3Quiz} subject="LS" unitId={5} moduleId={3} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Language & Gender</button>
@@ -986,7 +986,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 5.4 Quiz" questions={module4Quiz} />
+            <Quiz title="Module 5.4 Quiz" questions={module4Quiz} subject="LS" unitId={5} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Language & Power</button>
@@ -1009,7 +1009,7 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               <p>From recording conversations to brain scans, linguists use diverse methods to understand language. Let's explore the tools of linguistic research and where the field is heading!</p>
 
             
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/E6588DlZW-c?si=RwKn14mCOy_wOIe0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/E6588DlZW-c?si=RwKn14mCOy_wOIe0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
                 ></iframe>
              
 
@@ -1252,11 +1252,39 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
-            <Quiz title="Module 5.5 Quiz" questions={module5Quiz} />
-            <Quiz title="Unit 5 Comprehensive Quiz" questions={unitQuiz} />
-
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Language & Globalization</button>
+              <button onClick={() => setCurrentModule(6)} className="next-module-btn">Unit 5 Quiz →</button>
+            </div>
+          </div>
+        );
+      case 6:
+        return (
+          <div className="module-content">
+            <div className="lesson-header">
+              <div className="lesson-number-badge">5.6</div>
+              <div className="lesson-title-main">
+                <h1>Unit 5 Comprehensive Assessment</h1>
+              </div>
+            </div>
+            
+            <section className="content-section">
+              <h3>Test Your Knowledge of Unit 5</h3>
+              <p>This comprehensive quiz covers all topics from Unit 5: Language in Context. It includes questions from:</p>
+              <ul>
+                <li><strong>Module 5.1:</strong> Language and Culture</li>
+                <li><strong>Module 5.2:</strong> Language and Gender</li>
+                <li><strong>Module 5.3:</strong> Language and Power</li>
+                <li><strong>Module 5.4:</strong> Language and Globalization</li>
+                <li><strong>Module 5.5:</strong> Research Methods in Linguistics & Future of Linguistics</li>
+              </ul>
+              <p>Take your time and demonstrate your understanding of language in social and cultural contexts!</p>
+            </section>
+
+            <Quiz title="Unit 5 Comprehensive Quiz" questions={unitQuiz} subject="LS" unitId={5} moduleId={5} />
+
+            <div className="navigation-buttons">
+              <button onClick={() => setCurrentModule(5)} className="prev-module-btn">← Research Methods</button>
               <button onClick={onBack} className="next-module-btn">Back to Overview →</button>
             </div>
           </div>
@@ -1270,3 +1298,5 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
 };
 
 export default Unit5;
+
+

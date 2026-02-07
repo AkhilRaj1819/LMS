@@ -216,7 +216,7 @@
 }
 
 .os-content {
-  margin-left: 0;
+  margin-left: 100;
   flex: 1;
   padding: 0;
   max-width: 100%;
@@ -1386,4 +1386,25 @@
   font-family: 'Courier New', monospace;
   font-size: 0.9rem;
   color: #2B2B2B;
+}
+
+
+.previous-attempt-badge {
+  background: #E3F2FD;
+  color: #1976D2;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.previous-score-info {
+  background: #F5F5F5;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #616161;
+  margin-top: 8px;
 }

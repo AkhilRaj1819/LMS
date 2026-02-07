@@ -8,6 +8,170 @@ interface Unit3Props {
 }
 
 const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
+  const module1Quiz = [
+    {
+      question: "What are the three main levels of biodiversity?",
+      options: ["Genetic, Species, and Ecosystem", "Plant, Animal, and Microbial", "Terrestrial, Aquatic, and Aerial", "Local, National, and Global"],
+      correctAnswer: 0,
+      explanation: "Biodiversity is organized into three hierarchical levels: genetic diversity (variation within species), species diversity (variety of different species), and ecosystem diversity (variety of habitats and ecological processes)."
+    },
+    {
+      question: "What percentage of DNA do humans share, yet still show significant differences?",
+      options: ["95%", "99.9%", "98%", "100%"],
+      correctAnswer: 1,
+      explanation: "Humans share 99.9% of their DNA, but the remaining 0.1% creates all the genetic diversity we see in human populations, demonstrating the power of genetic variation."
+    },
+    {
+      question: "Which level of biodiversity is like 'source code' in software?",
+      options: ["Ecosystem diversity", "Species diversity", "Genetic diversity", "Habitat diversity"],
+      correctAnswer: 2,
+      explanation: "Genetic diversity represents the fundamental 'code' level of biodiversity, containing the DNA variations that determine traits and enable adaptation, similar to source code in software."
+    },
+    {
+      question: "How many species are estimated to exist globally?",
+      options: ["1-2 million", "8-10 million", "20-30 million", "50 million"],
+      correctAnswer: 1,
+      explanation: "Scientists estimate 8-10 million species exist globally, though we've only cataloged about 1.2 million, meaning most of Earth's biodiversity remains undiscovered."
+    },
+    {
+      question: "Which engineering field uses biomimicry to create innovations?",
+      options: ["Only robotics", "Only materials science", "Multiple fields including robotics and materials", "None"],
+      correctAnswer: 2,
+      explanation: "Biomimicry is used across multiple engineering fields including robotics (animal locomotion), materials science (spider silk), structural engineering (honeycomb structures), and algorithms (genetic algorithms)."
+    }
+  ];
+
+  const module2Quiz = [
+    {
+      question: "What percentage of drugs come from plant sources?",
+      options: ["10%", "25%", "50%", "75%"],
+      correctAnswer: 1,
+      explanation: "Approximately 25% of pharmaceutical drugs are derived from plant sources, representing a $40 billion market and highlighting the medicinal value of biodiversity."
+    },
+    {
+      question: "Which type of biodiversity value involves direct use without market transactions?",
+      options: ["Productive use values", "Consumptive use values", "Social values", "Option values"],
+      correctAnswer: 1,
+      explanation: "Consumptive use values refer to direct benefits from biological resources used without going through markets, such as wild foods, medicinal plants, firewood, and fresh water."
+    },
+    {
+      question: "What is the estimated annual value of global ecosystem services?",
+      options: ["$25 trillion", "$50 trillion", "$125 trillion", "$200 trillion"],
+      correctAnswer: 2,
+      explanation: "Global ecosystem services are valued at approximately $125 trillion annually, demonstrating the enormous economic importance of biodiversity to human society."
+    },
+    {
+      question: "Which biodiversity value represents potential future benefits we haven't discovered yet?",
+      options: ["Aesthetic values", "Option values", "Social values", "Ethical values"],
+      correctAnswer: 1,
+      explanation: "Option values represent the potential for future discoveries and applications from biodiversity, like undiscovered medicines or biotechnology applications we haven't thought of yet."
+    },
+    {
+      question: "What is the expected market size of biomimicry by 2030?",
+      options: ["$5 billion", "$18 billion", "$50 billion", "$100 billion"],
+      correctAnswer: 1,
+      explanation: "The biomimicry market is expected to reach $18 billion by 2030, reflecting growing interest in nature-inspired engineering solutions."
+    }
+  ];
+
+  const module3Quiz = [
+    {
+      question: "India is considered a mega-diverse country because it contains:",
+      options: ["5% of world's species in 1% of land", "8% of world's species in 2.4% of land", "12% of world's species in 3% of land", "15% of world's species in 4% of land"],
+      correctAnswer: 1,
+      explanation: "India is one of 17 mega-diverse countries globally, containing approximately 8% of the world's known species in just 2.4% of the world's land area."
+    },
+    {
+      question: "How many biodiversity hotspots exist globally?",
+      options: ["12", "24", "36", "48"],
+      correctAnswer: 2,
+      explanation: "There are 36 biodiversity hotspots globally, regions with exceptional species concentration that contain approximately 60% of the world's plant species."
+    },
+    {
+      question: "What percentage of ocean species remain undiscovered?",
+      options: ["30%", "50%", "80%", "95%"],
+      correctAnswer: 2,
+      explanation: "Approximately 80% of ocean species remain undiscovered, making marine biodiversity one of the greatest unexplored frontiers on Earth."
+    },
+    {
+      question: "What percentage of Indian flora is endemic (found nowhere else)?",
+      options: ["10%", "33%", "50%", "75%"],
+      correctAnswer: 1,
+      explanation: "Approximately 33% of Indian flora is endemic, meaning these plant species are found nowhere else on Earth, highlighting India's unique biodiversity."
+    },
+    {
+      question: "Which region shows the highest biodiversity globally?",
+      options: ["Polar regions", "Temperate zones", "Equatorial/tropical regions", "Desert regions"],
+      correctAnswer: 2,
+      explanation: "Equatorial and tropical regions harbor the highest biodiversity, with 50% of species found in just 7% of Earth's land area near the equator."
+    }
+  ];
+
+  const module4Quiz = [
+    {
+      question: "What is the primary threat to 85% of endangered species?",
+      options: ["Climate change", "Pollution", "Habitat loss", "Invasive species"],
+      correctAnswer: 2,
+      explanation: "Habitat loss is the primary threat to 85% of endangered species, including deforestation, urbanization, agricultural conversion, and habitat fragmentation."
+    },
+    {
+      question: "How much faster is the current extinction rate compared to natural background rate?",
+      options: ["10-100x faster", "100-500x faster", "1,000-10,000x faster", "100,000x faster"],
+      correctAnswer: 2,
+      explanation: "The current extinction rate is 1,000-10,000 times faster than the natural background rate, indicating an unprecedented biodiversity crisis."
+    },
+    {
+      question: "What is the estimated annual value of the illegal wildlife trade?",
+      options: ["$2 billion", "$20 billion", "$50 billion", "$100 billion"],
+      correctAnswer: 1,
+      explanation: "The illegal wildlife trade is estimated at $20 billion annually, making it one of the most lucrative forms of organized crime globally."
+    },
+    {
+      question: "Which threat to biodiversity is compared to 'malicious code injection'?",
+      options: ["Pollution", "Climate change", "Invasive species", "Habitat loss"],
+      correctAnswer: 2,
+      explanation: "Invasive species are like malicious code injection - they enter ecosystems where they don't belong and cause chaos by outcompeting natives, spreading diseases, and altering ecosystem functions."
+    },
+    {
+      question: "How many species could be affected by climate change by 2050?",
+      options: ["100,000", "500,000", "1 million", "5 million"],
+      correctAnswer: 2,
+      explanation: "Climate change could affect approximately 1 million species by 2050 through habitat shifts, phenology changes, and ecosystem disruption."
+    }
+  ];
+
+  const module5Quiz = [
+    {
+      question: "Which conservation approach maintains species in their natural habitats?",
+      options: ["Ex-situ conservation", "In-situ conservation", "Captive breeding", "Seed banking"],
+      correctAnswer: 1,
+      explanation: "In-situ conservation protects species in their natural habitats, maintaining all ecological relationships, evolutionary potential, and ecosystem functions through national parks and wildlife sanctuaries."
+    },
+    {
+      question: "What is an example of ex-situ conservation?",
+      options: ["National parks", "Wildlife sanctuaries", "Zoos and botanical gardens", "Biosphere reserves"],
+      correctAnswer: 2,
+      explanation: "Ex-situ conservation involves protecting species outside their natural habitats, such as in zoos, botanical gardens, seed banks, and captive breeding programs."
+    },
+    {
+      question: "Which technology helps combat poaching?",
+      options: ["Virtual reality", "Drones and AI sensors", "3D printing", "Blockchain only"],
+      correctAnswer: 1,
+      explanation: "Drones equipped with sensors and AI are used for anti-poaching efforts, providing real-time surveillance and early detection of illegal activities in protected areas."
+    },
+    {
+      question: "What is the main advantage of in-situ conservation over ex-situ?",
+      options: ["Lower cost", "Maintains ecological relationships", "Easier to implement", "Better for tourism"],
+      correctAnswer: 1,
+      explanation: "In-situ conservation maintains all ecological relationships and evolutionary processes intact, allowing species to continue adapting naturally within their ecosystems."
+    },
+    {
+      question: "Which career field develops tools for biodiversity monitoring?",
+      options: ["Only biology", "Only computer science", "Conservation technology (interdisciplinary)", "Only environmental science"],
+      correctAnswer: 2,
+      explanation: "Conservation technology is an interdisciplinary field combining biology, computer science, engineering, and environmental science to develop monitoring and protection tools."
+    }
+  ];
   const renderModule = () => {
     switch (currentModule) {
       case 1:
@@ -102,8 +266,9 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Biodiversity and Conservation</h4>
               <p>Understanding the importance of biodiversity and conservation strategies.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/8LXJu1U-yUk?si=rHJtIFWewJRfbbIY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/7G3eXI_DPn8?si=FaulseZDH7cEFppZ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>            </div>
+
+            <Quiz title="Module 3.1: Biodiversity Levels" questions={module1Quiz} subject="ES" unitId={3} moduleId={1} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Biodiversity Values →</button>
@@ -239,8 +404,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>India's Biodiversity Hotspots</h4>
               <p>Exploring India's exceptional biodiversity and conservation challenges.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/xcHZFuq270g?si=IV3buww5Zff-Gs73&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/xcHZFuq270g?si=IV3buww5Zff-Gs73&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Module 3.2: Biodiversity Values" questions={module2Quiz} subject="ES" unitId={3} moduleId={2} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Biodiversity Definition</button>
@@ -380,8 +547,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>In-situ vs Ex-situ Conservation</h4>
               <p>Comparing different approaches to biodiversity conservation.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/jnz2Xq9T0dk?si=U8jX29I_FpF01Nka&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/jnz2Xq9T0dk?si=U8jX29I_FpF01Nka&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Module 3.3: Biodiversity Distribution" questions={module3Quiz} subject="ES" unitId={3} moduleId={3} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Biodiversity Values</button>
@@ -523,8 +692,10 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             <div className="video-embed">
               <h4>Threats to Biodiversity</h4>
               <p>Understanding the major threats facing global biodiversity.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/705DHheuG6w?si=kjpwXjBu5-kKRUYw&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/705DHheuG6w?si=kjpwXjBu5-kKRUYw&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Module 3.4: Threats to Biodiversity" questions={module4Quiz} subject="ES" unitId={3} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Biodiversity Levels</button>
@@ -544,152 +715,41 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
             </div>
             
             <section className="content-section">
-              <h3>Conservation of Biodiversity: System Backup and Recovery </h3>
+              <h3>Conservation of Biodiversity: Protecting Nature's Systems 🛡️</h3>
               <div className="theory-box">
-                <p>Time for the most important part - conservation! Think of biodiversity conservation like IT disaster recovery planning. You need multiple backup strategies: some keep systems running in their original environment (in-situ), others create backup copies in secure locations (ex-situ). Just like how you wouldn't trust your important data to just one backup method, we can't rely on just one conservation approach!</p>
-                
-                <div className="performance-metrics">
-                  <h4>Conservation Success Stories </h4>
-                  <ul>
-                    <li><strong>Protected Areas:</strong> 18% of land surface now under protection</li>
-                    <li><strong>Species Recovery:</strong> California condor: 27 → 500+ individuals</li>
-                    <li><strong>Seed Banks:</strong> 2.5 billion seeds stored globally</li>
-                    <li><strong>Reintroduction Success:</strong> Arabian oryx brought back from extinction</li>
-                  </ul>
-                </div>
+                <p>Conservation is like system backup and disaster recovery - we need both on-site protection (in-situ) and off-site backups (ex-situ) to ensure biodiversity survives! Just like you wouldn't trust a single backup strategy for critical data, we can't rely on just one conservation approach.</p>
               </div>
               
-              <h4>Biodiversity Conservation Approaches </h4>
-              <p>Conservation strategies are broadly classified into two categories: in-situ conservation which protects species in their natural habitats, and ex-situ conservation which involves protecting species outside their natural habitats.</p>
-              
-              <h5>In-situ Conservation - Live System Protection </h5>
+              <h4>In-Situ Conservation - On-Site Protection 🏞️</h4>
               <div className="example-box">
-                <p>In-situ is like keeping your servers running in their original data center - maintaining all the connections and relationships!</p>
+                <p>Protecting species in their natural habitats with all ecological relationships intact.</p>
                 <ul>
-                  <li><strong>Natural habitat protection:</strong> Keeping species in their original "environment"</li>
-                  <li><strong>Ecological relationships:</strong> Maintains all the natural "network connections"</li>
-                  <li><strong>Evolutionary potential:</strong> Allows species to continue adapting and evolving</li>
-                  <li><strong>Ecosystem protection:</strong> Protects entire biological "systems"</li>
-                  <li><strong>Cost-effective:</strong> More economical for large areas</li>
-                  <li><strong>Space requirements:</strong> Needs larger land areas to be effective</li>
+                  <li><strong>National Parks:</strong> Large protected areas for ecosystem conservation</li>
+                  <li><strong>Wildlife Sanctuaries:</strong> Protected areas focusing on specific species</li>
+                  <li><strong>Biosphere Reserves:</strong> UNESCO sites balancing conservation and development</li>
+                  <li><strong>Sacred Groves:</strong> Traditional community-protected forests</li>
                 </ul>
               </div>
 
-              <h5>Ex-situ Conservation - Backup and Recovery </h5>
+              <h4>Ex-Situ Conservation - Off-Site Backup 🏛️</h4>
               <div className="example-box">
-                <p>Ex-situ is like cloud backup - storing copies of important data in secure, controlled environments!</p>
+                <p>Protecting species outside their natural habitats as insurance against extinction.</p>
                 <ul>
-                  <li><strong>Controlled environments:</strong> Protected spaces outside natural habitats</li>
-                  <li><strong>Vulnerable species focus:</strong> Intensive care for species at risk</li>
-                  <li><strong>Breeding programs:</strong> Managed reproduction to increase populations</li>
-                  <li><strong>Genetic backup:</strong> Preserving genetic material for the future</li>
-                  <li><strong>Intensive management:</strong> Close monitoring and care</li>
-                  <li><strong>Behavioral concerns:</strong> May lose natural behaviors in captivity</li>
-                </ul>
-              </div>
-
-              <h4>In-situ Conservation Methods </h4>
-              
-              <h5>Protected Area Systems 🏛️</h5>
-              <div className="example-box">
-                <ul>
-                  <li><strong>National Parks:</strong> Strict protection zones (like high-security servers)</li>
-                  <li><strong>Wildlife Sanctuaries:</strong> Species-specific protection areas</li>
-                  <li><strong>Biosphere Reserves:</strong> Multi-use conservation with research and education</li>
-                  <li><strong>Community Reserves:</strong> Locally managed conservation areas</li>
-                  <li><strong>Conservation Reserves:</strong> Government-community partnerships</li>
-                  <li><strong>Marine Protected Areas:</strong> Ocean conservation zones</li>
-                </ul>
-              </div>
-
-              <h5>Legal Frameworks </h5>
-              <div className="example-box">
-                <ul>
-                  <li><strong>Wildlife Protection Act, 1972:</strong> India's main wildlife law</li>
-                  <li><strong>Forest Conservation Act, 1980:</strong> Protecting forest areas</li>
-                  <li><strong>Environment Protection Act, 1986:</strong> Comprehensive environmental law</li>
-                  <li><strong>Biodiversity Act, 2002:</strong> Specific biodiversity protection</li>
-                  <li><strong>International agreements:</strong> CITES, CBD for global cooperation</li>
-                  <li><strong>State laws:</strong> Regional conservation regulations</li>
-                </ul>
-              </div>
-
-              <h5>Community-Based Conservation </h5>
-              <div className="example-box">
-                <ul>
-                  <li><strong>Joint Forest Management:</strong> Communities managing forests with government</li>
-                  <li><strong>Community Conserved Areas:</strong> Traditional conservation by local people</li>
-                  <li><strong>Traditional Knowledge:</strong> Indigenous wisdom for conservation</li>
-                  <li><strong>Alternative Livelihoods:</strong> Economic opportunities that support conservation</li>
-                  <li><strong>Ecotourism:</strong> Tourism that benefits both people and nature</li>
-                  <li><strong>Payment for Ecosystem Services:</strong> Paying communities for conservation</li>
-                </ul>
-              </div>
-
-              <h4>Ex-situ Conservation Methods </h4>
-              
-              <h5>Living Collections </h5>
-              <div className="example-box">
-                <ul>
-                  <li><strong>Botanical Gardens:</strong> Plant conservation and research centers</li>
-                  <li><strong>Zoological Parks:</strong> Animal conservation and breeding programs</li>
-                  <li><strong>Gene Banks:</strong> Storing genetic material for future use</li>
-                  <li><strong>Seed Banks:</strong> Long-term seed storage (nature's hard drives!)</li>
-                  <li><strong>Microorganism Cultures:</strong> Preserving bacteria and fungi</li>
-                  <li><strong>Breeding Centers:</strong> Captive breeding for population recovery</li>
-                </ul>
-              </div>
-
-              <h5>Genetic Resource Banks </h5>
-              <div className="example-box">
-                <ul>
-                  <li><strong>Cryopreservation:</strong> Freezing gametes and embryos</li>
-                  <li><strong>Embryo storage:</strong> Preserving early development stages</li>
-                  <li><strong>DNA libraries:</strong> Genetic information storage</li>
-                  <li><strong>Cell cultures:</strong> Living cell collections</li>
-                  <li><strong>Genome sequencing:</strong> Digital genetic records</li>
-                  <li><strong>Reproductive technology:</strong> Artificial breeding techniques</li>
-                </ul>
-              </div>
-
-              <h5>Reintroduction Programs </h5>
-              <div className="example-box">
-                <ul>
-                  <li><strong>Species recovery:</strong> Bringing species back to the wild</li>
-                  <li><strong>Habitat restoration:</strong> Preparing environments before release</li>
-                  <li><strong>Population monitoring:</strong> Tracking released animals and plants</li>
-                  <li><strong>Genetic management:</strong> Maintaining genetic diversity in small populations</li>
-                  <li><strong>Community involvement:</strong> Local support for reintroduction efforts</li>
-                  <li><strong>Long-term care:</strong> Ongoing monitoring and support</li>
-                </ul>
-              </div>
-
-              <h4>Engineering Applications in Conservation </h4>
-              
-              <div className="career-opportunities">
-                <h5>Technology Solutions </h5>
-                <ul>
-                  <li><strong>Conservation Drones:</strong> Monitoring wildlife and habitats</li>
-                  <li><strong>Genetic Analysis:</strong> DNA barcoding and population genetics</li>
-                  <li><strong>Tracking Systems:</strong> GPS and satellite monitoring of animals</li>
-                  <li><strong>Habitat Modeling:</strong> AI for predicting suitable conservation areas</li>
-                </ul>
-
-                <h5>Career Opportunities </h5>
-                <ul>
-                  <li><strong>Conservation Technologist:</strong> Developing tools for species protection</li>
-                  <li><strong>Wildlife Bioinformatics:</strong> Managing genetic data for conservation</li>
-                  <li><strong>Restoration Engineer:</strong> Designing habitat restoration projects</li>
-                  <li><strong>Conservation Data Scientist:</strong> Analyzing data to optimize protection efforts</li>
+                  <li><strong>Zoos:</strong> Captive breeding programs for endangered animals</li>
+                  <li><strong>Botanical Gardens:</strong> Living collections of rare plants</li>
+                  <li><strong>Seed Banks:</strong> Long-term storage of plant genetic material</li>
+                  <li><strong>Gene Banks:</strong> Cryopreservation of genetic resources</li>
                 </ul>
               </div>
             </section>
 
             <div className="video-embed">
-              <h4>Conservation Success Stories</h4>
-              <p>Learn about successful biodiversity conservation efforts around the world.</p>
-              <iframe width="50%" height="300" src="https://www.youtube.com/embed/ZrrdDYmzoME?si=k5BTTpGGqK-61fxd&amp;start=4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <h4>Conservation Strategies</h4>
+              <p>Learn about different approaches to protecting biodiversity.</p>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/jnz2Xq9T0dk?si=U8jX29I_FpF01Nka" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
+
+            <Quiz title="Module 3.5: Conservation Strategies" questions={module5Quiz} subject="ES" unitId={3} moduleId={5} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Threats to Biodiversity</button>

@@ -10,6 +10,267 @@ interface Unit1Props {
 
 const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }) => {
   
+  // Quiz for Module 1: Alphabets and Strings
+  const alphabetsStringsQuiz = [
+    {
+      question: "What is an alphabet in formal language theory?",
+      options: [
+        "A set of letters from A to Z",
+        "A finite non-empty set of symbols",
+        "A collection of words",
+        "A type of grammar"
+      ],
+      correctAnswer: 1,
+      explanation: "An alphabet (Sigma) is a finite non-empty set of symbols that serves as the basic building blocks for constructing strings and languages."
+    },
+    {
+      question: "What is the length of the empty string (epsilon)?",
+      options: ["1", "0", "Undefined", "Infinity"],
+      correctAnswer: 1,
+      explanation: "The empty string epsilon has length 0, denoted as |epsilon| = 0. It is the unique string containing no symbols."
+    },
+    {
+      question: "If Sigma = {a, b}, which of the following is a valid string over Sigma?",
+      options: ["abc", "aab", "123", "xyz"],
+      correctAnswer: 1,
+      explanation: "A string over an alphabet Sigma can only contain symbols from Sigma. Since Sigma = {a, b}, only 'aab' is valid."
+    },
+    {
+      question: "What is the concatenation of strings 'ab' and 'cd'?",
+      options: ["ab cd", "abcd", "cd ab", "a b c d"],
+      correctAnswer: 1,
+      explanation: "Concatenation joins two strings together in order. 'ab' concatenated with 'cd' gives 'abcd'."
+    },
+    {
+      question: "What is a language in formal language theory?",
+      options: [
+        "A natural language like English",
+        "Any subset of strings over an alphabet",
+        "A programming language",
+        "A set of alphabets"
+      ],
+      correctAnswer: 1,
+      explanation: "A language L is any subset of Sigma*, where Sigma* is the set of all possible strings over alphabet Sigma."
+    }
+  ];
+
+  // Quiz for Module 2: Language Operations
+  const languageOperationsQuiz = [
+    {
+      question: "What is the result of L* (Kleene star) when L = {a}?",
+      options: [
+        "Only {a}",
+        "{epsilon, a}",
+        "{epsilon, a, aa, aaa, ...}",
+        "Empty set"
+      ],
+      correctAnswer: 2,
+      explanation: "Kleene star L* represents zero or more concatenations of strings from L, resulting in {epsilon, a, aa, aaa, aaaa, ...}."
+    },
+    {
+      question: "What is the concatenation of L1 = {a, b} and L2 = {1, 2}?",
+      options: [
+        "{a, b, 1, 2}",
+        "{a1, a2, b1, b2}",
+        "{ab, 12}",
+        "{a, b, ab, 1, 2, 12}"
+      ],
+      correctAnswer: 1,
+      explanation: "Concatenation L1L2 creates all strings formed by joining each string from L1 with each string from L2: {a1, a2, b1, b2}."
+    },
+    {
+      question: "Which operation represents 'one or more' repetitions?",
+      options: ["Kleene Star (*)", "Kleene Plus (+)", "Union (U)", "Intersection (∩)"],
+      correctAnswer: 1,
+      explanation: "Kleene Plus (L+) represents one or more concatenations of strings from L, equivalent to LL*."
+    },
+    {
+      question: "What is the union of L1 = {a, b} and L2 = {b, c}?",
+      options: [
+        "{a, b, c}",
+        "{ab, bc}",
+        "{a, b, b, c}",
+        "{abc}"
+      ],
+      correctAnswer: 0,
+      explanation: "Union L1 U L2 contains all strings that belong to either L1 or L2: {a, b, c}."
+    },
+    {
+      question: "Which property does concatenation NOT have?",
+      options: ["Associative", "Commutative", "Identity element", "Closure"],
+      correctAnswer: 1,
+      explanation: "Concatenation is NOT commutative. For example, 'ab' ≠ 'ba'. However, it is associative and has epsilon as identity."
+    }
+  ];
+
+  // Quiz for Module 3: Finite State Machines
+  const finiteStateMachinesQuiz = [
+    {
+      question: "In a DFA, how many next states can exist for a given state and input symbol?",
+      options: ["Zero", "Exactly one", "One or more", "Any number"],
+      correctAnswer: 1,
+      explanation: "In a Deterministic Finite Automaton (DFA), the transition function delta: Q × Sigma → Q maps each (state, symbol) pair to exactly one next state."
+    },
+    {
+      question: "Which component is NOT part of the 5-tuple definition of a finite automaton?",
+      options: [
+        "Set of states (Q)",
+        "Transition function (delta)",
+        "Output alphabet",
+        "Initial state (q0)"
+      ],
+      correctAnswer: 2,
+      explanation: "A finite automaton is defined as M = (Q, Sigma, delta, q0, F). It does not have an output alphabet - it only accepts or rejects strings."
+    },
+    {
+      question: "What does the extended transition function delta_hat represent?",
+      options: [
+        "Single symbol transitions",
+        "String processing from a state",
+        "Multiple state transitions",
+        "Epsilon transitions"
+      ],
+      correctAnswer: 1,
+      explanation: "The extended transition function delta_hat: Q × Sigma* → Q processes entire strings, defined recursively from the basic transition function."
+    },
+    {
+      question: "When is a string accepted by a finite automaton?",
+      options: [
+        "When it reaches any state",
+        "When processing ends in an accept state",
+        "When all states are visited",
+        "When the string is empty"
+      ],
+      correctAnswer: 1,
+      explanation: "A string w is accepted if delta_hat(q0, w) is in F, meaning processing the string from the start state ends in an accepting state."
+    },
+    {
+      question: "What is the language L(M) of an automaton M?",
+      options: [
+        "All possible strings",
+        "Set of strings accepted by M",
+        "Set of states in M",
+        "Set of transitions in M"
+      ],
+      correctAnswer: 1,
+      explanation: "L(M) = {w | delta_hat(q0, w) in F} is the set of all strings that M accepts, called the language recognized by M."
+    }
+  ];
+
+  // Quiz for Module 4: DFA and NFA
+  const dfaNfaQuiz = [
+    {
+      question: "What is the main difference between DFA and NFA?",
+      options: [
+        "DFA is faster than NFA",
+        "NFA can have multiple transitions for same input, DFA cannot",
+        "DFA accepts more languages than NFA",
+        "NFA requires more states than DFA"
+      ],
+      correctAnswer: 1,
+      explanation: "NFA allows multiple transitions (including epsilon transitions) for the same state-symbol pair, while DFA requires exactly one transition. However, they are equivalent in expressive power."
+    },
+    {
+      question: "What does epsilon-transition in NFA allow?",
+      options: [
+        "Transition without consuming input",
+        "Transition to multiple states",
+        "Transition to previous state",
+        "Transition to final state only"
+      ],
+      correctAnswer: 0,
+      explanation: "Epsilon-transitions allow the NFA to change states without reading any input symbol, providing additional flexibility in design."
+    },
+    {
+      question: "Are DFA and NFA equivalent in expressive power?",
+      options: [
+        "No, DFA is more powerful",
+        "No, NFA is more powerful",
+        "Yes, they recognize the same class of languages",
+        "It depends on the language"
+      ],
+      correctAnswer: 2,
+      explanation: "DFA and NFA are equivalent - for every NFA, there exists a DFA that recognizes the same language, and vice versa. Both recognize exactly the regular languages."
+    },
+    {
+      question: "What is the subset construction algorithm used for?",
+      options: [
+        "Converting DFA to NFA",
+        "Converting NFA to DFA",
+        "Minimizing DFA",
+        "Creating epsilon-transitions"
+      ],
+      correctAnswer: 1,
+      explanation: "Subset construction (powerset construction) converts an NFA to an equivalent DFA by creating DFA states that correspond to subsets of NFA states."
+    },
+    {
+      question: "In worst case, how many states might a DFA need compared to an n-state NFA?",
+      options: ["n states", "2n states", "2^n states", "n^2 states"],
+      correctAnswer: 2,
+      explanation: "In the worst case, converting an n-state NFA to DFA using subset construction can result in a DFA with 2^n states (one for each subset of NFA states)."
+    }
+  ];
+
+  // Quiz for Module 5: Transition Diagrams
+  const transitionDiagramsQuiz = [
+    {
+      question: "What does a double circle represent in a transition diagram?",
+      options: [
+        "Start state",
+        "Accept/Final state",
+        "Intermediate state",
+        "Error state"
+      ],
+      correctAnswer: 1,
+      explanation: "In transition diagrams, double circles denote accepting or final states. A string is accepted if processing ends in one of these states."
+    },
+    {
+      question: "How is the initial state marked in a transition diagram?",
+      options: [
+        "Double circle",
+        "Unlabeled incoming arrow",
+        "Bold circle",
+        "Dashed circle"
+      ],
+      correctAnswer: 1,
+      explanation: "The initial/start state is marked with an unlabeled arrow pointing to it from outside the diagram."
+    },
+    {
+      question: "What do directed edges represent in a transition diagram?",
+      options: [
+        "States",
+        "Transitions between states",
+        "Input symbols",
+        "Accept conditions"
+      ],
+      correctAnswer: 1,
+      explanation: "Directed edges (arrows) represent transitions between states, labeled with the input symbol(s) that cause the transition."
+    },
+    {
+      question: "Can multiple symbols label the same transition edge?",
+      options: [
+        "No, only one symbol per edge",
+        "Yes, using comma-separated symbols",
+        "Only in NFA",
+        "Only epsilon transitions"
+      ],
+      correctAnswer: 1,
+      explanation: "Multiple symbols can label the same edge using comma-separated notation, indicating the same transition occurs for any of those symbols."
+    },
+    {
+      question: "What does a self-loop in a transition diagram represent?",
+      options: [
+        "Error condition",
+        "State remains same on input",
+        "Epsilon transition",
+        "Final state"
+      ],
+      correctAnswer: 1,
+      explanation: "A self-loop (edge from a state back to itself) indicates the automaton stays in the same state when reading that input symbol."
+    }
+  ];
+
+  // Comprehensive Unit Quiz
   const unitQuiz = [
     {
       question: "What is an alphabet in formal language theory?",
@@ -121,8 +382,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Introduction to Formal Languages</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/O3NU5dLDU2Q?si=vQuc-Fbc6DysYWRM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style={{width: '400px', height: '225px'}}></iframe>
-                </div>
+              <iframe width="50%" height="300" src="https://www.youtube.com/embed/O3NU5dLDU2Q?si=vQuc-Fbc6DysYWRM"  title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>                </div>
               </div>
 
               <h4>Fundamental Mathematical Definitions</h4>
@@ -219,6 +479,14 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                 </div>
               </div>
             </section>
+
+            <Quiz 
+              title="Alphabets and Strings Quiz"
+              questions={alphabetsStringsQuiz}
+              subject="FLAT"
+              unitId={1}
+              moduleId={1}
+            />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Language Operations →</button>
@@ -369,6 +637,14 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <Quiz 
+              title="Language Operations Quiz"
+              questions={languageOperationsQuiz}
+              subject="FLAT"
+              unitId={1}
+              moduleId={2}
+            />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Alphabets and Strings</button>
               <button onClick={() => setCurrentModule(3)} className="next-module-btn">Finite State Machines →</button>
@@ -495,6 +771,14 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <Quiz 
+              title="Finite State Machines Quiz"
+              questions={finiteStateMachinesQuiz}
+              subject="FLAT"
+              unitId={1}
+              moduleId={3}
+            />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Language Operations</button>
               <button onClick={() => setCurrentModule(4)} className="next-module-btn">DFA and NFA →</button>
@@ -616,6 +900,14 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                 </div>
               </div>
             </section>
+
+            <Quiz 
+              title="DFA and NFA Quiz"
+              questions={dfaNfaQuiz}
+              subject="FLAT"
+              unitId={1}
+              moduleId={4}
+            />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Finite State Machines</button>
@@ -747,6 +1039,14 @@ function ACCEPT(M, w):
               </div>
             </section>
 
+            <Quiz 
+              title="Transition Diagrams Quiz"
+              questions={transitionDiagramsQuiz}
+              subject="FLAT"
+              unitId={1}
+              moduleId={5}
+            />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← DFA and NFA</button>
               <button onClick={() => setCurrentModule(6)} className="next-module-btn">Unit 1 Quiz →</button>
@@ -764,7 +1064,7 @@ function ACCEPT(M, w):
               </div>
             </div>
             
-            <Quiz title="Unit 1 Comprehensive Quiz: Introduction to Formal Languages" questions={unitQuiz} passingScore={70} />
+            <Quiz title="Unit 1 Comprehensive Quiz: Introduction to Formal Languages" questions={unitQuiz} passingScore={70} subject="FLAT" unitId={1} moduleId={6} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(5)} className="prev-module-btn">← Transition Diagrams</button>

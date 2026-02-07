@@ -38,5 +38,21 @@
     { "time": "01:15 - 02:15", "subject": "LS: PPHC" },
     { "time": "02:15 - 03:15", "subject": "OS" },
     { "time": "03:15 - 04:15", "subject": "OS" }
+  ],
+  "SAT": [
+    { "time": "09:30 - 10:30", "subject": "Self Study" },
+    { "time": "10:30 - 11:30", "subject": "Project Work" },
+    { "time": "11:30 - 12:30", "subject": "Lab Practice" },
+    { "time": "01:15 - 02:15", "subject": "Extra Classes" },
+    { "time": "02:15 - 03:15", "subject": "Sports/Activities" },
+    { "time": "03:15 - 04:15", "subject": "Library" }
+  ],
+  "SUN": [
+    { "time": "09:30 - 10:30", "subject": "Revision" },
+    { "time": "10:30 - 11:30", "subject": "Assignment Work" },
+    { "time": "11:30 - 12:30", "subject": "Online Courses" },
+    { "time": "01:15 - 02:15", "subject": "Group Study" },
+    { "time": "02:15 - 03:15", "subject": "Hobby/Recreation" },
+    { "time": "03:15 - 04:15", "subject": "Free Time" }
   ]
 }
