@@ -89,7 +89,7 @@ const handler = NextAuth({
         },
 
         async session({ session, token }) {
-            if (token) {
+            if (token && session.user) {
                 session.user.id = token.id;
                 session.user.isAdmin = token.isAdmin;
                 session.user.hasAdminRecord = token.hasAdminRecord;
