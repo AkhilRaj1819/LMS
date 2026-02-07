@@ -64,7 +64,8 @@ export default function OptionCard({ item }) {
         <img
           src={item.img}
           alt=""
-          className="relative z-10 h-9 w-9"
+          className={`relative z-10 object-contain ${item.id === 6 ? 'h-14 w-14' : 'h-9 w-9'}`}
+          style={{ marginLeft: item.id === 6 ? '-12px' : '-8px' }}
         />
       </div>
 

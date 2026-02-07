@@ -51,6 +51,13 @@ export default function Home() {
       color: "#B9A2A7",
       img: "https://kalvium.community/assets/launcher-calendar-logo-3350606d.svg",
     },
+    {
+      id: 6,
+      name: "AI Assistance",
+      link: "/pages/ai",
+      color: "#C6B7F2",
+      img: "https://res.cloudinary.com/dwr6mvypn/image/upload/v1770459544/augmnet-removebg-preview_o6i4sh.png",
+    },
     
   ];
 
