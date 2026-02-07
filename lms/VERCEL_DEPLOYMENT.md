@@ -19,7 +19,8 @@ git push -u origin main
 1. Go to [vercel.com](https://vercel.com)
 2. Click "Import Project"
 3. Select your GitHub repository
-4. Set root directory to: `LMS/lms`
+4. **IMPORTANT: Set Root Directory to `LMS/lms`** in the project settings
+5. Framework Preset should auto-detect as "Next.js"
 
 ### 3. Environment Variables
 Add these in Vercel Dashboard → Settings → Environment Variables:
@@ -39,8 +40,7 @@ In Google Cloud Console, add your Vercel domain to:
 ### 5. Deploy
 Click "Deploy" and wait for build to complete.
 
-## Important Notes
+## Troubleshooting
+- If "No Next.js version detected" error: Ensure Root Directory is set to `LMS/lms`
 - Never commit `.env` file
-- Use `.env.example` as reference
-- Update `NEXTAUTH_URL` after first deployment
 - Redeploy after updating environment variables
