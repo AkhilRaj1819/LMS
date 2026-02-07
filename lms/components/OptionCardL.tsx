@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { OptionCardLProps } from "@/types";
 
 const OptionCardL = ({
   name,
@@ -10,7 +11,7 @@ const OptionCardL = ({
   icon,
   color = "#EDEDED",
   stats,
-}) => {
+}: OptionCardLProps) => {
 
   const credits = stats?.Credits ?? 0;
   const modules = stats?.Modules ?? 0;

@@ -243,7 +243,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Regular Expression Operations Tutorial</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/4C7ZQJDoK-g?si=whl3i0-ddHVAYYOK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/4C7ZQJDoK-g?si=whl3i0-ddHVAYYOK" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -400,7 +400,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Thompson's Construction Method</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/YGjEoND31YU?si=uvEfrCri30O-AODe" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/YGjEoND31YU?si=uvEfrCri30O-AODe" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -534,7 +534,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Pumping Lemma for Regular Languages</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/BKIUSHYpq_Y?si=_895K7WtuvDYqsYA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/BKIUSHYpq_Y?si=_895K7WtuvDYqsYA" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -650,7 +650,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Regular Grammars and Types</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/_mlAjDjBns8?si=PQXDuQYutgfYrhNG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/_mlAjDjBns8?si=PQXDuQYutgfYrhNG" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -759,7 +759,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </div>
             
-            <Quiz title="Unit 3 Comprehensive Quiz: Regular Languages" questions={unitQuiz} passingScore={70} />
+            <Quiz title="Unit 3 Comprehensive Quiz: Regular Languages" questions={unitQuiz} subject="FLAT" unitId={3} moduleId={8} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(5)} className="prev-module-btn">← Regular Grammars</button>

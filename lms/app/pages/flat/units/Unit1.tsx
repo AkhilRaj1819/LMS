@@ -463,7 +463,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                 <h5>Practical Examples and Applications</h5>
                 <div className="example-details">
                   <h6>Binary Alphabet Example</h6>
-                  <p><strong>Alphabet:</strong> Sigma = {0, 1}</p>
+                  <p><strong>Alphabet:</strong> Sigma = {'{'} 0, 1 {'}'}</p>
                   <p><strong>Strings:</strong> epsilon, 0, 1, 00, 01, 10, 11, 000, 001, and so on</p>
                   <p><strong>Language:</strong> L = w in Sigma* where w has equal 0s and 1s</p>
                   
@@ -522,7 +522,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Language Operations and Closure Properties</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" style={{width: '400px', height: '225px'}} src="https://www.youtube.com/embed/UoFrOT7T7ns?si=LXp350-XZILA4lca" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" style={{width: '400px', height: '225px'}} src="https://www.youtube.com/embed/UoFrOT7T7ns?si=LXp350-XZILA4lca" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -680,7 +680,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Finite State Machines and Automata</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/Qa6csfkK7_I?si=-O8E96gfOzOqURdv" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style={{width: '400px', height: '225px'}}></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/Qa6csfkK7_I?si=-O8E96gfOzOqURdv" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{width: '400px', height: '225px'}}></iframe>
                 </div>
               </div>
 
@@ -814,7 +814,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>DFA vs NFA: Deterministic and Non-Deterministic Automata</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/BCgIAQelwo8?si=D52aAHKzsZ6NaOmY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/BCgIAQelwo8?si=D52aAHKzsZ6NaOmY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -944,7 +944,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Transition Diagrams and State Machines</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/oaD7zcjGU28?si=gXOTl-6Uokoeh-ka" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/oaD7zcjGU28?si=gXOTl-6Uokoeh-ka" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -1064,7 +1064,7 @@ function ACCEPT(M, w):
               </div>
             </div>
             
-            <Quiz title="Unit 1 Comprehensive Quiz: Introduction to Formal Languages" questions={unitQuiz} passingScore={70} subject="FLAT" unitId={1} moduleId={6} />
+            <Quiz title="Unit 1 Comprehensive Quiz: Introduction to Formal Languages" questions={unitQuiz} subject="FLAT" unitId={1} moduleId={6} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(5)} className="prev-module-btn">← Transition Diagrams</button>

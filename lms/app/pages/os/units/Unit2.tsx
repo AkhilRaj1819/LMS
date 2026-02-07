@@ -5,9 +5,10 @@ import Quiz from '../components/Quiz';
 interface Unit2Props {
   currentModule: number;
   setCurrentModule: (module: number) => void;
+  onBack: () => void;
 }
 
-const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
+const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }) => {
   const module1Quiz = [
     {
       question: "What is a process?",
@@ -1334,6 +1335,9 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Multithreading & IPC</button>
+              {onBack && (
+                <button onClick={onBack} className="next-module-btn">Back to Course →</button>
+              )}
             </div>
           </div>
         );

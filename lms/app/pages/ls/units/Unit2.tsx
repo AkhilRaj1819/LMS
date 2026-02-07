@@ -19,7 +19,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "Study of sentence structure and word arrangement",
         "Study of language acquisition"
       ],
-      correctAnswer: 2
+      correctAnswer: 2, explanation: ""
     },
     {
       question: "Which of the following is a key component of phrase structure grammar?",
@@ -29,7 +29,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "Semantic feature analysis",
         "Pragmatic inference"
       ],
-      correctAnswer: 1
+      correctAnswer: 1, explanation: ""
     },
     {
       question: "What does the term 'constituency' refer to in syntax?",
@@ -39,7 +39,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "The sound patterns of language",
         "The social context of language use"
       ],
-      correctAnswer: 1
+      correctAnswer: 1, explanation: ""
     },
     {
       question: "What is recursion in syntax?",
@@ -49,7 +49,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "Changing word order",
         "Adding prefixes"
       ],
-      correctAnswer: 1
+      correctAnswer: 1, explanation: ""
     },
     {
       question: "Which is a major phrasal category?",
@@ -59,7 +59,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "Prepositional Phrase (PP)",
         "All of the above"
       ],
-      correctAnswer: 3
+      correctAnswer: 3, explanation: ""
     }
   ];
 
@@ -72,12 +72,12 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "Meaning and interpretation of linguistic expressions",
         "Language variation across communities"
       ],
-      correctAnswer: 2
+      correctAnswer: 2, explanation: ""
     },
     {
       question: "Which semantic relation exists between 'dog' and 'animal'?",
       options: ["Synonymy", "Antonymy", "Hyponymy", "Meronymy"],
-      correctAnswer: 2
+      correctAnswer: 2, explanation: ""
     },
     {
       question: "What does the compositionality principle state?",
@@ -87,7 +87,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "Words have fixed meanings",
         "Grammar determines meaning entirely"
       ],
-      correctAnswer: 0
+      correctAnswer: 0, explanation: ""
     },
     {
       question: "What are synonyms?",
@@ -97,7 +97,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "Words that sound the same",
         "Words from the same category"
       ],
-      correctAnswer: 1
+      correctAnswer: 1, explanation: ""
     },
     {
       question: "What is polysemy?",
@@ -107,7 +107,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "Words that sound identical",
         "Words with no meaning"
       ],
-      correctAnswer: 1
+      correctAnswer: 1, explanation: ""
     }
   ];
 
@@ -120,7 +120,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "VSO (Verb-Subject-Object)",
         "VOS (Verb-Object-Subject)"
       ],
-      correctAnswer: 0
+      correctAnswer: 0, explanation: ""
     },
     {
       question: "What is an isolating language?",
@@ -130,7 +130,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "Language with no grammar",
         "Language spoken in isolation"
       ],
-      correctAnswer: 1
+      correctAnswer: 1, explanation: ""
     },
     {
       question: "In language typology, what does 'alignment' refer to?",
@@ -140,12 +140,12 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "Sound change processes",
         "Semantic categorization"
       ],
-      correctAnswer: 1
+      correctAnswer: 1, explanation: ""
     },
     {
       question: "Which language is an example of SOV word order?",
       options: ["English", "Japanese", "Arabic", "French"],
-      correctAnswer: 1
+      correctAnswer: 1, explanation: ""
     },
     {
       question: "What are Greenberg's universals?",
@@ -155,7 +155,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "English grammar rules",
         "Phonetic symbols"
       ],
-      correctAnswer: 1
+      correctAnswer: 1, explanation: ""
     }
   ];
 
@@ -171,7 +171,7 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
         "Both deal with the same aspects",
         "Neither deals with language structure"
       ],
-      correctAnswer: 0
+      correctAnswer: 0, explanation: ""
     }
   ];
 
@@ -857,5 +857,6 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
 };
 
 export default Unit2;
+
 
 

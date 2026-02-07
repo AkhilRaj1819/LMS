@@ -11,7 +11,7 @@ import Unit4 from './units/Unit4';
 import Unit5 from './units/Unit5';
 import './styles.css';
 
-const DataStructuresContent = () => {
+function DataStructuresContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedModule, setSelectedModule] = useState<string | null>(null);
@@ -82,14 +82,12 @@ const DataStructuresContent = () => {
     </div>
     </div>
   );
-};
+}
 
-const DataStructuresPage = () => {
+export default function DataStructuresPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <DataStructuresContent />
     </Suspense>
   );
-};
-
-export default DataStructuresPage;
+}

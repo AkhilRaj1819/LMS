@@ -5,6 +5,7 @@ import Quiz from '../components/Quiz';
 interface Unit2Props {
   currentModule: number;
   setCurrentModule: (module: number) => void;
+  onBack: () => void;
 }
 
 const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule }) => {

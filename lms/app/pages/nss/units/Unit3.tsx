@@ -5,9 +5,10 @@ import Quiz from '../components/Quiz';
 interface Unit3Props {
   currentModule: number;
   setCurrentModule: (module: number) => void;
+  onBack: () => void;
 }
 
-const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule }) => {
+const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }) => {
   const module1Quiz = [
     {
       question: "What is the primary objective of one-day village camps?",

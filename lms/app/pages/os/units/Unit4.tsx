@@ -5,9 +5,10 @@ import Quiz from '../components/Quiz';
 interface Unit4Props {
   currentModule: number;
   setCurrentModule: (module: number) => void;
+  onBack: () => void;
 }
 
-const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule }) => {
+const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }) => {
   const module1Quiz = [
     {
       question: "What is swapping in memory management?",

@@ -25,7 +25,7 @@ export default function Timetable() {
     const style = document.createElement('style');
     style.textContent = '.timeline::-webkit-scrollbar { display: none; }';
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    return () => { document.head.removeChild(style); };
   }, []);
 
   useEffect(() => {

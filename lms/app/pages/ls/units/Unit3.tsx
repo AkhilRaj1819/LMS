@@ -10,40 +10,40 @@ interface Unit3Props {
 
 const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }) => {
   const module1Quiz = [
-    { question: "What is the critical period hypothesis in language acquisition?", options: ["Language can only be acquired before puberty", "Language acquisition happens most efficiently during a specific developmental window", "Language can only be acquired in early childhood", "Language acquisition is not time-dependent"], correctAnswer: 1 },
-    { question: "According to Chomsky's theory, what is the Language Acquisition Device (LAD)?", options: ["A computer program for language learning", "An innate biological mechanism for language acquisition", "A teaching methodology", "A diagnostic tool for language disorders"], correctAnswer: 1 },
-    { question: "Which stage of first language acquisition typically occurs between 12-18 months?", options: ["Babbling stage", "Two-word stage", "Telegraphic speech", "One-word stage (holophrases)"], correctAnswer: 3 },
-    { question: "What is meant by Universal Grammar according to generative linguists?", options: ["A single global language", "Innate principles and parameters that constrain language structure", "A teaching methodology for multilingual education", "A computer translation system"], correctAnswer: 1 },
-    { question: "What is 'interlanguage' in second language acquisition?", options: ["A language that serves as a lingua franca", "Learner's developing linguistic system between L1 and L2", "A formal international language", "A constructed language for international communication"], correctAnswer: 1 }
+    { question: "What is the critical period hypothesis in language acquisition?", options: ["Language can only be acquired before puberty", "Language acquisition happens most efficiently during a specific developmental window", "Language can only be acquired in early childhood", "Language acquisition is not time-dependent"], correctAnswer: 1, explanation: "" },
+    { question: "According to Chomsky's theory, what is the Language Acquisition Device (LAD)?", options: ["A computer program for language learning", "An innate biological mechanism for language acquisition", "A teaching methodology", "A diagnostic tool for language disorders"], correctAnswer: 1, explanation: "" },
+    { question: "Which stage of first language acquisition typically occurs between 12-18 months?", options: ["Babbling stage", "Two-word stage", "Telegraphic speech", "One-word stage (holophrases)"], correctAnswer: 3, explanation: "" },
+    { question: "What is meant by Universal Grammar according to generative linguists?", options: ["A single global language", "Innate principles and parameters that constrain language structure", "A teaching methodology for multilingual education", "A computer translation system"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'interlanguage' in second language acquisition?", options: ["A language that serves as a lingua franca", "Learner's developing linguistic system between L1 and L2", "A formal international language", "A constructed language for international communication"], correctAnswer: 1, explanation: "" }
   ];
 
   const module2Quiz = [
-    { question: "What is 'borrowing' in language contact situations?", options: ["Lending grammatical structures", "Adopting words or structures from another language", "Sharing language learning resources", "Teaching language to others"], correctAnswer: 1 },
-    { question: "What is a 'creole' language?", options: ["A dead language", "A pidgin that has become the native language of a community", "A constructed language", "A regional dialect"], correctAnswer: 1 },
-    { question: "What is 'grammaticalization'?", options: ["The process of making language more grammatically complex", "Lexical items developing into grammatical markers", "The process of teaching grammar", "The systematic study of grammar"], correctAnswer: 1 },
-    { question: "What is 'substrate influence' in language change?", options: ["Influence from a previously spoken language in a region", "Influence from a dominant language on a minority language", "Influence from a second language on first language", "Influence from written language on spoken language"], correctAnswer: 0 },
-    { question: "Which of the following is NOT a type of language change?", options: ["Semantic change", "Syntactic change", "Pragmatic change", "All of the above are types of language change"], correctAnswer: 3 }
+    { question: "What is 'borrowing' in language contact situations?", options: ["Lending grammatical structures", "Adopting words or structures from another language", "Sharing language learning resources", "Teaching language to others"], correctAnswer: 1, explanation: "" },
+    { question: "What is a 'creole' language?", options: ["A dead language", "A pidgin that has become the native language of a community", "A constructed language", "A regional dialect"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'grammaticalization'?", options: ["The process of making language more grammatically complex", "Lexical items developing into grammatical markers", "The process of teaching grammar", "The systematic study of grammar"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'substrate influence' in language change?", options: ["Influence from a previously spoken language in a region", "Influence from a dominant language on a minority language", "Influence from a second language on first language", "Influence from written language on spoken language"], correctAnswer: 0, explanation: "" },
+    { question: "Which of the following is NOT a type of language change?", options: ["Semantic change", "Syntactic change", "Pragmatic change", "All of the above are types of language change"], correctAnswer: 3, explanation: "" }
   ];
 
   const module3Quiz = [
-    { question: "What is the 'comparative method' in historical linguistics?", options: ["Comparing different language teaching methods", "Systematic procedure for reconstructing proto-languages", "Comparing grammar across unrelated languages", "Method for comparing translation quality"], correctAnswer: 1 },
-    { question: "What is 'sound change' in historical linguistics?", options: ["Change in volume of speech", "Regular alteration of phonemes over time", "Change in accent patterns", "Variation in speech sounds"], correctAnswer: 1 },
-    { question: "Which language family does English belong to?", options: ["Sino-Tibetan", "Indo-European", "Afro-Asiatic", "Niger-Congo"], correctAnswer: 1 },
-    { question: "What is the 'wave model' in historical linguistics?", options: ["A model of sound waves in speech production", "Model describing how innovations spread geographically", "A model for understanding language families", "A computational model of language processing"], correctAnswer: 1 },
-    { question: "What is 'metathesis' in sound change?", options: ["Sound weakening", "Sound strengthening", "Sound reordering", "Sound insertion"], correctAnswer: 2 }
+    { question: "What is the 'comparative method' in historical linguistics?", options: ["Comparing different language teaching methods", "Systematic procedure for reconstructing proto-languages", "Comparing grammar across unrelated languages", "Method for comparing translation quality"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'sound change' in historical linguistics?", options: ["Change in volume of speech", "Regular alteration of phonemes over time", "Change in accent patterns", "Variation in speech sounds"], correctAnswer: 1, explanation: "" },
+    { question: "Which language family does English belong to?", options: ["Sino-Tibetan", "Indo-European", "Afro-Asiatic", "Niger-Congo"], correctAnswer: 1, explanation: "" },
+    { question: "What is the 'wave model' in historical linguistics?", options: ["A model of sound waves in speech production", "Model describing how innovations spread geographically", "A model for understanding language families", "A computational model of language processing"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'metathesis' in sound change?", options: ["Sound weakening", "Sound strengthening", "Sound reordering", "Sound insertion"], correctAnswer: 2, explanation: "" }
   ];
 
   const unitQuiz = [
-    { question: "What is the difference between language acquisition and language learning?", options: ["No difference, they are synonymous", "Acquisition is subconscious, learning is conscious", "Acquisition applies to L1, learning to L2", "Both b and c"], correctAnswer: 3 },
-    { question: "What is the typical sequence of second language acquisition stages?", options: ["Silent period → Early production → Speech emergence → Intermediate fluency → Advanced fluency", "Intermediate fluency → Early production → Silent period → Speech emergence", "Speech emergence → Silent period → Intermediate fluency → Early production", "Silent period → Intermediate fluency → Early production → Speech emergence"], correctAnswer: 0 },
-    { question: "Which theoretical approach emphasizes Universal Grammar?", options: ["Empiricist theories", "Nativist theories", "Cognitive approaches", "Usage-based approaches"], correctAnswer: 1 },
-    { question: "What happens during the 'babbling' stage of L1 acquisition?", options: ["Children produce their first words", "Children combine two words", "Children produce repetitive syllables like 'bababa'", "Children use complete sentences"], correctAnswer: 2 },
-    { question: "What is 'code-switching' in language contact?", options: ["Changing language teaching methods", "Alternating between languages in conversation", "Translating between languages", "Learning a new language"], correctAnswer: 1 },
-    { question: "Which language family includes Hindi and Persian?", options: ["Germanic", "Romance", "Indo-Iranian", "Slavic"], correctAnswer: 2 },
-    { question: "What is 'fossilization' in second language acquisition?", options: ["Learning ancient languages", "Permanent retention of incorrect linguistic features", "Memorizing vocabulary", "Studying historical linguistics"], correctAnswer: 1 },
-    { question: "What is 'assimilation' in sound change?", options: ["Sounds becoming similar to nearby sounds", "Sounds becoming different", "Sound reordering", "Sound deletion"], correctAnswer: 0 },
-    { question: "Which is the largest language family by number of speakers?", options: ["Sino-Tibetan", "Niger-Congo", "Indo-European", "Austronesian"], correctAnswer: 2 },
-    { question: "What is a 'proto-language'?", options: ["The first language ever spoken", "A reconstructed ancestral language", "A primitive language", "A language without grammar"], correctAnswer: 1 }
+    { question: "What is the difference between language acquisition and language learning?", options: ["No difference, they are synonymous", "Acquisition is subconscious, learning is conscious", "Acquisition applies to L1, learning to L2", "Both b and c"], correctAnswer: 3, explanation: "" },
+    { question: "What is the typical sequence of second language acquisition stages?", options: ["Silent period → Early production → Speech emergence → Intermediate fluency → Advanced fluency", "Intermediate fluency → Early production → Silent period → Speech emergence", "Speech emergence → Silent period → Intermediate fluency → Early production", "Silent period → Intermediate fluency → Early production → Speech emergence"], correctAnswer: 0, explanation: "" },
+    { question: "Which theoretical approach emphasizes Universal Grammar?", options: ["Empiricist theories", "Nativist theories", "Cognitive approaches", "Usage-based approaches"], correctAnswer: 1, explanation: "" },
+    { question: "What happens during the 'babbling' stage of L1 acquisition?", options: ["Children produce their first words", "Children combine two words", "Children produce repetitive syllables like 'bababa'", "Children use complete sentences"], correctAnswer: 2, explanation: "" },
+    { question: "What is 'code-switching' in language contact?", options: ["Changing language teaching methods", "Alternating between languages in conversation", "Translating between languages", "Learning a new language"], correctAnswer: 1, explanation: "" },
+    { question: "Which language family includes Hindi and Persian?", options: ["Germanic", "Romance", "Indo-Iranian", "Slavic"], correctAnswer: 2, explanation: "" },
+    { question: "What is 'fossilization' in second language acquisition?", options: ["Learning ancient languages", "Permanent retention of incorrect linguistic features", "Memorizing vocabulary", "Studying historical linguistics"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'assimilation' in sound change?", options: ["Sounds becoming similar to nearby sounds", "Sounds becoming different", "Sound reordering", "Sound deletion"], correctAnswer: 0, explanation: "" },
+    { question: "Which is the largest language family by number of speakers?", options: ["Sino-Tibetan", "Niger-Congo", "Indo-European", "Austronesian"], correctAnswer: 2, explanation: "" },
+    { question: "What is a 'proto-language'?", options: ["The first language ever spoken", "A reconstructed ancestral language", "A primitive language", "A language without grammar"], correctAnswer: 1, explanation: "" }
   ];
 
   const renderModule = () => {
@@ -862,6 +862,7 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
 };
 
 export default Unit3;
+
 
 
 
