@@ -5,9 +5,10 @@ import Quiz from '../components/Quiz';
 interface Unit1Props {
   currentModule: number;
   setCurrentModule: (module: number) => void;
+  onBack: () => void;
 }
 
-const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
+const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }) => {
   const module1Quiz = [
     {
       question: "What is an Operating System?",

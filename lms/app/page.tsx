@@ -151,7 +151,7 @@ export default function Home() {
 
             {/* RIGHT COLUMN */}
             <div>
-              <h2 className="text-sm font-bold text-gray-500 mb-3">Your Apps</h2>
+              <h2 className="text-sm font-bold text-gray-500 mb-3 ">Your Apps</h2>
               <div className="grid grid-cols-3 gap-x-4 gap-y-5 content-start">
                 {options.map((item) => (
                   <OptionCard key={item.id} item={item} />

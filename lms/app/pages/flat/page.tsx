@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import MainSidebar from '@/components/Sidebar';
 import Sidebar from './components/Sidebar';
@@ -11,7 +11,7 @@ import Unit4 from './units/Unit4';
 import Unit5 from './units/Unit5';
 import './styles.css';
 
-const FLATPage = () => {
+function FLATContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedModule, setSelectedModule] = useState<string | null>(null);
@@ -84,4 +84,10 @@ const FLATPage = () => {
   );
 };
 
-export default FLATPage;
+export default function FLATPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FLATContent />
+    </Suspense>
+  );
+}

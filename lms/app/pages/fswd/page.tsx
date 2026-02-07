@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import MainSidebar from '@/components/Sidebar';
 import Sidebar from './components/Sidebar';
@@ -8,7 +8,7 @@ import Unit1 from './units/Unit1';
 import Unit2 from './units/Unit2';
 import './styles.css';
 
-const FSWDPage = () => {
+function FSWDContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedModule, setSelectedModule] = useState<string | null>(null);
@@ -75,4 +75,10 @@ const FSWDPage = () => {
   );
 };
 
-export default FSWDPage;
+export default function FSWDPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FSWDContent />
+    </Suspense>
+  );
+}

@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { OptionCardProps } from "@/types";
 
-export default function OptionCard({ item }) {
+export default function OptionCard({ item }: OptionCardProps) {
   const router = useRouter();
   const [isPressed, setIsPressed] = useState(false);
 
@@ -49,7 +50,7 @@ export default function OptionCard({ item }) {
                 d="M 3 0 L 0 0 0 3"
                 fill="none"
                 stroke={item.color}
-                strokeWidth="0.8"
+                strokeWidth="1.5"
               />
             </pattern>
           </defs>

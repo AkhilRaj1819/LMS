@@ -5,9 +5,10 @@ import Quiz from '../components/Quiz';
 interface Unit5Props {
   currentModule: number;
   setCurrentModule: (module: number) => void;
+  onBack: () => void;
 }
 
-const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule }) => {
+const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }) => {
   const module1Quiz = [
     {
       question: "What is the purpose of digital environmental awareness campaigns?",

@@ -7,12 +7,12 @@ import { useSession } from "next-auth/react";
 export default function AIAssistance() {
   const router = useRouter();
   const { data: session } = useSession();
-  const [chats, setChats] = useState([]);
-  const [activeChat, setActiveChat] = useState(null);
+  const [chats, setChats] = useState<any[]>([]);
+  const [activeChat, setActiveChat] = useState<string | null>(null);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [streamingContent, setStreamingContent] = useState("");
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (session?.user?.email) {
@@ -31,7 +31,7 @@ export default function AIAssistance() {
     }
   };
 
-  const saveChat = async (chatData) => {
+  const saveChat = async (chatData: any) => {
     await fetch("/api/ai/chats", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -47,7 +47,7 @@ export default function AIAssistance() {
     scrollToBottom();
   }, [chats, activeChat]);
 
-  const currentMessages = chats.find(c => c._id === activeChat)?.messages || [];
+  const currentMessages = chats.find((c: any) => c._id === activeChat)?.messages || [];
 
   const createNewChat = async () => {
     const newChat = {
@@ -66,28 +66,28 @@ export default function AIAssistance() {
     }
   };
 
-  const deleteChat = async (id) => {
+  const deleteChat = async (id: string) => {
     if (chats.length === 1) return;
     await fetch("/api/ai/chats", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ chatId: id })
     });
-    const filtered = chats.filter(c => c._id !== id);
+    const filtered = chats.filter((c: any) => c._id !== id);
     setChats(filtered);
     if (activeChat === id) setActiveChat(filtered[0]._id);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || loading) return;
 
     const userMessage = { role: "user", content: input };
-    const currentChat = chats.find(c => c._id === activeChat);
+    const currentChat = chats.find((c: any) => c._id === activeChat);
     const updatedMessages = [...currentChat.messages, userMessage];
     const updatedTitle = currentChat.title === "New Chat" ? input.slice(0, 30) : currentChat.title;
     
-    setChats(chats.map(c => c._id === activeChat ? { ...c, messages: updatedMessages, title: updatedTitle } : c));
+    setChats(chats.map((c: any) => c._id === activeChat ? { ...c, messages: updatedMessages, title: updatedTitle } : c));
     setInput("");
     setLoading(true);
     setStreamingContent("");
@@ -111,12 +111,12 @@ export default function AIAssistance() {
       const assistantMessage = { role: "assistant", content: fullResponse };
       const finalMessages = [...updatedMessages, assistantMessage];
       
-      setChats(chats.map(c => c._id === activeChat ? { ...c, messages: finalMessages, title: updatedTitle } : c));
+      setChats(chats.map((c: any) => c._id === activeChat ? { ...c, messages: finalMessages, title: updatedTitle } : c));
       await saveChat({ chatId: activeChat, title: updatedTitle, messages: finalMessages });
       setStreamingContent("");
     } catch (error) {
       const errorMessage = { role: "assistant", content: "Sorry, I'm having trouble connecting. Please try again." };
-      setChats(chats.map(c => c._id === activeChat ? { ...c, messages: [...updatedMessages, errorMessage] } : c));
+      setChats(chats.map((c: any) => c._id === activeChat ? { ...c, messages: [...updatedMessages, errorMessage] } : c));
       setStreamingContent("");
     } finally {
       setLoading(false);
@@ -142,7 +142,7 @@ export default function AIAssistance() {
           <button onClick={createNewChat} className="w-full bg-gradient-to-br from-gray-100/10 to-gray-200/10 backdrop-blur-xl text-gray-900 border border-black px-4 py-2 rounded-lg hover:from-gray-200/20 hover:to-gray-300/20 transition text-sm font-medium">+ New Chat</button>
         </div>
         <div className="flex-1 overflow-y-auto p-2">
-          {chats.map(chat => (
+          {chats.map((chat: any) => (
             <div key={chat._id} onClick={() => setActiveChat(chat._id)} className={`p-3 rounded-lg cursor-pointer mb-2 group hover:bg-gray-100 ${activeChat === chat._id ? 'bg-gray-100' : ''}`}>
               <div className="flex justify-between items-start">
                 <p className="text-sm font-medium text-gray-800 truncate flex-1">{chat.title}</p>
@@ -161,7 +161,7 @@ export default function AIAssistance() {
 
         <div className="flex-1 overflow-y-auto py-6 px-6">
           <div className="max-w-4xl mx-auto space-y-4">
-            {currentMessages.map((msg, idx) => (
+            {currentMessages.map((msg: any, idx: number) => (
               <div key={idx} className={`flex gap-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                 {msg.role === "assistant" && (
                   <div className="w-8 h-8 rounded-full border border-black flex items-center justify-center flex-shrink-0 p-1">

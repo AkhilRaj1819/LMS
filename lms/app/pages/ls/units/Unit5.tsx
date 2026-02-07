@@ -10,56 +10,56 @@ interface Unit5Props {
 
 const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }) => {
   const module1Quiz = [
-    { question: "What is the Sapir-Whorf hypothesis primarily concerned with?", options: ["The relationship between language and thought", "The origin of human language", "The structure of sentences", "The evolution of language"], correctAnswer: 0 },
-    { question: "What does the term 'linguistic relativity' refer to?", options: ["The idea that language shapes thought and perception", "The study of language change over time", "The comparison of different languages", "The relationship between syntax and semantics"], correctAnswer: 0 },
-    { question: "What is linguistic determinism?", options: ["The idea that thought determines language", "The idea that language determines thought", "The process of language learning", "The evolution of language structure"], correctAnswer: 1 },
-    { question: "Which of the following is an example of cultural transmission through language?", options: ["Learning grammar rules", "Passing down stories and traditions", "Pronunciation practice", "Vocabulary memorization"], correctAnswer: 1 },
-    { question: "What are taboo expressions in language?", options: ["Technical terms", "Words or topics avoided in certain cultural contexts", "Foreign words", "Archaic language forms"], correctAnswer: 1 }
+    { question: "What is the Sapir-Whorf hypothesis primarily concerned with?", options: ["The relationship between language and thought", "The origin of human language", "The structure of sentences", "The evolution of language"], correctAnswer: 0, explanation: "" },
+    { question: "What does the term 'linguistic relativity' refer to?", options: ["The idea that language shapes thought and perception", "The study of language change over time", "The comparison of different languages", "The relationship between syntax and semantics"], correctAnswer: 0, explanation: "" },
+    { question: "What is linguistic determinism?", options: ["The idea that thought determines language", "The idea that language determines thought", "The process of language learning", "The evolution of language structure"], correctAnswer: 1, explanation: "" },
+    { question: "Which of the following is an example of cultural transmission through language?", options: ["Learning grammar rules", "Passing down stories and traditions", "Pronunciation practice", "Vocabulary memorization"], correctAnswer: 1, explanation: "" },
+    { question: "What are taboo expressions in language?", options: ["Technical terms", "Words or topics avoided in certain cultural contexts", "Foreign words", "Archaic language forms"], correctAnswer: 1, explanation: "" }
   ];
 
   const module2Quiz = [
-    { question: "Which of the following is an example of gendered language use?", options: ["Using different registers in formal vs informal contexts", "Differences in speech patterns between men and women", "Using different languages in multilingual communities", "Regional dialect variations"], correctAnswer: 1 },
-    { question: "What does 'performative gender' mean in linguistics?", options: ["Acting in plays", "Gender is constructed through repeated language use", "Performing well in language tests", "Gender-specific vocabulary"], correctAnswer: 1 },
-    { question: "What is indexicality in relation to gender?", options: ["Alphabetical ordering", "Linguistic forms that signal social meanings like gender", "Grammar rules", "Pronunciation guides"], correctAnswer: 1 },
-    { question: "What is a common finding about conversational styles and gender?", options: ["No differences exist", "Men tend to interrupt more in mixed-gender conversations", "Women never use formal language", "Gender has no effect on language"], correctAnswer: 1 },
-    { question: "What is non-binary language use?", options: ["Using only two languages", "Language that challenges traditional gender categories", "Binary code in computers", "Using yes/no questions"], correctAnswer: 1 }
+    { question: "Which of the following is an example of gendered language use?", options: ["Using different registers in formal vs informal contexts", "Differences in speech patterns between men and women", "Using different languages in multilingual communities", "Regional dialect variations"], correctAnswer: 1, explanation: "" },
+    { question: "What does 'performative gender' mean in linguistics?", options: ["Acting in plays", "Gender is constructed through repeated language use", "Performing well in language tests", "Gender-specific vocabulary"], correctAnswer: 1, explanation: "" },
+    { question: "What is indexicality in relation to gender?", options: ["Alphabetical ordering", "Linguistic forms that signal social meanings like gender", "Grammar rules", "Pronunciation guides"], correctAnswer: 1, explanation: "" },
+    { question: "What is a common finding about conversational styles and gender?", options: ["No differences exist", "Men tend to interrupt more in mixed-gender conversations", "Women never use formal language", "Gender has no effect on language"], correctAnswer: 1, explanation: "" },
+    { question: "What is non-binary language use?", options: ["Using only two languages", "Language that challenges traditional gender categories", "Binary code in computers", "Using yes/no questions"], correctAnswer: 1, explanation: "" }
   ];
 
   const module3Quiz = [
-    { question: "What is 'language ideology'?", options: ["Political views on language policy", "Beliefs and attitudes about language varieties and their speakers", "A method of language teaching", "The study of language change"], correctAnswer: 1 },
-    { question: "What does 'discourse and dominance' refer to?", options: ["Speaking loudly", "How powerful groups use language to maintain control", "Dominating conversations", "Public speaking skills"], correctAnswer: 1 },
-    { question: "What is 'gatekeeping' in language?", options: ["Guarding gates", "Controlling access to opportunities through language requirements", "Language barriers", "Grammar rules"], correctAnswer: 1 },
-    { question: "What is 'counter-discourse'?", options: ["Counting words", "Language used to resist dominant ideologies", "Opposite meanings", "Reverse translation"], correctAnswer: 1 },
-    { question: "What is language revitalization?", options: ["Making language more vital", "Efforts to restore endangered languages to active use", "Language exercises", "Vocabulary expansion"], correctAnswer: 1 }
+    { question: "What is 'language ideology'?", options: ["Political views on language policy", "Beliefs and attitudes about language varieties and their speakers", "A method of language teaching", "The study of language change"], correctAnswer: 1, explanation: "" },
+    { question: "What does 'discourse and dominance' refer to?", options: ["Speaking loudly", "How powerful groups use language to maintain control", "Dominating conversations", "Public speaking skills"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'gatekeeping' in language?", options: ["Guarding gates", "Controlling access to opportunities through language requirements", "Language barriers", "Grammar rules"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'counter-discourse'?", options: ["Counting words", "Language used to resist dominant ideologies", "Opposite meanings", "Reverse translation"], correctAnswer: 1, explanation: "" },
+    { question: "What is language revitalization?", options: ["Making language more vital", "Efforts to restore endangered languages to active use", "Language exercises", "Vocabulary expansion"], correctAnswer: 1, explanation: "" }
   ];
 
   const module4Quiz = [
-    { question: "What is 'code-switching' in global contexts?", options: ["Changing the subject", "Alternating between different languages or varieties within a conversation", "Switching codes", "Programming languages"], correctAnswer: 1 },
-    { question: "What is 'linguistic landscape'?", options: ["The geographical distribution of languages", "The visibility and salience of languages on public signs in a given territory", "The structure of language families", "The evolution of language over time"], correctAnswer: 1 },
-    { question: "What are 'World Englishes'?", options: ["English spoken worldwide", "Varieties of English that have developed in different regions", "International English standards", "English textbooks"], correctAnswer: 1 },
-    { question: "What is language endangerment in globalization?", options: ["Dangerous languages", "Languages at risk of disappearing due to global pressures", "Difficult languages", "Language complexity"], correctAnswer: 1 },
-    { question: "What is English as a lingua franca?", options: ["English in France", "English used as a common language between speakers of different native languages", "British English", "American English"], correctAnswer: 1 }
+    { question: "What is 'code-switching' in global contexts?", options: ["Changing the subject", "Alternating between different languages or varieties within a conversation", "Switching codes", "Programming languages"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'linguistic landscape'?", options: ["The geographical distribution of languages", "The visibility and salience of languages on public signs in a given territory", "The structure of language families", "The evolution of language over time"], correctAnswer: 1, explanation: "" },
+    { question: "What are 'World Englishes'?", options: ["English spoken worldwide", "Varieties of English that have developed in different regions", "International English standards", "English textbooks"], correctAnswer: 1, explanation: "" },
+    { question: "What is language endangerment in globalization?", options: ["Dangerous languages", "Languages at risk of disappearing due to global pressures", "Difficult languages", "Language complexity"], correctAnswer: 1, explanation: "" },
+    { question: "What is English as a lingua franca?", options: ["English in France", "English used as a common language between speakers of different native languages", "British English", "American English"], correctAnswer: 1, explanation: "" }
   ];
 
   const module5Quiz = [
-    { question: "What is 'ethnographic research' in linguistics?", options: ["Studying ethnic groups", "Observing language use in natural cultural contexts", "Laboratory experiments", "Grammar analysis"], correctAnswer: 1 },
-    { question: "What is 'corpus linguistics'?", options: ["Study of dead languages", "Study of language using large collections of texts", "Study of body language", "Study of corporate language"], correctAnswer: 1 },
-    { question: "What is 'discourse analysis'?", options: ["Analyzing grammar mistakes", "Studying language use beyond the sentence level", "Speech therapy", "Pronunciation practice"], correctAnswer: 1 },
-    { question: "What is the Universal Grammar debate about?", options: ["Creating a universal language", "Whether humans have innate language knowledge", "Grammar rules for all languages", "International grammar standards"], correctAnswer: 1 },
-    { question: "What are neurolinguistic methods?", options: ["Studying neurons", "Using brain imaging to study language processing", "Nerve studies", "Medical linguistics"], correctAnswer: 1 }
+    { question: "What is 'ethnographic research' in linguistics?", options: ["Studying ethnic groups", "Observing language use in natural cultural contexts", "Laboratory experiments", "Grammar analysis"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'corpus linguistics'?", options: ["Study of dead languages", "Study of language using large collections of texts", "Study of body language", "Study of corporate language"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'discourse analysis'?", options: ["Analyzing grammar mistakes", "Studying language use beyond the sentence level", "Speech therapy", "Pronunciation practice"], correctAnswer: 1, explanation: "" },
+    { question: "What is the Universal Grammar debate about?", options: ["Creating a universal language", "Whether humans have innate language knowledge", "Grammar rules for all languages", "International grammar standards"], correctAnswer: 1, explanation: "" },
+    { question: "What are neurolinguistic methods?", options: ["Studying neurons", "Using brain imaging to study language processing", "Nerve studies", "Medical linguistics"], correctAnswer: 1, explanation: "" }
   ];
 
   const unitQuiz = [
-    { question: "What is the Sapir-Whorf hypothesis primarily concerned with?", options: ["The relationship between language and thought", "The origin of human language", "The structure of sentences", "The evolution of language"], correctAnswer: 0 },
-    { question: "What does 'linguistic relativity' refer to?", options: ["The idea that language shapes thought and perception", "The study of language change over time", "The comparison of different languages", "The relationship between syntax and semantics"], correctAnswer: 0 },
-    { question: "What is 'performative gender' in linguistics?", options: ["Acting in plays", "Gender is constructed through repeated language use", "Performing well in language tests", "Gender-specific vocabulary"], correctAnswer: 1 },
-    { question: "What is 'language ideology'?", options: ["Political views on language policy", "Beliefs and attitudes about language varieties and their speakers", "A method of language teaching", "The study of language change"], correctAnswer: 1 },
-    { question: "What does 'discourse and dominance' refer to?", options: ["Speaking loudly", "How powerful groups use language to maintain control", "Dominating conversations", "Public speaking skills"], correctAnswer: 1 },
-    { question: "What is English as a lingua franca?", options: ["English in France", "English used as a common language between speakers of different native languages", "British English", "American English"], correctAnswer: 1 },
-    { question: "What are 'World Englishes'?", options: ["English spoken worldwide", "Varieties of English that have developed in different regions", "International English standards", "English textbooks"], correctAnswer: 1 },
-    { question: "What is 'corpus linguistics'?", options: ["Study of dead languages", "Study of language using large collections of texts", "Study of body language", "Study of corporate language"], correctAnswer: 1 },
-    { question: "What is 'ethnographic research' in linguistics?", options: ["Studying ethnic groups", "Observing language use in natural cultural contexts", "Laboratory experiments", "Grammar analysis"], correctAnswer: 1 },
-    { question: "What is the Universal Grammar debate about?", options: ["Creating a universal language", "Whether humans have innate language knowledge", "Grammar rules for all languages", "International grammar standards"], correctAnswer: 1 }
+    { question: "What is the Sapir-Whorf hypothesis primarily concerned with?", options: ["The relationship between language and thought", "The origin of human language", "The structure of sentences", "The evolution of language"], correctAnswer: 0, explanation: "" },
+    { question: "What does 'linguistic relativity' refer to?", options: ["The idea that language shapes thought and perception", "The study of language change over time", "The comparison of different languages", "The relationship between syntax and semantics"], correctAnswer: 0, explanation: "" },
+    { question: "What is 'performative gender' in linguistics?", options: ["Acting in plays", "Gender is constructed through repeated language use", "Performing well in language tests", "Gender-specific vocabulary"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'language ideology'?", options: ["Political views on language policy", "Beliefs and attitudes about language varieties and their speakers", "A method of language teaching", "The study of language change"], correctAnswer: 1, explanation: "" },
+    { question: "What does 'discourse and dominance' refer to?", options: ["Speaking loudly", "How powerful groups use language to maintain control", "Dominating conversations", "Public speaking skills"], correctAnswer: 1, explanation: "" },
+    { question: "What is English as a lingua franca?", options: ["English in France", "English used as a common language between speakers of different native languages", "British English", "American English"], correctAnswer: 1, explanation: "" },
+    { question: "What are 'World Englishes'?", options: ["English spoken worldwide", "Varieties of English that have developed in different regions", "International English standards", "English textbooks"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'corpus linguistics'?", options: ["Study of dead languages", "Study of language using large collections of texts", "Study of body language", "Study of corporate language"], correctAnswer: 1, explanation: "" },
+    { question: "What is 'ethnographic research' in linguistics?", options: ["Studying ethnic groups", "Observing language use in natural cultural contexts", "Laboratory experiments", "Grammar analysis"], correctAnswer: 1, explanation: "" },
+    { question: "What is the Universal Grammar debate about?", options: ["Creating a universal language", "Whether humans have innate language knowledge", "Grammar rules for all languages", "International grammar standards"], correctAnswer: 1, explanation: "" }
   ];
 
   const renderModule = () => {
@@ -1298,5 +1298,6 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
 };
 
 export default Unit5;
+
 
 

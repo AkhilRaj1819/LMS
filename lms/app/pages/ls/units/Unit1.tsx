@@ -675,8 +675,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
 
               
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/2pxrDWjEBoE?si=LnLs5_dL82hCKELO" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerP
-                olicy="strict-origin-when-cross-origin" allowFullScreen style={{width: '550px', height: '325px'}}></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2pxrDWjEBoE?si=LnLs5_dL82hCKELO" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{width: '550px', height: '325px'}}></iframe>
             
             </section>
 
@@ -1248,7 +1247,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Take your time and demonstrate your understanding of the fundamental concepts in linguistics!</p>
             </section>
 
-            <Quiz title="Unit 1 Comprehensive Quiz" questions={unitQuiz} passingScore={75} subject="LS" unitId={1} moduleId={5} />
+            <Quiz title="Unit 1 Comprehensive Quiz" questions={unitQuiz} subject="LS" unitId={1} moduleId={5} />
 
             <div className="reference-section">
               <h3>Unit 1 Complete - Additional Resources</h3>
@@ -1276,5 +1275,6 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
 };
 
 export default Unit1;
+
 
 

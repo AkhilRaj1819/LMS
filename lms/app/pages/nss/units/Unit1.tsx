@@ -5,9 +5,10 @@ import Quiz from '../components/Quiz';
 interface Unit1Props {
   currentModule: number;
   setCurrentModule: (module: number) => void;
+  onBack: () => void;
 }
 
-const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
+const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }) => {
   const module1Quiz = [
     {
       question: "What is the primary objective of career orientation programs?",
@@ -881,6 +882,9 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Talent Show Activities</button>
+              {onBack && (
+                <button onClick={onBack} className="next-module-btn">Back to Course →</button>
+              )}
             </div>
           </div>
         );

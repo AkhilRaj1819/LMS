@@ -10,48 +10,48 @@ interface Unit4Props {
 
 const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }) => {
   const module1Quiz = [
-    { question: "What is the primary focus of sociolinguistics?", options: ["The study of language structure", "The study of the relationship between language and society", "The study of language acquisition", "The study of language change over time"], correctAnswer: 1 },
-    { question: "What is a sociolect?", options: ["A regional variety of language", "A social variety of language associated with a particular social group", "A formal register of language", "A dead language"], correctAnswer: 1 },
-    { question: "What is code-switching?", options: ["Changing the subject of conversation", "Alternating between different languages or varieties within a conversation", "Correcting grammatical errors", "Using formal language in informal settings"], correctAnswer: 1 },
-    { question: "Which demographic factor is NOT typically considered in sociolinguistic studies?", options: ["Geographic region", "Social class", "Hair color", "Age"], correctAnswer: 2 },
-    { question: "What is a speech community?", options: ["A group of people who speak the same language", "A group of people who share linguistic norms and rules", "A group of professional speakers", "A group of language teachers"], correctAnswer: 1 }
+    { question: "What is the primary focus of sociolinguistics?", options: ["The study of language structure", "The study of the relationship between language and society", "The study of language acquisition", "The study of language change over time"], correctAnswer: 1, explanation: "" },
+    { question: "What is a sociolect?", options: ["A regional variety of language", "A social variety of language associated with a particular social group", "A formal register of language", "A dead language"], correctAnswer: 1, explanation: "" },
+    { question: "What is code-switching?", options: ["Changing the subject of conversation", "Alternating between different languages or varieties within a conversation", "Correcting grammatical errors", "Using formal language in informal settings"], correctAnswer: 1, explanation: "" },
+    { question: "Which demographic factor is NOT typically considered in sociolinguistic studies?", options: ["Geographic region", "Social class", "Hair color", "Age"], correctAnswer: 2, explanation: "" },
+    { question: "What is a speech community?", options: ["A group of people who speak the same language", "A group of people who share linguistic norms and rules", "A group of professional speakers", "A group of language teachers"], correctAnswer: 1, explanation: "" }
   ];
 
   const module2Quiz = [
-    { question: "What is status planning in language planning?", options: ["Standardizing the language structure", "Determining the functions and prestige of a language", "Teaching the language to children", "Translating literature"], correctAnswer: 1 },
-    { question: "What is language endangerment?", options: ["When a language is difficult to learn", "When a language is at risk of falling out of use", "When a language has many rules", "When a language is changing rapidly"], correctAnswer: 1 },
-    { question: "What is the Communicative Language Teaching approach?", options: ["Focus on grammar rules", "Focus on meaningful communication in the target language", "Focus on translation", "Focus on rote memorization"], correctAnswer: 1 },
-    { question: "What is language loyalty in sociolinguistics?", options: ["Faithfulness to grammar rules", "Attachment to a heritage language despite pressure to shift", "Love for all languages", "Loyalty to language teachers"], correctAnswer: 1 },
-    { question: "What is subtractive bilingualism?", options: ["Learning two languages simultaneously", "Gaining a second language at the cost of losing the first", "Learning languages through subtraction", "Learning math in a second language"], correctAnswer: 1 }
+    { question: "What is status planning in language planning?", options: ["Standardizing the language structure", "Determining the functions and prestige of a language", "Teaching the language to children", "Translating literature"], correctAnswer: 1, explanation: "" },
+    { question: "What is language endangerment?", options: ["When a language is difficult to learn", "When a language is at risk of falling out of use", "When a language has many rules", "When a language is changing rapidly"], correctAnswer: 1, explanation: "" },
+    { question: "What is the Communicative Language Teaching approach?", options: ["Focus on grammar rules", "Focus on meaningful communication in the target language", "Focus on translation", "Focus on rote memorization"], correctAnswer: 1, explanation: "" },
+    { question: "What is language loyalty in sociolinguistics?", options: ["Faithfulness to grammar rules", "Attachment to a heritage language despite pressure to shift", "Love for all languages", "Loyalty to language teachers"], correctAnswer: 1, explanation: "" },
+    { question: "What is subtractive bilingualism?", options: ["Learning two languages simultaneously", "Gaining a second language at the cost of losing the first", "Learning languages through subtraction", "Learning math in a second language"], correctAnswer: 1, explanation: "" }
   ];
 
   const module3Quiz = [
-    { question: "What is the difference between code-switching and code-mixing?", options: ["Code-switching happens between sentences, code-mixing within sentences", "Code-switching is conscious, code-mixing is unconscious", "They are the same thing", "Code-switching is formal, code-mixing is informal"], correctAnswer: 0 },
-    { question: "What is ethnography of communication?", options: ["The study of communication in its cultural context", "The study of communication technology", "The study of animal communication", "The study of written communication"], correctAnswer: 0 },
-    { question: "What is Critical Discourse Analysis?", options: ["Analyzing grammar mistakes", "Examining how discourse structures and ideologies shape social reality", "Studying sentence structure", "Transcribing conversations"], correctAnswer: 1 },
-    { question: "What is the difference between a pidgin and a creole?", options: ["There is no difference", "A pidgin is simplified, a creole is complex", "A creole is a native language, a pidgin is not", "A pidgin develops from language contact, a creole is inherited"], correctAnswer: 2 },
-    { question: "What is the focus of applied linguistics?", options: ["Theoretical language study", "Solving real-world language-related problems", "Historical language study", "Language documentation"], correctAnswer: 1 }
+    { question: "What is the difference between code-switching and code-mixing?", options: ["Code-switching happens between sentences, code-mixing within sentences", "Code-switching is conscious, code-mixing is unconscious", "They are the same thing", "Code-switching is formal, code-mixing is informal"], correctAnswer: 0, explanation: "" },
+    { question: "What is ethnography of communication?", options: ["The study of communication in its cultural context", "The study of communication technology", "The study of animal communication", "The study of written communication"], correctAnswer: 0, explanation: "" },
+    { question: "What is Critical Discourse Analysis?", options: ["Analyzing grammar mistakes", "Examining how discourse structures and ideologies shape social reality", "Studying sentence structure", "Transcribing conversations"], correctAnswer: 1, explanation: "" },
+    { question: "What is the difference between a pidgin and a creole?", options: ["There is no difference", "A pidgin is simplified, a creole is complex", "A creole is a native language, a pidgin is not", "A pidgin develops from language contact, a creole is inherited"], correctAnswer: 2, explanation: "" },
+    { question: "What is the focus of applied linguistics?", options: ["Theoretical language study", "Solving real-world language-related problems", "Historical language study", "Language documentation"], correctAnswer: 1, explanation: "" }
   ];
 
   const module4Quiz = [
-    { question: "What is Natural Language Processing (NLP)?", options: ["Processing natural foods", "Computer processing and analysis of human language", "Natural ways of learning language", "Processing language naturally without technology"], correctAnswer: 1 },
-    { question: "What is machine translation?", options: ["Translation done by machines in factories", "Automatic translation of text from one language to another by computers", "Translation of technical manuals", "Mechanical writing"], correctAnswer: 1 },
-    { question: "What is a speech recognition system?", options: ["A system that recognizes famous speeches", "Technology that converts spoken language into text", "A system for recognizing speech patterns", "A method for teaching speech"], correctAnswer: 1 },
-    { question: "What is corpus linguistics?", options: ["Study of dead languages", "Study of language using large collections of texts", "Study of body language", "Study of corporate language"], correctAnswer: 1 },
-    { question: "What is language documentation in the digital age?", options: ["Printing language textbooks", "Using digital tools to record and preserve endangered languages", "Creating language certificates", "Writing language reports"], correctAnswer: 1 }
+    { question: "What is Natural Language Processing (NLP)?", options: ["Processing natural foods", "Computer processing and analysis of human language", "Natural ways of learning language", "Processing language naturally without technology"], correctAnswer: 1, explanation: "" },
+    { question: "What is machine translation?", options: ["Translation done by machines in factories", "Automatic translation of text from one language to another by computers", "Translation of technical manuals", "Mechanical writing"], correctAnswer: 1, explanation: "" },
+    { question: "What is a speech recognition system?", options: ["A system that recognizes famous speeches", "Technology that converts spoken language into text", "A system for recognizing speech patterns", "A method for teaching speech"], correctAnswer: 1, explanation: "" },
+    { question: "What is corpus linguistics?", options: ["Study of dead languages", "Study of language using large collections of texts", "Study of body language", "Study of corporate language"], correctAnswer: 1, explanation: "" },
+    { question: "What is language documentation in the digital age?", options: ["Printing language textbooks", "Using digital tools to record and preserve endangered languages", "Creating language certificates", "Writing language reports"], correctAnswer: 1, explanation: "" }
   ];
 
   const unitQuiz = [
-    { question: "What is the primary focus of sociolinguistics?", options: ["The study of language structure", "The study of the relationship between language and society", "The study of language acquisition", "The study of language change over time"], correctAnswer: 1 },
-    { question: "What is code-switching?", options: ["Changing the subject of conversation", "Alternating between different languages or varieties within a conversation", "Correcting grammatical errors", "Using formal language in informal settings"], correctAnswer: 1 },
-    { question: "What is status planning in language planning?", options: ["Standardizing the language structure", "Determining the functions and prestige of a language", "Teaching the language to children", "Translating literature"], correctAnswer: 1 },
-    { question: "What is language endangerment?", options: ["When a language is difficult to learn", "When a language is at risk of falling out of use", "When a language has many rules", "When a language is changing rapidly"], correctAnswer: 1 },
-    { question: "What is Critical Discourse Analysis?", options: ["Analyzing grammar mistakes", "Examining how discourse structures and ideologies shape social reality", "Studying sentence structure", "Transcribing conversations"], correctAnswer: 1 },
-    { question: "What is the difference between a pidgin and a creole?", options: ["There is no difference", "A pidgin is simplified, a creole is complex", "A creole is a native language, a pidgin is not", "A pidgin develops from language contact, a creole is inherited"], correctAnswer: 2 },
-    { question: "What is Natural Language Processing (NLP)?", options: ["Processing natural foods", "Computer processing and analysis of human language", "Natural ways of learning language", "Processing language naturally without technology"], correctAnswer: 1 },
-    { question: "What is machine translation?", options: ["Translation done by machines in factories", "Automatic translation of text from one language to another by computers", "Translation of technical manuals", "Mechanical writing"], correctAnswer: 1 },
-    { question: "What is subtractive bilingualism?", options: ["Learning two languages simultaneously", "Gaining a second language at the cost of losing the first", "Learning languages through subtraction", "Learning math in a second language"], correctAnswer: 1 },
-    { question: "What is corpus linguistics?", options: ["Study of dead languages", "Study of language using large collections of texts", "Study of body language", "Study of corporate language"], correctAnswer: 1 }
+    { question: "What is the primary focus of sociolinguistics?", options: ["The study of language structure", "The study of the relationship between language and society", "The study of language acquisition", "The study of language change over time"], correctAnswer: 1, explanation: "" },
+    { question: "What is code-switching?", options: ["Changing the subject of conversation", "Alternating between different languages or varieties within a conversation", "Correcting grammatical errors", "Using formal language in informal settings"], correctAnswer: 1, explanation: "" },
+    { question: "What is status planning in language planning?", options: ["Standardizing the language structure", "Determining the functions and prestige of a language", "Teaching the language to children", "Translating literature"], correctAnswer: 1, explanation: "" },
+    { question: "What is language endangerment?", options: ["When a language is difficult to learn", "When a language is at risk of falling out of use", "When a language has many rules", "When a language is changing rapidly"], correctAnswer: 1, explanation: "" },
+    { question: "What is Critical Discourse Analysis?", options: ["Analyzing grammar mistakes", "Examining how discourse structures and ideologies shape social reality", "Studying sentence structure", "Transcribing conversations"], correctAnswer: 1, explanation: "" },
+    { question: "What is the difference between a pidgin and a creole?", options: ["There is no difference", "A pidgin is simplified, a creole is complex", "A creole is a native language, a pidgin is not", "A pidgin develops from language contact, a creole is inherited"], correctAnswer: 2, explanation: "" },
+    { question: "What is Natural Language Processing (NLP)?", options: ["Processing natural foods", "Computer processing and analysis of human language", "Natural ways of learning language", "Processing language naturally without technology"], correctAnswer: 1, explanation: "" },
+    { question: "What is machine translation?", options: ["Translation done by machines in factories", "Automatic translation of text from one language to another by computers", "Translation of technical manuals", "Mechanical writing"], correctAnswer: 1, explanation: "" },
+    { question: "What is subtractive bilingualism?", options: ["Learning two languages simultaneously", "Gaining a second language at the cost of losing the first", "Learning languages through subtraction", "Learning math in a second language"], correctAnswer: 1, explanation: "" },
+    { question: "What is corpus linguistics?", options: ["Study of dead languages", "Study of language using large collections of texts", "Study of body language", "Study of corporate language"], correctAnswer: 1, explanation: "" }
   ];
 
   const renderModule = () => {
@@ -541,7 +541,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <p>Take your time and demonstrate your understanding of sociolinguistics and applied linguistics!</p>
             </section>
 
-            <Quiz title="Unit 4 Comprehensive Quiz" questions={unitQuiz} passingScore={75} subject="LS" unitId={4} moduleId={5} />
+            <Quiz title="Unit 4 Comprehensive Quiz" questions={unitQuiz} subject="LS" unitId={4} moduleId={5} />
 
             <div className="reference-section">
               <h3>Reference Materials</h3>
@@ -566,5 +566,6 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
 };
 
 export default Unit4;
+
 
 

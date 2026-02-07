@@ -149,7 +149,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Context-Free Grammars Introduction</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/JxRWgobTYto?si=N1KZPiJCl4gfWt0V" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/JxRWgobTYto?si=N1KZPiJCl4gfWt0V" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -373,7 +373,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Normal Forms: CNF and GNF</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/zTNm1nzDKUg?si=eBOoIEnLGUE77_o0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/zTNm1nzDKUg?si=eBOoIEnLGUE77_o0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -502,7 +502,7 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               <div className="video-section">
                 <h6>Pushdown Automata Basics</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/e7Or2A9NJAU?si=45XL_gzm4IlJADpu" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/e7Or2A9NJAU?si=45XL_gzm4IlJADpu" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -619,7 +619,7 @@ q₁ --ε,Z₀/Z₀---> q₂ (accept when stack empty)`}
               <div className="video-section">
                 <h6>CFG-PDA Equivalence</h6>
                 <div className="video-container">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/fx2gQptXAyk?si=M20nF-AHXVBhB-Pn" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/fx2gQptXAyk?si=M20nF-AHXVBhB-Pn" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
               </div>
 
@@ -721,7 +721,7 @@ q₁ --ε,Z₀/Z₀---> q₂ (accept when stack empty)`}
               </div>
             </div>
             
-            <Quiz title="Unit 4 Comprehensive Quiz: Context-Free Languages" questions={unitQuiz} passingScore={70} />
+            <Quiz title="Unit 4 Comprehensive Quiz: Context-Free Languages" questions={unitQuiz} subject="FLAT" unitId={4} moduleId={9} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(5)} className="prev-module-btn">← CFG-PDA Equivalence</button>

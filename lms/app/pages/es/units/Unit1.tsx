@@ -1,10 +1,11 @@
 'use client';
 import React from 'react';
-import Quiz from '../components/Quiz.tsx';
+import Quiz from '../components/Quiz';
 
 interface Unit1Props {
   currentModule: number;
   setCurrentModule: (module: number) => void;
+  onBack: () => void;
 }
 
 const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule }) => {

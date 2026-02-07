@@ -8,20 +8,20 @@ export default function AdminDashboard() {
   const { data: session } = useSession();
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("");
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<any[]>([]);
   const [newUserEmail, setNewUserEmail] = useState("");
   const [stats, setStats] = useState({ total: 0, students: 0, admins: 0 });
-  const [editUser, setEditUser] = useState(null);
+  const [editUser, setEditUser] = useState<any>(null);
   const [editForm, setEditForm] = useState({ fullName: "", phoneNumber: "", currentSemester: 1 });
-  const [timetable, setTimetable] = useState({});
-  const [leaves, setLeaves] = useState([]);
-  const [editSubject, setEditSubject] = useState(null);
+  const [timetable, setTimetable] = useState<any>({});
+  const [leaves, setLeaves] = useState<any[]>([]);
+  const [editSubject, setEditSubject] = useState<any>(null);
   const [subjectForm, setSubjectForm] = useState({ professor: "", description: "" });
   const [searchQuery, setSearchQuery] = useState("");
   const [newAdminEmail, setNewAdminEmail] = useState("");
   const [studentProgress, setStudentProgress] = useState<any[]>([]);
   const [selectedStudent, setSelectedStudent] = useState<string | null>(null);
-  const [feedback, setFeedback] = useState([]);
+  const [feedback, setFeedback] = useState<any[]>([]);
 
   useEffect(() => {
     if (session === null) return;
@@ -84,7 +84,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const updateUserSemester = async (email, semester) => {
+  const updateUserSemester = async (email: string, semester: number) => {
     const res = await fetch("/api/users/update", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -96,7 +96,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const openEditModal = (user) => {
+  const openEditModal = (user: any) => {
     setEditUser(user);
     setEditForm({
       fullName: user.fullName || "",
@@ -122,7 +122,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const deleteUser = async (email) => {
+  const deleteUser = async (email: string) => {
     if (!confirm(`Delete user ${email}?`)) return;
     const res = await fetch("/api/users/delete", {
       method: "DELETE",
@@ -141,8 +141,8 @@ export default function AdminDashboard() {
     if (data.ok) setTimetable(data.data);
   };
 
-  const updateSlot = async (day, index, field, value) => {
-    const updated = { ...timetable, [day]: timetable[day].map((slot, i) => i === index ? { ...slot, [field]: value } : slot) };
+  const updateSlot = async (day: string, index: number, field: string, value: string) => {
+    const updated = { ...timetable, [day]: timetable[day].map((slot: any, i: number) => i === index ? { ...slot, [field]: value } : slot) };
     setTimetable(updated);
     await fetch("/api/timetable", {
       method: "PUT",
@@ -151,7 +151,7 @@ export default function AdminDashboard() {
     });
   };
 
-  const openSubjectModal = (subject) => {
+  const openSubjectModal = (subject: any) => {
     setEditSubject(subject);
     setSubjectForm({
       professor: subject.teacher || "",
@@ -162,7 +162,7 @@ export default function AdminDashboard() {
   const updateSubject = async () => {
     const updated = { ...timetable };
     Object.keys(updated).forEach(day => {
-      updated[day] = updated[day].map(slot => 
+      updated[day] = updated[day].map((slot: any) => 
         slot.subject === editSubject.subject ? { ...slot, teacher: subjectForm.professor, description: subjectForm.description } : slot
       );
     });
@@ -196,7 +196,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const deleteLeave = async (id) => {
+  const deleteLeave = async (id: string) => {
     if (!confirm("Delete this leave application?")) return;
     await fetch("/api/leaves", {
       method: "DELETE",
@@ -208,8 +208,8 @@ export default function AdminDashboard() {
 
   const getUniqueSubjects = () => {
     const subjects = new Set();
-    Object.values(timetable).forEach(day => {
-      day.forEach(slot => {
+    Object.values(timetable).forEach((day: any) => {
+      day.forEach((slot: any) => {
         if (slot.subject) subjects.add(slot.subject);
       });
     });
@@ -460,7 +460,7 @@ export default function AdminDashboard() {
                         </tr>
                       </thead>
                       <tbody>
-                        {timetable[Object.keys(timetable)[0]]?.map((_, index) => (
+                        {timetable[Object.keys(timetable)[0]]?.map((_: any, index: number) => (
                           <tr key={index} className="border-b border-teal-100 hover:bg-teal-50 transition">
                             <td className="p-4 font-semibold text-sm text-gray-800 bg-teal-50 border-r border-teal-200">{timetable[Object.keys(timetable)[0]][index].time}</td>
                             {Object.keys(timetable).map(day => (
@@ -476,8 +476,8 @@ export default function AdminDashboard() {
 
                   <h3 className="text-lg font-semibold text-gray-800 mb-4">Subject Details</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {getUniqueSubjects().map(subject => {
-                      const subjectData = Object.values(timetable).flat().find(s => s.subject === subject);
+                    {getUniqueSubjects().map((subject: any) => {
+                      const subjectData: any = Object.values(timetable).flat().find((s: any) => s.subject === subject);
                       return (
                         <div key={subject} className="border border-teal-200 rounded-lg p-4 hover:shadow-md transition bg-teal-50">
                           <h4 className="font-semibold text-gray-800 mb-2">{subject}</h4>
