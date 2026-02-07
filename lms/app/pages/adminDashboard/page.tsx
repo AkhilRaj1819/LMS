@@ -44,8 +44,8 @@ export default function AdminDashboard() {
       setUsers(data.data);
       setStats({
         total: data.data.length,
-        students: data.data.filter(u => !u.isAdmin).length,
-        admins: data.data.filter(u => u.isAdmin).length
+        students: data.data.filter((u: any) => !u.isAdmin).length,
+        admins: data.data.filter((u: any) => u.isAdmin).length
       });
     }
   };
