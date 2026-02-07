@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import MainSidebar from '@/components/Sidebar';
+import { useSession } from 'next-auth/react';
 
 interface CourseOverviewProps {
   onModuleSelect: (unitId: number, moduleId: number) => void;
@@ -10,10 +11,29 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
   const [activeTab, setActiveTab] = useState('learning-path');
   const [expandedUnit, setExpandedUnit] = useState<number | null>(1);
   const [dynamicModules, setDynamicModules] = useState([]);
+  const { data: session } = useSession();
+  const [studentProgress, setStudentProgress] = useState<any[]>([]);
 
   useEffect(() => {
     fetchModules();
-  }, []);
+    if (session?.user?.email) {
+      fetchStudentProgress(session.user.email);
+    }
+  }, [session]);
+
+  const fetchStudentProgress = async (email: string) => {
+    const res = await fetch(`/api/progress?userEmail=${email}&subject=LS`);
+    const data = await res.json();
+    if (data.success) {
+      setStudentProgress(data.data);
+    }
+  };
+
+  const completedModules = studentProgress.length;
+  const masteryModules = studentProgress.filter(p => p.percentage >= 80).length;
+  const totalModules = 26;
+  const completedPercentage = Math.round((completedModules / totalModules) * 100);
+  const masteryPercentage = Math.round((masteryModules / totalModules) * 100);
 
   const fetchModules = async () => {
     const res = await fetch('/api/modules?subject=ls');
@@ -103,11 +123,20 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
           <div className="header-right">
             <div className="progress-bar-container">
               <div className="progress-segments">
-                {[...Array(20)].map((_, i) => (
-                  <div key={i} className={`segment ${i < 0 ? 'completed' : ''}`}></div>
-                ))}
+                {[...Array(20)].map((_, i) => {
+                  const segmentThreshold = (i + 1) * 5;
+                  return (
+                    <div 
+                      key={i} 
+                      className={`segment ${
+                        completedPercentage >= segmentThreshold ? 'completed' : 
+                        masteryPercentage >= segmentThreshold ? 'mastery' : ''
+                      }`}
+                    ></div>
+                  );
+                })}
               </div>
-              <div className="progress-text">0% Completed • 0% Mastery</div>
+              <div className="progress-text">{completedPercentage}% Completed • {masteryPercentage}% Mastery</div>
             </div>
           </div>
         </div>

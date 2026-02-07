@@ -35,19 +35,19 @@ export default function FeedbackPage() {
   };
 
   return (
-    <div className="min-h-screen flex bg-white">
+    <div className="min-h-screen flex" style={{ backgroundImage: 'radial-gradient(circle, #D8D8D8 1px, transparent 1px)', backgroundSize: '20px 20px', backgroundColor: '#FFFFFF' }}>
       <Sidebar />
       <div className="flex-1 pt-20 px-8">
         <div className="max-w-2xl mx-auto">
           <button
             onClick={() => router.back()}
-            className="mb-6 text-gray-600 hover:text-gray-800 flex items-center gap-2"
+            className="mb-6 text-gray-600 hover:text-gray-800 flex items-center gap-2 transition cursor-pointer"
           >
             ← Back
           </button>
 
-          <div className="bg-white border-2 border-gray-200 rounded-lg p-8">
-            <h1 className="text-3xl font-bold mb-2">Feedback & Support</h1>
+          <div className="bg-white border p-8 shadow-sm" style={{ border: '1px solid rgba(0,0,0,0.1)' }}>
+            <h1 className="text-3xl font-bold mb-2 text-gray-900">Feedback & Support</h1>
             <p className="text-gray-600 mb-6">
               Share your feedback or report issues anonymously. Your submission will be reviewed by admins.
             </p>
@@ -57,7 +57,8 @@ export default function FeedbackPage() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Describe your feedback or issue..."
-                className="w-full h-48 p-4 border-2 border-gray-300 rounded-lg resize-none focus:outline-none focus:border-blue-500"
+                className="w-full h-48 p-4 border resize-none focus:outline-none focus:ring-2 focus:ring-gray-400 text-sm"
+                style={{ border: '1px solid rgba(0,0,0,0.1)' }}
                 required
               />
 
@@ -68,7 +69,12 @@ export default function FeedbackPage() {
                 <button
                   type="submit"
                   disabled={loading || !message.trim()}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                  className="px-8 py-3 text-gray-900 font-medium text-sm transition disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+                  style={{
+                    background: loading || !message.trim() ? '#e0e0e0' : 'linear-gradient(to bottom right, rgba(0,0,0,0.08), rgba(0,0,0,0.12))',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(0,0,0,0.2)'
+                  }}
                 >
                   {loading ? "Submitting..." : "Submit"}
                 </button>
@@ -76,7 +82,7 @@ export default function FeedbackPage() {
             </form>
 
             {success && (
-              <div className="mt-4 p-4 bg-green-100 text-green-800 rounded-lg">
+              <div className="mt-4 p-4" style={{ background: 'linear-gradient(to bottom right, rgba(76,175,80,0.1), rgba(76,175,80,0.05))', border: '1px solid rgba(76,175,80,0.3)', color: '#2e7d32' }}>
                 ✓ Feedback submitted successfully!
               </div>
             )}
