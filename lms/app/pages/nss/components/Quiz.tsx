@@ -129,7 +129,7 @@ const Quiz: React.FC<QuizProps> = ({ title, questions, subject, unitId, moduleId
               <circle cx="52" cy="42" r="3" fill="#2B2B2B"/>
               <circle cx="68" cy="42" r="3" fill="#2B2B2B"/>
               <path d="M 52 52 Q 60 58 68 52" stroke="#2B2B2B" strokeWidth="2" fill="none" strokeLinecap="round"/>
-              <rect x="35" y="65" width="50" height="40" rx="5" fill="#4CAF50" stroke="#2B2B2B" strokeWidth="2"/>
+              <rect x="35" y="65" width="50" height="40" rx="5" fill="#7CB342" stroke="#2B2B2B" strokeWidth="2"/>
               <path d="M 50 75 L 55 82 L 70 68" stroke="#FFFFFF" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
@@ -138,7 +138,7 @@ const Quiz: React.FC<QuizProps> = ({ title, questions, subject, unitId, moduleId
               <div className="quiz-card-title-section">
                 <div className="quiz-icon">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" fill="#4CAF50" stroke="#4CAF50" strokeWidth="1.5" strokeLinejoin="round"/>
+                    <path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" fill="#7CB342" stroke="#7CB342" strokeWidth="1.5" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <h3>It's Quiz Time</h3>
@@ -174,14 +174,14 @@ const Quiz: React.FC<QuizProps> = ({ title, questions, subject, unitId, moduleId
                 <span>60m</span>
               </div>
             </div>
+            <button className="quiz-retake-button" onClick={handleRetake}>
+              Retake Quiz
+            </button>
             {previousScore !== null && previousScore !== score && (
               <div className="previous-score-info">
                 <span>Previous Score: {previousScore}/{questions.length} ({Math.round((previousScore/questions.length)*100)}%)</span>
               </div>
             )}
-            <button className="quiz-retake-button" onClick={handleRetake}>
-              Retake Quiz
-            </button>
           </div>
         </div>
       </div>

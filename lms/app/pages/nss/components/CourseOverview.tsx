@@ -20,7 +20,13 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
   }, [session]);
 
   const fetchStudentProgress = async (email: string) => {
-    const res = await fetch(`/api/progress?userEmail=${email}&subject=NSS`);
+    const res = await fetch(`/api/progress?userEmail=${email}&subject=NSS`, {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache'
+      }
+    });
     const data = await res.json();
     if (data.success) {
       setStudentProgress(data.data);
