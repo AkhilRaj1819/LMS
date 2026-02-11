@@ -9,31 +9,6 @@ interface Unit1Props {
 }
 
 const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }) => {
-  const videoRef1 = useRef<HTMLIFrameElement>(null);
-  const videoRef2 = useRef<HTMLIFrameElement>(null);
-
-  useEffect(() => {
-    const url1 = atob('aHR0cHM6Ly93d3cueW91dHViZS5jb20vZW1iZWQvMy1uQWJmeHdPQXM/bW9kZXN0YnJhbmRpbmc9MSZyZWw9MCZjb250cm9scz0x');
-    const url2 = atob('aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xMXYyREVJbWNFR28zMXZUZ2wxb2dpZmpDaWI3bEtzeTMvcHJldmlldw==');
-    
-    if (videoRef1.current) videoRef1.current.src = url1;
-    if (videoRef2.current) videoRef2.current.src = url2;
-
-    const blockDevTools = (e: KeyboardEvent) => {
-      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || (e.ctrlKey && e.key === 'U')) {
-        e.preventDefault();
-        return false;
-      }
-    };
-
-    document.addEventListener('keydown', blockDevTools);
-    document.addEventListener('contextmenu', (e) => e.preventDefault());
-
-    return () => {
-      document.removeEventListener('keydown', blockDevTools);
-      document.removeEventListener('contextmenu', (e) => e.preventDefault());
-    };
-  }, [currentModule]);
   const module1Quiz = [
     {
       question: "What is the primary objective of career orientation programs?",
@@ -236,41 +211,6 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                 <li><strong>Skill Assessment:</strong> Identifying core competencies</li>
                 <li><strong>Action Plan Development:</strong> Creating personalized roadmaps</li>
               </ol>
-
-              <div className="video-section">
-                <h6>Career Guidance Video</h6>
-                <div className="video-container" style={{position: 'relative'}} onContextMenu={(e) => e.preventDefault()}>
-                  <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 10, pointerEvents: 'none'}}></div>
-                  <iframe 
-                    ref={videoRef1}
-                    width="560" 
-                    height="315" 
-                    title="Career Guidance"
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                    allowFullScreen
-                    style={{pointerEvents: 'auto'}}
-                  ></iframe>
-                </div>
-              </div>
-
-              <div className="video-section">
-                <h6>Career Planning Resources</h6>
-                <div className="video-container" style={{position: 'relative'}} onContextMenu={(e) => e.preventDefault()}>
-                  <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 10, pointerEvents: 'none'}}></div>
-                  <iframe 
-                    ref={videoRef2}
-                    width="560" 
-                    height="315" 
-                    title="Career Planning Document"
-                    frameBorder="0" 
-                    allow="autoplay"
-                    sandbox="allow-scripts allow-same-origin"
-                    allowFullScreen
-                    style={{pointerEvents: 'auto'}}
-                  ></iframe>
-                </div>
-              </div>
 
               <h4>Creating a Career Roadmap:</h4>
               <p>A career roadmap is a strategic plan that outlines the steps needed to achieve career goals:</p>
