@@ -13,57 +13,111 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
   const units = [
     {
       id: 1,
-      title: 'Unit 1: Computer System & OS Overview',
+      title: 'Module 1: Getting started with OS',
       modules: [
-        'Overview of Operating Systems',
-        'OS Types and Generation',
-        'OS Operations & Security',
-        'System Calls & Structures',
-        'Unit 1 Quiz'
+        'Getting Started with OS',
+        'Introduction to Operating systems',
+        'Fundamentals of computer systems (Optional)',
+        'System calls and programs',
+        'Assignment: System calls and programs (Optional)',
+        'Operating System Design, Implementation and structures',
+        'Operating System Generation and System Boot (Optional)',
+        'Introduction to processes',
+        'Assignment: Introduction to processes (Optional)',
+        'Operation on Processes & Interprocess communication',
+        'Shared memory and Message passing Systems',
+        'Assignment: Shared memory and Message passing Systems (Optional)',
+        'Sockets in OS (Optional)',
+        'Remote Procedure calls',
+        'Assignment: Remote Procedure calls (Optional)',
+        'Dispatching (Optional)',
+        'Assignment: Getting started with OS (Optional)',
+        'Getting started with OS | Practice Assignment (Optional)'
       ]
     },
     {
       id: 2,
-      title: 'Unit 2: Process Management',
+      title: 'Module 2: Threads and CPU scheduling',
       modules: [
-        'Process Concepts',
-        'Process Scheduling',
-        'Scheduling Algorithms',
-        'Multithreading & IPC',
-        'Unit 2 Quiz'
+        'Introduction to threads',
+        'Multithreading models and Hyperthreading',
+        'Issues in threading',
+        'Introduction to CPU Scheduling',
+        'First Come First Served',
+        'First Come First Served - Implementation',
+        'Shortest Job First',
+        'Shortest Job First - Implementation',
+        'Priority Scheduling',
+        'Priority Scheduling - Implementation',
+        'Round Robin',
+        'Round Robin - Implementation',
+        'Multilevel Queue Scheduling (Optional)',
+        'Project: Simple Job Queue with Priority Scheduling | Part 1',
+        'Project: Simple Job Queue with Priority Scheduling | Part 2',
+        'Threads and CPU scheduling | Practice Assignment (Optional)'
       ]
     },
     {
       id: 3,
-      title: 'Unit 3: Concurrency & Deadlock',
+      title: 'Module 3: Process Synchronization and Deadlocks',
       modules: [
-        'Concurrency Principles',
         'Process Synchronization',
-        'Deadlock Principles',
-        'Deadlock Handling',
-        'Unit 3 Quiz'
+        'The Critical Section Problem',
+        'Test & set Lock',
+        'Semaphores',
+        'Classic problems of Process synchronization',
+        'Monitors',
+        'Solved problems on Process Synchronization',
+        'Assignment | Process Synchronization',
+        'Linkers and Dynamic linking (Optional)',
+        'Deadlocks',
+        'Deadlock Handling methods and Recovery',
+        'Deadlock Avoidance',
+        'Solved Problems on Deadlocks (Optional)',
+        'Process Synchronization and Deadlocks | Practice Assignment (Optional)'
       ]
     },
     {
       id: 4,
-      title: 'Unit 4: Memory Management',
+      title: 'Module 4: Memory Management',
       modules: [
-        'Memory Allocation',
-        'Paging & Segmentation',
-        'Virtual Memory',
-        'Page Replacement',
-        'Unit 4 Quiz'
+        'Introduction to Memory Management',
+        'Main Memory and Virtual Memory (Optional)',
+        'Dynamic Storage Management (Optional)',
+        'Fixed and Variable Partitioning',
+        'Partition Allocation Techniques (Best fit)',
+        'Partition Allocation Techniques (Worst fit)',
+        'Partition Allocation Techniques (First fit)',
+        'Paging',
+        'Segmentation',
+        'Assignment | Paging & Segmentation',
+        'Fragmentation',
+        'Page replacement Algorithm: FIFO',
+        'Optimal Page replacement',
+        'Least Recently Used',
+        'Solved Problems on Page Replacement',
+        'Other page replacement algorithms (Optional)',
+        'Memory Management | Practice Assignment (Optional)'
       ]
     },
     {
       id: 5,
-      title: 'Unit 5: File Systems & Storage',
+      title: 'Module 5: Storage Management & Linux',
       modules: [
-        'File System Interface',
-        'Directory Structure',
-        'Mass Storage Structure',
-        'Disk Scheduling',
-        'Unit 5 Quiz'
+        'Introduction to Storage Management',
+        'File systems',
+        'File system Implementations',
+        'File Allocation methods',
+        'File system crash recovery and protection',
+        'Free space management',
+        'RAID',
+        'Virtual Machines',
+        'Getting Started with Linux: Desktop, Terminal, and Basics',
+        'Working with directories in Linux',
+        'Working with Files and Exploring the Linux Directory Structure',
+        'Mastering Linux Basics: System Info, Networking, Packages & Text Editing (Optional)',
+        'Mini Project: System Resource Monitor & Process Analyzer',
+        'Storage Management & Linux | Practice Assignment (Optional)'
       ]
     }
   ];
