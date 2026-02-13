@@ -10,6 +10,186 @@ interface Unit3Props {
 
 const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }) => {
   
+  const module1Quiz = [
+    {
+      question: "What is a regular expression?",
+      options: [
+        "A type of finite automaton",
+        "A notation for describing regular languages",
+        "A programming language",
+        "A type of grammar"
+      ],
+      correctAnswer: 1,
+      explanation: "A regular expression is a notation for describing regular sets/languages using special symbols and operators like union, concatenation, and Kleene star."
+    },
+    {
+      question: "Which of the following is a base case in regular expressions?",
+      options: [
+        "Union operation",
+        "Empty set (∅)",
+        "Concatenation",
+        "Kleene star"
+      ],
+      correctAnswer: 1,
+      explanation: "The base cases in regular expressions are: empty set (∅), empty string (ε), and single symbols from the alphabet."
+    },
+    {
+      question: "What does the regular expression (a+b)* represent?",
+      options: [
+        "Only strings 'a' and 'b'",
+        "All strings over alphabet {a, b}",
+        "Strings with equal a's and b's",
+        "Empty string only"
+      ],
+      correctAnswer: 1,
+      explanation: "(a+b)* represents all possible strings (including empty string) that can be formed using symbols 'a' and 'b', which is the set of all strings over alphabet {a, b}."
+    }
+  ];
+
+  const module2Quiz = [
+    {
+      question: "Which operation has the highest precedence in regular expressions?",
+      options: [
+        "Union (+)",
+        "Concatenation (·)",
+        "Kleene star (*)",
+        "All have equal precedence"
+      ],
+      correctAnswer: 2,
+      explanation: "Kleene star (*) has the highest precedence, followed by concatenation (·), and then union (+) has the lowest precedence."
+    },
+    {
+      question: "What is the identity element for concatenation?",
+      options: [
+        "Empty set (∅)",
+        "Empty string (ε)",
+        "Any symbol",
+        "Kleene star"
+      ],
+      correctAnswer: 1,
+      explanation: "The empty string (ε) is the identity element for concatenation: r·ε = r for any regular expression r."
+    },
+    {
+      question: "What does r* equal according to recursive definition?",
+      options: [
+        "ε + r",
+        "ε + rr*",
+        "r + r*",
+        "rr*"
+      ],
+      correctAnswer: 1,
+      explanation: "The recursive definition of Kleene star is: r* = ε + rr*, meaning zero or more repetitions of r."
+    }
+  ];
+
+  const module3Quiz = [
+    {
+      question: "What is Thompson's construction used for?",
+      options: [
+        "Converting DFA to NFA",
+        "Converting regular expression to NFA",
+        "Minimizing automata",
+        "Converting NFA to DFA"
+      ],
+      correctAnswer: 1,
+      explanation: "Thompson's construction is an algorithm that converts a regular expression into an equivalent NFA with epsilon-transitions."
+    },
+    {
+      question: "In which domain are regular expressions commonly used?",
+      options: [
+        "Database design",
+        "Lexical analysis in compilers",
+        "Network routing",
+        "Image processing"
+      ],
+      correctAnswer: 1,
+      explanation: "Regular expressions are commonly used in lexical analysis for breaking source code into tokens during compilation."
+    },
+    {
+      question: "What is the state elimination method used for?",
+      options: [
+        "Converting automata to regular expressions",
+        "Minimizing DFA states",
+        "Converting NFA to DFA",
+        "Optimizing regular expressions"
+      ],
+      correctAnswer: 0,
+      explanation: "State elimination method systematically removes states from an automaton to derive an equivalent regular expression."
+    }
+  ];
+
+  const module4Quiz = [
+    {
+      question: "What does the Pumping Lemma help prove?",
+      options: [
+        "A language is regular",
+        "A language is not regular",
+        "Two languages are equivalent",
+        "An automaton is minimal"
+      ],
+      correctAnswer: 1,
+      explanation: "The Pumping Lemma is used to prove that certain languages are NOT regular by showing they fail to satisfy the necessary conditions that all regular languages must meet."
+    },
+    {
+      question: "In the Pumping Lemma, what must be true about the middle part 'y'?",
+      options: [
+        "|y| = 0 (y can be empty)",
+        "|y| ≥ 1 (y must be non-empty)",
+        "|y| ≤ p (y length at most p)",
+        "|y| = p (y length exactly p)"
+      ],
+      correctAnswer: 1,
+      explanation: "In the Pumping Lemma decomposition w = xyz, the middle part y must be non-empty (|y| ≥ 1), ensuring there's actually something to pump."
+    },
+    {
+      question: "Which of the following languages is NOT regular?",
+      options: [
+        "All strings over {a,b}",
+        "Strings ending with 'ab'",
+        "a^n b^n where n ≥ 0",
+        "Strings with even number of a's"
+      ],
+      correctAnswer: 2,
+      explanation: "The language a^n b^n (equal numbers of a's and b's) is not regular, as can be proven using the Pumping Lemma. The other languages are all regular."
+    }
+  ];
+
+  const module5Quiz = [
+    {
+      question: "What is a right-linear grammar?",
+      options: [
+        "Grammar with productions A → aB or A → a",
+        "Grammar with productions A → Ba or A → a",
+        "Grammar with no restrictions",
+        "Grammar that generates context-free languages"
+      ],
+      correctAnswer: 0,
+      explanation: "A right-linear grammar has productions where the non-terminal appears on the RIGHT side: A → aB or A → a or A → ε. These grammars generate regular languages."
+    },
+    {
+      question: "What is the relationship between regular grammars and finite automata?",
+      options: [
+        "They are unrelated",
+        "They are computationally equivalent",
+        "Grammars are more powerful",
+        "Automata are more powerful"
+      ],
+      correctAnswer: 1,
+      explanation: "Regular grammars and finite automata are computationally equivalent - they can generate/recognize exactly the same class of languages (regular languages)."
+    },
+    {
+      question: "In converting a right-linear grammar to a DFA, what does each non-terminal become?",
+      options: [
+        "A transition",
+        "A state",
+        "An input symbol",
+        "An accept condition"
+      ],
+      correctAnswer: 1,
+      explanation: "When converting a right-linear grammar to a DFA, each non-terminal becomes a state in the automaton."
+    }
+  ];
+
   const unitQuiz = [
     {
       question: "What is a regular expression?",
@@ -191,6 +371,8 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <Quiz title="Module 3.1 Quiz: Regular Expressions and Languages" questions={module1Quiz} subject="FLAT" unitId={3} moduleId={1} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Regular Expression Operations →</button>
             </div>
@@ -347,6 +529,8 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <Quiz title="Module 3.2 Quiz: Regular Expression Operations" questions={module2Quiz} subject="FLAT" unitId={3} moduleId={2} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Regular Expressions</button>
               <button onClick={() => setCurrentModule(3)} className="next-module-btn">Applications and Conversions →</button>
@@ -482,6 +666,8 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <Quiz title="Module 3.3 Quiz: Applications and Conversions" questions={module3Quiz} subject="FLAT" unitId={3} moduleId={3} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Regular Expression Operations</button>
               <button onClick={() => setCurrentModule(4)} className="next-module-btn">Pumping Lemma →</button>
@@ -596,6 +782,8 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
                 <li><strong>a^n b^m c^n where n,m ≥ 0:</strong> Matching first and third parts</li>
               </ul>
             </section>
+
+            <Quiz title="Module 3.4 Quiz: Pumping Lemma" questions={module4Quiz} subject="FLAT" unitId={3} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Applications and Conversions</button>
@@ -741,6 +929,8 @@ const Unit3: React.FC<Unit3Props> = ({ currentModule, setCurrentModule, onBack }
                 <li><strong>Computational Equivalence:</strong> Same power as finite automata and regular expressions</li>
               </ul>
             </section>
+
+            <Quiz title="Module 3.5 Quiz: Regular Grammars" questions={module5Quiz} subject="FLAT" unitId={3} moduleId={5} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Pumping Lemma</button>

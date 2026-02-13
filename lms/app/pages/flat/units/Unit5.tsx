@@ -10,6 +10,296 @@ interface Unit5Props {
 
 const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }) => {
   
+  const module1Quiz = [
+    {
+      question: "What are the four levels of the Chomsky Hierarchy?",
+      options: [
+        "Regular, Context-Free, Context-Sensitive, Unrestricted",
+        "Type-0, Type-1, Type-2, Type-3",
+        "DFA, PDA, LBA, TM",
+        "All of the above"
+      ],
+      correctAnswer: 3,
+      explanation: "The Chomsky Hierarchy has four levels: Type-3 (Regular), Type-2 (Context-Free), Type-1 (Context-Sensitive), and Type-0 (Unrestricted), recognized by FA, PDA, LBA, and TM respectively."
+    },
+    {
+      question: "Which automaton recognizes Type-2 (Context-Free) languages?",
+      options: [
+        "Finite Automaton",
+        "Pushdown Automaton",
+        "Linear Bounded Automaton",
+        "Turing Machine"
+      ],
+      correctAnswer: 1,
+      explanation: "Type-2 (Context-Free) languages are recognized by Pushdown Automata (PDA), which have a stack for memory."
+    },
+    {
+      question: "What is the relationship between language classes in Chomsky Hierarchy?",
+      options: [
+        "Type-3 ⊃ Type-2 ⊃ Type-1 ⊃ Type-0",
+        "Type-3 ⊂ Type-2 ⊂ Type-1 ⊂ Type-0",
+        "All types are equal",
+        "No subset relationship exists"
+      ],
+      correctAnswer: 1,
+      explanation: "Each level is a proper subset of the next: Type-3 ⊂ Type-2 ⊂ Type-1 ⊂ Type-0, with increasing computational power."
+    },
+    {
+      question: "Which language class is most restrictive?",
+      options: [
+        "Unrestricted (Type-0)",
+        "Context-Sensitive (Type-1)",
+        "Context-Free (Type-2)",
+        "Regular (Type-3)"
+      ],
+      correctAnswer: 3,
+      explanation: "Regular languages (Type-3) are the most restrictive, recognized by finite automata with no additional memory."
+    },
+    {
+      question: "What type of grammar has productions of form α → β where α contains at least one non-terminal?",
+      options: [
+        "Regular Grammar",
+        "Context-Free Grammar",
+        "Context-Sensitive Grammar",
+        "Unrestricted Grammar"
+      ],
+      correctAnswer: 3,
+      explanation: "Unrestricted (Type-0) grammars have the most general production form α → β where α must contain at least one non-terminal."
+    }
+  ];
+
+  const module2Quiz = [
+    {
+      question: "What is a Turing Machine?",
+      options: [
+        "A finite automaton with a stack",
+        "A finite automaton with an infinite tape",
+        "A pushdown automaton with two stacks",
+        "A linear bounded automaton"
+      ],
+      correctAnswer: 1,
+      explanation: "A Turing Machine is a finite automaton augmented with an infinite tape that can be read from and written to, providing unlimited memory for computation."
+    },
+    {
+      question: "What does the transition function δ of a TM return?",
+      options: [
+        "Only the next state",
+        "Next state and symbol to write",
+        "Next state, symbol to write, and direction to move",
+        "Only the direction to move"
+      ],
+      correctAnswer: 2,
+      explanation: "The TM transition function δ: Q × Γ → Q × Γ × {L,R} returns the next state, symbol to write, and direction (Left or Right) to move the head."
+    },
+    {
+      question: "What is the Church-Turing Thesis?",
+      options: [
+        "All problems are computable",
+        "Turing Machines capture the notion of effective computability",
+        "The Halting Problem is decidable",
+        "All languages are context-free"
+      ],
+      correctAnswer: 1,
+      explanation: "The Church-Turing Thesis states that Turing Machines (and equivalent models) capture the intuitive notion of what can be effectively computed by any algorithmic process."
+    },
+    {
+      question: "Which component is NOT part of a Turing Machine?",
+      options: [
+        "Infinite tape",
+        "Read/write head",
+        "Stack",
+        "Finite control unit"
+      ],
+      correctAnswer: 2,
+      explanation: "A Turing Machine has an infinite tape, read/write head, and finite control unit, but does NOT have a stack (that's a PDA component)."
+    },
+    {
+      question: "What language class do Turing Machines recognize?",
+      options: [
+        "Regular languages",
+        "Context-free languages",
+        "Context-sensitive languages",
+        "Recursively enumerable languages"
+      ],
+      correctAnswer: 3,
+      explanation: "Turing Machines recognize recursively enumerable (Type-0) languages, the most general class in the Chomsky Hierarchy."
+    }
+  ];
+
+  const module3Quiz = [
+    {
+      question: "What is the Post Correspondence Problem (PCP)?",
+      options: [
+        "A decidable problem about string matching",
+        "An undecidable problem about finding matching sequences",
+        "A problem about context-free languages",
+        "A problem about regular expressions"
+      ],
+      correctAnswer: 1,
+      explanation: "The Post Correspondence Problem is a fundamental undecidable problem that asks whether a sequence of domino tiles can be arranged so the top and bottom strings match."
+    },
+    {
+      question: "In PCP, what are we trying to match?",
+      options: [
+        "Two different alphabets",
+        "Top and bottom strings of domino sequence",
+        "Left and right sides of tiles",
+        "Input and output strings"
+      ],
+      correctAnswer: 1,
+      explanation: "In PCP, we try to find a sequence of dominoes where concatenating the top strings equals concatenating the bottom strings."
+    },
+    {
+      question: "What is Modified PCP?",
+      options: [
+        "PCP with only two dominoes",
+        "PCP where first domino must be domino 1",
+        "PCP with infinite dominoes",
+        "PCP with only binary strings"
+      ],
+      correctAnswer: 1,
+      explanation: "Modified PCP is a variant where the first domino in the sequence must be domino 1, and it's also undecidable."
+    },
+    {
+      question: "Who introduced the Post Correspondence Problem?",
+      options: [
+        "Alan Turing",
+        "Emil Post",
+        "Alonzo Church",
+        "Kurt Gödel"
+      ],
+      correctAnswer: 1,
+      explanation: "The Post Correspondence Problem was introduced by Emil Post in 1946 as a fundamental undecidable problem."
+    },
+    {
+      question: "Why is PCP important in computability theory?",
+      options: [
+        "It's the easiest problem to solve",
+        "It's used to prove other problems undecidable via reduction",
+        "It's the only undecidable problem",
+        "It can solve the Halting Problem"
+      ],
+      correctAnswer: 1,
+      explanation: "PCP is important because it's used as a source problem for reductions to prove many other problems undecidable."
+    }
+  ];
+
+  const module4Quiz = [
+    {
+      question: "What is a decidable problem?",
+      options: [
+        "A problem that can be solved in polynomial time",
+        "A problem for which an algorithm exists that always halts with correct answer",
+        "A problem that can be solved by a finite automaton",
+        "A problem that has no solution"
+      ],
+      correctAnswer: 1,
+      explanation: "A decidable (recursive) problem is one for which there exists an algorithm that always terminates and gives the correct yes/no answer for all instances."
+    },
+    {
+      question: "Which of the following is decidable?",
+      options: [
+        "Halting Problem",
+        "Post Correspondence Problem",
+        "DFA emptiness problem",
+        "CFG equivalence problem"
+      ],
+      correctAnswer: 2,
+      explanation: "The DFA emptiness problem (determining if L(M) = ∅) is decidable and can be solved by checking if any final state is reachable from the start state."
+    },
+    {
+      question: "What is the relationship between decidable and semi-decidable languages?",
+      options: [
+        "They are the same",
+        "All decidable languages are semi-decidable",
+        "All semi-decidable languages are decidable",
+        "They have no relationship"
+      ],
+      correctAnswer: 1,
+      explanation: "All decidable (recursive) languages are semi-decidable (recursively enumerable), but not all semi-decidable languages are decidable."
+    },
+    {
+      question: "Which CFG problem is decidable?",
+      options: [
+        "CFG equivalence",
+        "CFG universality",
+        "CFG membership",
+        "CFG ambiguity"
+      ],
+      correctAnswer: 2,
+      explanation: "CFG membership (is string w in L(G)?) is decidable using the CYK algorithm, while equivalence, universality, and ambiguity are undecidable."
+    },
+    {
+      question: "Are decidable languages closed under complement?",
+      options: [
+        "Yes, always",
+        "No, never",
+        "Only for regular languages",
+        "Only for context-free languages"
+      ],
+      correctAnswer: 0,
+      explanation: "Decidable (recursive) languages are closed under complement - if L is decidable, then L̄ is also decidable."
+    }
+  ];
+
+  const module5Quiz = [
+    {
+      question: "What is the Halting Problem?",
+      options: [
+        "Determining if a TM accepts a string",
+        "Determining if a TM halts on a given input",
+        "Determining if a language is regular",
+        "Determining if a grammar is ambiguous"
+      ],
+      correctAnswer: 1,
+      explanation: "The Halting Problem asks: given a Turing Machine M and input w, does M halt on w? This problem is undecidable, proven by Alan Turing using diagonalization."
+    },
+    {
+      question: "What does Rice's Theorem state?",
+      options: [
+        "All problems are decidable",
+        "Any non-trivial property of RE languages is undecidable",
+        "The Halting Problem is decidable",
+        "All context-free languages are decidable"
+      ],
+      correctAnswer: 1,
+      explanation: "Rice's Theorem states that any non-trivial semantic property of recursively enumerable languages is undecidable, meaning we cannot algorithmically determine most properties of programs."
+    },
+    {
+      question: "What proof technique is used to prove the Halting Problem undecidable?",
+      options: [
+        "Induction",
+        "Diagonalization",
+        "Contradiction only",
+        "Direct proof"
+      ],
+      correctAnswer: 1,
+      explanation: "The Halting Problem is proven undecidable using diagonalization, a technique that constructs a self-referential contradiction."
+    },
+    {
+      question: "Which problem is undecidable?",
+      options: [
+        "DFA emptiness",
+        "CFG membership",
+        "CFG equivalence",
+        "Regular expression equivalence"
+      ],
+      correctAnswer: 2,
+      explanation: "CFG equivalence (do two CFGs generate the same language?) is undecidable, while DFA emptiness and CFG membership are decidable."
+    },
+    {
+      question: "How do we typically prove a new problem is undecidable?",
+      options: [
+        "By solving it directly",
+        "By reduction from a known undecidable problem",
+        "By showing it's in NP",
+        "By finding a polynomial algorithm"
+      ],
+      correctAnswer: 1,
+      explanation: "We prove a problem undecidable by reducing a known undecidable problem (like Halting Problem or PCP) to it."
+    }
+  ];
+
   const unitQuiz = [
     {
       question: "What are the four levels of the Chomsky Hierarchy?",
@@ -65,39 +355,6 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
       ],
       correctAnswer: 1,
       explanation: "The Halting Problem asks: given a Turing Machine M and input w, does M halt on w? This problem is undecidable, proven by Alan Turing using diagonalization."
-    },
-    {
-      question: "What does Rice's Theorem state?",
-      options: [
-        "All problems are decidable",
-        "Any non-trivial property of RE languages is undecidable",
-        "The Halting Problem is decidable",
-        "All context-free languages are decidable"
-      ],
-      correctAnswer: 1,
-      explanation: "Rice's Theorem states that any non-trivial semantic property of recursively enumerable languages is undecidable, meaning we cannot algorithmically determine most properties of programs."
-    },
-    {
-      question: "Which of the following is decidable?",
-      options: [
-        "Halting Problem",
-        "Post Correspondence Problem",
-        "DFA emptiness problem",
-        "CFG equivalence problem"
-      ],
-      correctAnswer: 2,
-      explanation: "The DFA emptiness problem (determining if L(M) = ∅) is decidable and can be solved by checking if any final state is reachable from the start state."
-    },
-    {
-      question: "What is the Church-Turing Thesis?",
-      options: [
-        "All problems are computable",
-        "Turing Machines capture the notion of effective computability",
-        "The Halting Problem is decidable",
-        "All languages are context-free"
-      ],
-      correctAnswer: 1,
-      explanation: "The Church-Turing Thesis states that Turing Machines (and equivalent models) capture the intuitive notion of what can be effectively computed by any algorithmic process."
     }
   ];
 
@@ -198,6 +455,8 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
                 </ul>
               </div>
             </section>
+
+            <Quiz title="Module 1 Quiz: Chomsky Hierarchy" questions={module1Quiz} subject="FLAT" unitId={5} moduleId={1} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Turing Machine Definition →</button>
@@ -316,6 +575,8 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
               </ul>
             </section>
 
+            <Quiz title="Module 2 Quiz: Turing Machine" questions={module2Quiz} subject="FLAT" unitId={5} moduleId={2} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Chomsky Hierarchy</button>
               <button onClick={() => setCurrentModule(3)} className="next-module-btn">Post Correspondence Problem →</button>
@@ -432,6 +693,8 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
                 </ul>
               </div>
             </section>
+
+            <Quiz title="Module 3 Quiz: Post Correspondence Problem" questions={module3Quiz} subject="FLAT" unitId={5} moduleId={3} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Turing Machine Definition</button>
@@ -564,6 +827,8 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
                 <li><strong>Optimization:</strong> Many optimization problems are decidable with efficient algorithms</li>
               </ul>
             </section>
+
+            <Quiz title="Module 4 Quiz: Decidable Problems" questions={module4Quiz} subject="FLAT" unitId={5} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Post Correspondence Problem</button>
@@ -704,6 +969,8 @@ const Unit5: React.FC<Unit5Props> = ({ currentModule, setCurrentModule, onBack }
                 </ol>
               </div>
             </section>
+
+            <Quiz title="Module 5 Quiz: Undecidable Problems" questions={module5Quiz} subject="FLAT" unitId={5} moduleId={5} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Decidable Problems</button>

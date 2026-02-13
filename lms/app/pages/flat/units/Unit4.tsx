@@ -10,6 +10,186 @@ interface Unit4Props {
 
 const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }) => {
   
+  const module1Quiz = [
+    {
+      question: "What is a Context-Free Grammar (CFG)?",
+      options: [
+        "A grammar with no restrictions",
+        "A grammar where left side is always a single non-terminal",
+        "A grammar that generates regular languages",
+        "A grammar with context-sensitive rules"
+      ],
+      correctAnswer: 1,
+      explanation: "A Context-Free Grammar has productions of the form A → α where A is a single non-terminal and α is any string of terminals and non-terminals."
+    },
+    {
+      question: "What is a derivation tree?",
+      options: [
+        "A tree showing state transitions",
+        "A visual representation of string derivation",
+        "A binary search tree",
+        "A tree of grammar rules"
+      ],
+      correctAnswer: 1,
+      explanation: "A derivation tree (parse tree) visually represents how a string is derived from the start symbol using grammar productions."
+    },
+    {
+      question: "In a derivation tree, what do the leaves represent?",
+      options: [
+        "Non-terminal symbols",
+        "Production rules",
+        "Terminal symbols forming the derived string",
+        "The start symbol"
+      ],
+      correctAnswer: 2,
+      explanation: "The leaves of a derivation tree are terminal symbols that, when read left to right, form the derived string."
+    }
+  ];
+
+  const module2Quiz = [
+    {
+      question: "What is the difference between leftmost and rightmost derivations?",
+      options: [
+        "They produce different parse trees",
+        "They expand different non-terminals at each step",
+        "They produce the same parse tree but in different order",
+        "There is no difference"
+      ],
+      correctAnswer: 2,
+      explanation: "Leftmost and rightmost derivations expand non-terminals in different orders but produce the same parse tree for a given string."
+    },
+    {
+      question: "What makes a grammar ambiguous?",
+      options: [
+        "It has multiple start symbols",
+        "A string has more than one parse tree",
+        "It has epsilon productions",
+        "It has unit productions"
+      ],
+      correctAnswer: 1,
+      explanation: "A grammar is ambiguous if there exists at least one string that has more than one parse tree (or equivalently, more than one leftmost/rightmost derivation)."
+    },
+    {
+      question: "Which parser uses leftmost derivation?",
+      options: [
+        "Bottom-up parser",
+        "Top-down parser",
+        "LR parser",
+        "Shift-reduce parser"
+      ],
+      correctAnswer: 1,
+      explanation: "Top-down parsers use leftmost derivation, expanding the leftmost non-terminal at each step."
+    }
+  ];
+
+  const module3Quiz = [
+    {
+      question: "What is Chomsky Normal Form (CNF)?",
+      options: [
+        "Productions of form A → BC or A → a",
+        "Productions of form A → aB",
+        "Productions with no restrictions",
+        "Productions of form A → ε"
+      ],
+      correctAnswer: 0,
+      explanation: "Chomsky Normal Form restricts productions to either A → BC (two non-terminals) or A → a (single terminal)."
+    },
+    {
+      question: "What is Greibach Normal Form (GNF)?",
+      options: [
+        "Productions start with a non-terminal",
+        "Productions start with a terminal",
+        "Productions have no terminals",
+        "Productions are binary"
+      ],
+      correctAnswer: 1,
+      explanation: "Greibach Normal Form ensures every production has the form A → aα where a is a terminal and α is a string of non-terminals."
+    },
+    {
+      question: "Why is CNF useful?",
+      options: [
+        "It makes grammars ambiguous",
+        "It simplifies parsing algorithms and proofs",
+        "It reduces the number of productions",
+        "It eliminates all non-terminals"
+      ],
+      correctAnswer: 1,
+      explanation: "CNF simplifies parsing algorithms (like CYK) and theoretical proofs about context-free languages."
+    }
+  ];
+
+  const module4Quiz = [
+    {
+      question: "What is a Pushdown Automaton (PDA)?",
+      options: [
+        "A finite automaton with two stacks",
+        "A finite automaton with one stack",
+        "A Turing machine with limited tape",
+        "A deterministic finite automaton"
+      ],
+      correctAnswer: 1,
+      explanation: "A Pushdown Automaton is a finite automaton augmented with a single stack, providing the computational power needed to recognize context-free languages."
+    },
+    {
+      question: "What are the two acceptance methods for PDAs?",
+      options: [
+        "By initial state and by final state",
+        "By final state and by empty stack",
+        "By empty stack and by full stack",
+        "By input and by output"
+      ],
+      correctAnswer: 1,
+      explanation: "PDAs can accept by final state (reaching an accepting state) or by empty stack (consuming all input with empty stack). Both methods are equivalent in power."
+    },
+    {
+      question: "What does the stack in a PDA enable?",
+      options: [
+        "Faster processing",
+        "Remembering unbounded information",
+        "Parallel processing",
+        "Random access to input"
+      ],
+      correctAnswer: 1,
+      explanation: "The stack enables the PDA to remember an unbounded amount of information, which is necessary for recognizing context-free languages."
+    }
+  ];
+
+  const module5Quiz = [
+    {
+      question: "What is the relationship between CFGs and PDAs?",
+      options: [
+        "CFGs are more powerful than PDAs",
+        "PDAs are more powerful than CFGs",
+        "CFGs and PDAs are equivalent in power",
+        "They recognize different language classes"
+      ],
+      correctAnswer: 2,
+      explanation: "CFGs and PDAs are equivalent in expressive power - both recognize exactly the context-free languages."
+    },
+    {
+      question: "Which language is NOT context-free?",
+      options: [
+        "a^n b^n where n ≥ 0",
+        "a^n b^n c^n where n ≥ 0",
+        "Balanced parentheses",
+        "Palindromes"
+      ],
+      correctAnswer: 1,
+      explanation: "The language a^n b^n c^n is context-sensitive but not context-free. It requires matching three different symbols, which exceeds the power of a single stack."
+    },
+    {
+      question: "What is a context-sensitive grammar?",
+      options: [
+        "Grammar with productions A → a",
+        "Grammar with productions αAβ → αγβ where |γ| ≥ |A|",
+        "Grammar with no restrictions",
+        "Grammar that generates regular languages"
+      ],
+      correctAnswer: 1,
+      explanation: "Context-sensitive grammars have productions of form αAβ → αγβ where the non-terminal A can be replaced by γ in the context of α and β, with length non-decreasing."
+    }
+  ];
+
   const unitQuiz = [
     {
       question: "What is a Context-Free Grammar (CFG)?",
@@ -204,6 +384,8 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <Quiz title="Module 1 Quiz: Context-Free Grammars" questions={module1Quiz} subject="FLAT" unitId={4} moduleId={1} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="next-module-btn">Leftmost and Rightmost Derivations →</button>
             </div>
@@ -319,6 +501,8 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
                 </div>
               </div>
             </section>
+
+            <Quiz title="Module 2 Quiz: Derivations" questions={module2Quiz} subject="FLAT" unitId={4} moduleId={2} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Context-Free Grammars</button>
@@ -446,6 +630,8 @@ const Unit4: React.FC<Unit4Props> = ({ currentModule, setCurrentModule, onBack }
               </ul>
             </section>
 
+            <Quiz title="Module 3 Quiz: Normal Forms" questions={module3Quiz} subject="FLAT" unitId={4} moduleId={3} />
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(2)} className="prev-module-btn">← Leftmost and Rightmost Derivations</button>
               <button onClick={() => setCurrentModule(4)} className="next-module-btn">Pushdown Automata →</button>
@@ -565,6 +751,8 @@ q₁ --ε,Z₀/Z₀---> q₂ (accept when stack empty)`}
                 </ul>
               </div>
             </section>
+
+            <Quiz title="Module 4 Quiz: Pushdown Automata" questions={module4Quiz} subject="FLAT" unitId={4} moduleId={4} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← Normal Forms</button>
@@ -703,6 +891,8 @@ q₁ --ε,Z₀/Z₀---> q₂ (accept when stack empty)`}
                 </div>
               </div>
             </section>
+
+            <Quiz title="Module 5 Quiz: CFG-PDA Equivalence" questions={module5Quiz} subject="FLAT" unitId={4} moduleId={5} />
 
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(4)} className="prev-module-btn">← Pushdown Automata</button>

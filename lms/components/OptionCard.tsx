@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { OptionCardProps } from "@/types";
 
-export default function OptionCard({ item }: OptionCardProps) {
+export default function OptionCard({ item, className, iconSize }: OptionCardProps) {
   const router = useRouter();
   const [isPressed, setIsPressed] = useState(false);
 
@@ -15,6 +15,10 @@ export default function OptionCard({ item }: OptionCardProps) {
   const handleMouseUp = () => {
     setIsPressed(false);
   };
+
+  // Default icon sizing logic (for student dashboard compatibility)
+  const defaultIconSize = item.id === 6 ? "h-14 w-14" : "h-9 w-9";
+  const finalIconSize = iconSize || defaultIconSize;
 
   return (
     <div
@@ -32,7 +36,7 @@ export default function OptionCard({ item }: OptionCardProps) {
       }}
     >
       {/* TOP PART */}
-      <div className="relative h-24 w-32 flex items-center justify-center overflow-hidden">
+      <div className={`relative flex items-center justify-center overflow-hidden ${className || "h-24 w-32"}`}>
         <svg
           className="absolute inset-0 w-full h-full"
           viewBox="0 0 100 100"
@@ -64,12 +68,18 @@ export default function OptionCard({ item }: OptionCardProps) {
           />
         </svg>
 
-        <img
-          src={item.img}
-          alt=""
-          className={`relative z-10 object-contain ${item.id === 6 ? 'h-14 w-14' : 'h-9 w-9'}`}
-          style={{ marginLeft: item.id === 6 ? '-12px' : '-8px' }}
-        />
+        {item.img ? (
+          <img
+            src={item.img}
+            alt=""
+            className={`relative z-10 object-contain ${finalIconSize}`}
+            style={{ marginLeft: iconSize ? "0" : (item.id === 6 ? "-12px" : "-8px") }}
+          />
+        ) : (
+          <span className="relative z-10 text-4xl filter drop-shadow-sm transform group-hover:scale-110 transition-transform">
+            {item.icon}
+          </span>
+        )}
       </div>
 
       {/* BOTTOM PART */}

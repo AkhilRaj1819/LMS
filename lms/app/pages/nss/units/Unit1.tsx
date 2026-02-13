@@ -459,7 +459,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                   <iframe 
                     width="560" 
                     height="315" 
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    src="https://www.youtube.com/embed/Tuw8hxrFBH8?si=nZ8doSEJukMOiar5" 
                     title="Success Stories - Motivational Video"
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -591,7 +591,7 @@ const Unit1: React.FC<Unit1Props> = ({ currentModule, setCurrentModule, onBack }
                   <iframe 
                     width="560" 
                     height="315" 
-                    src="https://www.youtube.com/embed/kJQP7kiw5Fk" 
+                    src="https://www.youtube.com/embed/R-sPdcvKV0s?si=P3DsxpiF3JH5qm51" 
                     title="Vande Mataram - Patriotic Song Performance"
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

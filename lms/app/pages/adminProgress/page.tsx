@@ -3,7 +3,7 @@
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Sidebar from "@/components/Sidebar";
+import AdminSidebar from "../../../components/AdminSidebar";
 
 export default function AdminProgress() {
   const { data: session } = useSession();
@@ -80,14 +80,6 @@ export default function AdminProgress() {
         { id: 4, name: "Environmental Safety", modules: ["Eco-Friendly Approaches", "Vehicle Maintenance Workshops", "Safety Campaign Projects", "Go Green Activities", "Clean Campus Program"] },
         { id: 5, name: "Digital Environmental Awareness", modules: ["Digital Environmental Awareness", "Organizing Zero-Waste Day", "Women Empowerment Programs", "Internet Safety & Cyber Wellness", "Digital Citizenship Activities"] }
       ]
-    },
-    FSWD: {
-      name: "Full Stack Web Development",
-      color: "#06B6D4",
-      units: [
-        { id: 1, name: "Setting up React with Vite", modules: ["Setting up React with Vite - Introduction", "Setting up React with Vite - Deep-dive #1", "Setting up React with Vite - Deep-dive #2", "Practice Assignment #1", "Practice Assignment #2", "Follow-along Milestone #15", "Follow-along Milestone #16", "ASAP Project - Setup", "Knowledge Review #5"] },
-        { id: 2, name: "Deploying Frontend", modules: ["Deploying Frontend - Introduction", "Deploying Frontend - Deep-dive #1 (Vercel)", "Deploying Frontend - Deep-dive #2 (Netlify)", "Practice Assignment #1", "Practice Assignment #2", "Follow-along Milestone #17", "Follow-along Milestone #18", "ASAP Project - Deploy", "Knowledge Review #6"] }
-      ]
     }
   };
 
@@ -145,10 +137,10 @@ export default function AdminProgress() {
   const getSubjectProgress = (subject: string) => {
     const structure = courseStructure[subject];
     if (!structure) return { completed: 0, total: 0, percentage: 0 };
-    
+
     let total = 0;
     let completed = 0;
-    
+
     structure.units.forEach((unit: any) => {
       unit.modules.forEach((_: any, idx: number) => {
         total++;
@@ -157,7 +149,7 @@ export default function AdminProgress() {
         }
       });
     });
-    
+
     return { completed, total, percentage: total > 0 ? Math.round((completed / total) * 100) : 0 };
   };
 
@@ -167,32 +159,32 @@ export default function AdminProgress() {
 
   return (
     <div className="min-h-screen w-full flex bg-white">
-      <Sidebar />
+      <AdminSidebar />
 
-      <div className="flex-1 bg-transparent pt-20 relative ml-16" style={{
+      <div className="flex-1 bg-transparent pt-8 relative ml-14" style={{
         backgroundImage: 'radial-gradient(circle, #D8D8D8 1px, transparent 1px)',
         backgroundSize: '20px 20px',
         backgroundColor: '#FFFFFF'
       }}>
         <div className="max-w-[1400px] mx-auto px-6 py-6">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Student Progress Tracking</h1>
+            <h1 className="text-3xl font-bold mb-2" style={{ color: '#8B869B' }}>Student Progress Tracking</h1>
             <p className="text-gray-600">Monitor module completion across all subjects</p>
           </div>
 
           <div className="grid grid-cols-12 gap-6">
-            <div className="col-span-3 bg-white rounded-lg border border-gray-200 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
-              <h2 className="text-lg font-semibold mb-4 text-gray-800">Students</h2>
+            <div className="col-span-3 bg-white rounded-lg border p-4 max-h-[calc(100vh-200px)] overflow-y-auto" style={{ borderColor: '#8B869B' }}>
+              <h2 className="text-lg font-semibold mb-4" style={{ color: '#5A6B80' }}>Students</h2>
               <div className="space-y-2">
                 {students.map((student) => (
                   <div
                     key={student._id}
                     onClick={() => fetchProgress(student.email)}
-                    className={`p-3 rounded-lg cursor-pointer transition ${
-                      selectedStudent === student.email
-                        ? "bg-blue-50 border-2 border-blue-500"
-                        : "bg-gray-50 hover:bg-gray-100 border-2 border-transparent"
-                    }`}
+                    className={`p-3 rounded-lg cursor-pointer transition border-2 ${selectedStudent === student.email
+                      ? "bg-purple-50"
+                      : "bg-gray-50 hover:bg-gray-100 border-transparent"
+                      }`}
+                    style={selectedStudent === student.email ? { borderColor: '#8B869B' } : {}}
                   >
                     <div className="font-semibold text-gray-800 text-sm">{student.fullName || "No Name"}</div>
                     <div className="text-xs text-gray-600">{student.email}</div>
@@ -296,18 +288,16 @@ export default function AdminProgress() {
                           const moduleId = idx + 1;
                           const completed = isModuleCompleted(selectedSubject, unit.id, moduleId);
                           const score = getModuleScore(selectedSubject, unit.id, moduleId);
-                          
+
                           return (
                             <div
                               key={moduleId}
-                              className={`flex items-center justify-between p-3 rounded-lg border-2 ${
-                                completed ? "bg-green-50 border-green-300" : "bg-gray-50 border-gray-200"
-                              }`}
+                              className={`flex items-center justify-between p-3 rounded-lg border-2 ${completed ? "bg-green-50 border-green-300" : "bg-gray-50 border-gray-200"
+                                }`}
                             >
                               <div className="flex items-center gap-3">
-                                <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                                  completed ? "bg-green-500 text-white" : "bg-gray-300 text-gray-600"
-                                }`}>
+                                <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${completed ? "bg-green-500 text-white" : "bg-gray-300 text-gray-600"
+                                  }`}>
                                   {completed ? "✓" : moduleId}
                                 </div>
                                 <span className="text-sm font-medium text-gray-800">

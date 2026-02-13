@@ -4,11 +4,14 @@ export interface OptionItem {
   name: string;
   link: string;
   color: string;
-  img: string;
+  img?: string;
+  icon?: React.ReactNode | string;
 }
 
 export interface OptionCardProps {
   item: OptionItem;
+  className?: string;
+  iconSize?: string;
 }
 
 export interface OptionCardLProps {
@@ -58,4 +61,4 @@ declare module "next-auth/jwt" {
   }
 }
 
-export {};
+export { };

@@ -46,7 +46,7 @@ export default function ApplyLeave() {
     <div className="min-h-screen w-full flex bg-white">
       <Sidebar />
 
-      <div className="flex-1 bg-transparent pt-20 relative" style={{
+      <div className="flex-1 ml-14 bg-transparent pt-6 relative" style={{
         backgroundImage: 'radial-gradient(circle, #D8D8D8 1px, transparent 1px)',
         backgroundSize: '20px 20px',
         backgroundColor: '#F8F8F8'

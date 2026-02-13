@@ -181,30 +181,6 @@ export const MODULE_NAMES: { [subject: string]: { [unitId: number]: { [moduleId:
       4: "Language and Globalization",
       5: "Unit 5 Quiz"
     }
-  },
-  FSWD: {
-    1: {
-      1: "Setting up React with Vite - Introduction",
-      2: "Setting up React with Vite - Deep-dive #1",
-      3: "Setting up React with Vite - Deep-dive #2",
-      4: "Practice Assignment #1",
-      5: "Practice Assignment #2",
-      6: "Follow-along Milestone #15",
-      7: "Follow-along Milestone #16",
-      8: "ASAP Project - Setup",
-      9: "Knowledge Review #5"
-    },
-    2: {
-      1: "Deploying Frontend - Introduction",
-      2: "Deploying Frontend - Deep-dive #1 (Vercel)",
-      3: "Deploying Frontend - Deep-dive #2 (Netlify)",
-      4: "Practice Assignment #1",
-      5: "Practice Assignment #2",
-      6: "Follow-along Milestone #17",
-      7: "Follow-along Milestone #18",
-      8: "ASAP Project - Deploy",
-      9: "Knowledge Review #6"
-    }
   }
 };
 

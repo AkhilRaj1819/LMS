@@ -10,6 +10,242 @@ interface Unit2Props {
 
 const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }) => {
   
+  // Quiz for Module 2: DFA and NFA Equivalence
+  const dfaNfaEquivalenceQuiz = [
+    {
+      question: "What is the main theorem established in this module?",
+      options: [
+        "DFA is more powerful than NFA",
+        "DFA and NFA recognize exactly the same class of languages",
+        "NFA can only accept finite languages",
+        "DFA requires fewer states than NFA"
+      ],
+      correctAnswer: 1,
+      explanation: "The fundamental theorem states that for every NFA, there exists an equivalent DFA that accepts the same language, and vice versa. Both models are equivalent in expressive power."
+    },
+    {
+      question: "What does the term 'equivalence' mean for DFA and NFA?",
+      options: [
+        "They have the same number of states",
+        "They recognize exactly the same language",
+        "They use the same transition function",
+        "They have identical state diagrams"
+      ],
+      correctAnswer: 1,
+      explanation: "Two automata are equivalent if they accept exactly the same set of strings, regardless of their internal structure or number of states."
+    },
+    {
+      question: "What is the subset construction algorithm?",
+      options: [
+        "An algorithm to minimize states in a DFA",
+        "A method to convert NFA to an equivalent DFA",
+        "A technique to add epsilon-transitions",
+        "A process to combine multiple NFAs"
+      ],
+      correctAnswer: 1,
+      explanation: "Subset construction (powerset construction) systematically builds a DFA from an NFA where each DFA state represents a subset of NFA states."
+    },
+    {
+      question: "Why is every DFA also an NFA?",
+      options: [
+        "DFA has only one transition per state-symbol pair",
+        "Singleton sets are valid sets in the NFA transition definition",
+        "Both use the same alphabet",
+        "Both start from the same initial state"
+      ],
+      correctAnswer: 1,
+      explanation: "In NFA definition, transition function maps to sets of states. DFA transitions map to single states, which are singleton sets (valid in NFA definition)."
+    },
+    {
+      question: "What is the design advantage of DFA/NFA equivalence?",
+      options: [
+        "Design flexibility is lost",
+        "Can design NFA and convert to DFA for implementation",
+        "Only has benefits for theoretical study",
+        "Makes implementation more difficult"
+      ],
+      correctAnswer: 1,
+      explanation: "Designers can create intuitive NFA designs and then convert them to equivalent DFAs for practical implementation, combining design simplicity with implementation efficiency."
+    }
+  ];
+
+  // Quiz for Module 3: NFA to DFA Conversion
+  const nfaToDfaQuiz = [
+    {
+      question: "What does each state in the converted DFA represent?",
+      options: [
+        "A single state from the original NFA",
+        "A subset of states from the original NFA",
+        "Multiple copies of NFA states",
+        "A compressed version of the NFA"
+      ],
+      correctAnswer: 1,
+      explanation: "In subset construction, each DFA state corresponds to a set (subset) of NFA states, allowing the DFA to track all possible NFA states simultaneously."
+    },
+    {
+      question: "What is the starting state of the converted DFA?",
+      options: [
+        "The same as the NFA starting state",
+        "The epsilon-closure of the NFA starting state",
+        "A newly created universal state",
+        "The set of all NFA states"
+      ],
+      correctAnswer: 1,
+      explanation: "The initial DFA state is the epsilon-closure of the NFA's initial state, representing all NFA states reachable via epsilon-transitions from the start."
+    },
+    {
+      question: "When is a DFA state marked as accepting after conversion?",
+      options: [
+        "When it contains the NFA start state",
+        "When it contains at least one NFA accepting state",
+        "When it contains all NFA states",
+        "When it has the maximum number of states"
+      ],
+      correctAnswer: 1,
+      explanation: "A DFA state is accepting if the subset it represents contains at least one accepting state from the original NFA."
+    },
+    {
+      question: "How many states can the converted DFA have in the worst case?",
+      options: [
+        "n states for an n-state NFA",
+        "2n states for an n-state NFA",
+        "2^n states for an n-state NFA",
+        "n^n states for an n-state NFA"
+      ],
+      correctAnswer: 2,
+      explanation: "In the worst case, the converted DFA has 2^n states because each subset of n NFA states can potentially become a DFA state."
+    },
+    {
+      question: "What is the main advantage of converting NFA to DFA?",
+      options: [
+        "Fewer states in the automaton",
+        "Deterministic behavior for implementation (exactly one transition per input)",
+        "Faster creation of the automaton",
+        "Simpler visual representation"
+      ],
+      correctAnswer: 1,
+      explanation: "The main advantage is that DFA's deterministic nature (one transition per state-symbol pair) makes it directly implementable in software, avoiding exponential search trees."
+    }
+  ];
+
+  // Quiz for Module 4: NFA with Epsilon-Transitions
+  const epsilonTransitionsQuiz = [
+    {
+      question: "What is an epsilon-transition in NFA?",
+      options: [
+        "A transition that reads the first symbol",
+        "A transition that occurs without consuming any input",
+        "A transition to multiple states simultaneously",
+        "A forbidden transition type"
+      ],
+      correctAnswer: 1,
+      explanation: "Epsilon-transitions allow the automaton to change states without reading any input symbol, denoted by 'epsilon' or 'lambda', enabling more flexible state designs."
+    },
+    {
+      question: "What is epsilon-closure of a state?",
+      options: [
+        "The state itself",
+        "The set of all states reachable via epsilon-transitions",
+        "The accepting states only",
+        "The start state"
+      ],
+      correctAnswer: 1,
+      explanation: "Epsilon-closure(q) is the set of all states reachable from state q by following zero or more epsilon-transitions."
+    },
+    {
+      question: "How does epsilon-closure affect transitions on regular symbols?",
+      options: [
+        "It has no effect",
+        "Consider epsilon-closures when computing transitions",
+        "It prevents transitions",
+        "It only applies to accepting states"
+      ],
+      correctAnswer: 1,
+      explanation: "When computing transitions, we must include epsilon-closure: after transitioning on a symbol, we must also include all states reachable via epsilon-transitions from the resulting state."
+    },
+    {
+      question: "Can epsilon-transitions be removed without changing the language?",
+      options: [
+        "No, they are essential",
+        "Yes, by converting to NFA without epsilon",
+        "Only for certain languages",
+        "Only in the case of cyclic epsilon-paths"
+      ],
+      correctAnswer: 1,
+      explanation: "Yes, any NFA with epsilon-transitions can be converted to an equivalent NFA without epsilon-transitions by using epsilon-closure in transition definitions."
+    },
+    {
+      question: "What advantage does epsilon-NFA provide?",
+      options: [
+        "Greater expressive power than standard NFA",
+        "More compact representation of certain automata",
+        "Faster execution of automaton",
+        "Fewer states overall"
+      ],
+      correctAnswer: 1,
+      explanation: "Epsilon-NFAs provide more efficient/compact representations for certain languages, allowing cleaner design patterns even though expressive power remains the same."
+    }
+  ];
+
+  // Quiz for Module 5: Automata Minimization  
+  const minimizationQuiz = [
+    {
+      question: "What is the goal of automata minimization?",
+      options: [
+        "To make the automaton faster",
+        "To reduce the number of states while preserving the language",
+        "To simplify the transition function",
+        "To increase the alphabet size"
+      ],
+      correctAnswer: 1,
+      explanation: "Minimization aims to find the DFA with the fewest states that recognizes the same language, creating the minimal automaton."
+    },
+    {
+      question: "What are equivalent states in an automaton?",
+      options: [
+        "States with the same name",
+        "States that behave identically for all possible input strings",
+        "States that have transitions to the same next state",
+        "States that are both accepting or both non-accepting"
+      ],
+      correctAnswer: 1,
+      explanation: "Two states are equivalent if from either state, the same set of strings lead to acceptance, meaning they can be merged without changing language recognition."
+    },
+    {
+      question: "What does the Myhill-Nerode theorem establish?",
+      options: [
+        "DFA is more powerful than NFA",
+        "The foundation for automata minimization and equivalence",
+        "The rules for epsilon-transitions",
+        "The complexity of language recognition"
+      ],
+      correctAnswer: 1,
+      explanation: "Myhill-Nerode theorem provides the theoretical basis for minimization: it relates language properties to automaton structure and equivalence of states."
+    },
+    {
+      question: "What is the initial partition in the minimization algorithm?",
+      options: [
+        "All states in one partition",
+        "Accepting states vs. non-accepting states",
+        "States grouped by transition behavior",
+        "Random partition of states"
+      ],
+      correctAnswer: 1,
+      explanation: "Partition refinement begins by separating accepting from non-accepting states, as they clearly behave differently (lead to acceptance vs. rejection)."
+    },
+    {
+      question: "When does the minimization algorithm terminate?",
+      options: [
+        "After processing all states once",
+        "When no partition is split further",
+        "After a fixed number of iterations",
+        "When only accepting states remain"
+      ],
+      correctAnswer: 1,
+      explanation: "The algorithm continues refining partitions until no further splitting is possible, meaning all states within each partition behave identically."
+    }
+  ];
+  
   const unitQuiz = [
     {
       question: "What determines if a string is accepted by a finite automaton?",
@@ -424,6 +660,17 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <section className="content-section">
+              <h3>Module 2 Quiz: Test Your Understanding</h3>
+              <Quiz 
+                title="DFA and NFA Equivalence Quiz" 
+                questions={dfaNfaEquivalenceQuiz}
+                subject="flat" 
+                unitId={2} 
+                moduleId={2} 
+              />
+            </section>
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(1)} className="prev-module-btn">← Acceptance of Languages</button>
               <button onClick={() => setCurrentModule(3)} className="next-module-btn">NFA to DFA Conversion →</button>
@@ -542,6 +789,17 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
                   <p><strong>Result:</strong> DFA accepts same language as original NFA</p>
                 </div>
               </div>
+            </section>
+
+            <section className="content-section">
+              <h3>Module 3 Quiz: Test Your Understanding</h3>
+              <Quiz 
+                title="NFA to DFA Conversion Quiz" 
+                questions={nfaToDfaQuiz}
+                subject="flat" 
+                unitId={2} 
+                moduleId={3} 
+              />
             </section>
 
             <div className="navigation-buttons">
@@ -676,6 +934,17 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
               </div>
             </section>
 
+            <section className="content-section">
+              <h3>Module 4 Quiz: Test Your Understanding</h3>
+              <Quiz 
+                title="Epsilon-Transitions Quiz" 
+                questions={epsilonTransitionsQuiz}
+                subject="flat" 
+                unitId={2} 
+                moduleId={4} 
+              />
+            </section>
+
             <div className="navigation-buttons">
               <button onClick={() => setCurrentModule(3)} className="prev-module-btn">← NFA to DFA Conversion</button>
               <button onClick={() => setCurrentModule(5)} className="next-module-btn">Automata Minimization →</button>
@@ -807,6 +1076,17 @@ const Unit2: React.FC<Unit2Props> = ({ currentModule, setCurrentModule, onBack }
                   <p><strong>Result:</strong> Minimized automaton accepts same language with fewer states</p>
                 </div>
               </div>
+            </section>
+
+            <section className="content-section">
+              <h3>Module 5 Quiz: Test Your Understanding</h3>
+              <Quiz 
+                title="Automata Minimization Quiz" 
+                questions={minimizationQuiz}
+                subject="flat" 
+                unitId={2} 
+                moduleId={5} 
+              />
             </section>
 
             <div className="navigation-buttons">
