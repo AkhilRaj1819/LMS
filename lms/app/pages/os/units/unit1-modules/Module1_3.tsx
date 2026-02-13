@@ -29,13 +29,13 @@ const Module1_3: React.FC = () => {
         <p>Watch this video to know more about computer system operations.</p>
 
         {/* 👉 Add video embed / thumbnail for "Computer system operation" here */}
-        <iframe width="414" height="360" src="https://www.youtube.com/embed/VjPgYcQqqN0" title="Basics of OS (Computer System Operation)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="414" height="360" src="https://www.youtube.com/embed/VjPgYcQqqN0" title="Basics of OS (Computer System Operation)" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         <img src="https://kq-storage.s3.ap-south-1.amazonaws.com/Operating+Systems/os_computer_operations.jpg" alt="" />
 
         <h3>Storage structure</h3>
 
         <p>Watch this video to understand how the storage structure of a computer system works.</p>
-        <iframe width="414" height="360" src="https://www.youtube.com/embed/YcRd3WMbXnE" title="Basics of OS (Storage Structure)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="414" height="360" src="https://www.youtube.com/embed/YcRd3WMbXnE" title="Basics of OS (Storage Structure)" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
           <img src="https://kq-storage.s3.ap-south-1.amazonaws.com/Operating+Systems/os_storage_structure.jpg" alt="" />
         {/* 👉 Add video embed / thumbnail for "Storage structure" here */}
@@ -46,7 +46,7 @@ const Module1_3: React.FC = () => {
           Watch the video give below to understand the I/O structure, and the role of device controllers and
           device drivers. You will also understand what Direct Memory Access (DMA) is.
         </p>
-        <iframe width="414" height="360" src="https://www.youtube.com/embed/F18RiREDkwE" title="Basics of OS (I/O Structure)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="414" height="360" src="https://www.youtube.com/embed/F18RiREDkwE" title="Basics of OS (I/O Structure)" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
         {/* 👉 Add video embed / thumbnail for "I/O Structure" here */}
 
@@ -56,7 +56,7 @@ const Module1_3: React.FC = () => {
           Take a look at the video provided below to grasp a comprehensive understanding of computer system
           architecture.
         </p>
-        <iframe width="414" height="360" src="https://www.youtube.com/embed/So9SR3qpWsM" title="Computer System Architecture" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="414" height="360" src="https://www.youtube.com/embed/So9SR3qpWsM" title="Computer System Architecture" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
         {/* 👉 Add video embed / thumbnail for "Computer system architecture" here */}
 
