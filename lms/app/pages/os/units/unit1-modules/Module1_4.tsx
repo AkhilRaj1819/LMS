@@ -215,7 +215,7 @@ const Module1_4: React.FC = () => {
         <ul>
           <li>create process: Start the video player.</li>
           <li>terminate process: Stop the app when you exit.</li>
-          <li>wait event: Pause playback until you hit "play."</li>
+          <li>wait event: Pause playback until you hit 'play'.</li>
         </ul>
 
         <img src="https://kq-storage.s3.ap-south-1.amazonaws.com/Operating+Systems/OS-system-calls-process-flow.png" alt="" />
@@ -348,7 +348,7 @@ const Module1_4: React.FC = () => {
         <p>Take a look at the video given below to understand system programs.</p>
 
         {/* 👉 Add video embed here for system programs */}
-        <iframe width="414" height="360" src="https://www.youtube.com/embed/UWDzhz8MVqc" title="System Programs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="414" height="360" src="https://www.youtube.com/embed/UWDzhz8MVqc" title="System Programs" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
         <p>
           System calls provide secure access to system resources. Can you think of scenarios where poorly
