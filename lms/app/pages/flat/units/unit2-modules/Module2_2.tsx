@@ -57,7 +57,7 @@ const Module2_2: React.FC = () => {
 
             {/* Introduction */}
             <section className="content-section">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 underline decoration-blue-500 decoration-4 underline-offset-8">Introduction: Identities of Regular Expressions</h2>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 underline decoration-blue-500 decoration-4 underline-offset-8">Introduction: Identities of Regular Expressions</h3>
                 <div className="bg-gray-50 border-l-4 border-gray-400 p-6 rounded-r-xl">
                     <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
                         <span className="text-xl">💡</span> Why Algebraic Laws Matter
@@ -83,7 +83,7 @@ const Module2_2: React.FC = () => {
 
             {/* Theory */}
             <section className="content-section">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Theory: Algebraic Laws for Regular Expressions</h2>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Theory: Algebraic Laws for Regular Expressions</h3>
                 <p className="text-gray-700 leading-relaxed">
                     Regular expressions form an algebraic structure known as <strong>Kleene Algebra</strong>, named after mathematician Stephen Kleene. This algebra provides a formal framework for manipulating regular expressions using laws similar to those in arithmetic, but adapted for operations on formal languages. Two regular expressions R₁ and R₂ are <strong>equivalent</strong> (written R₁ ≡ R₂) if they denote the same language: <strong>L(R₁) = L(R₂)</strong>.
                 </p>
@@ -108,6 +108,153 @@ const Module2_2: React.FC = () => {
                                 <span className="text-[11px] font-bold text-indigo-900">{item.name}</span>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Detailed Law Sections */}
+            <section className="content-section">
+                <h3 className="text-xl font-bold mb-6 text-indigo-700">1. Associativity and Commutativity Laws</h3>
+                <p className="text-sm text-gray-700 mb-6 leading-relaxed">These fundamental laws describe how the order of operations and operands affects the result. Understanding these is crucial for rearranging expressions during simplification.</p>
+                
+                <div className="space-y-6">
+                    <div className="bg-white border-2 border-indigo-100 rounded-xl p-6">
+                        <h4 className="text-sm font-black text-indigo-600 uppercase tracking-widest mb-3">Associativity Laws</h4>
+                        <p className="text-sm text-gray-600 mb-4 italic">The grouping of operations does not affect the result:</p>
+                        <div className="bg-indigo-50 p-4 rounded-lg space-y-2 mb-4">
+                            <code className="block font-mono text-indigo-700 font-bold">(R₁ | R₂) | R₃ ≡ R₁ | (R₂ | R₃)</code>
+                            <code className="block font-mono text-indigo-700 font-bold">(R₁R₂)R₃ ≡ R₁(R₂R₃)</code>
+                        </div>
+                        <p className="text-xs text-gray-500">Just as (2+3)+4 = 2+(3+4) in arithmetic, the union and concatenation of regular expressions are associative.</p>
+                    </div>
+
+                    <div className="bg-white border-2 border-indigo-100 rounded-xl p-6">
+                        <h4 className="text-sm font-black text-indigo-600 uppercase tracking-widest mb-3">Commutativity of Union</h4>
+                        <div className="bg-indigo-50 p-4 rounded-lg mb-4">
+                            <code className="block font-mono text-indigo-700 font-bold">R₁ | R₂ ≡ R₂ | R₁</code>
+                        </div>
+                        <p className="text-xs text-gray-600 mb-2">The order of alternatives in a union doesn't matter.</p>
+                        <p className="text-xs text-red-600 font-bold">Note: Concatenation is NOT commutative (R₁R₂ ≠ R₂R₁ in general).</p>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6">
+                        <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-3">Example</p>
+                        <p className="text-sm text-blue-900 mb-3">Consider <code className="bg-white px-2 py-1 rounded font-mono">(a|b)|c</code> and <code className="bg-white px-2 py-1 rounded font-mono">a|(b|c)</code>. Both denote the language <code className="bg-white px-2 py-1 rounded font-mono">{'{a, b, c}'}</code>, proving associativity of union.</p>
+                        <p className="text-sm text-blue-900">For commutativity: <code className="bg-white px-2 py-1 rounded font-mono">a|b ≡ b|a</code>, both representing <code className="bg-white px-2 py-1 rounded font-mono">{'{a, b}'}</code>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="content-section">
+                <h3 className="text-xl font-bold mb-6 text-indigo-700">2. Identity and Annihilator Laws</h3>
+                <p className="text-sm text-gray-700 mb-6 leading-relaxed">Identity elements leave expressions unchanged when combined, while annihilator elements "absorb" other expressions. These laws are essential for simplifying expressions involving ∅ and ε.</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div className="bg-white border-2 border-green-200 rounded-xl p-6">
+                        <h4 className="text-sm font-black text-green-700 uppercase tracking-widest mb-3">Identity Laws</h4>
+                        <div className="bg-green-50 p-4 rounded-lg space-y-2">
+                            <code className="block font-mono text-green-700 font-bold">R | ∅ ≡ R ≡ ∅ | R</code>
+                            <code className="block font-mono text-green-700 font-bold">Rε ≡ R ≡ εR</code>
+                        </div>
+                        <p className="text-xs text-gray-600 mt-3">∅ is the identity for union; ε is the identity for concatenation.</p>
+                    </div>
+
+                    <div className="bg-white border-2 border-red-200 rounded-xl p-6">
+                        <h4 className="text-sm font-black text-red-700 uppercase tracking-widest mb-3">Annihilator Laws</h4>
+                        <div className="bg-red-50 p-4 rounded-lg">
+                            <code className="block font-mono text-red-700 font-bold">R∅ ≡ ∅ ≡ ∅R</code>
+                        </div>
+                        <p className="text-xs text-gray-600 mt-3">∅ is the annihilator for concatenation - any expression concatenated with ∅ yields ∅.</p>
+                    </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 rounded-xl p-6">
+                    <p className="text-xs font-black text-amber-700 uppercase tracking-widest mb-3">Worked Example</p>
+                    <p className="text-sm font-bold text-amber-900 mb-4">Simplify: <code className="bg-white px-2 py-1 rounded font-mono">(a|∅)|ε</code></p>
+                    <div className="space-y-2 text-sm font-mono text-amber-900">
+                        <p>= a|ε <span className="text-xs text-amber-600 font-sans italic ml-2">(by identity law: R|∅ ≡ R)</span></p>
+                        <p className="text-xs text-amber-700 font-sans mt-3">(since a|ε represents {'{ε, a}'} = a+ where a+ = aa*)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section className="content-section">
+                <h3 className="text-xl font-bold mb-6 text-indigo-700">3. Idempotent and Distributive Laws</h3>
+                <p className="text-sm text-gray-700 mb-6 leading-relaxed">Idempotent laws show that repeating the same choice doesn't change the result. Distributive laws allow us to factor expressions, similar to factoring in algebra.</p>
+                
+                <div className="space-y-6">
+                    <div className="bg-white border-2 border-purple-200 rounded-xl p-6">
+                        <h4 className="text-sm font-black text-purple-700 uppercase tracking-widest mb-3">Idempotent Law</h4>
+                        <div className="bg-purple-50 p-4 rounded-lg mb-3">
+                            <code className="block font-mono text-purple-700 font-bold text-lg">R | R ≡ R</code>
+                        </div>
+                        <p className="text-xs text-gray-600">Choosing between R and R is just R - there's no real choice.</p>
+                    </div>
+
+                    <div className="bg-white border-2 border-blue-200 rounded-xl p-6">
+                        <h4 className="text-sm font-black text-blue-700 uppercase tracking-widest mb-3">Distributive Laws</h4>
+                        <p className="text-sm text-gray-600 mb-4">Left and right distributivity of concatenation over union:</p>
+                        <div className="bg-blue-50 p-4 rounded-lg space-y-2">
+                            <code className="block font-mono text-blue-700 font-bold">R₁(R₂ | R₃) ≡ R₁R₂ | R₁R₃</code>
+                            <code className="block font-mono text-blue-700 font-bold">(R₁ | R₂)R₃ ≡ R₁R₃ | R₂R₃</code>
+                        </div>
+                        <p className="text-xs text-gray-600 mt-3">These are crucial for expanding or factoring regular expressions.</p>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-teal-50 to-cyan-50 border-2 border-teal-200 rounded-xl p-6">
+                        <p className="text-xs font-black text-teal-700 uppercase tracking-widest mb-3">Application</p>
+                        <p className="text-sm font-bold text-teal-900 mb-4">Expand: <code className="bg-white px-2 py-1 rounded font-mono">a(b|c)</code></p>
+                        <div className="space-y-2 text-sm font-mono text-teal-900">
+                            <p>= ab | ac <span className="text-xs text-teal-600 font-sans italic ml-2">(by left distributivity)</span></p>
+                            <p className="text-xs text-teal-700 font-sans mt-3">Both expressions denote {'{ab, ac}'}.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="content-section">
+                <h3 className="text-xl font-bold mb-6 text-indigo-700">4. Kleene Star Laws</h3>
+                <p className="text-sm text-gray-700 mb-6 leading-relaxed">The Kleene star operation has unique properties that distinguish Kleene algebra from standard arithmetic. These laws are essential for simplifying starred expressions.</p>
+                
+                <div className="space-y-6">
+                    <div className="bg-white border-2 border-indigo-200 rounded-xl p-6">
+                        <h4 className="text-sm font-black text-indigo-700 uppercase tracking-widest mb-3">Basic Star Laws</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {[
+                                { law: '∅* ≡ ε', color: 'bg-indigo-50 text-indigo-700' },
+                                { law: 'ε* ≡ ε', color: 'bg-indigo-50 text-indigo-700' },
+                                { law: '(R*)* ≡ R*', color: 'bg-indigo-50 text-indigo-700' },
+                                { law: 'R* ≡ ε | RR*', color: 'bg-indigo-50 text-indigo-700' },
+                                { law: 'R* ≡ ε | R*R', color: 'bg-indigo-50 text-indigo-700' }
+                            ].map((item, i) => (
+                                <div key={i} className={`${item.color} p-3 rounded-lg`}>
+                                    <code className="font-mono font-bold">{item.law}</code>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="bg-white border-2 border-violet-200 rounded-xl p-6">
+                        <h4 className="text-sm font-black text-violet-700 uppercase tracking-widest mb-3">Advanced Star Laws</h4>
+                        <div className="bg-violet-50 p-4 rounded-lg space-y-2">
+                            <code className="block font-mono text-violet-700 font-bold text-sm">(R₁|R₂)* ≡ (R₁*R₂*)*</code>
+                            <code className="block font-mono text-violet-700 font-bold text-sm">(R₁R₂)*R₁ ≡ R₁(R₂R₁)*</code>
+                            <code className="block font-mono text-violet-700 font-bold text-sm">R* ≡ (ε|R)ⁿ(Rⁿ)* for n≥1</code>
+                        </div>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-rose-50 to-pink-50 border-2 border-rose-300 rounded-xl p-6">
+                        <p className="text-xs font-black text-rose-700 uppercase tracking-widest mb-3">Important: The Fixpoint Property</p>
+                        <p className="text-sm text-rose-900 leading-relaxed mb-4">R* is the least solution to the equation <code className="bg-white px-2 py-1 rounded font-mono">X ≡ ε | RX</code>. This means R* is the smallest language (under subset ordering) satisfying this equivalence.</p>
+                    </div>
+
+                    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-xl p-6">
+                        <p className="text-xs font-black text-emerald-700 uppercase tracking-widest mb-3">Denesting Rule</p>
+                        <p className="text-sm text-emerald-900 mb-4">One of the most powerful simplification rules:</p>
+                        <div className="bg-white border-2 border-emerald-200 p-4 rounded-lg mb-4">
+                            <code className="block font-mono text-emerald-700 font-bold text-lg text-center">(R₁|R₂)* ≡ R₁*(R₂R₁*)*</code>
+                        </div>
+                        <p className="text-xs text-emerald-800 italic">This converts nested stars into sequential form, often simplifying automaton construction.</p>
                     </div>
                 </div>
             </section>
@@ -143,113 +290,13 @@ const Module2_2: React.FC = () => {
                 </div>
             </section>
 
-            {/* Deep Dive Sections 1-4 */}
-            <section className="content-section">
-                <h3 className="text-xl font-bold mb-6 italic text-blue-600">1. Associativity and Commutativity Laws</h3>
-                <div className="bg-gray-50 p-6 rounded-2xl border mb-8">
-                    <p className="text-sm mb-4">These fundamental laws describe how the order of operations and operands affects the result. Understanding these is crucial for rearranging expressions during simplification.</p>
-                    <div className="space-y-4">
-                        <div className="bg-white p-4 border rounded-xl">
-                            <p className="text-xs font-black text-gray-400 mb-2 uppercase tracking-widest">Associativity Laws</p>
-                            <p className="text-sm italic mb-2">The grouping of operations does not affect the result:</p>
-                            <code className="block bg-slate-50 p-3 rounded font-mono text-indigo-700 mb-2">(R₁ | R₂) | R₃ ≡ R₁ | (R₂ | R₃)</code>
-                            <code className="block bg-slate-50 p-3 rounded font-mono text-indigo-700">(R₁R₂)R₃ ≡ R₁(R₂R₃)</code>
-                            <p className="text-[10px] text-gray-500 mt-2">Just as (2+3)+4 = 2+(3+4) in arithmetic, the union and concatenation of regular expressions are associative.</p>
-                        </div>
-                        <div className="bg-white p-4 border rounded-xl">
-                            <p className="text-xs font-black text-gray-400 mb-2 uppercase tracking-widest">Commutativity of Union</p>
-                            <code className="inline-block bg-slate-50 p-3 rounded font-mono text-indigo-700 mb-2">R₁ | R₂ ≡ R₂ | R₁</code>
-                            <p className="text-[10px] text-gray-500 italic mt-2"><strong>Note:</strong> Concatenation is NOT commutative (R₁R₂ ≠ R₂R₁ in general).</p>
-                        </div>
-                    </div>
+        
 
-                    <div className="bg-indigo-50 border-2 border-indigo-100 p-6 rounded-2xl mt-8 shadow-sm relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 w-16 h-16 bg-indigo-500 opacity-5 rounded-full -mr-8 -mt-8 group-hover:opacity-10 transition-opacity"></div>
-                        <p className="text-[10px] font-black uppercase mb-3 text-indigo-600 tracking-widest flex items-center gap-2">
-                            <div className="w-1 h-1 rounded-full bg-indigo-600"></div> Example
-                        </p>
-                        <p className="text-sm italic text-indigo-900/80 mb-3 font-medium leading-relaxed">Consider (a|b)|c and a|(b|c). Both denote the language {'{a, b, c}'}, proving associativity of union.</p>
-                        <p className="text-sm font-bold text-indigo-950 border-t border-indigo-100/50 pt-3 flex items-center gap-2">
-                            <span className="text-indigo-400">➔</span> For commutativity: <span className="font-mono bg-white px-2 py-0.5 rounded shadow-sm border border-indigo-50">a|b ≡ b|a</span>, both representing {'{a, b}'}.
-                        </p>
-                    </div>
-                </div>
-
-                <h3 className="text-xl font-bold mb-6 italic text-blue-600">2. Identity and Annihilator Laws</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                    <div className="bg-white p-5 border rounded-2xl shadow-sm border-t-4 border-t-indigo-500">
-                        <p className="text-xs font-black text-gray-400 uppercase mb-2">Identity (∅ & ε)</p>
-                        <p className="font-mono text-sm text-indigo-600 mb-1">R | ∅ ≡ R</p>
-                        <p className="font-mono text-sm text-indigo-600">Rε ≡ εR ≡ R</p>
-                        <p className="text-[10px] text-gray-500 mt-2">Empty set is identity for union; empty string for concatenation.</p>
-                    </div>
-                    <div className="bg-white p-5 border rounded-2xl shadow-sm border-t-4 border-t-red-500">
-                        <p className="text-xs font-black text-gray-400 uppercase mb-2">Annihilator (∅)</p>
-                        <p className="font-mono text-sm text-red-600">R∅ ≡ ∅R ≡ ∅</p>
-                        <p className="text-[10px] text-gray-500 mt-2">Concatenating with ∅ results in the empty set.</p>
-                    </div>
-                </div>
-
-                <h3 className="text-xl font-bold mb-6 italic text-blue-600">3. Idempotent and Distributive Laws</h3>
-                <div className="bg-gray-50 p-6 rounded-2xl border mb-8 space-y-4">
-                    <div className="bg-white p-4 border rounded-xl">
-                        <p className="text-xs font-black text-gray-400 mb-1 uppercase tracking-widest">Idempotent Law</p>
-                        <code className="text-indigo-700 font-mono font-bold">R | R ≡ R</code>
-                    </div>
-                    <div className="bg-white p-4 border rounded-xl">
-                        <p className="text-xs font-black text-gray-400 mb-1 uppercase tracking-widest">Distributive Laws</p>
-                        <code className="block font-mono text-indigo-700 mb-1">R₁(R₂ | R₃) ≡ R₁R₂ | R₁R₃</code>
-                        <code className="block font-mono text-indigo-700">(R₁ | R₂)R₃ ≡ R₁R₃ | R₂R₃</code>
-                    </div>
-                </div>
-
-                <h3 className="text-xl font-black mb-6 italic text-indigo-600">4. Kleene Star Laws</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div className="bg-indigo-50 border-2 border-indigo-100 p-6 rounded-3xl shadow-sm group hover:scale-105 transition-transform">
-                        <p className="text-[9px] font-black text-indigo-400 uppercase tracking-widest mb-3">Identity of ∅</p>
-                        <code className="text-indigo-700 font-mono font-black text-lg">∅* ≡ ε</code>
-                    </div>
-                    <div className="bg-indigo-50 border-2 border-indigo-100 p-6 rounded-3xl shadow-sm group hover:scale-105 transition-transform">
-                        <p className="text-[9px] font-black text-indigo-400 uppercase tracking-widest mb-3">Double Star</p>
-                        <code className="text-indigo-700 font-mono font-black text-lg">(R*)* ≡ R*</code>
-                    </div>
-                    <div className="bg-indigo-50 border-2 border-indigo-100 p-6 rounded-3xl shadow-sm group hover:scale-105 transition-transform">
-                        <p className="text-[9px] font-black text-indigo-400 uppercase tracking-widest mb-3">Fixpoint</p>
-                        <code className="text-indigo-700 font-mono font-black text-lg">R* ≡ ε | RR*</code>
-                    </div>
-                </div>
-            </section>
-
-            {/* Structure Card */}
-            <section className="content-section">
-                <div className="bg-white border-2 border-slate-200 p-10 rounded-[3rem] text-slate-900 shadow-xl overflow-hidden relative group">
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500 opacity-5 rounded-full -mr-48 -mt-48 blur-3xl group-hover:opacity-10 transition-opacity"></div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400 mb-8 border-b border-slate-100 pb-4">Figure 2: Structure of Kleene Algebra Axioms</p>
-                    <div className="flex flex-col md:flex-row gap-12 items-center justify-between relative z-10">
-                        <div className="space-y-6 max-w-sm">
-                            <h3 className="text-3xl font-black leading-tight text-indigo-700 uppercase tracking-tighter">Idempotent Semiring Hierarchy</h3>
-                            <p className="text-sm text-slate-500 leading-relaxed font-medium">The completeness of Kleene Algebra ensures that any true theorem about regular language inclusion can be derived purely from these axioms.</p>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4 w-full md:w-auto">
-                            {[
-                                { title: "Union", desc: "Comm / Assoc / Idem", color: "text-indigo-600", bg: "bg-indigo-50/50" },
-                                { title: "Concat", desc: "Assoc / Distrib", color: "text-rose-600", bg: "bg-rose-50/50" },
-                                { title: "Identity", desc: "∅ and ε elements", color: "text-emerald-600", bg: "bg-emerald-50/50" },
-                                { title: "Iterate", desc: "Star / Fixpoint", color: "text-amber-600", bg: "bg-amber-50/50" }
-                            ].map((item, i) => (
-                                <div key={i} className={`${item.bg} backdrop-blur-md p-6 rounded-3xl border-2 border-white shadow-sm hover:shadow-md transition-shadow`}>
-                                    <p className={`${item.color} font-black text-xl mb-1`}>{item.title}</p>
-                                    <p className="text-[9px] uppercase tracking-widest text-slate-400 font-black">{item.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+            
 
             {/* Simplification */}
             <section className="content-section">
-                <h2 className="text-2xl font-bold mb-6">Simplifying Regular Expressions</h2>
+                <h3 className="text-2xl font-bold mb-6">Simplifying Regular Expressions</h3>
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl mb-8">
                     <h3 className="text-lg font-bold text-blue-900 mb-4">Simplification Strategies</h3>
                     <p className="text-sm text-blue-800 mb-4 italic">Practical techniques for simplifying complex regular expressions using algebraic laws:</p>
@@ -353,49 +400,9 @@ const Module2_2: React.FC = () => {
                 </div>
             </section>
 
-            {/* MCQs */}
-            <section className="content-section">
-                <h2 className="text-2xl font-bold mb-6">Practice MCQs</h2>
-                <div className="space-y-4">
-                    {[
-                        { id: 1, q: "Which law states that R|∅ ≡ R?", o: ["Associative law", "Identity law for union", "Commutative law", "Distributive law"], c: 1 },
-                        { id: 2, q: "What is the value of ∅*?", o: ["∅", "ε", "∅*", "None of the above"], c: 1 },
-                        { id: 3, q: "Which of the following is TRUE about regular expression concatenation?", o: ["It is commutative", "It is associative", "It is idempotent", "It is distributive over union"], c: 1 },
-                        { id: 4, q: "According to the idempotent law, what is R|R equivalent to?", o: ["R²", "2R", "R", "RR"], c: 2 },
-                        { id: 5, q: "Simplify: (R*)*", o: ["R**", "R*", "R", "ε"], c: 1 },
-                        { id: 6, q: "Which law allows us to write R₁(R₂|R₃) as R₁R₂|R₁R₃?", o: ["Associative law", "Commutative law", "Left distributive law", "Idempotent law"], c: 2 },
-                        { id: 7, q: "What is ε* equal to?", o: ["∅", "ε", "ε*", "1"], c: 1 },
-                        { id: 8, q: "If R₁ ≡ R₂, which statement is TRUE?", o: ["Same syntax", "L(R₁) = L(R₂)", "Same length", "R₁* ≡ R₂"], c: 1 },
-                        { id: 9, q: "What does R∅ equal to?", o: ["R", "ε", "∅", "R*"], c: 2 },
-                        { id: 10, q: "Which equation represents the fixpoint property of Kleene star?", o: ["R* ≡ R|R*", "R* ≡ ε|RR*", "R* ≡ RR", "R* ≡ (R*)*"], c: 1 }
-                    ].map(item => (
-                        <div key={item.id} className="bg-gray-50 border p-5 rounded-2xl hover:bg-white transition-colors">
-                            <p className="text-sm font-bold mb-4 flex gap-3 text-gray-800 leading-relaxed"><span className="bg-gray-200 text-gray-600 text-[10px] w-5 h-5 flex items-center justify-center rounded shrink-0">Q{item.id}</span> {item.q}</p>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                {item.o.map((opt, i) => (
-                                    <button
-                                        key={i}
-                                        onClick={() => checkMcq(item.id, i, item.c)}
-                                        className={`text-left p-3 rounded-xl border text-xs transition-all flex items-center gap-3 ${mcqAnswers[item.id] === i ? (i === item.c ? 'bg-green-100 border-green-500 text-green-900 shadow-sm' : 'bg-red-100 border-red-500 text-red-900 shadow-sm') : 'bg-white hover:border-indigo-300 group'}`}
-                                    >
-                                        <span className={`w-2 h-2 rounded-full border border-gray-300 group-hover:border-indigo-500 ${mcqAnswers[item.id] === i ? (i === item.c ? 'bg-green-600' : 'bg-red-600') : 'bg-gray-50'}`}></span>
-                                        {opt}
-                                    </button>
-                                ))}
-                            </div>
-                            {mcqResults[item.id] !== undefined && (
-                                <p className={`mt-4 text-[11px] font-black uppercase flex items-center gap-2 ${mcqResults[item.id] ? 'text-green-600' : 'text-red-500'}`}>
-                                    {mcqResults[item.id] ? '✨ Correct' : '⚠️ Try Again'}
-                                </p>
-                            )}
-                        </div>
-                    ))}
-                </div>
-            </section>
-
             {/* Lab Exercise */}
             <section className="content-section">
-                <h2 className="text-2xl font-black mb-8 border-b-4 pb-4 border-slate-200 uppercase text-slate-900 tracking-tighter">Lab Exercise: Expression Simplification</h2>
+                <h3 className="text-2xl font-black mb-8 border-b-4 pb-4 border-slate-200 uppercase text-slate-900 tracking-tighter">Lab Exercise: Expression Simplification</h3>
                 <div className="bg-white border-2 border-slate-200 p-12 rounded-[3.5rem] text-slate-900 shadow-2xl relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-indigo-500 opacity-5 rounded-full -mr-48 -mt-48 blur-3xl"></div>
                     <p className="text-[10px] font-black text-indigo-600 uppercase tracking-[0.4em] mb-4 relative z-10">Computational Context</p>
@@ -426,7 +433,7 @@ const Module2_2: React.FC = () => {
 
             {/* Learning Resources */}
             <section className="content-section">
-                <h2 className="text-2xl font-bold mb-6">Additional Learning Resources</h2>
+                <h3 className="text-2xl font-bold mb-6">Additional Learning Resources</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-4">
                         <div className="bg-gray-100 rounded-2xl overflow-hidden aspect-video relative group">
@@ -451,7 +458,7 @@ const Module2_2: React.FC = () => {
 
             {/* EXAM QUESTIONS */}
             <section className="content-section">
-                <h2 className="text-2xl font-black mb-10 border-b-4 border-slate-200 pb-4 uppercase text-slate-900 tracking-tighter">Exam Practice Questions</h2>
+                <h3 className="text-2xl font-black mb-10 border-b-4 border-slate-200 pb-4 uppercase text-slate-900 tracking-tighter">Exam Practice Questions</h3>
                 <div className="space-y-12">
                     {[
                         {
@@ -504,7 +511,7 @@ const Module2_2: React.FC = () => {
 
             {/* QUICK REFERENCE CHEAT SHEET */}
             <section className="content-section">
-                <h2 className="text-2xl font-bold mb-6">Quick Reference Cheat Sheet</h2>
+                <h3 className="text-2xl font-bold mb-6">Quick Reference Cheat Sheet</h3>
                 <div className="bg-amber-50 border-2 border-amber-200 p-8 rounded-3xl grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div className="space-y-4">
                         <h4 className="font-black text-amber-900 border-b border-amber-200 pb-2 text-sm uppercase tracking-widest">Basic Laws</h4>
