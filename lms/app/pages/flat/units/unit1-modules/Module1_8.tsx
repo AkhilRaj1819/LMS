@@ -1675,6 +1675,116 @@ transitions = {
               <li>❌ Missing ε-closure when computing ε-closure(S) — it's transitive!</li>
             </ul>
           </div>
+
+          <div className="module-content">
+      <div className="lesson-header">
+        <div className="lesson-number-badge">1.9</div>
+        <div className="lesson-title-main">
+          <h1>📝 Regular Expressions</h1>
+        </div>
+      </div>
+
+      <section className="content-section">
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
+          <p className="font-semibold">🎯 What You'll Master - Learning Objectives</p>
+          <p className="mt-2 mb-3">Upon completing this module, students will be able to:</p>
+          
+          <div className="space-y-4">
+            <div className="flex items-start">
+              <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0 font-bold">1</div>
+              <div>
+                <p className="font-semibold">Define Regular Expressions Formally</p>
+                <p className="text-sm">State the inductive definition of a regular expression over an alphabet Σ and identify base cases and inductive steps.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0 font-bold">2</div>
+              <div>
+                <p className="font-semibold">Apply Core Operations</p>
+                <p className="text-sm">Construct regular expressions using union (+), concatenation (juxtaposition), and Kleene star (*) to describe given languages.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0 font-bold">3</div>
+              <div>
+                <p className="font-semibold">Convert Between Models</p>
+                <p className="text-sm">Transform a regular expression into an equivalent NFA (Thompson's Construction) and vice versa, proving equivalence with finite automata.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0 font-bold">4</div>
+              <div>
+                <p className="font-semibold">Apply Algebraic Laws</p>
+                <p className="text-sm">Simplify and manipulate regular expressions using identities such as commutativity of union, associativity, and Kleene star properties.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0 font-bold">5</div>
+              <div>
+                <p className="font-semibold">Solve Real-World Problems</p>
+                <p className="text-sm">Design regular expressions for lexical analysis, input validation, and text processing tasks encountered in software development.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-section">
+        <h3>Introduction to Regular Expressions</h3>
+        <p>
+          Regular expressions (regex or regexp) are one of the most powerful and elegant ideas in computer science. At their heart, a regular expression is a finite symbolic description of a (potentially infinite) set of strings. Where a finite automaton describes a language procedurally — telling you step by step how to recognize a string — a regular expression describes a language declaratively, as a mathematical formula.
+        </p>
+        <p className="mt-2">
+          The theory of regular expressions was developed by mathematician Stephen Cole Kleene in the 1950s as part of his work on the theory of nerve nets and finite automata. Kleene proved the fundamental theorem that links regular expressions, NFAs, and DFAs: they are all equivalent in expressive power. That is, every language that can be described by a regular expression can be recognized by some finite automaton, and vice versa. These languages are called regular languages.
+        </p>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 mt-4">
+          <h4 className="font-semibold">Why Regular Expressions Matter</h4>
+          <p className="text-sm mt-2">
+            Regular expressions appear in virtually every programming language and operating system: Python's re module, JavaScript's built-in regex, grep in Unix, lexical analyzers (like lex/flex), database query systems, and security tools. Understanding the theory behind them gives you deep insight into both their power and their limitations.
+          </p>
+        </div>
+
+        <h4 className="mt-6 font-semibold">Intuitive Meaning</h4>
+        <p className="mt-2">
+          Think of a regular expression as a blueprint or template for strings. The regex ab*c describes all strings that begin with 'a', end with 'c', and have zero or more 'b' characters in between: "ac", "abc", "abbc", "abbbc", and so on — an infinite set, described by three symbols.
+        </p>
+
+        <div className="my-6">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Automata_theory.svg/600px-Automata_theory.svg.png" 
+            alt="Regular expression to automaton" 
+            className="mx-auto max-w-full h-auto"
+          />
+          <p className="text-center text-sm text-gray-600 mt-2">
+            A regular expression corresponds to a finite automaton — the fundamental Kleene theorem.
+          </p>
+        </div>
+
+        <div className="my-6">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Chomsky-hierarchy.svg/600px-Chomsky-hierarchy.svg.png" 
+            alt="Chomsky Hierarchy showing Regular Languages" 
+            className="mx-auto max-w-full h-auto"
+          />
+          <p className="text-center text-sm text-gray-600 mt-2">
+            Regular languages (Type-3) sit at the bottom of the Chomsky hierarchy — the most restricted, but also the most computationally efficient class.
+          </p>
+        </div>
+
+        <h4 className="mt-6 font-semibold">Historical Context</h4>
+        <p className="mt-2">
+          Regular expressions were introduced by Kleene in 1951 to describe McCulloch–Pitts neural nets. Ken Thompson later implemented them in the QED text editor in the 1960s, which led directly to their integration in the Unix tool grep (Global Regular Expression Print). The POSIX standard later formalized extended regular expressions (ERE), and today virtually every computing language includes regex support.
+        </p>
+        <p className="mt-2">
+          The power of regular expressions lies in three primitive operations: union (choosing between alternatives), concatenation (sequential composition), and Kleene closure (repetition). These three operations, when applied to basic symbols, can describe any regular language.
+        </p>
+      </section>
+    </div>
         </div>
       </section>
     </div>
