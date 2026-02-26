@@ -109,6 +109,41 @@ const Module1_1: React.FC = () => {
       </section>
 
       <section className="content-section">
+        <div className="my-8 p-8 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl">
+          <h2 className="text-2xl font-bold text-center text-blue-700 mb-8">Structure of a Formal Proof System</h2>
+          <div className="max-w-5xl mx-auto">
+            <div className="relative">
+              <div className="border-4 border-blue-500 rounded-2xl p-8 bg-white">
+                <div className="grid grid-cols-3 gap-6 mb-8 relative">
+                  <div className="bg-blue-100 border-2 border-blue-400 rounded-xl p-4 text-center relative">
+                    <div className="font-bold text-blue-800 text-lg mb-2">AXIOMS</div>
+                    <div className="text-sm text-blue-700">Foundation Statements</div>
+                    <div className="absolute -right-3 top-1/2 -translate-y-1/2 text-blue-600 text-3xl">→</div>
+                    <div className="absolute left-1/2 -bottom-8 -translate-x-1/2 border-l-2 border-dashed border-blue-400 h-8"></div>
+                  </div>
+                  <div className="bg-green-100 border-2 border-green-500 rounded-xl p-4 text-center relative">
+                    <div className="font-bold text-green-800 text-lg mb-2">INFERENCE</div>
+                    <div className="text-sm text-green-700">Logical Derivation Rules</div>
+                    <div className="absolute -right-3 top-1/2 -translate-y-1/2 text-blue-600 text-3xl">→</div>
+                    <div className="absolute left-1/2 -bottom-8 -translate-x-1/2 border-l-2 border-dashed border-blue-400 h-8"></div>
+                  </div>
+                  <div className="bg-yellow-100 border-2 border-yellow-500 rounded-xl p-4 text-center relative">
+                    <div className="font-bold text-yellow-800 text-lg mb-2">THEOREMS</div>
+                    <div className="text-sm text-yellow-700">Proved Statements</div>
+                    <div className="absolute left-1/2 -bottom-8 -translate-x-1/2 border-l-2 border-dashed border-blue-400 h-8"></div>
+                  </div>
+                </div>
+                <div className="bg-purple-100 border-2 border-purple-500 rounded-xl p-6 text-center mt-8">
+                  <div className="font-bold text-purple-800 text-lg mb-2">PROOF CONSTRUCTION</div>
+                  <div className="text-sm text-purple-700">Apply inference rules to axioms and previously proved theorems to derive new theorems</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-section">
         <h3>2. Fundamental Proof Techniques</h3>
         <p>Mathematical proofs in theory of computation employ several standard techniques, each suited to different types of statements. Mastering these techniques is essential for analyzing automata, proving language properties, and establishing computational complexity results.</p>
       </section>
@@ -142,6 +177,39 @@ const Module1_1: React.FC = () => {
             <li>Since we constructed a DFA that accepts L₁ ∪ L₂, this union is regular. ∎</li>
           </ol>
         </div>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 mt-4">
+          <p className="font-semibold">💡 Example 1: Direct Proof with Concrete DFAs</p>
+          <p className="mt-2"><strong>Problem:</strong> Prove that the union of L₁ = {'{'}w | w contains an even number of 0s{'}'} and L₂ = {'{'}w | w ends with 1{'}'} is regular.</p>
+          <p className="mt-2"><strong>Solution:</strong></p>
+          <ol className="list-decimal ml-6 mt-2 space-y-2">
+            <li><strong>Step 1:</strong> L₁ is regular, recognized by DFA M₁ with 2 states (even/odd count of 0s).</li>
+            <li><strong>Step 2:</strong> L₂ is regular, recognized by DFA M₂ with 2 states (last symbol was 0/1).</li>
+            <li><strong>Step 3:</strong> Construct product DFA with 4 states: {'{'}(Even,Ends0), (Even,Ends1), (Odd,Ends0), (Odd,Ends1){'}'}.</li>
+            <li><strong>Step 4:</strong> Accept states F = {'{'}(Even,Ends0), (Even,Ends1), (Odd,Ends1){'}'} because we accept if the string has even 0s OR ends with 1.</li>
+            <li><strong>Step 5:</strong> The constructed DFA accepts L₁ ∪ L₂, proving it's regular. ✓</li>
+          </ol>
+        </div>
+
+        <div className="bg-white border-2 border-gray-300 rounded-lg p-6 mt-4">
+          <p className="font-semibold text-center text-lg mb-4">Product Construction for Union</p>
+          <div className="bg-gray-50 p-4 rounded text-sm font-mono overflow-x-auto">
+            <div className="whitespace-pre">
+{`graph LR
+  A["(Even,Ends0) Start"] -->|"0"| B["(Odd,Ends0)"]
+  A -->|"1"| C["(Even,Ends1) ✓ Accept"]
+  B -->|"0"| A
+  B -->|"1"| D["(Odd,Ends1) ✓ Accept"]
+  C -->|"0"| D
+  C -->|"1"| C
+  D -->|"0"| C
+  D -->|"1"| D
+  style A fill:#e3f2fd
+  style C fill:#c8e6c9
+  style D fill:#c8e6c9`}
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="content-section">
@@ -155,14 +223,73 @@ const Module1_1: React.FC = () => {
           <p className="mt-2"><strong>Statement:</strong> The language L = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'} is not regular.</p>
           <p className="mt-2"><strong>Proof (By Contradiction using Pumping Lemma):</strong></p>
           <ol className="list-decimal ml-6 mt-2 space-y-2">
-            <li>Assume L is regular</li>
-            <li>By Pumping Lemma, there exists pumping length p</li>
-            <li>Choose s = 0ᵖ1ᵖ (clearly s ∈ L)</li>
-            <li>By Pumping Lemma, s = xyz where |xy| ≤ p, |y| &gt; 0</li>
-            <li>y must consist only of 0s</li>
-            <li>Consider xy²z = 0ᵖ⁺ᵏ1ᵖ where k &gt; 0</li>
-            <li>This has more 0s than 1s, so xy²z ∉ L</li>
-            <li>Contradiction! Therefore L is not regular ∎</li>
+  <li>Assume (for contradiction): L is regular.</li>
+
+  <li>
+    <strong>Proof Construction:</strong>
+  </li>
+
+  <li>
+    If L is regular, then by the Pumping Lemma, there exists a pumping length p ≥ 1.
+  </li>
+
+  <li>
+    For any string s ∈ L with |s| ≥ p, we can write s = xyz where:
+    <div>|xy| ≤ p</div>
+    <div>|y| &gt; 0</div>
+    <div>xyⁱz ∈ L for all i ≥ 0</div>
+  </li>
+
+  <li>
+    Choose s = 0ᵖ1ᵖ (clearly s ∈ L and |s| = 2p ≥ p).
+  </li>
+
+  <li>
+    By the Pumping Lemma conditions, y must consist only of 0s
+    (since |xy| ≤ p means xy is entirely within the first p characters,
+    which are all 0s).
+  </li>
+
+  <li>
+    Let y = 0ᵏ for some k &gt; 0.
+  </li>
+
+  <li>
+    Consider pumping i = 2:
+    <div>xy²z = 0ᵖ⁺ᵏ1ᵖ</div>
+  </li>
+
+  <li>
+    This string has p+k zeros and p ones, where k &gt; 0, so p+k &gt; p.
+  </li>
+
+  <li>
+    Therefore xy²z ∉ L (violates the form 0ⁿ1ⁿ).
+  </li>
+
+  <li>
+    Contradiction! We assumed L is regular and derived that a string that
+    should be in L (by the Pumping Lemma) is actually not in L.
+  </li>
+
+  <li>
+    Therefore, our assumption must be false: L is not regular. ∎
+  </li>
+</ol>
+        </div>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 mt-4">
+          <p className="font-semibold">💡 Example 2: Proof by Contradiction - Infinitude of Primes</p>
+          <p className="mt-2"><strong>Theorem:</strong> There are infinitely many prime numbers.</p>
+          <p className="mt-2"><strong>Proof:</strong></p>
+          <ol className="list-decimal ml-6 mt-2 space-y-2">
+            <li><strong>Assume (for contradiction):</strong> There are finitely many primes, say p₁, p₂, ..., pₙ.</li>
+            <li><strong>Step 1:</strong> Consider the number N = (p₁ × p₂ × ... × pₙ) + 1</li>
+            <li><strong>Step 2:</strong> N {'>'} pₙ, so N is not in our list of all primes.</li>
+            <li><strong>Step 3:</strong> N is either prime or composite.</li>
+            <li><strong>Case 1:</strong> If N is prime, we found a prime not in our "complete" list—contradiction!</li>
+            <li><strong>Case 2:</strong> If N is composite, it must be divisible by some prime p from our list. But N ≡ 1 (mod p) for every prime in our list, so no prime in our list divides N—contradiction!</li>
+            <li><strong>Conclusion:</strong> Both cases lead to contradictions, so our assumption is false. There must be infinitely many primes. ✓</li>
           </ol>
         </div>
       </section>
@@ -183,10 +310,27 @@ const Module1_1: React.FC = () => {
           <p className="mt-2">Contrapositive: If n is odd, then n² is odd</p>
           <ol className="list-decimal ml-6 mt-2 space-y-2">
             <li>Assume n is odd</li>
-            <li>Then n = 2k + 1 for some integer k</li>
-            <li>n² = (2k + 1)² = 4k² + 4k + 1 = 2(2k² + 2k) + 1</li>
-            <li>This is odd by definition</li>
+            <li>By definition of odd, we can write n = 2k + 1 for some integer k.</li>
+            <li>Then n² = (2k + 1)² = 4k² + 4k + 1 = 2(2k² + 2k) + 1</li>
+            <li>Let m = 2k² + 2k, which is an integer.</li>
+            <li>Then n² = 2m + 1, which is the definition of an odd number.</li>
+            <li>We have proved: if n is odd, then n² is odd.</li>
             <li>Contrapositive proven, therefore original statement is true ∎</li>
+          </ol>
+        </div>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 mt-4">
+          <p className="font-semibold">💡 Example 3: Contrapositive in Automata Theory</p>
+          <p className="mt-2"><strong>Theorem:</strong> If a DFA M has no path from start state to any accept state, then L(M) = ∅.</p>
+          <p className="mt-2"><strong>Contrapositive:</strong> If L(M) ≠ ∅, then M has a path from start state to some accept state.</p>
+          <p className="mt-2"><strong>Proof of Contrapositive:</strong></p>
+          <ol className="list-decimal ml-6 mt-2 space-y-2">
+            <li><strong>Step 1:</strong> Assume L(M) ≠ ∅, meaning there exists some string w accepted by M.</li>
+            <li><strong>Step 2:</strong> Since w is accepted, the computation of M on w starts at the start state q₀.</li>
+            <li><strong>Step 3:</strong> Processing w = a₁a₂...aₙ, M transitions through states: q₀ →^a₁ q₁ →^a₂ q₂ ... →^aₙ qₙ</li>
+            <li><strong>Step 4:</strong> Since w is accepted, qₙ must be an accept state.</li>
+            <li><strong>Step 5:</strong> The sequence of transitions from q₀ to qₙ constitutes a path from start state to accept state.</li>
+            <li><strong>Conclusion:</strong> Contrapositive proven, therefore original statement is true. ✓</li>
           </ol>
         </div>
       </section>
@@ -242,6 +386,53 @@ const Module1_1: React.FC = () => {
             <p>This is exactly P(k+1)! ✓</p>
           </div>
           <p className="mt-2"><strong>Conclusion:</strong> By the principle of mathematical induction, P(n) is true for all n ≥ 1. ∎</p>
+        </div>
+
+        <div className="bg-green-50 border-l-4 border-green-500 p-4 mt-4">
+          <p className="font-semibold">💡 Example 4: Induction in Automata - String Length</p>
+          <p className="mt-2"><strong>Theorem:</strong> For a DFA M = (Q, Σ, δ, q₀, F), if δ*(q, xy) = r, then δ*(q, x) = p and δ*(p, y) = r for some state p.</p>
+          <p className="mt-2"><strong>Proof by Structural Induction on |y|:</strong></p>
+          <p className="mt-2"><strong>Base Case (|y| = 0):</strong></p>
+          <ul className="list-disc ml-6 mt-2 space-y-1">
+            <li>y = ε (empty string)</li>
+            <li>δ*(q, xε) = δ*(q, x) = r</li>
+            <li>Let p = r, then δ*(q, x) = p and δ*(p, ε) = p = r. ✓</li>
+          </ul>
+          <p className="mt-2"><strong>Inductive Hypothesis:</strong> Assume true for all strings of length k.</p>
+          <p className="mt-2"><strong>Inductive Step:</strong> Prove for |y| = k+1:</p>
+          <ul className="list-disc ml-6 mt-2 space-y-1">
+            <li>Write y = za where |z| = k and a ∈ Σ</li>
+            <li>δ*(q, xza) = r (given)</li>
+            <li>δ*(q, xz) = s for some state s (by inductive hypothesis)</li>
+            <li>δ(s, a) = r (since processing one more symbol reaches r)</li>
+            <li>By inductive hypothesis on z: δ*(q, x) = p and δ*(p, z) = s</li>
+            <li>Therefore: δ*(q, x) = p and δ*(p, za) = δ(δ*(p, z), a) = δ(s, a) = r ✓</li>
+          </ul>
+          <p className="mt-2"><strong>Conclusion:</strong> The property holds for all string lengths by induction. ✓</p>
+        </div>
+
+        <div className="my-8 p-8 bg-gradient-to-br from-blue-50 to-green-50 rounded-xl">
+          <h2 className="text-2xl font-bold text-center text-blue-700 mb-4">Visualization of Mathematical Induction</h2>
+          <h3 className="text-xl font-semibold text-center text-blue-600 mb-8">The Domino Principle of Induction</h3>
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="text-left">
+                <div className="text-green-700 font-semibold mb-2">Base Case</div>
+                <div className="w-24 h-40 bg-green-500 border-4 border-green-700 rounded-lg"></div>
+              </div>
+              <div className="text-orange-600 text-2xl font-bold">proves →</div>
+              <div className="w-24 h-40 bg-green-500 border-4 border-green-700 rounded-lg"></div>
+              <div className="text-orange-600 text-2xl font-bold">proves →</div>
+              <div className="w-24 h-40 bg-green-500 border-4 border-green-700 rounded-lg"></div>
+              <div className="text-orange-600 text-2xl font-bold">proves →</div>
+              <div className="w-24 h-40 bg-green-500 border-4 border-green-700 rounded-lg"></div>
+              <div className="text-blue-600 text-2xl font-bold">• • •</div>
+              <div className="w-24 h-40 bg-green-500 border-4 border-green-700 rounded-lg"></div>
+            </div>
+            <div className="bg-blue-100 border-2 border-blue-500 rounded-xl p-4 text-center">
+              <div className="font-bold text-blue-800">Inductive Step: P(k) → P(k+1) guarantees all dominos fall</div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -348,6 +539,50 @@ const Module1_1: React.FC = () => {
               </tr>
             </tbody>
           </table>
+        </div>
+      </section>
+
+      <section className="content-section">
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
+          <p className="font-semibold">📚 Important Logical Equivalences</p>
+          <p className="mt-2">These equivalences are frequently used in proof construction:</p>
+          <div className="mt-4 space-y-3">
+            <div>
+              <p className="font-semibold">De Morgan's Laws:</p>
+              <ul className="list-disc ml-6 mt-1">
+                <li>¬(P ∧ Q) ≡ ¬P ∨ ¬Q</li>
+                <li>¬(P ∨ Q) ≡ ¬P ∧ ¬Q</li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-semibold">Implication Laws:</p>
+              <ul className="list-disc ml-6 mt-1">
+                <li>P → Q ≡ ¬P ∨ Q</li>
+                <li>P → Q ≡ ¬Q → ¬P (contrapositive)</li>
+                <li>¬(P → Q) ≡ P ∧ ¬Q</li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-semibold">Biconditional:</p>
+              <ul className="list-disc ml-6 mt-1">
+                <li>P ↔ Q ≡ (P → Q) ∧ (Q → P)</li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-semibold">Associative Laws:</p>
+              <ul className="list-disc ml-6 mt-1">
+                <li>(P ∧ Q) ∧ R ≡ P ∧ (Q ∧ R)</li>
+                <li>(P ∨ Q) ∨ R ≡ P ∨ (Q ∨ R)</li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-semibold">Distributive Laws:</p>
+              <ul className="list-disc ml-6 mt-1">
+                <li>P ∧ (Q ∨ R) ≡ (P ∧ Q) ∨ (P ∧ R)</li>
+                <li>P ∨ (Q ∧ R) ≡ (P ∨ Q) ∧ (P ∨ R)</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -625,6 +860,73 @@ const Module1_1: React.FC = () => {
       </section>
 
       <section className="content-section">
+        <div className="my-8 p-8 bg-gradient-to-br from-blue-50 to-yellow-50 rounded-xl">
+          <h2 className="text-2xl font-bold text-center text-blue-700 mb-8">Visualization of Function Composition</h2>
+          <div className="max-w-5xl mx-auto relative">
+            <div className="flex items-center justify-center gap-8">
+              <div className="relative z-10">
+                <div className="w-48 h-64 border-4 border-blue-500 rounded-full bg-blue-50 flex flex-col items-center justify-center">
+                  <div className="text-blue-700 font-bold text-lg mb-4">Set A</div>
+                  <div className="space-y-6">
+                    <div className="flex items-center"><div className="w-3 h-3 bg-blue-600 rounded-full"></div><span className="ml-2 text-sm">a₁</span></div>
+                    <div className="flex items-center"><div className="w-3 h-3 bg-blue-600 rounded-full"></div><span className="ml-2 text-sm">a₂</span></div>
+                    <div className="flex items-center"><div className="w-3 h-3 bg-blue-600 rounded-full"></div><span className="ml-2 text-sm">a₃</span></div>
+                  </div>
+                </div>
+                <div className="absolute top-1/4 -right-12 text-blue-600 font-semibold text-sm">f</div>
+              </div>
+              <div className="relative z-10">
+                <div className="w-48 h-64 border-4 border-green-500 rounded-full bg-green-50 flex flex-col items-center justify-center">
+                  <div className="text-green-700 font-bold text-lg mb-4">Set B</div>
+                  <div className="space-y-6">
+                    <div className="flex items-center"><div className="w-3 h-3 bg-green-600 rounded-full"></div><span className="ml-2 text-sm">f(a₁)</span></div>
+                    <div className="flex items-center"><div className="w-3 h-3 bg-green-600 rounded-full"></div><span className="ml-2 text-sm">f(a₂)</span></div>
+                    <div className="flex items-center"><div className="w-3 h-3 bg-green-600 rounded-full"></div><span className="ml-2 text-sm">f(a₃)</span></div>
+                  </div>
+                </div>
+                <div className="absolute top-1/4 -right-12 text-green-600 font-semibold text-sm">g</div>
+              </div>
+              <div className="relative z-10">
+                <div className="w-48 h-64 border-4 border-yellow-500 rounded-full bg-yellow-50 flex flex-col items-center justify-center">
+                  <div className="text-yellow-700 font-bold text-lg mb-4">Set C</div>
+                  <div className="space-y-6">
+                    <div className="flex items-center"><div className="w-3 h-3 bg-yellow-600 rounded-full"></div><span className="ml-2 text-sm">g(f(a₁))</span></div>
+                    <div className="flex items-center"><div className="w-3 h-3 bg-yellow-600 rounded-full"></div><span className="ml-2 text-sm">g(f(a₂))</span></div>
+                    <div className="flex items-center"><div className="w-3 h-3 bg-yellow-600 rounded-full"></div><span className="ml-2 text-sm">g(f(a₃))</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <svg className="absolute top-0 left-0 w-full h-full pointer-events-none" style={{zIndex: 5}}>
+              <defs>
+                <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" />
+                </marker>
+                <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#22c55e" />
+                </marker>
+                <marker id="arrowpurple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="#a855f7" />
+                </marker>
+              </defs>
+              <line x1="22%" y1="30%" x2="38%" y2="30%" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowblue)" />
+              <line x1="22%" y1="50%" x2="38%" y2="50%" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowblue)" />
+              <line x1="22%" y1="70%" x2="38%" y2="70%" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowblue)" />
+              <line x1="52%" y1="30%" x2="68%" y2="30%" stroke="#22c55e" strokeWidth="2" markerEnd="url(#arrowgreen)" />
+              <line x1="52%" y1="50%" x2="68%" y2="50%" stroke="#22c55e" strokeWidth="2" markerEnd="url(#arrowgreen)" />
+              <line x1="52%" y1="70%" x2="68%" y2="70%" stroke="#22c55e" strokeWidth="2" markerEnd="url(#arrowgreen)" />
+              <line x1="18%" y1="85%" x2="78%" y2="85%" stroke="#a855f7" strokeWidth="3" strokeDasharray="8,4" markerEnd="url(#arrowpurple)" />
+            </svg>
+            <div className="mt-8 text-center relative z-10">
+              <div className="inline-block bg-purple-100 border-2 border-purple-500 rounded-xl px-6 py-3">
+                <span className="text-purple-800 font-bold text-lg">g ∘ f (composition)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-section">
         <h3>5. Advanced Proof Techniques in Theory of Computation</h3>
         
         <h4 className="mt-4 font-semibold">5.1 Proof by Construction (Constructive Proof)</h4>
@@ -738,6 +1040,54 @@ PARADOX(P):
       </section>
 
       <section className="content-section">
+        <div className="my-8 p-8 bg-gradient-to-br from-red-50 to-green-50 rounded-xl">
+          <h2 className="text-2xl font-bold text-center text-red-700 mb-8">The Halting Problem Paradox</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col items-center space-y-6">
+              <div className="bg-blue-100 border-2 border-blue-400 rounded-lg p-4 text-center">
+                <div className="font-semibold">Assume HALT exists</div>
+              </div>
+              <div className="text-2xl text-gray-600">↓</div>
+              <div className="bg-blue-100 border-2 border-blue-400 rounded-lg p-4 text-center">
+                <div className="font-semibold">Construct PARADOX</div>
+              </div>
+              <div className="text-2xl text-gray-600">↓</div>
+              <div className="bg-yellow-100 border-2 border-yellow-400 rounded-lg p-4 text-center">
+                <div className="font-semibold">HALT(PARADOX, PARADOX)?</div>
+              </div>
+              <div className="flex gap-8 items-start">
+                <div className="flex flex-col items-center space-y-4">
+                  <div className="text-sm text-green-700 font-semibold">Returns TRUE<br/>(will halt)</div>
+                  <div className="text-2xl text-gray-600">↓</div>
+                  <div className="bg-red-200 border-2 border-red-400 rounded-lg p-4 text-center">
+                    <div className="font-semibold">PARADOX loops forever<br/>DOESN'T HALT</div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center space-y-4">
+                  <div className="text-sm text-red-700 font-semibold">Returns FALSE<br/>(won't halt)</div>
+                  <div className="text-2xl text-gray-600">↓</div>
+                  <div className="bg-red-200 border-2 border-red-400 rounded-lg p-4 text-center">
+                    <div className="font-semibold">PARADOX returns<br/>HALTS</div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex gap-8">
+                <div className="text-2xl text-gray-600">↓</div>
+                <div className="text-2xl text-gray-600">↓</div>
+              </div>
+              <div className="bg-red-600 text-white border-2 border-red-800 rounded-lg p-4 text-center">
+                <div className="font-bold text-lg">⚠️ CONTRADICTION</div>
+              </div>
+              <div className="text-2xl text-gray-600">↓</div>
+              <div className="bg-green-200 border-2 border-green-500 rounded-lg p-4 text-center">
+                <div className="font-semibold">∴ HALT cannot exist</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-section">
         <h3>7. Learning Resources & Practice Platforms</h3>
         
         <h4 className="mt-4 font-semibold">7.1 Tutorial Platforms</h4>
@@ -758,95 +1108,200 @@ PARADOX(P):
         </ul>
 
         <h4 className="mt-6 font-semibold">7.3 Coding Practice Problems</h4>
-        <div className="space-y-3 mt-4">
-          <div className="bg-green-50 border-l-4 border-green-500 p-3">
-            <p className="font-semibold">Problem 1: String Pattern Verification (Easy)</p>
-            <p className="text-sm mt-1">Challenge: Verify if a string belongs to language {'{'}0ⁿ1ⁿ | n ≥ 0{'}'}. Write a program and prove its correctness.</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Use proof by cases. Show your algorithm correctly identifies strings in the language and rejects strings not in the language.</p>
+        <div className="space-y-4 mt-4">
+          <div className="bg-green-50 border-l-4 border-green-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 1: String Pattern Verification</p>
+              <div className="flex gap-2">
+                <span className="bg-green-200 text-green-800 text-xs px-2 py-1 rounded">Easy</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">LeetCode</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Verify if a string belongs to language {'{'}0ⁿ1ⁿ | n ≥ 0{'}'}. Write a program and prove its correctness.</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Use proof by cases. Show your algorithm correctly identifies strings in the language and rejects strings not in the language.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "string pattern matching", "balanced parentheses"</p>
           </div>
-          
-          <div className="bg-green-50 border-l-4 border-green-500 p-3">
-            <p className="font-semibold">Problem 2: Prime Number Proof (Easy)</p>
-            <p className="text-sm mt-1">Challenge: Implement primality testing. Prove: "If n &gt; 1 is not divisible by any number from 2 to √n, then n is prime."</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Use proof by contradiction. Assume n is composite and derive a contradiction.</p>
+
+          <div className="bg-green-50 border-l-4 border-green-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 2: Prime Number Proof</p>
+              <div className="flex gap-2">
+                <span className="bg-green-200 text-green-800 text-xs px-2 py-1 rounded">Easy</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">HackerRank</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Implement primality testing. Prove: "If n &gt; 1 is not divisible by any number from 2 to √n, then n is prime."</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Use proof by contradiction. Assume n is composite and derive a contradiction.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "primality test", "HackerRank number theory"</p>
           </div>
-          
-          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-3">
-            <p className="font-semibold">Problem 3: Subset Sum Property (Medium)</p>
-            <p className="text-sm mt-1">Challenge: Prove: "If a set has n elements, it has 2ⁿ subsets." Implement a function to generate all subsets.</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Use mathematical induction. Base case n=1, inductive step from n to n+1.</p>
+
+          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 3: Subset Sum Property</p>
+              <div className="flex gap-2">
+                <span className="bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded">Medium</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">CodeChef</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Prove: "If a set has n elements, it has 2ⁿ subsets." Implement a function to generate all subsets.</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Use mathematical induction. Base case n=1, inductive step from n to n+1.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "power set generation", "subset problems"</p>
           </div>
-          
-          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-3">
-            <p className="font-semibold">Problem 4: Graph Reachability (Medium)</p>
-            <p className="text-sm mt-1">Challenge: Implement DFS/BFS. Prove: "If there's a path from A to B and from B to C, there's a path from A to C."</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Direct proof using path concatenation. Show the transitive property of reachability.</p>
+
+          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 4: Graph Reachability</p>
+              <div className="flex gap-2">
+                <span className="bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded">Medium</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">LeetCode</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Implement DFS/BFS. Prove: "If there's a path from A to B and from B to C, there's a path from A to C."</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Direct proof using path concatenation. Show the transitive property of reachability.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "LeetCode graph reachability", "path finding"</p>
           </div>
-          
-          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-3">
-            <p className="font-semibold">Problem 5: Recursive Sum Formula (Medium)</p>
-            <p className="text-sm mt-1">Challenge: Prove and implement: 1 + 2 + 3 + ... + n = n(n+1)/2 using recursion.</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Prove correctness by mathematical induction matching your recursive implementation.</p>
+
+          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 5: Recursive Sum Formula</p>
+              <div className="flex gap-2">
+                <span className="bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded">Medium</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">Codeforces</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Prove and implement: 1 + 2 + 3 + ... + n = n(n+1)/2 using recursion.</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Prove correctness by mathematical induction matching your recursive implementation.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "arithmetic series", "recursion problems"</p>
           </div>
-          
-          <div className="bg-red-50 border-l-4 border-red-500 p-3">
-            <p className="font-semibold">Problem 6: DFA State Minimization (Hard)</p>
-            <p className="text-sm mt-1">Challenge: Implement DFA minimization algorithm. Prove: "The minimal DFA is unique up to state renaming."</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Use equivalence relations and partitioning. Prove the algorithm terminates and produces minimal DFA.</p>
+
+          <div className="bg-red-50 border-l-4 border-red-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 6: DFA State Minimization</p>
+              <div className="flex gap-2">
+                <span className="bg-red-200 text-red-800 text-xs px-2 py-1 rounded">Hard</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">Custom</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Implement DFA minimization algorithm. Prove: "The minimal DFA is unique up to state renaming."</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Use equivalence relations and partitioning. Prove the algorithm terminates and produces minimal DFA.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "Hopcroft's algorithm", "DFA minimization"</p>
           </div>
-          
-          <div className="bg-red-50 border-l-4 border-red-500 p-3">
-            <p className="font-semibold">Problem 7: Regular Expression Matching (Hard)</p>
-            <p className="text-sm mt-1">Challenge: LeetCode #10 - Implement regex matching. Prove your algorithm's correctness.</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Use structural induction on the regex pattern. Prove each case (literal, *, concatenation) is handled correctly.</p>
+
+          <div className="bg-red-50 border-l-4 border-red-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 7: Regular Expression Matching</p>
+              <div className="flex gap-2">
+                <span className="bg-red-200 text-red-800 text-xs px-2 py-1 rounded">Hard</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">LeetCode</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: LeetCode #10 - Implement regex matching. Prove your algorithm's correctness.</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Use structural induction on the regex pattern. Prove each case (literal, *, concatenation) is handled correctly.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "LeetCode 10 regular expression matching"</p>
           </div>
-          
-          <div className="bg-red-50 border-l-4 border-red-500 p-3">
-            <p className="font-semibold">Problem 8: Pumping Lemma Application (Hard)</p>
-            <p className="text-sm mt-1">Challenge: Write a program that attempts to verify if L = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'} is regular. Prove it cannot succeed.</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Use proof by contradiction with the Pumping Lemma. Show why algorithmic verification must fail.</p>
+
+          <div className="bg-red-50 border-l-4 border-red-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 8: Pumping Lemma Application</p>
+              <div className="flex gap-2">
+                <span className="bg-red-200 text-red-800 text-xs px-2 py-1 rounded">Hard</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">Theory</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Write a program that attempts to verify if L = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'} is regular. Prove it cannot succeed.</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Use proof by contradiction with the Pumping Lemma. Show why algorithmic verification must fail.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "pumping lemma examples", "non-regular languages"</p>
           </div>
-          
-          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-3">
-            <p className="font-semibold">Problem 9: Closure Properties (Medium)</p>
-            <p className="text-sm mt-1">Challenge: Given two DFAs, construct a DFA for their union. Prove L(M₁) ∪ L(M₂) = L(M).</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Constructive proof using product construction. Prove by showing string acceptance equivalence.</p>
+
+          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 9: Closure Properties</p>
+              <div className="flex gap-2">
+                <span className="bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded">Medium</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">Implementation</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Given two DFAs, construct a DFA for their union. Prove L(M₁) ∪ L(M₂) = L(M).</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Constructive proof using product construction. Prove by showing string acceptance equivalence.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "DFA union construction", "automata closure"</p>
           </div>
-          
-          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-3">
-            <p className="font-semibold">Problem 10: Contradiction in Logic (Medium)</p>
-            <p className="text-sm mt-1">Challenge: Implement a simple SAT solver. Use it to prove statements by showing their negation is unsatisfiable.</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Proof by contradiction automated. If ¬P is unsatisfiable, then P must be a tautology.</p>
+
+          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 10: Contradiction in Logic</p>
+              <div className="flex gap-2">
+                <span className="bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded">Medium</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">SAT Solver</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Implement a simple SAT solver. Use it to prove statements by showing their negation is unsatisfiable.</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Proof by contradiction automated. If ¬P is unsatisfiable, then P must be a tautology.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "DPLL algorithm", "satisfiability solver"</p>
           </div>
-          
-          <div className="bg-green-50 border-l-4 border-green-500 p-3">
-            <p className="font-semibold">Problem 11: Fibonacci Proof (Easy)</p>
-            <p className="text-sm mt-1">Challenge: Prove by strong induction: Every Fibonacci number &gt; 1 is expressible as a product of primes.</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Strong induction needed because Fᵢ depends on Fᵢ₋₁ and Fᵢ₋₂.</p>
+
+          <div className="bg-green-50 border-l-4 border-green-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 11: Fibonacci Proof</p>
+              <div className="flex gap-2">
+                <span className="bg-green-200 text-green-800 text-xs px-2 py-1 rounded">Easy</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">Dynamic Programming</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Prove by strong induction: Every Fibonacci number &gt; 1 is expressible as a product of primes.</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Strong induction needed because Fᵢ depends on Fᵢ₋₁ and Fᵢ₋₂.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "Fibonacci properties", "strong induction examples"</p>
           </div>
-          
-          <div className="bg-red-50 border-l-4 border-red-500 p-3">
-            <p className="font-semibold">Problem 12: Halting Problem Simulation (Hard)</p>
-            <p className="text-sm mt-1">Challenge: Write a program that claims to solve the halting problem. Then construct a program that makes it fail.</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Implement the diagonal argument. Your contradiction constructor proves halting undecidability.</p>
+
+          <div className="bg-red-50 border-l-4 border-red-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 12: Halting Problem Simulation</p>
+              <div className="flex gap-2">
+                <span className="bg-red-200 text-red-800 text-xs px-2 py-1 rounded">Hard</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">Theoretical</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Write a program that claims to solve the halting problem. Then construct a program that makes it fail.</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Implement the diagonal argument. Your contradiction constructor proves halting undecidability.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "halting problem proof", "undecidability"</p>
           </div>
-          
-          <div className="bg-green-50 border-l-4 border-green-500 p-3">
-            <p className="font-semibold">Problem 13: Set Equality Proof (Easy)</p>
-            <p className="text-sm mt-1">Challenge: Implement set operations. Prove programmatically: (A ∩ B) ∪ (A ∩ C) = A ∩ (B ∪ C)</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Generate test sets and verify both sides produce identical results. Formal proof uses element-wise membership.</p>
+
+          <div className="bg-green-50 border-l-4 border-green-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 13: Set Equality Proof</p>
+              <div className="flex gap-2">
+                <span className="bg-green-200 text-green-800 text-xs px-2 py-1 rounded">Easy</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">Set Theory</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Implement set operations. Prove programmatically: (A ∩ B) ∪ (A ∩ C) = A ∩ (B ∪ C)</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Generate test sets and verify both sides produce identical results. Formal proof uses element-wise membership.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "set operations implementation", "distributive law"</p>
           </div>
-          
-          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-3">
-            <p className="font-semibold">Problem 14: Transitive Closure (Medium)</p>
-            <p className="text-sm mt-1">Challenge: Implement Warshall's algorithm. Prove it correctly computes transitive closure.</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Use loop invariant and mathematical induction on k (number of intermediate vertices considered).</p>
+
+          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 14: Transitive Closure</p>
+              <div className="flex gap-2">
+                <span className="bg-yellow-200 text-yellow-800 text-xs px-2 py-1 rounded">Medium</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">Graph Theory</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Implement Warshall's algorithm. Prove it correctly computes transitive closure.</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Use loop invariant and mathematical induction on k (number of intermediate vertices considered).</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "Warshall algorithm", "transitive closure"</p>
           </div>
-          
-          <div className="bg-red-50 border-l-4 border-red-500 p-3">
-            <p className="font-semibold">Problem 15: NFA to DFA Correctness (Hard)</p>
-            <p className="text-sm mt-1">Challenge: Implement subset construction (NFA→DFA). Prove L(NFA) = L(DFA) for your construction.</p>
-            <p className="text-sm mt-1"><strong>Hint:</strong> Constructive proof with induction on string length. Show state correspondence is maintained.</p>
+
+          <div className="bg-red-50 border-l-4 border-red-500 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="font-semibold">Problem 15: NFA to DFA Correctness</p>
+              <div className="flex gap-2">
+                <span className="bg-red-200 text-red-800 text-xs px-2 py-1 rounded">Hard</span>
+                <span className="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded">Automata</span>
+              </div>
+            </div>
+            <p className="text-sm mt-2">Challenge: Implement subset construction (NFA→DFA). Prove L(NFA) = L(DFA) for your construction.</p>
+            <p className="text-sm mt-2"><strong>Hint:</strong> Constructive proof with induction on string length. Show state correspondence is maintained.</p>
+            <p className="text-sm mt-2 text-gray-600">Search: "subset construction algorithm", "NFA DFA equivalence"</p>
           </div>
         </div>
       </section>

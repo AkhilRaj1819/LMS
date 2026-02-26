@@ -13,6 +13,29 @@ const Module1_2: React.FC = () => {
       </div>
 
       <section className="content-section">
+        <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-gray-200 rounded-lg p-6 mb-6">
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="text-gray-600">⏱️ <strong>Estimated Time</strong></p>
+              <p className="ml-6">75-90 minutes</p>
+            </div>
+            <div>
+              <p className="text-gray-600">📊 <strong>Difficulty</strong></p>
+              <p className="ml-6">Intermediate</p>
+            </div>
+            <div>
+              <p className="text-gray-600">🎯 <strong>Prerequisites</strong></p>
+              <p className="ml-6">Sets, Logic, Algebra</p>
+            </div>
+            <div>
+              <p className="text-gray-600">✅ <strong>Pass Score</strong></p>
+              <p className="ml-6">70% or higher</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-section">
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
           <p className="font-semibold">🎯 Learning Objectives</p>
           <ul className="list-disc ml-6 mt-2 space-y-1">
@@ -103,111 +126,6 @@ const Module1_2: React.FC = () => {
           <li><strong>Structural Induction:</strong> Induction applied to recursively-defined structures like trees, lists, or strings</li>
         </ul>
 
-        <div className="flex flex-col items-center my-6">
-          <div className="bg-white border-2 border-gray-300 rounded-lg p-6 max-w-4xl">
-            <h4 className="text-center font-bold text-lg mb-4">Process Flow: Constructing an Inductive Proof</h4>
-            <svg width="700" height="950" viewBox="0 0 700 950" className="mx-auto">
-              <defs>
-                <marker id="arrowInduction" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                  <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" />
-                </marker>
-              </defs>
-              
-              {/* Start */}
-              <ellipse cx="350" cy="40" rx="120" ry="30" fill="#86efac" stroke="#16a34a" strokeWidth="2"/>
-              <text x="350" y="48" textAnchor="middle" fontSize="13" fontWeight="bold">Start: Statement to Prove</text>
-              
-              <line x1="350" y1="70" x2="350" y2="100" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              
-              {/* Define Property */}
-              <rect x="275" y="100" width="150" height="50" rx="5" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2"/>
-              <text x="350" y="130" textAnchor="middle" fontSize="12">Define Property P(n)</text>
-              
-              <line x1="350" y1="150" x2="350" y2="180" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              
-              {/* Identify Domain */}
-              <rect x="260" y="180" width="180" height="50" rx="5" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2"/>
-              <text x="350" y="210" textAnchor="middle" fontSize="12">Identify Domain: n ≥ n₀</text>
-              
-              <line x1="350" y1="230" x2="350" y2="270" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              
-              {/* Base Case Check */}
-              <path d="M 350 270 L 450 320 L 350 370 L 250 320 Z" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2"/>
-              <text x="350" y="318" textAnchor="middle" fontSize="11">Base Case:</text>
-              <text x="350" y="333" textAnchor="middle" fontSize="11">Check P(n₀)</text>
-              
-              {/* FALSE - Proof Fails */}
-              <line x1="250" y1="320" x2="150" y2="320" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              <text x="210" y="315" fontSize="11" fontWeight="bold" fill="#dc2626">FALSE</text>
-              
-              <ellipse cx="80" cy="320" rx="70" ry="30" fill="#fecaca" stroke="#dc2626" strokeWidth="2"/>
-              <text x="80" y="325" textAnchor="middle" fontSize="11" fontWeight="bold">❌ Proof Fails</text>
-              
-              {/* TRUE - Base Case Proven */}
-              <line x1="350" y1="370" x2="350" y2="420" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              <text x="360" y="400" fontSize="11" fontWeight="bold" fill="#16a34a">TRUE</text>
-              
-              <rect x="250" y="420" width="200" height="50" rx="5" fill="#d1fae5" stroke="#16a34a" strokeWidth="2"/>
-              <text x="350" y="450" textAnchor="middle" fontSize="11" fontWeight="bold">✓ Base Case Proven</text>
-              
-              <line x1="350" y1="470" x2="350" y2="510" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              
-              {/* State Inductive Hypothesis */}
-              <rect x="230" y="510" width="240" height="50" rx="5" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2"/>
-              <text x="350" y="530" textAnchor="middle" fontSize="11">State Inductive Hypothesis:</text>
-              <text x="350" y="545" textAnchor="middle" fontSize="11" fontWeight="bold">Assume P(k)</text>
-              
-              <line x1="350" y1="560" x2="350" y2="600" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              
-              {/* Prove Inductive Step */}
-              <rect x="230" y="600" width="240" height="50" rx="5" fill="#e9d5ff" stroke="#9333ea" strokeWidth="2"/>
-              <text x="350" y="620" textAnchor="middle" fontSize="11">Prove Inductive Step:</text>
-              <text x="350" y="635" textAnchor="middle" fontSize="11" fontWeight="bold">P(k) → P(k+1)</text>
-              
-              <line x1="350" y1="650" x2="350" y2="700" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              
-              {/* Can we derive? */}
-              <path d="M 350 700 L 470 760 L 350 820 L 230 760 Z" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2"/>
-              <text x="350" y="750" textAnchor="middle" fontSize="10">Can we derive</text>
-              <text x="350" y="765" textAnchor="middle" fontSize="10">P(k+1) from P(k)?</text>
-              
-              {/* NO - Proof Fails */}
-              <line x1="230" y1="760" x2="120" y2="760" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              <text x="190" y="755" fontSize="11" fontWeight="bold" fill="#dc2626">NO</text>
-              
-              <rect x="20" y="735" width="100" height="50" rx="5" fill="#fecaca" stroke="#dc2626" strokeWidth="2"/>
-              <text x="70" y="753" textAnchor="middle" fontSize="9">❌ Proof Fails or</text>
-              <text x="70" y="768" textAnchor="middle" fontSize="9">Try Different</text>
-              <text x="70" y="783" textAnchor="middle" fontSize="9">Approach</text>
-              
-              {/* YES - Inductive Step Proven */}
-              <line x1="350" y1="820" x2="350" y2="860" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              <text x="360" y="845" fontSize="11" fontWeight="bold" fill="#16a34a">YES</text>
-              
-              <rect x="230" y="860" width="240" height="50" rx="5" fill="#d1fae5" stroke="#16a34a" strokeWidth="2"/>
-              <text x="350" y="890" textAnchor="middle" fontSize="11" fontWeight="bold">✓ Inductive Step Proven</text>
-              
-              <line x1="470" y1="885" x2="550" y2="885" stroke="#3b82f6" strokeWidth="2"/>
-              <line x1="550" y1="885" x2="550" y2="950" stroke="#3b82f6" strokeWidth="2"/>
-              <line x1="550" y1="950" x2="470" y2="950" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              
-              {/* Conclusion */}
-              <rect x="230" y="925" width="240" height="50" rx="5" fill="#bfdbfe" stroke="#3b82f6" strokeWidth="2"/>
-              <text x="350" y="945" textAnchor="middle" fontSize="10">Conclusion:</text>
-              <text x="350" y="960" textAnchor="middle" fontSize="10" fontWeight="bold">P(n) true for all n ≥ n₀</text>
-              
-              <line x1="230" y1="950" x2="150" y2="950" stroke="#3b82f6" strokeWidth="2"/>
-              <line x1="150" y1="950" x2="150" y2="1020" stroke="#3b82f6" strokeWidth="2"/>
-              <line x1="150" y1="1020" x2="230" y2="1020" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowInduction)"/>
-              
-              {/* End */}
-              <ellipse cx="350" cy="1020" rx="120" ry="30" fill="#86efac" stroke="#16a34a" strokeWidth="2"/>
-              <text x="350" y="1028" textAnchor="middle" fontSize="13" fontWeight="bold">End: Proof Complete</text>
-            </svg>
-            <p className="text-center text-sm text-gray-600 mt-4">Figure 2: Complete flowchart for constructing an inductive proof</p>
-          </div>
-        </div>
-
         <div className="visual-diagram" style={{background: '#f8f9fa', padding: '30px', margin: '30px 0', borderRadius: '8px'}}>
           <h4 style={{textAlign: 'center', marginBottom: '30px'}}>Visual Representation of Mathematical Induction</h4>
           <div style={{display: 'flex', justifyContent: 'space-around', marginBottom: '30px', flexWrap: 'wrap'}}>
@@ -237,102 +155,6 @@ const Module1_2: React.FC = () => {
         <h4 className="mt-6 font-semibold">How It Works: The Mechanism Explained</h4>
         <p>Let's break down exactly how induction works step-by-step, using both formal logic and intuitive understanding:</p>
         
-        <div className="bg-gray-50 border-l-4 border-gray-400 p-6 my-6">
-          <h5 className="font-semibold text-center mb-4">Complete Induction Proof Flowchart</h5>
-          <div className="flex flex-col items-center space-y-3">
-            <div className="bg-blue-100 border-2 border-blue-500 rounded-lg p-3 w-80 text-center">
-              <strong>Begin Proof by Induction</strong>
-            </div>
-            <div className="text-2xl">↓</div>
-            <div className="bg-white border-2 border-gray-400 rounded-lg p-3 w-80 text-center">
-              Define: What is P(n)?
-            </div>
-            <div className="text-2xl">↓</div>
-            <div className="bg-white border-2 border-gray-400 rounded-lg p-3 w-80 text-center">
-              Specify Domain: n ≥ n₀
-            </div>
-            <div className="text-2xl">↓</div>
-            <div className="bg-yellow-100 border-2 border-yellow-500 rounded-lg p-3 w-80 text-center">
-              <strong>BASE CASE: Verify P(n₀)</strong>
-            </div>
-            <div className="flex items-center justify-center space-x-8">
-              <div className="flex flex-col items-center">
-                <div className="text-sm text-red-600 font-semibold">FALSE</div>
-                <div className="text-2xl">↓</div>
-                <div className="bg-red-100 border-2 border-red-500 rounded-lg p-3 w-56 text-center">
-                  ❌ Statement is FALSE
-                </div>
-                <div className="text-2xl">↓</div>
-                <div className="bg-gray-200 border-2 border-gray-500 rounded-lg p-3 w-56 text-center text-sm">
-                  End: Cannot prove false statement
-                </div>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="text-sm text-green-600 font-semibold">TRUE</div>
-                <div className="text-2xl">↓</div>
-                <div className="bg-green-100 border-2 border-green-500 rounded-lg p-3 w-56 text-center">
-                  ✓ Base case proven
-                </div>
-                <div className="text-2xl">↓</div>
-                <div className="bg-orange-100 border-2 border-orange-500 rounded-lg p-3 w-56 text-center">
-                  <strong>HYPOTHESIS:</strong> Assume P(k) for arbitrary k ≥ n₀
-                </div>
-                <div className="text-2xl">↓</div>
-                <div className="bg-purple-100 border-2 border-purple-500 rounded-lg p-3 w-56 text-center">
-                  <strong>GOAL:</strong> Prove P(k+1)
-                </div>
-                <div className="text-2xl">↓</div>
-                <div className="bg-white border-2 border-gray-400 rounded-lg p-3 w-56 text-center text-sm">
-                  Start with LHS of P(k+1)
-                </div>
-                <div className="text-2xl">↓</div>
-                <div className="bg-white border-2 border-gray-400 rounded-lg p-3 w-56 text-center text-sm">
-                  Apply algebraic manipulation
-                </div>
-                <div className="text-2xl">↓</div>
-                <div className="bg-white border-2 border-gray-400 rounded-lg p-3 w-56 text-center text-sm">
-                  Insert inductive hypothesis P(k)
-                </div>
-                <div className="text-2xl">↓</div>
-                <div className="bg-white border-2 border-gray-400 rounded-lg p-3 w-56 text-center text-sm">
-                  Simplify using P(k) = true
-                </div>
-                <div className="text-2xl">↓</div>
-                <div className="bg-blue-100 border-2 border-blue-500 rounded-lg p-3 w-56 text-center text-sm">
-                  Does it equal RHS of P(k+1)?
-                </div>
-                <div className="flex items-center justify-center space-x-4 mt-3">
-                  <div className="flex flex-col items-center">
-                    <div className="text-xs text-red-600 font-semibold">NO</div>
-                    <div className="text-xl">↓</div>
-                    <div className="bg-red-100 border-2 border-red-500 rounded-lg p-2 w-40 text-center text-xs">
-                      ❌ Proof fails - try different approach
-                    </div>
-                    <div className="text-xl">↓</div>
-                    <div className="bg-gray-200 border-2 border-gray-500 rounded-lg p-2 w-40 text-center text-xs">
-                      End: Need different method
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <div className="text-xs text-green-600 font-semibold">YES</div>
-                    <div className="text-xl">↓</div>
-                    <div className="bg-green-100 border-2 border-green-500 rounded-lg p-2 w-40 text-center text-xs">
-                      ✓ Inductive step proven: P(k) ⟹ P(k+1)
-                    </div>
-                    <div className="text-xl">↓</div>
-                    <div className="bg-green-200 border-2 border-green-600 rounded-lg p-2 w-40 text-center text-xs font-semibold">
-                      CONCLUSION: By mathematical induction...
-                    </div>
-                    <div className="text-xl">↓</div>
-                    <div className="bg-blue-100 border-2 border-blue-500 rounded-lg p-2 w-40 text-center text-xs font-semibold">
-                      ✓ P(n) true for all n ≥ n₀ ∎
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         
         <p className="mt-4">
           <strong>Step 1: Identify the Property to Prove</strong> - First, clearly state what you want to prove. This is typically a predicate P(n) 
@@ -723,6 +545,137 @@ CONCLUSION:
           </pre>
         </div>
 
+        <div className="complexity-analysis" style={{background: '#fef3c7', padding: '20px', borderRadius: '8px', margin: '20px 0', border: '2px solid #f59e0b'}}>
+          <h4 style={{textAlign: 'center', marginBottom: '20px'}}>⏱️ Complexity Analysis of Proof Construction:</h4>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '15px', marginBottom: '20px'}}>
+            <div style={{background: '#fff', padding: '15px', borderRadius: '8px', border: '1px solid #f59e0b'}}>
+              <p style={{fontWeight: 'bold', color: '#92400e', marginBottom: '8px'}}>Verification Time:</p>
+              <p style={{fontSize: '18px', fontWeight: 'bold', color: '#b45309'}}>O(1)</p>
+              <p style={{fontSize: '14px', color: '#78350f'}}>Base case is constant-time verification</p>
+            </div>
+            <div style={{background: '#fff', padding: '15px', borderRadius: '8px', border: '1px solid #f59e0b'}}>
+              <p style={{fontWeight: 'bold', color: '#92400e', marginBottom: '8px'}}>Logical Steps:</p>
+              <p style={{fontSize: '18px', fontWeight: 'bold', color: '#b45309'}}>O(1)</p>
+              <p style={{fontSize: '14px', color: '#78350f'}}>Inductive step is also constant complexity</p>
+            </div>
+            <div style={{background: '#fff', padding: '15px', borderRadius: '8px', border: '1px solid #f59e0b'}}>
+              <p style={{fontWeight: 'bold', color: '#92400e', marginBottom: '8px'}}>Proof Coverage:</p>
+              <p style={{fontSize: '18px', fontWeight: 'bold', color: '#b45309'}}>O(∞)</p>
+              <p style={{fontSize: '14px', color: '#78350f'}}>Despite finite steps, proves infinitely many cases!</p>
+            </div>
+            <div style={{background: '#fff', padding: '15px', borderRadius: '8px', border: '1px solid #f59e0b'}}>
+              <p style={{fontWeight: 'bold', color: '#92400e', marginBottom: '8px'}}>Proof Power:</p>
+              <p style={{fontSize: '18px', fontWeight: 'bold', color: '#16a34a'}}>✓ Infinite</p>
+              <p style={{fontSize: '14px', color: '#78350f'}}>This is the magic of induction—finite reasoning for infinite truth</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="induction-flowchart" style={{background: '#f0f9ff', padding: '20px', borderRadius: '8px', margin: '20px 0', border: '2px solid #3b82f6'}}>
+          <h4 style={{textAlign: 'center', marginBottom: '20px', fontSize: '18px', fontWeight: 'bold'}}>Induction Proof Flowchart</h4>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px'}}>
+            <div style={{background: '#3b82f6', color: '#fff', padding: '15px 30px', borderRadius: '8px', fontWeight: 'bold', textAlign: 'center'}}>
+              Begin Proof by Induction
+            </div>
+            <div style={{fontSize: '24px', color: '#3b82f6'}}>↓</div>
+            <div style={{background: '#fff', border: '2px solid #3b82f6', padding: '15px 30px', borderRadius: '8px', textAlign: 'center'}}>
+              Define: What is P(n)?
+            </div>
+            <div style={{fontSize: '24px', color: '#3b82f6'}}>↓</div>
+            <div style={{background: '#fff', border: '2px solid #3b82f6', padding: '15px 30px', borderRadius: '8px', textAlign: 'center'}}>
+              Specify Domain: n ≥ n₀
+            </div>
+            <div style={{fontSize: '24px', color: '#3b82f6'}}>↓</div>
+            <div style={{background: '#fef3c7', border: '2px solid #f59e0b', padding: '15px 30px', borderRadius: '8px', fontWeight: 'bold', textAlign: 'center'}}>
+              BASE CASE: Verify P(n₀)
+            </div>
+            
+            <div style={{display: 'flex', gap: '40px', marginTop: '10px'}}>
+              <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px'}}>
+                <div style={{fontSize: '14px', fontWeight: 'bold', color: '#dc2626'}}>FALSE</div>
+                <div style={{fontSize: '24px', color: '#dc2626'}}>↓</div>
+                <div style={{background: '#fecaca', border: '2px solid #dc2626', padding: '15px 30px', borderRadius: '8px', textAlign: 'center', fontWeight: 'bold'}}>
+                  ❌ Statement is FALSE
+                </div>
+                <div style={{fontSize: '24px', color: '#dc2626'}}>↓</div>
+                <div style={{background: '#e5e7eb', border: '2px solid #6b7280', padding: '10px 20px', borderRadius: '8px', textAlign: 'center', fontSize: '12px'}}>
+                  End: Cannot prove false statement
+                </div>
+              </div>
+              
+              <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px'}}>
+                <div style={{fontSize: '14px', fontWeight: 'bold', color: '#16a34a'}}>TRUE</div>
+                <div style={{fontSize: '24px', color: '#16a34a'}}>↓</div>
+                <div style={{background: '#d1fae5', border: '2px solid #16a34a', padding: '15px 30px', borderRadius: '8px', textAlign: 'center', fontWeight: 'bold'}}>
+                  ✓ Base case proven
+                </div>
+                <div style={{fontSize: '24px', color: '#3b82f6'}}>↓</div>
+                <div style={{background: '#fed7aa', border: '2px solid #ea580c', padding: '15px 30px', borderRadius: '8px', textAlign: 'center', fontWeight: 'bold'}}>
+                  HYPOTHESIS: Assume P(k) for arbitrary k ≥ n₀
+                </div>
+                <div style={{fontSize: '24px', color: '#3b82f6'}}>↓</div>
+                <div style={{background: '#e9d5ff', border: '2px solid #9333ea', padding: '15px 30px', borderRadius: '8px', textAlign: 'center', fontWeight: 'bold'}}>
+                  GOAL: Prove P(k+1)
+                </div>
+                <div style={{fontSize: '24px', color: '#3b82f6'}}>↓</div>
+                <div style={{background: '#fff', border: '2px solid #6b7280', padding: '10px 20px', borderRadius: '8px', textAlign: 'center', fontSize: '13px'}}>
+                  Start with LHS of P(k+1)
+                </div>
+                <div style={{fontSize: '24px', color: '#3b82f6'}}>↓</div>
+                <div style={{background: '#fff', border: '2px solid #6b7280', padding: '10px 20px', borderRadius: '8px', textAlign: 'center', fontSize: '13px'}}>
+                  Apply algebraic manipulation
+                </div>
+                <div style={{fontSize: '24px', color: '#3b82f6'}}>↓</div>
+                <div style={{background: '#fff', border: '2px solid #6b7280', padding: '10px 20px', borderRadius: '8px', textAlign: 'center', fontSize: '13px'}}>
+                  Insert inductive hypothesis P(k)
+                </div>
+                <div style={{fontSize: '24px', color: '#3b82f6'}}>↓</div>
+                <div style={{background: '#fff', border: '2px solid #6b7280', padding: '10px 20px', borderRadius: '8px', textAlign: 'center', fontSize: '13px'}}>
+                  Simplify using P(k) = true
+                </div>
+                <div style={{fontSize: '24px', color: '#3b82f6'}}>↓</div>
+                <div style={{background: '#dbeafe', border: '2px solid #3b82f6', padding: '10px 20px', borderRadius: '8px', textAlign: 'center', fontSize: '13px'}}>
+                  Does it equal RHS of P(k+1)?
+                </div>
+                
+                <div style={{display: 'flex', gap: '30px', marginTop: '10px'}}>
+                  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+                    <div style={{fontSize: '12px', fontWeight: 'bold', color: '#dc2626'}}>NO</div>
+                    <div style={{fontSize: '20px', color: '#dc2626'}}>↓</div>
+                    <div style={{background: '#fecaca', border: '2px solid #dc2626', padding: '8px 15px', borderRadius: '6px', textAlign: 'center', fontSize: '11px'}}>
+                      ❌ Proof fails - try different approach
+                    </div>
+                    <div style={{fontSize: '20px', color: '#dc2626'}}>↓</div>
+                    <div style={{background: '#e5e7eb', border: '2px solid #6b7280', padding: '8px 15px', borderRadius: '6px', textAlign: 'center', fontSize: '11px'}}>
+                      End: Need different method
+                    </div>
+                    <div style={{fontSize: '11px', fontStyle: 'italic', color: '#6b7280', marginTop: '5px', textAlign: 'center'}}>
+                      Reconsider problem or<br/>use strong induction
+                    </div>
+                  </div>
+                  
+                  <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px'}}>
+                    <div style={{fontSize: '12px', fontWeight: 'bold', color: '#16a34a'}}>YES</div>
+                    <div style={{fontSize: '20px', color: '#16a34a'}}>↓</div>
+                    <div style={{background: '#d1fae5', border: '2px solid #16a34a', padding: '8px 15px', borderRadius: '6px', textAlign: 'center', fontSize: '11px', fontWeight: 'bold'}}>
+                      ✓ Inductive step proven: P(k) ⟹ P(k+1)
+                    </div>
+                    <div style={{fontSize: '20px', color: '#16a34a'}}>↓</div>
+                    <div style={{background: '#bbf7d0', border: '2px solid #16a34a', padding: '8px 15px', borderRadius: '6px', textAlign: 'center', fontSize: '11px', fontWeight: 'bold'}}>
+                      CONCLUSION: By mathematical induction...
+                    </div>
+                    <div style={{fontSize: '20px', color: '#16a34a'}}>↓</div>
+                    <div style={{background: '#3b82f6', color: '#fff', padding: '8px 15px', borderRadius: '6px', textAlign: 'center', fontSize: '11px', fontWeight: 'bold'}}>
+                      ✓ P(n) true for all n ≥ n₀ ∎
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p style={{textAlign: 'center', fontSize: '12px', fontStyle: 'italic', color: '#64748b', marginTop: '20px'}}>Figure 4: Complete flowchart for constructing and verifying an inductive proof</p>
+        </div>
+
         <h4 className="mt-6 font-semibold">Worked Example 1: Proving a Summation Formula</h4>
         <div className="example-box" style={{background: '#f0f7ff', padding: '20px', borderRadius: '8px', margin: '20px 0'}}>
           <h4>📝 Problem Statement</h4>
@@ -771,6 +724,65 @@ CONCLUSION:
           <p><strong>Step 5: CONCLUSION</strong></p>
           <p>By the principle of mathematical induction, P(n) holds for all integers n ≥ 1.</p>
           <p><strong>Therefore:</strong> 1 + 2 + 3 + ... + n = n(n+1)/2 for all n ≥ 1. ∎</p>
+        </div>
+
+        <div className="visual-verification" style={{background: '#f0f9ff', padding: '20px', borderRadius: '8px', margin: '20px 0', border: '2px solid #3b82f6'}}>
+          <h4 style={{textAlign: 'center', marginBottom: '20px'}}>Visual Verification for Small Values</h4>
+          <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: '20px'}}>
+            <div style={{background: '#fff', padding: '15px', borderRadius: '8px', border: '1px solid #ddd'}}>
+              <p style={{fontWeight: 'bold', textAlign: 'center', marginBottom: '10px'}}>n = 1:</p>
+              <div style={{display: 'flex', justifyContent: 'center', marginBottom: '10px'}}>
+                <div style={{width: '30px', height: '30px', background: '#3b82f6', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold'}}>1</div>
+              </div>
+              <p style={{textAlign: 'center', fontSize: '14px'}}>Sum = 1</p>
+              <p style={{textAlign: 'center', fontSize: '14px', color: '#16a34a', fontWeight: 'bold'}}>1(2)/2 = 1 ✓</p>
+            </div>
+            
+            <div style={{background: '#fff', padding: '15px', borderRadius: '8px', border: '1px solid #ddd'}}>
+              <p style={{fontWeight: 'bold', textAlign: 'center', marginBottom: '10px'}}>n = 2:</p>
+              <div style={{display: 'flex', justifyContent: 'center', gap: '5px', marginBottom: '10px'}}>
+                <div style={{width: '30px', height: '30px', background: '#3b82f6', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold'}}>1</div>
+                <div style={{width: '30px', height: '30px', background: '#3b82f6', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold'}}>2</div>
+              </div>
+              <p style={{textAlign: 'center', fontSize: '14px'}}>Sum = 1+2 = 3</p>
+              <p style={{textAlign: 'center', fontSize: '14px', color: '#16a34a', fontWeight: 'bold'}}>2(3)/2 = 3 ✓</p>
+            </div>
+            
+            <div style={{background: '#fff', padding: '15px', borderRadius: '8px', border: '1px solid #ddd'}}>
+              <p style={{fontWeight: 'bold', textAlign: 'center', marginBottom: '10px'}}>n = 3:</p>
+              <div style={{display: 'flex', justifyContent: 'center', gap: '5px', marginBottom: '10px'}}>
+                <div style={{width: '30px', height: '30px', background: '#3b82f6', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold'}}>1</div>
+                <div style={{width: '30px', height: '30px', background: '#3b82f6', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold'}}>2</div>
+                <div style={{width: '30px', height: '30px', background: '#3b82f6', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold'}}>3</div>
+              </div>
+              <p style={{textAlign: 'center', fontSize: '14px'}}>Sum = 1+2+3 = 6</p>
+              <p style={{textAlign: 'center', fontSize: '14px', color: '#16a34a', fontWeight: 'bold'}}>3(4)/2 = 6 ✓</p>
+            </div>
+            
+            <div style={{background: '#fff', padding: '15px', borderRadius: '8px', border: '1px solid #ddd'}}>
+              <p style={{fontWeight: 'bold', textAlign: 'center', marginBottom: '10px'}}>n = 4:</p>
+              <div style={{display: 'flex', justifyContent: 'center', gap: '5px', marginBottom: '10px', flexWrap: 'wrap'}}>
+                <div style={{width: '30px', height: '30px', background: '#3b82f6', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold'}}>1</div>
+                <div style={{width: '30px', height: '30px', background: '#3b82f6', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold'}}>2</div>
+                <div style={{width: '30px', height: '30px', background: '#3b82f6', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold'}}>3</div>
+                <div style={{width: '30px', height: '30px', background: '#3b82f6', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 'bold'}}>4</div>
+              </div>
+              <p style={{textAlign: 'center', fontSize: '14px'}}>Sum = 10</p>
+              <p style={{textAlign: 'center', fontSize: '14px', color: '#16a34a', fontWeight: 'bold'}}>4(5)/2 = 10 ✓</p>
+            </div>
+          </div>
+          
+          <div style={{background: '#e0f2fe', padding: '15px', borderRadius: '8px', textAlign: 'center'}}>
+            <p style={{fontSize: '16px', fontWeight: 'bold', marginBottom: '10px'}}>Pattern continues by induction...</p>
+            <p style={{fontSize: '18px', color: '#0369a1', fontWeight: 'bold'}}>∞ cases proven with finite logic!</p>
+            <p style={{fontSize: '12px', fontStyle: 'italic', marginTop: '10px', color: '#64748b'}}>Figure 5: Visual verification showing the formula works for n=1,2,3,4 and by induction, for all n</p>
+          </div>
+          
+          <div style={{background: '#dcfce7', padding: '15px', borderRadius: '8px', marginTop: '20px'}}>
+            <h5 style={{marginTop: 0}}>✅ Final Answer</h5>
+            <p><strong>Proven:</strong> 1 + 2 + 3 + ... + n = n(n+1)/2 for all n ≥ 1</p>
+            <p><strong>Method:</strong> Mathematical induction with base case n=1 and inductive step P(k)→P(k+1)</p>
+          </div>
         </div>
 
         <div className="insights" style={{background: '#fffbea', padding: '20px', borderRadius: '8px', margin: '20px 0'}}>
@@ -831,6 +843,71 @@ CONCLUSION:
           <p>By mathematical induction, 6 | (n³ - n) for all n ≥ 1. ∎</p>
         </div>
 
+        <div className="verification-table" style={{background: '#f8f9fa', padding: '20px', borderRadius: '8px', margin: '20px 0', border: '2px solid #4CAF50'}}>
+          <h4 style={{textAlign: 'center', marginBottom: '20px'}}>Verification: Testing the Theorem</h4>
+          <table style={{width: '100%', borderCollapse: 'collapse', marginBottom: '20px'}}>
+            <thead>
+              <tr style={{background: '#e3f2fd', borderBottom: '2px solid #2196F3'}}>
+                <th style={{padding: '12px', textAlign: 'center', border: '1px solid #ddd'}}>n</th>
+                <th style={{padding: '12px', textAlign: 'center', border: '1px solid #ddd'}}>n³</th>
+                <th style={{padding: '12px', textAlign: 'center', border: '1px solid #ddd'}}>n³ - n</th>
+                <th style={{padding: '12px', textAlign: 'center', border: '1px solid #ddd'}}>Divided by 6</th>
+                <th style={{padding: '12px', textAlign: 'center', border: '1px solid #ddd'}}>Factored Form</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{background: '#fff'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>1</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>1</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>0</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>0</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>0 = 6(0) ✓</td>
+              </tr>
+              <tr style={{background: '#f5f5f5'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>2</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>8</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>6</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>1</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>6 = 6(1) ✓</td>
+              </tr>
+              <tr style={{background: '#fff'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>3</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>27</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>24</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>4</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>24 = 6(4) ✓</td>
+              </tr>
+              <tr style={{background: '#f5f5f5'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>4</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>64</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>60</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>10</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>60 = 6(10) ✓</td>
+              </tr>
+              <tr style={{background: '#fff'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>5</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>125</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>120</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>20</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>120 = 6(20) ✓</td>
+              </tr>
+              <tr style={{background: '#f5f5f5'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>10</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>1000</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>990</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>165</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>990 = 6(165) ✓</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div style={{background: '#e8f5e9', padding: '15px', borderRadius: '8px', marginTop: '20px'}}>
+            <h5 style={{marginTop: 0}}>✅ Final Answer</h5>
+            <p><strong>Proven:</strong> n³ - n is divisible by 6 for all positive integers n</p>
+            <p><strong>Alternative representation:</strong> n³ - n = n(n-1)(n+1) = product of three consecutive integers, always divisible by 6</p>
+          </div>
+        </div>
+
         <div className="insights" style={{background: '#fffbea', padding: '20px', borderRadius: '8px', margin: '20px 0'}}>
           <h4>💡 Key Insights</h4>
           <ul>
@@ -889,6 +966,77 @@ CONCLUSION:
           <p><strong>Step 5: CONCLUSION</strong></p>
           <p>By strong mathematical induction, every integer n ≥ 2 can be expressed as a product of primes. ∎</p>
           <p style={{fontStyle: 'italic'}}>(This is the existence part of the Fundamental Theorem of Arithmetic; uniqueness requires a separate proof)</p>
+        </div>
+
+        <div className="verification-table" style={{background: '#f8f9fa', padding: '20px', borderRadius: '8px', margin: '20px 0', border: '2px solid #4CAF50'}}>
+          <h4 style={{textAlign: 'center', marginBottom: '20px'}}>Verification: Testing the Theorem</h4>
+          <table style={{width: '100%', borderCollapse: 'collapse', marginBottom: '20px'}}>
+            <thead>
+              <tr style={{background: '#e3f2fd', borderBottom: '2px solid #2196F3'}}>
+                <th style={{padding: '12px', textAlign: 'center', border: '1px solid #ddd'}}>n</th>
+                <th style={{padding: '12px', textAlign: 'center', border: '1px solid #ddd'}}>Prime?</th>
+                <th style={{padding: '12px', textAlign: 'center', border: '1px solid #ddd'}}>Prime Factorization</th>
+                <th style={{padding: '12px', textAlign: 'center', border: '1px solid #ddd'}}>Verification</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{background: '#fff'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>2</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>Yes</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>2</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>2 is prime ✓</td>
+              </tr>
+              <tr style={{background: '#f5f5f5'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>3</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>Yes</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>3</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>3 is prime ✓</td>
+              </tr>
+              <tr style={{background: '#fff'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>4</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>No</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>2 × 2</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>4 = 2² ✓</td>
+              </tr>
+              <tr style={{background: '#f5f5f5'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>5</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>Yes</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>5</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>5 is prime ✓</td>
+              </tr>
+              <tr style={{background: '#fff'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>6</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>No</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>2 × 3</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>6 = 2 × 3 ✓</td>
+              </tr>
+              <tr style={{background: '#f5f5f5'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>12</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>No</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>2 × 2 × 3</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>12 = 2² × 3 ✓</td>
+              </tr>
+              <tr style={{background: '#fff'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>30</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>No</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>2 × 3 × 5</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>30 = 2 × 3 × 5 ✓</td>
+              </tr>
+              <tr style={{background: '#f5f5f5'}}>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>100</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>No</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>2 × 2 × 5 × 5</td>
+                <td style={{padding: '10px', textAlign: 'center', border: '1px solid #ddd'}}>100 = 2² × 5² ✓</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div style={{background: '#e8f5e9', padding: '15px', borderRadius: '8px', marginTop: '20px'}}>
+            <h5 style={{marginTop: 0}}>✅ Final Answer</h5>
+            <p><strong>Proven:</strong> Every integer n ≥ 2 has a prime factorization</p>
+            <p><strong>Method:</strong> Strong induction (needed because we factored k+1 into smaller numbers a and b, both of which could be less than k)</p>
+            <p><strong>Significance:</strong> This is one of the most fundamental theorems in all of mathematics!</p>
+          </div>
         </div>
 
         <div className="warning-box" style={{background: '#fff3cd', padding: '20px', borderRadius: '8px', margin: '20px 0', border: '2px solid #ff9800'}}>

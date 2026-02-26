@@ -7,11 +7,23 @@ const Module1_2: React.FC = () => {
       <div className="lesson-header">
         <div className="lesson-number-badge">1.2</div>
         <div className="lesson-title-main">
+          <div className="text-sm text-gray-600 mb-2">📚 Theory of Computation &gt; UNIT-1: Automata Methods and Finite Automata</div>
           <h1>🔍 Additional Forms of Proof</h1>
+          <div className="flex flex-wrap gap-4 mt-3 text-sm">
+            <div><span className="font-semibold">⏱️ Estimated Time:</span> 75-90 minutes</div>
+            <div><span className="font-semibold">📊 Difficulty:</span> Intermediate</div>
+            <div><span className="font-semibold">🎯 Prerequisites:</span> Mathematical Induction, Logic</div>
+            <div><span className="font-semibold">✅ Pass Score:</span> 70% or higher</div>
+          </div>
         </div>
       </div>
 
+      <h1>🎯
+What You'll Master</h1>
+
       <section className="content-section">
+         <h1>🎯
+What You'll Master</h1>
         <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
           <p className="font-semibold">🎯 Learning Objectives</p>
           <ul className="list-disc ml-6 mt-2 space-y-1">
@@ -81,6 +93,28 @@ const Module1_2: React.FC = () => {
           <li><strong>Constructive Proof:</strong> Explicitly builds/constructs an object proving existence</li>
         </ul>
 
+        <div className="my-8 p-8 bg-gray-50 rounded-lg border border-gray-200">
+          <h4 className="text-center text-xl font-bold mb-8 text-gray-800">Visual Representation: Logical Relationships</h4>
+          <div className="flex items-center justify-center gap-12">
+            <div className="relative">
+              <div className="w-32 h-32 bg-[#5c2e2e] rounded-full relative">
+                <div className="absolute top-4 left-8 w-8 h-3 bg-white rounded-full opacity-40"></div>
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-1 h-4 bg-[#4a2424]"></div>
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#ff6b35] rounded-full"></div>
+                <div className="absolute -top-2 left-[35%] w-1.5 h-4 bg-[#4a2424] rotate-[-30deg]"></div>
+                <div className="absolute -top-2 left-[60%] w-1.5 h-4 bg-[#4a2424] rotate-[30deg]"></div>
+                <div className="absolute -top-4 left-[25%] w-1.5 h-3 bg-[#4a2424] rotate-[-45deg]"></div>
+                <div className="absolute -top-4 left-[70%] w-1.5 h-3 bg-[#4a2424] rotate-[45deg]"></div>
+              </div>
+            </div>
+            <div className="text-left">
+              <h3 className="text-3xl font-bold text-gray-700 mb-2">Syntax error in text</h3>
+              <p className="text-gray-500 text-lg">mermaid version 10.9.5</p>
+            </div>
+          </div>
+          <p className="text-center mt-8 text-sm italic text-gray-600">Figure 2: Logical flow of different proof strategies</p>
+        </div>
+
         <h4 className="mt-6 font-semibold">How It Works: The Mechanism Explained</h4>
 
         <div className="mt-4 space-y-6">
@@ -111,6 +145,9 @@ const Module1_2: React.FC = () => {
               </ol>
               <p className="mt-2"><strong>Conclusion:</strong> Our assumption that √2 is rational led to contradiction, so √2 must be irrational. ∎</p>
             </div>
+
+            <div className="mt-6 flex justify-center">
+<iframe width="751" height="404" src="https://www.youtube.com/embed/SfKzDswM6LQ" title="Proofs by contradiction." frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>            </div>
           </div>
 
           <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
@@ -205,6 +242,10 @@ const Module1_2: React.FC = () => {
               </div>
               <p className="text-center text-sm text-gray-600 mt-2">Figure 4: DFA constructed to recognize strings containing "01"</p>
             </div>
+
+            <div className="mt-6 flex justify-center">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/miT3lMbllhw?si=OQ8M9st5vlAy44nY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+            </div>
           </div>
 
           <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
@@ -244,6 +285,7 @@ const Module1_2: React.FC = () => {
             </p>
           </div>
 
+
           <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
             <h4 className="font-semibold text-lg">Component 2: Proof by Contrapositive</h4>
             <p className="mt-2 text-sm">
@@ -266,6 +308,28 @@ const Module1_2: React.FC = () => {
           </div>
         </div>
 
+        <div className="my-8 p-8 bg-gray-50 rounded-lg border border-gray-200">
+          <h4 className="text-center text-xl font-bold mb-8 text-gray-800">Proof Technique Decision Flowchart</h4>
+          <div className="flex items-center justify-center gap-12">
+            <div className="relative">
+              <div className="w-32 h-32 bg-[#5c2e2e] rounded-full relative">
+                <div className="absolute top-4 left-8 w-8 h-3 bg-white rounded-full opacity-40"></div>
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-1 h-4 bg-[#4a2424]"></div>
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#ff6b35] rounded-full"></div>
+                <div className="absolute -top-2 left-[35%] w-1.5 h-4 bg-[#4a2424] rotate-[-30deg]"></div>
+                <div className="absolute -top-2 left-[60%] w-1.5 h-4 bg-[#4a2424] rotate-[30deg]"></div>
+                <div className="absolute -top-4 left-[25%] w-1.5 h-3 bg-[#4a2424] rotate-[-45deg]"></div>
+                <div className="absolute -top-4 left-[70%] w-1.5 h-3 bg-[#4a2424] rotate-[45deg]"></div>
+              </div>
+            </div>
+            <div className="text-left">
+              <h3 className="text-3xl font-bold text-gray-700 mb-2">Syntax error in text</h3>
+              <p className="text-gray-500 text-lg">mermaid version 10.9.5</p>
+            </div>
+          </div>
+          <p className="text-center mt-8 text-sm italic text-gray-600">Figure 5: Decision tree for selecting the appropriate proof technique</p>
+        </div>
+
         <div className="mt-6 bg-gray-50 border-l-4 border-gray-400 p-4">
           <h4 className="font-semibold text-lg">Real-World Implementation</h4>
 
@@ -283,6 +347,9 @@ const Module1_2: React.FC = () => {
             <div>
               <p className="font-semibold">In Cryptography:</p>
               <p>Security proofs extensively use contradiction: to prove a cryptosystem is secure, we assume an attacker can break it, then show this implies breaking a known-hard problem (like factoring large numbers), which is considered impossible. This contradiction-based approach underpins modern cryptography, including RSA, elliptic curve cryptography, and blockchain security.</p>
+              <div className="mt-4 flex justify-center">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/QrkS3UwBFEo?si=BWmxTuDaSielSbzf" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+              </div>
             </div>
           </div>
         </div>
@@ -294,74 +361,128 @@ const Module1_2: React.FC = () => {
         <div className="space-y-4">
           <div className="bg-gray-50 border-l-4 border-gray-400 p-4">
             <p className="font-semibold text-red-600">Misconception #1: "Contrapositive and converse are the same thing"</p>
-            <p className="mt-2"><strong>Reality:</strong> For statement P → Q, the contrapositive is ¬Q → ¬P (logically equivalent), but the converse is Q → P (NOT equivalent!). Example: "If it rains, the ground is wet" (true). Contrapositive: "If the ground is not wet, it didn't rain" (true). Converse: "If the ground is wet, it rained" (false—could be a sprinkler!).</p>
+            <p className="mt-2"><strong>Reality:</strong> This is a critical error! For statement P → Q, the contrapositive is ¬Q → ¬P (logically equivalent to the original), but the converse is Q → P (NOT logically equivalent!). Example: "If it rains, the ground is wet" (true). Contrapositive: "If the ground is not wet, it didn't rain" (also true). Converse: "If the ground is wet, it rained" (false—could be a sprinkler!). Many students confuse these, leading to invalid proofs. Always remember: only contrapositive preserves logical equivalence.</p>
           </div>
 
           <div className="bg-gray-50 border-l-4 border-gray-400 p-4">
             <p className="font-semibold text-red-600">Misconception #2: "Proof by contradiction and contrapositive are the same"</p>
-            <p className="mt-2"><strong>Reality:</strong> Contrapositive is for proving P → Q by proving ¬Q → ¬P. Contradiction assumes P ∧ ¬Q and derives impossibility. Contrapositive is cleaner when applicable, but contradiction is more general.</p>
+            <p className="mt-2"><strong>Reality:</strong> These are related but distinct techniques. Contrapositive is specifically for proving conditional statements (P → Q) by proving ¬Q → ¬P. Proof by contradiction can be used for any statement type: you assume the negation of the entire statement and derive a contradiction. For conditional statements, contradiction assumes P ∧ ¬Q and derives contradiction, while contrapositive assumes ¬Q and proves ¬P directly. Contrapositive is cleaner when applicable, but contradiction is more general.</p>
           </div>
 
           <div className="bg-gray-50 border-l-4 border-gray-400 p-4">
             <p className="font-semibold text-red-600">Misconception #3: "One counterexample proves a statement true"</p>
-            <p className="mt-2"><strong>Reality:</strong> Counterexamples can ONLY disprove universal statements—they cannot prove anything true. Finding one white swan doesn't prove all swans are white. To prove a universal statement, you need a general proof covering all cases.</p>
+            <p className="mt-2"><strong>Reality:</strong> Counterexamples can ONLY disprove universal statements—they cannot prove anything true. If the claim is "all swans are white," finding one black swan disproves it. But finding one white swan doesn't prove all swans are white. To prove a universal statement, you need a general proof (induction, direct proof, etc.) covering all cases, not just examples. This is why testing software can find bugs (counterexamples to correctness) but cannot prove correctness (that would require formal verification covering all inputs).</p>
           </div>
 
           <div className="bg-gray-50 border-l-4 border-gray-400 p-4">
-            <p className="font-semibold text-red-600">Misconception #4: "Proof by construction always means writing code"</p>
-            <p className="mt-2"><strong>Reality:</strong> Constructive proof means providing an explicit method or example, not necessarily code. Drawing a state diagram is construction. The key is specifying every detail explicitly—someone else could follow your construction.</p>
+            <p className="font-semibold text-red-600">Misconception #4: "Proof by construction always means writing code or building physical objects"</p>
+            <p className="mt-2"><strong>Reality:</strong> Constructive proof means providing an explicit method or example, not necessarily implementing it in code. In mathematics, constructing a function that satisfies certain properties is a constructive proof. In automata theory, drawing a state diagram is construction. The key is that you specify every detail explicitly—someone else could follow your construction to build the object. Non-constructive proofs (like some uses of the Axiom of Choice) prove existence without giving any method to find the object. Construction is about explicitness, not physical implementation.</p>
           </div>
         </div>
       </section>
 
       <section className="content-section">
-        <h3 className="text-xl font-semibold mb-4">⚙️ Worked Examples</h3>
+        <h3 className="text-xl font-semibold mb-4">⚙️ See It In Action: Detailed Worked Examples</h3>
 
         <div className="space-y-8">
           <div className="border-l-4 border-red-500 pl-4">
-            <h4 className="font-semibold text-lg">Worked Example 1: Proof by Contradiction - Language Non-Regularity</h4>
-            <p className="mt-2 font-semibold">📝 Problem: Prove that L = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'} is not regular.</p>
+            <h4 className="font-semibold text-lg">Worked Example 1: Proof by Contradiction - Proving Language Non-Regularity</h4>
+            <p className="mt-2 font-semibold">📝 Problem Statement</p>
+            <p className="mt-1"><strong>Claim:</strong> The language L = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'} is not regular.</p>
+            <p className="mt-1 text-sm"><strong>Context:</strong> This is a fundamental result in automata theory. The language consists of strings with equal numbers of 0s followed by 1s: {'{'}ε, 01, 0011, 000111, ...{'}'}. We'll use proof by contradiction combined with the Pumping Lemma for regular languages.</p>
 
             <div className="mt-4 bg-gray-50 p-4 rounded">
-              <p className="font-semibold">Step 1: Assume the negation</p>
-              <p className="text-sm mt-1">Assume L = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'} IS regular.</p>
+              <p className="font-semibold">🔍 Step-by-Step Solution</p>
 
-              <p className="font-semibold mt-3">Step 2: Apply Pumping Lemma</p>
-              <p className="text-sm mt-1">Since L is regular, there exists pumping length p where any string s ∈ L with |s| ≥ p can be split as s = xyz with: |xy| ≤ p, |y| &gt; 0, and xyⁱz ∈ L for all i ≥ 0.</p>
+              <p className="font-semibold mt-3">Step 1: Assume the negation</p>
+              <p className="text-sm mt-1">Assume, for the sake of contradiction, that L = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'} IS regular.</p>
 
-              <p className="font-semibold mt-3">Step 3: Choose strategic string</p>
-              <p className="text-sm mt-1">Select s = 0ᵖ1ᵖ. Clearly s ∈ L and |s| = 2p ≥ p.</p>
+              <p className="font-semibold mt-3">Step 2: Apply the Pumping Lemma</p>
+              <p className="text-sm mt-1">Since L is assumed regular, it must satisfy the Pumping Lemma: there exists a pumping length p such that any string s ∈ L with |s| ≥ p can be split as s = xyz where:</p>
+              <ul className="list-disc ml-6 mt-1 text-sm">
+                <li>|xy| ≤ p</li>
+                <li>|y| &gt; 0</li>
+                <li>For all i ≥ 0, xyⁱz ∈ L</li>
+              </ul>
 
-              <p className="font-semibold mt-3">Step 4: Analyze decomposition</p>
-              <p className="text-sm mt-1">Since |xy| ≤ p and first p characters are 0s, both x and y consist entirely of 0s. So y = 0ᵏ for some k &gt; 0.</p>
+              <p className="font-semibold mt-3">Step 3: Choose a strategic string</p>
+              <p className="text-sm mt-1">Select s = 0ᵖ1ᵖ (p zeros followed by p ones). Clearly s ∈ L and |s| = 2p ≥ p.</p>
+
+              <p className="font-semibold mt-3">Step 4: Analyze the decomposition</p>
+              <p className="text-sm mt-1">According to the Pumping Lemma, s can be written as s = xyz where |xy| ≤ p. Since the first p characters of s are all 0s, and |xy| ≤ p, both x and y must consist entirely of 0s. So y = 0ᵏ for some k &gt; 0.</p>
 
               <p className="font-semibold mt-3">Step 5: Pump the string</p>
-              <p className="text-sm mt-1">Consider xy²z. Since y has k zeros, xy²z has p + k zeros and p ones. But p + k ≠ p, so xy²z has unequal 0s and 1s.</p>
+              <p className="text-sm mt-1">Consider xy²z (pumping y once more). Since y consists of k zeros, xy²z has p + k zeros and p ones. But p + k ≠ p (since k &gt; 0), so xy²z has unequal numbers of 0s and 1s.</p>
 
-              <p className="font-semibold mt-3">Step 6: Contradiction!</p>
-              <p className="text-sm mt-1">xy²z must be in L (by Pumping Lemma), but xy²z has unequal 0s and 1s, so xy²z ∉ L. Contradiction!</p>
+              <p className="font-semibold mt-3">Step 6: Identify the contradiction</p>
+              <p className="text-sm mt-1">We derived that xy²z must be in L (by Pumping Lemma), but xy²z has unequal numbers of 0s and 1s, so xy²z ∉ L. This is a contradiction!</p>
 
-              <p className="font-semibold mt-3">✅ Conclusion</p>
-              <p className="text-sm mt-1">Our assumption led to impossibility. Therefore, L = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'} is NOT regular. ∎</p>
+              <p className="font-semibold mt-3">Step 7: Conclusion</p>
+              <p className="text-sm mt-1">Our assumption that L is regular led to a logical impossibility. Therefore, L = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'} must be NOT regular.</p>
+
+              <div className="mt-4 bg-green-50 p-3 rounded">
+                <p className="font-semibold">✅ Final Answer</p>
+                <p className="mt-1 text-sm">The language L = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'} is NOT regular.</p>
+                <p className="mt-1 text-sm">This proof demonstrates the power of contradiction: we cannot construct a DFA for this language, and contradiction gives us a rigorous way to prove impossibility.</p>
+              </div>
+
+              <div className="mt-4 bg-blue-50 p-3 rounded">
+                <p className="font-semibold">💡 Key Insights</p>
+                <ul className="list-disc ml-6 mt-1 text-sm">
+                  <li><strong>Strategic choice matters:</strong> Choosing s = 0ᵖ1ᵖ was deliberate—it has clear structure that breaks when pumped</li>
+                  <li><strong>Contradiction + Pumping Lemma:</strong> Most non-regularity proofs combine these techniques</li>
+                  <li><strong>This generalizes:</strong> Any language requiring "counting" or "matching" typically isn't regular</li>
+                </ul>
+              </div>
             </div>
           </div>
 
           <div className="border-l-4 border-blue-500 pl-4">
             <h4 className="font-semibold text-lg">Worked Example 2: Proof by Contrapositive</h4>
-            <p className="mt-2 font-semibold">📝 Problem: If L₁ ∪ L₂ is finite, then both L₁ and L₂ are finite.</p>
+            <p className="mt-2 font-semibold">📝 Problem Statement</p>
+            <p className="mt-1"><strong>Claim:</strong> Let L₁ and L₂ be languages over alphabet Σ. Prove: If L₁ ∪ L₂ is finite, then both L₁ and L₂ are finite.</p>
+            <p className="mt-1 text-sm"><strong>Context:</strong> This is a set-theoretic statement about languages. Direct proof would be awkward, but the contrapositive is elegant.</p>
 
             <div className="mt-4 bg-gray-50 p-4 rounded">
-              <p className="font-semibold">Step 1: Identify conditional structure</p>
-              <p className="text-sm mt-1">P: "L₁ ∪ L₂ is finite" → Q: "Both L₁ and L₂ are finite"</p>
+              <p className="font-semibold">🔍 Step-by-Step Solution</p>
 
-              <p className="font-semibold mt-3">Step 2: Form contrapositive</p>
-              <p className="text-sm mt-1">¬Q → ¬P: "If at least one of L₁ or L₂ is infinite, then L₁ ∪ L₂ is infinite"</p>
+              <p className="font-semibold mt-3">Step 1: Identify the conditional structure</p>
+              <p className="text-sm mt-1">The statement has form "If P then Q" where:</p>
+              <ul className="list-disc ml-6 mt-1 text-sm">
+                <li>P: "L₁ ∪ L₂ is finite"</li>
+                <li>Q: "Both L₁ and L₂ are finite"</li>
+              </ul>
 
-              <p className="font-semibold mt-3">Step 3: Prove contrapositive</p>
-              <p className="text-sm mt-1">Assume L₁ is infinite. Since L₁ ⊆ L₁ ∪ L₂, and L₁ contains infinitely many strings, L₁ ∪ L₂ must also contain infinitely many strings. Therefore, L₁ ∪ L₂ is infinite.</p>
+              <p className="font-semibold mt-3">Step 2: Form the contrapositive</p>
+              <p className="text-sm mt-1">The contrapositive is "If ¬Q then ¬P", which translates to:</p>
+              <p className="text-sm mt-1 italic">"If at least one of L₁ or L₂ is infinite, then L₁ ∪ L₂ is infinite"</p>
 
-              <p className="font-semibold mt-3">✅ Conclusion</p>
-              <p className="text-sm mt-1">We proved the contrapositive. By logical equivalence, the original statement is true. ∎</p>
+              <p className="font-semibold mt-3">Step 3: Prove the contrapositive (Case 1)</p>
+              <p className="text-sm mt-1">Assume L₁ is infinite (the case where L₂ is infinite is symmetric).</p>
+              <p className="text-sm mt-1">Since L₁ ⊆ L₁ ∪ L₂, and L₁ contains infinitely many strings, L₁ ∪ L₂ must also contain infinitely many strings (at least all strings from L₁).</p>
+              <p className="text-sm mt-1">Therefore, L₁ ∪ L₂ is infinite.</p>
+
+              <p className="font-semibold mt-3">Step 4: Prove the contrapositive (Case 2)</p>
+              <p className="text-sm mt-1">If L₂ is infinite, by identical reasoning (L₂ ⊆ L₁ ∪ L₂), we conclude L₁ ∪ L₂ is infinite.</p>
+
+              <p className="font-semibold mt-3">Step 5: Conclusion</p>
+              <p className="text-sm mt-1">We've proven the contrapositive: if either L₁ or L₂ is infinite, then L₁ ∪ L₂ is infinite.</p>
+              <p className="text-sm mt-1">By logical equivalence, the original statement is true: if L₁ ∪ L₂ is finite, then both L₁ and L₂ must be finite.</p>
+
+              <div className="mt-4 bg-green-50 p-3 rounded">
+                <p className="font-semibold">✅ Final Answer</p>
+                <p className="mt-1 text-sm">The statement is proven true via contrapositive.</p>
+                <p className="mt-1 text-sm">This demonstrates how contrapositive can transform a statement about finiteness (which is about "not having something") into a statement about infiniteness (which is about "having something"), making the proof more direct.</p>
+              </div>
+
+              <div className="mt-4 bg-blue-50 p-3 rounded">
+                <p className="font-semibold">💡 Key Insights</p>
+                <ul className="list-disc ml-6 mt-1 text-sm">
+                  <li><strong>Contrapositive simplified reasoning:</strong> Proving "infinite implies infinite" is more intuitive than "finite implies finite"</li>
+                  <li><strong>Set inclusion is key:</strong> The subset relationship L₁ ⊆ L₁ ∪ L₂ makes the contrapositive proof immediate</li>
+                  <li><strong>Always check for contrapositive opportunity:</strong> When statements involve negations or "lack of property," try contrapositive</li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -510,6 +631,10 @@ const Module1_2: React.FC = () => {
             </div>
           </div>
         </div>
+
+        <div className="mt-6 flex justify-center">
+          <iframe width="347" height="195" src="https://www.youtube.com/embed/CuYZIsBSguw" title="Closure Properties of Regular Languages + Proofs" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+        </div>
       </section>
 
       <section className="content-section">
@@ -522,12 +647,14 @@ const Module1_2: React.FC = () => {
             <details className="mt-3">
               <summary className="cursor-pointer font-semibold text-blue-600">Show Solution</summary>
               <div className="mt-3 text-sm space-y-2">
-                <p><strong>Step 1:</strong> P: "n² is divisible by 4", Q: "n is even"</p>
-                <p><strong>Step 2:</strong> Contrapositive: "If n is odd, then n² is not divisible by 4"</p>
-                <p><strong>Step 3:</strong> Assume n is odd. Then n = 2k + 1 for some integer k.</p>
-                <p><strong>Step 4:</strong> n² = (2k + 1)² = 4k² + 4k + 1 = 4(k² + k) + 1</p>
-                <p><strong>Step 5:</strong> n² = 4m + 1 where m = k² + k. This means n² leaves remainder 1 when divided by 4.</p>
-                <p><strong>Final Answer:</strong> The statement is proven via contrapositive. ∎</p>
+                <p><strong>Step 1:</strong> Identify the conditional structure. P: "n² is divisible by 4", Q: "n is even"</p>
+                <p><strong>Step 2:</strong> Form the contrapositive: ¬Q → ¬P, which is "If n is odd, then n² is not divisible by 4"</p>
+                <p><strong>Step 3:</strong>  Assume n is odd. Then n = 2k + 1 for some integer k.
+</p>
+                <p><strong>Step 4:</strong>  Calculate n² = (2k + 1)² = 4k² + 4k + 1 = 4(k² + k) + 1</p>
+                <p><strong>Step 5:</strong>  We proved the contrapositive, so the original statement is true.
+</p>
+                <p><strong>Final Answer:</strong> The statement is proven via contrapositive. If n² is divisible by 4, then n must be even.∎</p>
               </div>
             </details>
           </div>
@@ -538,157 +665,425 @@ const Module1_2: React.FC = () => {
             <details className="mt-3">
               <summary className="cursor-pointer font-semibold text-yellow-600">Show Solution</summary>
               <div className="mt-3 text-sm space-y-2">
-                <p><strong>Approach:</strong> Disprove with counterexample.</p>
-                <p><strong>Counterexample:</strong> Let Σ = {'{'}0, 1{'}'}. Define L₁ = {'{'}w | w contains even number of 0s{'}'} and L₂ = {'{'}w | w contains odd number of 0s{'}'}</p>
-                <p><strong>Verification:</strong> Both are regular (2-state DFAs), L₁ ∩ L₂ = ∅, but both are infinite.</p>
-                <p><strong>Final Answer:</strong> The claim is FALSE. ∎</p>
+                <p><strong>Approach:</strong> This is a universal claim, so we disprove it using a counterexample.</p>
+
+<p><strong>Counterexample:</strong> Let Σ = {'{'}0, 1{'}'}. Define 
+L₁ = {'{'}w | w contains an even number of 0s{'}'} and 
+L₂ = {'{'}w | w contains an odd number of 0s{'}'}.</p>
+
+<p><strong>Verification (Regular):</strong> Both L₁ and L₂ are regular because they can be recognized by simple 2-state DFAs.</p>
+
+<p><strong>Verification (Disjoint):</strong> L₁ ∩ L₂ = ∅ because a string cannot simultaneously have both an even and an odd number of 0s.</p>
+
+<p><strong>Verification (Infinite):</strong> Both languages are infinite. For example, L₁ contains ε, 00, 0000, … and L₂ contains 0, 000, 00000, …</p>
+
+<p><strong>Conclusion:</strong> We found regular languages that are disjoint yet both infinite, which disproves the claim.</p>
+
+<p><strong>Final Answer:</strong> The claim is FALSE. Counterexample: L₁ = {'{'}even number of 0s{'}'}, L₂ = {'{'}odd number of 0s{'}'}. Both are regular, disjoint, and infinite. ∎</p>
               </div>
             </details>
           </div>
 
           <div className="bg-red-50 border-l-4 border-red-400 p-4">
-            <h4 className="font-semibold text-lg">📕 Hard Problem</h4>
-            <p className="mt-2"><strong>Problem:</strong> Use proof by contradiction to prove that L = {'{'}ww | w ∈ {'{'}0,1{'}'}*{'}'} is NOT regular.</p>
-            <details className="mt-3">
-              <summary className="cursor-pointer font-semibold text-red-600">Show Solution</summary>
-              <div className="mt-3 text-sm space-y-2">
-                <p><strong>Step 1:</strong> Assume L is regular.</p>
-                <p><strong>Step 2:</strong> By Pumping Lemma, ∃p such that any s ∈ L with |s| ≥ p can be written as xyz with |xy| ≤ p, |y| &gt; 0, xyⁱz ∈ L.</p>
-                <p><strong>Step 3:</strong> Choose s = 0ᵖ1ᵖ0ᵖ1ᵖ. This is in L (s = ww where w = 0ᵖ1ᵖ).</p>
-                <p><strong>Step 4:</strong> Since |xy| ≤ p, y consists only of 0s from first block. So y = 0ᵏ for k &gt; 0.</p>
-                <p><strong>Step 5:</strong> xy²z adds k zeros to first block: 0ᵖ⁺ᵏ1ᵖ0ᵖ1ᵖ. For this to equal ww, we'd need w = 0⁽ᵖ⁺ᵏ⁾/²1ᵖ/²0ᵖ/²1ᵖ/², but the structure doesn't match.</p>
-                <p><strong>Step 6:</strong> Contradiction! xy²z ∈ L by Pumping Lemma, but xy²z ∉ L by structure.</p>
-                <p><strong>Final Answer:</strong> L = {'{'}ww | w ∈ {'{'}0,1{'}'}*{'}'} is NOT regular. ∎</p>
-              </div>
-            </details>
-          </div>
+  <h4 className="font-semibold text-lg">📕 Hard Problem</h4>
+
+  <p className="mt-2">
+    <strong>Problem:</strong> Use proof by contradiction to prove that the language 
+    L = {'{'}ww | w ∈ {'{'}0,1{'}'}*{'}'} (strings formed by concatenating a string with itself)
+    is NOT regular.
+  </p>
+
+  <details className="mt-3">
+    <summary className="cursor-pointer font-semibold text-red-600">
+      Show Solution
+    </summary>
+
+    <div className="mt-3 text-sm space-y-2">
+      <p><strong>Approach:</strong> Assume L is regular and apply the Pumping Lemma to derive a contradiction.</p>
+
+      <p><strong>Step 1:</strong> Assume L = {'{'}ww | w ∈ {'{'}0,1{'}'}*{'}'} is regular.</p>
+
+      <p><strong>Step 2:</strong> By the Pumping Lemma, there exists a pumping length p such that any string s ∈ L with |s| ≥ p can be written as s = xyz where |xy| ≤ p, |y| &gt; 0, and xyⁱz ∈ L for all i ≥ 0.</p>
+
+      <p><strong>Step 3:</strong> Choose s = 0ᵖ1ᵖ0ᵖ1ᵖ. This string is in L because s = ww where w = 0ᵖ1ᵖ, and |s| = 4p ≥ p.</p>
+
+      <p><strong>Step 4:</strong> Since |xy| ≤ p and the string begins with p zeros, both x and y consist only of 0s from the first block. Thus y = 0ᵏ for some 1 ≤ k ≤ p.</p>
+
+      <p><strong>Step 5:</strong> Consider xy²z. This adds k zeros to the first block, giving:
+        <br />0ᵖ⁺ᵏ1ᵖ0ᵖ1ᵖ
+      </p>
+
+      <p><strong>Step 6:</strong> For this string to be in L, it must equal ww for some w. Then |xy²z| = 4p + k, so |w| = (4p + k)/2 = 2p + k/2. The first half would need to match the second half, but the first half begins with p+k zeros while the corresponding part in the second half has only p zeros. This mismatch makes equality impossible.</p>
+
+      <p><strong>Step 7:</strong> This contradicts the Pumping Lemma requirement that xy²z ∈ L.</p>
+
+      <p><strong>Final Answer:</strong> The language L = {'{'}ww | w ∈ {'{'}0,1{'}'}*{'}'} is NOT regular. ∎</p>
+    </div>
+  </details>
+</div>
         </div>
       </section>
 
+      <div className="bg-blue-50 border-l-4 border-blue-400 p-4 space-y-6">
+
+  <h4 className="font-semibold text-lg">📝 Short Answer Questions</h4>
+
+  {/* Question 1 */}
+  <div>
+    <p className="font-semibold">
+      Question 1: Explain the difference between proof by contradiction and proof by contrapositive, including when each is most appropriate to use.
+    </p>
+
+    <details className="mt-2">
+      <summary className="cursor-pointer font-semibold text-blue-600">
+        Show Sample Answer
+      </summary>
+
+      <div className="mt-3 text-sm space-y-2">
+        <p>
+          Proof by contrapositive is specifically for conditional statements (P → Q) and proves the logically equivalent statement ¬Q → ¬P instead. It's most appropriate when the negations of the hypothesis or conclusion are easier to work with than the original statements.
+        </p>
+
+        <p>
+          Proof by contradiction is more general and works for any type of statement: you assume the negation of what you want to prove and derive a logical impossibility. It's most appropriate for impossibility claims, uniqueness proofs, or when you cannot find a direct path from hypotheses to conclusion.
+        </p>
+
+        <p>
+          The key distinction is that contrapositive maintains the conditional structure and proves an equivalent statement directly, while contradiction proves the original statement by showing its negation is impossible. Contrapositive is typically cleaner when applicable, but contradiction is more versatile and can handle non-conditional statements.
+        </p>
+      </div>
+    </details>
+  </div>
+
+  {/* Question 2 */}
+  <div>
+    <p className="font-semibold">
+      Question 2: Why is proof by counterexample insufficient to prove a statement true, even if you find many examples supporting it? Give a concrete example to illustrate.
+    </p>
+
+    <details className="mt-2">
+      <summary className="cursor-pointer font-semibold text-blue-600">
+        Show Sample Answer
+      </summary>
+
+      <div className="mt-3 text-sm space-y-2">
+        <p>
+          Proof by counterexample can only disprove universal claims, not prove them, because of the logical asymmetry in universal quantification. A universal statement "for all x, P(x)" asserts that P holds for infinitely many (or at least many) values, so checking finite examples—even millions—leaves infinitely many unchecked cases.
+        </p>
+
+        <p>
+          A classic example is the conjecture "all numbers of the form 2^(2^n) + 1 are prime" (Fermat numbers). For n = 0, 1, 2, 3, 4, we get 3, 5, 17, 257, 65537—all prime! This held for every tested case for centuries.
+        </p>
+
+        <p>
+          But when n = 5, we get:
+          <br />2³² + 1 = 4,294,967,297 = 641 × 6,700,417,
+          <br />which is composite.
+        </p>
+
+        <p>
+          This single counterexample disproved the conjecture that seemed true for all tested cases. This illustrates why examples support but don't prove: they can never cover all cases, while a single counterexample definitively disproves universality.
+        </p>
+      </div>
+    </details>
+  </div>
+
+  {/* Question 3 */}
+  <div>
+    <p className="font-semibold">
+      Question 3: Describe a scenario in automata theory where proof by construction is not just sufficient but actually more valuable than a non-constructive existence proof.
+    </p>
+
+    <details className="mt-2">
+      <summary className="cursor-pointer font-semibold text-blue-600">
+        Show Sample Answer
+      </summary>
+
+      <div className="mt-3 text-sm space-y-2">
+        <p>
+          In automata theory, proving closure properties of regular languages through construction is far more valuable than non-constructive proofs.
+        </p>
+
+        <p>
+          For example, when proving "regular languages are closed under concatenation," a constructive proof explicitly builds an NFA for L₁·L₂ from NFAs for L₁ and L₂.
+        </p>
+
+        <p>
+          This construction becomes a reusable algorithm: compiler designers can implement this exact construction to handle concatenation in regular expressions. Students can apply this construction to solve problems. The proof itself becomes a tool, not just a logical argument.
+        </p>
+
+        <p>
+          In contrast, a non-constructive proof might use the Myhill-Nerode theorem to argue concatenation preserves regularity without building the automaton. While valid, this provides no practical method to obtain the concatenation automaton.
+        </p>
+
+        <p>
+          In computer science, where proofs often correspond to algorithms, constructive proofs are typically preferred because they provide both theoretical understanding and practical implementation.
+        </p>
+      </div>
+    </details>
+  </div>
+
+</div>
+
       <section className="content-section">
         <h3 className="text-xl font-semibold mb-4">📊 Comparison & Analysis</h3>
-        <p className="mb-4">Understanding when to apply each proof technique is crucial for efficient problem-solving.</p>
+        <p className="mb-4">Understanding when to apply each proof technique is crucial for efficient problem-solving. Different proof methods have different strengths, weaknesses, and appropriate use cases. This comparison will help you choose the right tool for each proof task.</p>
 
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse border border-gray-300 text-sm">
             <thead className="bg-gray-100">
               <tr>
                 <th className="border border-gray-300 p-2">Aspect</th>
-                <th className="border border-gray-300 p-2">Contradiction</th>
-                <th className="border border-gray-300 p-2">Contrapositive</th>
-                <th className="border border-gray-300 p-2">Construction</th>
-                <th className="border border-gray-300 p-2">Counterexample</th>
+                <th className="border border-gray-300 p-2">Proof by Contradiction</th>
+                <th className="border border-gray-300 p-2">Proof by Contrapositive</th>
+                <th className="border border-gray-300 p-2">Proof by Construction</th>
+                <th className="border border-gray-300 p-2">Proof by Counterexample</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 p-2 font-semibold">Best Use Case</td>
-                <td className="border border-gray-300 p-2">Non-regularity, undecidability, impossibility claims</td>
-                <td className="border border-gray-300 p-2">Conditionals where negations are simpler</td>
-                <td className="border border-gray-300 p-2">Closure properties, building automata, existence proofs</td>
-                <td className="border border-gray-300 p-2">Disproving universal claims</td>
+                <td className="border border-gray-300 p-2 font-semibold">Definition</td>
+                <td className="border border-gray-300 p-2">Assume negation of claim, derive logical impossibility, conclude original claim true</td>
+                <td className="border border-gray-300 p-2">Prove conditional P → Q by proving ¬Q → ¬P (logically equivalent)</td>
+                <td className="border border-gray-300 p-2">Prove existence by explicitly building an object satisfying requirements</td>
+                <td className="border border-gray-300 p-2">Disprove universal claim by finding single example where claim fails</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border border-gray-300 p-2 font-semibold">Advantages</td>
-                <td className="border border-gray-300 p-2">✓ Works for any statement<br />✓ Powerful for impossibility</td>
-                <td className="border border-gray-300 p-2">✓ Often simpler than direct<br />✓ Logically equivalent</td>
-                <td className="border border-gray-300 p-2">✓ Provides algorithm<br />✓ Practical and implementable</td>
-                <td className="border border-gray-300 p-2">✓ Most efficient disproof<br />✓ Only needs one example</td>
+                <td className="border border-gray-300 p-2">✓ Works for any type of statement<br />✓ Powerful for impossibility claims<br />✓ Often reveals deep insights<br />✓ Essential for undecidability proofs</td>
+                <td className="border border-gray-300 p-2">✓ Often simpler than direct proof<br />✓ Logically equivalent to original<br />✓ Useful when negations are simpler<br />✓ Clean and direct approach</td>
+                <td className="border border-gray-300 p-2">✓ Provides explicit algorithm/example<br />✓ Practical and implementable<br />✓ Construction itself is valuable<br />✓ Preferred in CS for existence claims</td>
+                <td className="border border-gray-300 p-2">✓ Most efficient disproof method<br />✓ Only needs one example<br />✓ Decisive and conclusive<br />✓ Easy to verify</td>
               </tr>
               <tr>
                 <td className="border border-gray-300 p-2 font-semibold">Disadvantages</td>
-                <td className="border border-gray-300 p-2">✗ Can be complex<br />✗ May not provide insight</td>
-                <td className="border border-gray-300 p-2">✗ Only for conditionals<br />✗ Students confuse with converse</td>
-                <td className="border border-gray-300 p-2">✗ May be difficult to find<br />✗ Time-consuming</td>
-                <td className="border border-gray-300 p-2">✗ Only disproves<br />✗ Finding it can be hard</td>
+                <td className="border border-gray-300 p-2">✗ Can be complex to execute<br />✗ Sometimes harder to follow<br />✗ May not provide constructive insight<br />✗ Requires finding the right contradiction</td>
+                <td className="border border-gray-300 p-2">✗ Only works for conditionals<br />✗ Students confuse with converse<br />✗ Not applicable to all statements<br />✗ Limited scope</td>
+                <td className="border border-gray-300 p-2">✗ May be difficult to find construction<br />✗ Can be time-consuming<br />✗ Requires creativity and insight<br />✗ Not always possible for all existence claims</td>
+                <td className="border border-gray-300 p-2">✗ Only disproves, never proves<br />✗ Finding counterexample can be hard<br />✗ Doesn't explain why claim fails generally<br />✗ No positive information gained</td>
               </tr>
               <tr className="bg-gray-50">
+                <td className="border border-gray-300 p-2 font-semibold">Best Use Case</td>
+                <td className="border border-gray-300 p-2">Proving non-regularity of languages, undecidability results, irrationality proofs, uniqueness claims</td>
+                <td className="border border-gray-300 p-2">Conditional statements where negations are simpler (divisibility, evenness, properties of numbers)</td>
+                <td className="border border-gray-300 p-2">Closure properties of languages, building automata, algorithm design, existence of computational models</td>
+                <td className="border border-gray-300 p-2">Disproving claims like "all CFLs are regular", "all algorithms terminate", testing hypotheses</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 p-2 font-semibold">Worst Case Scenario</td>
+                <td className="border border-gray-300 p-2">When direct proof is straightforward (unnecessary complexity), or when constructive example is needed</td>
+                <td className="border border-gray-300 p-2">Non-conditional statements, statements where original form is already simplest</td>
+                <td className="border border-gray-300 p-2">When object is impossible to construct explicitly, or non-constructive existence suffices</td>
+                <td className="border border-gray-300 p-2">When trying to prove positive claims (impossible with counterexamples)</td>
+              </tr>
+              <tr className="bg-gray-50">
+                <td className="border border-gray-300 p-2 font-semibold">Example in Automata</td>
+                <td className="border border-gray-300 p-2">Proving L = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'} is not regular using Pumping Lemma</td>
+                <td className="border border-gray-300 p-2">If DFA M accepts w, then |w| ≥ k ⟹ If |w| &lt; k, then M doesn't accept w</td>
+                <td className="border border-gray-300 p-2">Building union automaton to prove regular languages closed under union</td>
+                <td className="border border-gray-300 p-2">Disproving "all regular languages are finite" with L = {'{'}0*{'}'} (infinite but regular)</td>
+              </tr>
+              <tr>
                 <td className="border border-gray-300 p-2 font-semibold">Logical Structure</td>
-                <td className="border border-gray-300 p-2">Assume ¬P, derive Q ∧ ¬Q</td>
-                <td className="border border-gray-300 p-2">Prove ¬Q → ¬P instead of P → Q</td>
-                <td className="border border-gray-300 p-2">Build explicit x satisfying P(x)</td>
-                <td className="border border-gray-300 p-2">Find one x where ¬P(x)</td>
+                <td className="border border-gray-300 p-2">Assume ¬P, derive contradiction Q ∧ ¬Q, conclude P</td>
+                <td className="border border-gray-300 p-2">To prove P → Q, prove ¬Q → ¬P instead</td>
+                <td className="border border-gray-300 p-2">To prove ∃x P(x), build specific x satisfying P(x)</td>
+                <td className="border border-gray-300 p-2">To disprove ∀x P(x), find one x where ¬P(x)</td>
+              </tr>
+              <tr className="bg-gray-50">
+                <td className="border border-gray-300 p-2 font-semibold">Complexity</td>
+                <td className="border border-gray-300 p-2">High - requires identifying what contradiction to derive and logical chain to reach it</td>
+                <td className="border border-gray-300 p-2">Medium - straightforward once contrapositive is formed correctly</td>
+                <td className="border border-gray-300 p-2">High - requires creativity to design the construction</td>
+                <td className="border border-gray-300 p-2">Low - just need to find one example (but finding it may be hard)</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div className="mt-6 bg-blue-50 border-l-4 border-blue-500 p-4">
-          <h4 className="font-semibold">🎯 Decision Guide</h4>
-          <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
-            <li><strong>Choose Contradiction:</strong> For impossibility, uniqueness, or when direct proof is unclear</li>
-            <li><strong>Choose Contrapositive:</strong> For conditionals P → Q when ¬P or ¬Q are simpler</li>
-            <li><strong>Choose Construction:</strong> For existence claims, especially when the construction is valuable</li>
-            <li><strong>Choose Counterexample:</strong> To disprove universal claims (∀x P(x))</li>
-          </ul>
+      </section>
+
+      <section className="content-section">
+        <h3 className="text-xl font-semibold mb-4">When to Choose What?</h3>
+        
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+          <h4 className="font-semibold mb-3">Decision Guide:</h4>
+          
+          <div className="space-y-3 text-sm">
+            <div>
+              <p className="font-semibold">Choose Proof by Contradiction when:</p>
+              <p>The claim involves impossibility ("no such object exists"), uniqueness ("only one object satisfies"), or you cannot find a direct path from hypothesis to conclusion. Essential for proving languages are not regular/context-free, and for undecidability results.</p>
+            </div>
+            
+            <div>
+              <p className="font-semibold">Choose Proof by Contrapositive when:</p>
+              <p>You have a conditional statement P → Q, and you notice that ¬P or ¬Q are simpler to work with than P or Q. Common in number theory (divisibility, parity) and when proving "if something has property X, it has property Y."</p>
+            </div>
+            
+            <div>
+              <p className="font-semibold">Choose Proof by Construction when:</p>
+              <p>The claim is an existence statement ("there exists an automaton/algorithm/function"), especially in computer science where the construction itself is valuable. Use for closure properties, building automata, and algorithm design proofs.</p>
+            </div>
+            
+            <div>
+              <p className="font-semibold">Choose Proof by Counterexample when:</p>
+              <p>The claim is universal ("all X have property P") and you want to disprove it. One counterexample suffices. Use for testing hypotheses and disproving overly general claims.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="my-8 p-8 bg-gray-50 rounded-lg border border-gray-200">
+          <h4 className="text-center text-xl font-bold mb-4 text-gray-800">Proof Technique Selection Venn Diagram</h4>
+          <p className="text-center text-lg font-semibold mb-6">Types of Statements & Appropriate Proofs</p>
+          
+          <div className="grid grid-cols-2 gap-4 max-w-3xl mx-auto">
+            <div className="bg-blue-100 border-2 border-blue-500 rounded-lg p-4">
+              <p className="font-semibold text-center">Existence</p>
+              <p className="text-center text-sm">∃x P(x)</p>
+              <p className="text-center text-sm mt-2">Use: <strong>Construction</strong></p>
+            </div>
+            
+            <div className="bg-red-100 border-2 border-red-500 rounded-lg p-4">
+              <p className="font-semibold text-center">Universal</p>
+              <p className="text-center text-sm">∀x P(x)</p>
+              <p className="text-center text-sm mt-2">Disprove with</p>
+              <p className="text-center text-sm"><strong>Counterexample</strong></p>
+            </div>
+            
+            <div className="bg-green-100 border-2 border-green-500 rounded-lg p-4">
+              <p className="font-semibold text-center">Conditional</p>
+              <p className="text-center text-sm">P → Q</p>
+              <p className="text-center text-sm mt-2">Use: <strong>Contrapositive</strong></p>
+              <p className="text-center text-sm">or <strong>Contradiction</strong></p>
+            </div>
+            
+            <div className="bg-purple-100 border-2 border-purple-500 rounded-lg p-4">
+              <p className="font-semibold text-center">Impossibility</p>
+              <p className="text-center text-sm">¬∃x P(x)</p>
+              <p className="text-center text-sm mt-2">Use: <strong>Contradiction</strong></p>
+            </div>
+          </div>
+          
+          <div className="mt-6 bg-yellow-50 border-2 border-yellow-500 rounded-lg p-4 max-w-2xl mx-auto">
+            <p className="text-center font-semibold">General</p>
+            <p className="text-center text-sm mt-1"><strong>Contradiction</strong> works for all</p>
+          </div>
+          
+          <p className="text-center mt-6 text-sm italic text-gray-600">Choose technique based on statement structure and what you're proving/disproving</p>
+          <p className="text-center text-sm italic text-gray-600">Figure 8: Statement types determine which proof technique is most appropriate</p>
         </div>
       </section>
 
       <section className="content-section">
         <h3 className="text-xl font-semibold mb-4">⚠️ Common Pitfalls & How to Avoid Them</h3>
+        <p className="mb-4">Learn from common mistakes students make when applying these proof techniques. Understanding these pitfalls will help you avoid them in exams and practical applications.</p>
 
         <div className="space-y-4">
           <div className="bg-red-50 border-l-4 border-red-500 p-4">
             <h4 className="font-semibold">🚫 Pitfall #1: Confusing Contrapositive with Converse</h4>
-            <p className="text-sm mt-2"><strong>What students do wrong:</strong> Write Q → P thinking it's the contrapositive.</p>
-            <p className="text-sm mt-1"><strong>Why it's wrong:</strong> Converse is NOT logically equivalent. "If it rains, ground is wet" ≠ "If ground is wet, it rained."</p>
-            <p className="text-sm mt-1"><strong>✅ How to avoid:</strong> Always write (P → Q) ⟺ (¬Q → ¬P). Negate BOTH parts and SWAP positions.</p>
+            <p className="text-sm mt-2"><strong>What students do wrong:</strong> When given "If P then Q," students write the converse "If Q then P" thinking it's the contrapositive, then proceed to prove the converse instead of the original statement.</p>
+            <p className="text-sm mt-2"><strong>Why it's wrong:</strong> The converse is NOT logically equivalent to the original statement. For example, "If it rains, the ground is wet" is true, but the converse "If the ground is wet, it rained" is false (could be a sprinkler). Only the contrapositive (¬Q → ¬P) is equivalent.</p>
+            <p className="text-sm mt-2"><strong>Consequences:</strong> The "proof" is invalid because you proved a different statement. Even if your proof of the converse is correct, you haven't proven the original claim.</p>
+            <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> Always write out the contrapositive carefully: negate BOTH the hypothesis and conclusion, and SWAP their positions. Use the formula: (P → Q) ⟺ (¬Q → ¬P). Double-check that you have negations of both parts.</p>
+            <p className="text-sm mt-2"><strong>Example:</strong> Original: "If n² is even, then n is even." Contrapositive (correct): "If n is odd, then n² is odd." Converse (wrong): "If n is even, then n² is even." The converse happens to be true in this case, but it's a different statement!</p>
           </div>
 
           <div className="bg-red-50 border-l-4 border-red-500 p-4">
-            <h4 className="font-semibold">🚫 Pitfall #2: Assuming Contradiction Too Early</h4>
-            <p className="text-sm mt-2"><strong>What students do wrong:</strong> Derive something "weird" and immediately claim contradiction.</p>
-            <p className="text-sm mt-1"><strong>Why it's wrong:</strong> Contradiction must be logical impossibility (X ∧ ¬X), not just unexpected results.</p>
-            <p className="text-sm mt-1"><strong>✅ How to avoid:</strong> Explicitly state both contradictory facts: "We have X, but also ¬X, which is impossible."</p>
+            <h4 className="font-semibold">🚫 Pitfall #2: Assuming You've Reached a Contradiction Too Early</h4>
+            <p className="text-sm mt-2"><strong>What students do wrong:</strong> In proof by contradiction, students assume the negation of the claim, derive something that seems "weird" or "unexpected," and immediately declare they've found a contradiction without checking if it's truly logically impossible.</p>
+            <p className="text-sm mt-2"><strong>Why it's wrong:</strong> A contradiction must be a logical impossibility—a statement of the form "X ∧ ¬X" (both X and not-X are true simultaneously). Something being counterintuitive, unlikely, or having large/infinite values is NOT a contradiction. For example, deriving that a set is infinite is not a contradiction—infinite sets exist!</p>
+            <p className="text-sm mt-2"><strong>Consequences:</strong> The proof is incomplete or invalid. Examiners will mark this as incorrect reasoning.</p>
+            <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> Clearly identify what the contradiction is. State explicitly which two contradictory facts you've derived. Check that they truly cannot both be true. Common valid contradictions: "n is both even and odd," "L is finite and infinite," "M has both 5 states and 7 states," or deriving a false statement like "0 = 1."</p>
+            <p className="text-sm mt-2"><strong>Example:</strong> When proving L = {'{'}0ⁿ1ⁿ{'}'} is not regular, the contradiction is: "By Pumping Lemma, xy²z ∈ L" (because we assumed L is regular) AND "xy²z has unequal numbers of 0s and 1s, so xy²z ∉ L" (by definition of L). These directly contradict each other.</p>
           </div>
 
           <div className="bg-red-50 border-l-4 border-red-500 p-4">
             <h4 className="font-semibold">🚫 Pitfall #3: Using Examples to Prove Universal Statements</h4>
-            <p className="text-sm mt-2"><strong>What students do wrong:</strong> Show several examples satisfy property P, conclude ∀x P(x) is proven.</p>
-            <p className="text-sm mt-1"><strong>Why it's wrong:</strong> Examples don't cover all cases. One counterexample can disprove despite many supporting examples.</p>
-            <p className="text-sm mt-1"><strong>✅ How to avoid:</strong> Use universal proof techniques (direct, induction, contradiction). Remember: examples support but don't prove.</p>
+            <p className="text-sm mt-2"><strong>What students do wrong:</strong> To prove "all regular languages satisfy property P," students show that several specific regular languages satisfy P, then conclude the universal statement is proven.</p>
+            <p className="text-sm mt-2"><strong>Why it's wrong:</strong> Examples—even many examples—only demonstrate that some instances satisfy a property. They cannot prove universal statements because they don't cover all possible cases. There could be millions of cases that work, but a single case that fails disproves the universal claim.</p>
+            <p className="text-sm mt-2"><strong>Consequences:</strong> The proof is logically invalid. Universal claims require universal proofs (direct proof, induction, contradiction covering all cases), not examples.</p>
+            <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> For universal statements, use proof techniques that cover all cases: direct proof with arbitrary element, mathematical induction, or proof by contradiction. Examples are useful for building intuition and testing hypotheses, but they're not proofs. Conversely, remember that ONE counterexample CAN disprove a universal statement.</p>
+            <p className="text-sm mt-2"><strong>Example:</strong> To prove "all regular languages are closed under complement," you cannot just show that {'{'}0*{'}'} and {'{'}1*{'}'} have regular complements. You must prove that FOR ANY regular language L (recognized by some DFA M), you can construct a DFA M' recognizing L's complement (swap accepting and non-accepting states).</p>
           </div>
 
           <div className="bg-red-50 border-l-4 border-red-500 p-4">
             <h4 className="font-semibold">🚫 Pitfall #4: Incomplete Constructions</h4>
-            <p className="text-sm mt-2"><strong>What students do wrong:</strong> Give vague description like "build a DFA that tracks the property."</p>
-            <p className="text-sm mt-1"><strong>Why it's wrong:</strong> Construction requires complete specification of all components.</p>
-            <p className="text-sm mt-1"><strong>✅ How to avoid:</strong> Explicitly state Q, Σ, δ, q₀, F. Prove correctness with verification.</p>
+            <p className="text-sm mt-2"><strong>What students do wrong:</strong> In proof by construction, students sketch a partial design or give a vague description like "we build a DFA that tracks the property," without specifying all components (states, transitions, start state, accepting states) or proving the construction is correct.</p>
+            <p className="text-sm mt-2"><strong>Why it's wrong:</strong> Proof by construction requires complete, explicit specification. Someone else should be able to build the exact object from your description. Vague or incomplete descriptions leave gaps that may hide errors or impossibilities.</p>
+            <p className="text-sm mt-2"><strong>Consequences:</strong> The construction may not actually work, or the proof is incomplete. Examiners want to see full details.</p>
+            <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> For automata constructions, explicitly state: (1) Q (set of states), (2) Σ (alphabet), (3) δ (transition function—define for every state and symbol), (4) q₀ (start state), (5) F (accepting states). Then prove correctness by showing your construction recognizes exactly the claimed language. Include verification of key cases.</p>
+            <p className="text-sm mt-2"><strong>Example:</strong> Wrong: "To recognize L₁ ∪ L₂, build a DFA that simulates both M₁ and M₂." This is too vague. Correct: "Construct M = (Q₁ × Q₂, Σ, δ, (q₀₁, q₀₂), (F₁ × Q₂) ∪ (Q₁ × F₂)) where δ((p,q), a) = (δ₁(p,a), δ₂(q,a)). Proof: By induction on |w|, M ends in state (p,q) after reading w iff M₁ ends in p and M₂ ends in q..."</p>
           </div>
+
+          <div className="bg-red-50 border-l-4 border-red-500 p-4">
+            <h4 className="font-semibold">🚫 Pitfall #5: Misusing Pumping Lemma in Contradiction Proofs</h4>
+            <p className="text-sm mt-2"><strong>What students do wrong:</strong> When using the Pumping Lemma to prove non-regularity via contradiction, students either: (a) choose a string that's too simple and can actually be pumped successfully, (b) don't properly use the constraint |xy| ≤ p, or (c) fail to check that the pumped string is actually outside the language.</p>
+            <p className="text-sm mt-2"><strong>Why it's wrong:</strong> The Pumping Lemma is adversarial: you choose the string, but the "adversary" chooses the decomposition (subject to constraints). If you don't choose your string strategically, the adversary can find a decomposition that works, failing to produce the needed contradiction.</p>
+            <p className="text-sm mt-2"><strong>Consequences:</strong> The proof fails—you don't derive a contradiction, so you haven't proven non-regularity.</p>
+            <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> Choose a string with clear, regular structure (like 0^p 1^p) where pumping will obviously break the language's requirements. Use the constraint |xy| ≤ p to determine what y must be (e.g., if |xy| ≤ p and string starts with p 0s, then y is all 0s). Then show that pumping y violates the language definition (e.g., creates unequal counts).</p>
+            <p className="text-sm mt-2"><strong>Example for L = {'{'}0ⁿ1ⁿ{'}'}:</strong> String 0^p 1^p is good because y must be in first p characters (all 0s), so pumping adds only 0s, breaking the n=n requirement. String 01 is bad (too short if p &gt; 2). String (01)^p is bad because y might span the pattern and pumping could still satisfy the language.</p>
+          </div>
+        </div>
+
+        <div className="mt-6 bg-blue-50 border-l-4 border-blue-500 p-4">
+          <h4 className="font-semibold">💡 Exam Tips:</h4>
+          <ul className="list-disc ml-6 mt-2 space-y-1 text-sm">
+            <li><strong>Identify statement type first:</strong> Before choosing a proof technique, classify the statement (conditional, universal, existence, impossibility). This determines which techniques apply.</li>
+            <li><strong>Show your logical structure:</strong> Make it clear what technique you're using. Write "Proof by Contradiction: Assume ¬P" or "Proof by Contrapositive: We prove ¬Q → ¬P" so graders know your approach.</li>
+            <li><strong>Define variables clearly:</strong> When doing constructions or algebraic manipulations, define all variables (e.g., "Let k be an integer such that..."). Undefined variables lose points.</li>
+            <li><strong>In contradiction, state the contradiction explicitly:</strong> Don't just say "contradiction!" Write out both contradictory statements: "We derived X, but also ¬X, which is impossible."</li>
+            <li><strong>Check logical equivalence:</strong> When using contrapositive, verify you're proving the actual contrapositive (¬Q → ¬P), not the converse or inverse.</li>
+            <li><strong>For constructions, verify correctness:</strong> After building an automaton or algorithm, prove it works. Show at least one example execution and argue why it handles all cases.</li>
+            <li><strong>Time management:</strong> Proof by construction often takes longer than other techniques. Budget your exam time accordingly—if a construction seems too complex, check if another proof method works.</li>
+          </ul>
         </div>
       </section>
 
       <section className="content-section">
         <h3 className="text-xl font-semibold mb-4">📄 Quick Reference Cheat Sheet</h3>
+        <p className="mb-4">Save this page for quick review! Here's everything you need to remember at a glance.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-gray-50 p-4 rounded">
             <h4 className="font-semibold mb-2">🔑 Key Definitions</h4>
             <ul className="text-sm space-y-1">
-              <li><strong>Contradiction:</strong> Assume ¬P, derive impossibility, conclude P</li>
-              <li><strong>Contrapositive:</strong> Prove ¬Q → ¬P instead of P → Q</li>
-              <li><strong>Construction:</strong> Build explicit example proving existence</li>
-              <li><strong>Counterexample:</strong> Find one x where ¬P(x) to disprove ∀x P(x)</li>
+              <li><strong>Contradiction:</strong> Assume ¬P, derive impossibility, conclude P true</li>
+              <li><strong>Contrapositive:</strong> Prove ¬Q → ¬P instead of P → Q (equivalent)</li>
+              <li><strong>Construction:</strong> Prove existence by building explicit example</li>
+              <li><strong>Counterexample:</strong> Disprove ∀x P(x) by finding one x where ¬P(x)</li>
+              <li><strong>Converse:</strong> Q → P (NOT equivalent to P → Q)</li>
             </ul>
           </div>
 
           <div className="bg-gray-50 p-4 rounded">
-            <h4 className="font-semibold mb-2">📐 Logical Equivalences</h4>
+            <h4 className="font-semibold mb-2">📐 Important Logical Equivalences</h4>
             <ul className="text-sm space-y-1">
-              <li>(P → Q) ≡ (¬Q → ¬P) ✓</li>
-              <li>(P → Q) ≢ (Q → P) [converse] ✗</li>
-              <li>¬(P ∧ Q) ≡ (¬P ∨ ¬Q)</li>
-              <li>¬(P ∨ Q) ≡ (¬P ∧ ¬Q)</li>
+              <li><strong>Contrapositive:</strong> (P → Q) ≡ (¬Q → ¬P)</li>
+              <li><strong>NOT Equivalent:</strong> (P → Q) ≢ (Q → P) [converse]</li>
+              <li><strong>NOT Equivalent:</strong> (P → Q) ≢ (¬P → ¬Q) [inverse]</li>
+              <li><strong>De Morgan's:</strong> ¬(P ∧ Q) ≡ (¬P ∨ ¬Q)</li>
+              <li><strong>De Morgan's:</strong> ¬(P ∨ Q) ≡ (¬P ∧ ¬Q)</li>
             </ul>
           </div>
 
           <div className="bg-gray-50 p-4 rounded">
-            <h4 className="font-semibold mb-2">⚙️ Strategy Selection</h4>
+            <h4 className="font-semibold mb-2">⚙️ Proof Strategy Selection</h4>
             <ul className="text-sm space-y-1">
-              <li><strong>Conditional (P → Q):</strong> Try contrapositive</li>
-              <li><strong>Existence (∃x):</strong> Use construction</li>
+              <li><strong>Conditional (P → Q):</strong> Try contrapositive if negations simpler</li>
+              <li><strong>Existence (∃x):</strong> Use construction (build explicit x)</li>
               <li><strong>Universal (∀x) to disprove:</strong> Find counterexample</li>
               <li><strong>Impossibility:</strong> Use contradiction</li>
+              <li><strong>When stuck:</strong> Try contradiction as last resort</li>
+            </ul>
+          </div>
+
+          <div className="bg-gray-50 p-4 rounded">
+            <h4 className="font-semibold mb-2">✅ When to Use Each Technique</h4>
+            <ul className="text-sm space-y-1">
+              <li><strong>Contradiction:</strong> Non-regularity proofs (with Pumping Lemma), uniqueness and impossibility claims, when direct proof is unclear</li>
+              <li><strong>Contrapositive:</strong> Conditional statements, when negations are simpler</li>
+              <li><strong>Construction:</strong> Closure properties, building automata, existence proofs</li>
+              <li><strong>Counterexample:</strong> Disproving universal claims</li>
             </ul>
           </div>
 
@@ -696,10 +1091,22 @@ const Module1_2: React.FC = () => {
             <h4 className="font-semibold mb-2">⚠️ Common Mistakes</h4>
             <ul className="text-sm space-y-1">
               <li>❌ Confusing contrapositive with converse</li>
-              <li>❌ Claiming contradiction without impossibility</li>
+              <li>❌ Claiming contradiction without logical impossibility</li>
               <li>❌ Using examples to prove universal claims</li>
-              <li>❌ Incomplete constructions</li>
+              <li>❌ Incomplete constructions (missing components)</li>
+              <li>❌ Poor string choice in Pumping Lemma proofs</li>
             </ul>
+          </div>
+
+          <div className="bg-gray-50 p-4 rounded">
+            <h4 className="font-semibold mb-2">📋 Proof Template - Contradiction</h4>
+            <ol className="text-sm space-y-1 list-decimal ml-4">
+              <li>"Proof by Contradiction: Assume ¬P"</li>
+              <li>Apply known facts and logical rules</li>
+              <li>"This implies [statement X]"</li>
+              <li>"But we also have [statement ¬X]"</li>
+              <li>"Contradiction! Therefore P is true. ∎"</li>
+            </ol>
           </div>
         </div>
       </section>
@@ -709,61 +1116,112 @@ const Module1_2: React.FC = () => {
 
         <div className="bg-gradient-to-r from-purple-50 to-blue-50 border-l-4 border-purple-500 p-6 rounded">
           <h4 className="font-semibold text-lg">Multi-Technique Proof Challenge</h4>
-          <p className="mt-2 text-sm">⏱️ Estimated Time: 60-75 minutes</p>
-
+          
           <div className="mt-4 space-y-4">
             <div className="bg-white p-4 rounded">
-              <h5 className="font-semibold">📋 Objective</h5>
-              <p className="text-sm mt-1">Apply all four proof techniques to analyze properties of regular languages and automata. This comprehensive exercise will test your ability to choose and execute the appropriate proof method.</p>
+              <h5 className="font-semibold">📋 Objective:</h5>
+              <p className="text-sm mt-1">Apply all four proof techniques (contradiction, contrapositive, construction, counterexample) to analyze properties of regular languages and automata. This comprehensive exercise will test your ability to choose and execute the appropriate proof method for different types of claims.</p>
+              <p className="text-sm mt-2">You will work through a series of related problems, each requiring a different proof technique, building a complete understanding of when and how to apply each method.</p>
             </div>
 
             <div className="bg-white p-4 rounded">
-              <h5 className="font-semibold">📝 Problems</h5>
+              <p className="font-semibold">⏱️ Estimated Time: 60-75 minutes</p>
+            </div>
+
+            <div className="bg-white p-4 rounded">
+              <h5 className="font-semibold">🎯 Learning Goals:</h5>
+              <ul className="text-sm mt-2 list-disc ml-6 space-y-1">
+                <li>Recognize which proof technique is appropriate for different statement types</li>
+                <li>Execute complete, rigorous proofs using all four additional proof forms</li>
+                <li>Apply proof techniques specifically to automata theory and formal languages</li>
+                <li>Develop intuition for proof strategy selection</li>
+                <li>Practice writing clear, well-structured mathematical arguments</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-4 rounded">
+              <h5 className="font-semibold">📝 Instructions:</h5>
+              
               <div className="text-sm mt-2 space-y-3">
                 <div>
                   <p className="font-semibold">Problem 1: Proof by Contradiction</p>
-                  <p>Prove that L = {'{'}0ⁱ1ʲ | i &gt; j{'}'} is NOT regular using contradiction with Pumping Lemma.</p>
-                  <p className="text-gray-600 italic">Hint: Consider string 0ᵖ⁺¹1ᵖ</p>
+                  <p>Prove that the language L = {'{'}0ⁱ1ʲ | i &gt; j{'}'} is NOT regular. Use proof by contradiction combined with the Pumping Lemma. Choose your string strategically and clearly identify the contradiction.</p>
+                  <p className="text-gray-600 italic mt-1">Hint: Consider string 0^(p+1) 1^p where p is the pumping length.</p>
                 </div>
 
                 <div>
                   <p className="font-semibold">Problem 2: Proof by Contrapositive</p>
-                  <p>Prove: "If a DFA M with n states accepts at least one string of length ≥ n, then M accepts infinitely many strings."</p>
-                  <p className="text-gray-600 italic">Hint: Form the contrapositive first</p>
+                  <p>Prove: "If a DFA M with n states accepts at least one string of length ≥ n, then M accepts infinitely many strings." Use proof by contrapositive.</p>
+                  <p className="text-gray-600 italic mt-1">Hint: The contrapositive is "If M accepts only finitely many strings, then M accepts no strings of length ≥ n."</p>
                 </div>
 
                 <div>
                   <p className="font-semibold">Problem 3: Proof by Construction</p>
-                  <p>Prove regular languages are closed under intersection by constructing a DFA for L₁ ∩ L₂.</p>
-                  <p className="text-gray-600 italic">Hint: Use product construction with modified accepting states</p>
+                  <p>Prove that regular languages are closed under intersection by constructing a DFA for L₁ ∩ L₂ given DFAs M₁ and M₂ for L₁ and L₂. Provide complete construction (all components) and verify correctness.</p>
+                  <p className="text-gray-600 italic mt-1">Hint: Use product construction, but modify accepting states appropriately for intersection.</p>
                 </div>
 
                 <div>
                   <p className="font-semibold">Problem 4: Proof by Counterexample</p>
-                  <p>Disprove: "If L₁ ⊆ L₂ and L₂ is regular, then L₁ is regular."</p>
-                  <p className="text-gray-600 italic">Hint: Consider L₂ = {'{'}0,1{'}'}* and L₁ = {'{'}0ⁿ1ⁿ{'}'}.</p>
+                  <p>Disprove the claim: "If L₁ ⊆ L₂ and L₂ is regular, then L₁ is regular." Find a counterexample where L₁ ⊆ L₂, L₂ is regular, but L₁ is not regular.</p>
+                  <p className="text-gray-600 italic mt-1">Hint: Consider L₂ = {'{'}0,1{'}'}* (all strings) and L₁ = {'{'}0ⁿ1ⁿ | n ≥ 0{'}'}.</p>
+                </div>
+
+                <div>
+                  <p className="font-semibold">Problem 5: Technique Selection Challenge</p>
+                  <p>For each of the following claims, identify which proof technique is most appropriate and briefly justify your choice (you don't need to provide the full proof):</p>
+                  <ul className="list-disc ml-6 mt-1">
+                    <li>(a) If L is infinite and regular, then L contains strings of arbitrarily long length</li>
+                    <li>(b) There exists a DFA that accepts exactly three strings</li>
+                    <li>(c) The language L = {'{'}wwᴿ | w ∈ {'{'}0,1{'}'}*{'}'} is not regular</li>
+                    <li>(d) All minimal DFAs have at most 2ⁿ states for alphabet size n</li>
+                  </ul>
                 </div>
               </div>
             </div>
 
             <div className="bg-white p-4 rounded">
-              <h5 className="font-semibold">✅ Success Criteria</h5>
-              <ul className="text-sm mt-2 list-disc ml-6 space-y-1">
-                <li>Correct identification and application of proof techniques</li>
-                <li>Clear logical structure with explicit assumptions</li>
-                <li>Complete constructions with all necessary components</li>
-                <li>Proper verification of constructions and counterexamples</li>
+              <h5 className="font-semibold">Reflection and Analysis</h5>
+              <p className="text-sm mt-1">After completing the problems, write a brief analysis (150-200 words) reflecting on:</p>
+              <ul className="text-sm list-disc ml-6 mt-1">
+                <li>Which proof technique did you find most challenging and why?</li>
+                <li>What strategies helped you choose the right technique?</li>
+                <li>How do these techniques relate to each other?</li>
               </ul>
             </div>
 
             <div className="bg-white p-4 rounded">
-              <h5 className="font-semibold">🎓 Grading Rubric (100 points)</h5>
+              <h5 className="font-semibold">📦 What to Submit:</h5>
+              <p className="text-sm mt-1">Prepare a document containing:</p>
+              <ul className="text-sm list-disc ml-6 mt-1">
+                <li>Complete written proofs for Problems 1-4</li>
+                <li>Technique identification and justification for Problem 5</li>
+                <li>Reflection paragraph from Problem 6</li>
+                <li>Any diagrams or automata you construct (for Problem 3)</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-4 rounded">
+              <h5 className="font-semibold">✅ Success Criteria:</h5>
+              <p className="text-sm mt-1">Your solutions should demonstrate:</p>
+              <ul className="text-sm list-disc ml-6 mt-1">
+                <li>Correct identification and application of proof techniques</li>
+                <li>Clear logical structure and explicit statement of assumptions</li>
+                <li>Complete constructions with all necessary components</li>
+                <li>Proper verification that constructions and counterexamples work</li>
+                <li>Clear identification of contradictions in contradiction proofs</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-4 rounded">
+              <h5 className="font-semibold">🎓 Grading Rubric (100 points total):</h5>
               <ul className="text-sm mt-2 space-y-1">
-                <li>Problem 1 (Contradiction): 25 points</li>
-                <li>Problem 2 (Contrapositive): 20 points</li>
-                <li>Problem 3 (Construction): 25 points</li>
-                <li>Problem 4 (Counterexample): 15 points</li>
-                <li>Technique Selection & Reflection: 15 points</li>
+                <li><strong>Problem 1 (Contradiction): 25 points</strong> (strategic string choice, correct derivation, clear contradiction)</li>
+                <li><strong>Problem 2 (Contrapositive): 20 points</strong> (correct contrapositive formation, complete proof)</li>
+                <li><strong>Problem 3 (Construction): 25 points</strong> (complete DFA specification, correctness verification)</li>
+                <li><strong>Problem 4 (Counterexample): 15 points</strong> (valid counterexample, verification)</li>
+                <li><strong>Problem 5 (Technique Selection): 10 points</strong> (correct identification, sound justification)</li>
+                <li><strong>Reflection: 5 points</strong> (thoughtful analysis, clear writing)</li>
               </ul>
             </div>
           </div>
@@ -771,9 +1229,9 @@ const Module1_2: React.FC = () => {
       </section>
 
       <section className="content-section">
-        <h3>Problem-Solving Practice</h3>
+        <h3 className="text-xl font-semibold mb-4">📚 Problem-Solving Practice</h3>
 
-        <div className="space-y-6 mt-4">
+        <div className="space-y-6">
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
             <h4 className="font-semibold text-lg">📘 Easy Problem</h4>
             <p className="mt-2"><strong>Problem:</strong> Prove that if n is an integer and n² is divisible by 4, then n is even. Use proof by contrapositive.</p>
@@ -787,7 +1245,7 @@ const Module1_2: React.FC = () => {
                 <p><strong>Step 4:</strong> Calculate n² = (2k + 1)² = 4k² + 4k + 1 = 4(k² + k) + 1</p>
                 <p><strong>Step 5:</strong> n² = 4m + 1 where m = k² + k. This means n² leaves remainder 1 when divided by 4, so n² is NOT divisible by 4.</p>
                 <p><strong>Step 6:</strong> We proved the contrapositive, so the original statement is true.</p>
-                <p className="font-semibold mt-2">Final Answer: The statement is proven via contrapositive. If n² is divisible by 4, then n must be even.</p>
+                <p className="font-semibold mt-2">Final Answer: The statement is proven via contrapositive. If n² is divisible by 4, then n must be even</p>
               </div>
             </details>
           </div>
@@ -800,7 +1258,7 @@ const Module1_2: React.FC = () => {
               <div className="mt-3 text-sm space-y-2">
                 <p><strong>Solution:</strong></p>
                 <p><strong>Approach:</strong> This is a universal claim that we should attempt to disprove with a counterexample.</p>
-                <p><strong>Counterexample:</strong> Let Σ = {'{'}0, 1{'}'}. Define L₁ = {'{'}w | w contains an even number of 0s{'}'} and L₂ = {'{'}w | w contains an odd number of 0s{'}'}</p>
+                <p className="mt-2"><strong>Counterexample:</strong> Let Σ = {'{'}0, 1{'}'}. Define L₁ = {'{'}w | w contains an even number of 0s{'}'} and L₂ = {'{'}w | w contains an odd number of 0s{'}'}</p>
                 <p><strong>Verification - Both are regular:</strong> L₁ and L₂ are both regular (can be recognized by simple 2-state DFAs)</p>
                 <p><strong>Verification - Disjoint:</strong> L₁ ∩ L₂ = ∅ because a string cannot simultaneously have both even and odd number of 0s</p>
                 <p><strong>Verification - Infinite:</strong> Both L₁ and L₂ are infinite. For example, L₁ contains ε, 00, 0000, ... (infinitely many strings)</p>
@@ -818,11 +1276,11 @@ const Module1_2: React.FC = () => {
               <div className="mt-3 text-sm space-y-2">
                 <p><strong>Solution:</strong></p>
                 <p><strong>Approach:</strong> Assume L is regular and apply the Pumping Lemma to derive a contradiction.</p>
-                <p><strong>Step 1:</strong> Assume L = {'{'}ww | w ∈ {'{'}0,1{'}'}*{'}'} is regular.</p>
-                <p><strong>Step 2:</strong> By the Pumping Lemma, there exists a pumping length p such that any string s ∈ L with |s| ≥ p can be written as s = xyz where |xy| ≤ p, |y| &gt; 0, and xyⁱz ∈ L for all i ≥ 0.</p>
-                <p><strong>Step 3:</strong> Choose s = 0ᵖ 1ᵖ 0ᵖ 1ᵖ (p zeros, p ones, p zeros, p ones). This is in L because s = ww where w = 0ᵖ 1ᵖ. Also |s| = 4p ≥ p.</p>
-                <p><strong>Step 4:</strong> Since |xy| ≤ p and s starts with p zeros, both x and y consist only of 0s from the first block. So y = 0ᵏ for some 1 ≤ k ≤ p.</p>
-                <p><strong>Step 5:</strong> Consider xy²z. This adds k more 0s to the first block, giving 0ᵖ⁺ᵏ 1ᵖ 0ᵖ 1ᵖ. For this to be in L, it must equal ww for some w.</p>
+                <p className="mt-2"><strong>Step 1:</strong> Assume L = {'{'}ww | w ∈ {'{'}0,1{'}'}*{'}'} is regular.</p>
+                <p><strong>Step 2:</strong> By the Pumping Lemma, there exists a pumping length p such that any string s ∈ L with |s| ≥ p can be written as s = xyz where |xy| ≤ p, |y| &gt; 0, and xy<sup>i</sup>z ∈ L for all i ≥ 0.</p>
+                <p><strong>Step 3:</strong> Choose s = 0<sup>p</sup> 1<sup>p</sup> 0<sup>p</sup> 1<sup>p</sup> (p zeros, p ones, p zeros, p ones). This is in L because s = ww where w = 0<sup>p</sup> 1<sup>p</sup>. Also |s| = 4p ≥ p.</p>
+                <p><strong>Step 4:</strong> Since |xy| ≤ p and s starts with p zeros, both x and y consist only of 0s from the first block. So y = 0<sup>k</sup> for some 1 ≤ k ≤ p.</p>
+                <p><strong>Step 5:</strong> Consider xy²z. This adds k more 0s to the first block, giving 0<sup>(p+k)</sup> 1<sup>p</sup> 0<sup>p</sup> 1<sup>p</sup>. For this to be in L, it must equal ww for some w. This would require w = 0<sup>((p+k)/2)</sup> 1<sup>(p/2)</sup> 0<sup>(p/2)</sup> 1<sup>(p/2)</sup>, but (p+k)/2 is not an integer if k is odd, and even if k is even, the structure doesn't match ww format.</p>
                 <p><strong>Step 6:</strong> More rigorously: If xy²z = ww, then |xy²z| = 4p + k, so |w| = (4p + k)/2 = 2p + k/2. The first 2p + k/2 characters would need to equal the last 2p + k/2 characters. But the first part has p+k zeros at the start, while the corresponding position in the second half has only p zeros. Contradiction!</p>
                 <p><strong>Step 7:</strong> Our assumption that L is regular led to contradiction. Therefore, L is NOT regular.</p>
                 <p className="font-semibold mt-2">Final Answer: The language L = {'{'}ww | w ∈ {'{'}0,1{'}'}*{'}'} is NOT regular, proven by contradiction using the Pumping Lemma.</p>
@@ -831,7 +1289,7 @@ const Module1_2: React.FC = () => {
           </div>
         </div>
 
-        <h4 className="mt-8 font-semibold">Short Answer Questions</h4>
+        <h4 className="mt-8 font-semibold text-lg">Short Answer Questions</h4>
 
         <div className="space-y-6 mt-4">
           <div className="bg-white border-2 border-gray-300 rounded-lg p-4">
@@ -854,7 +1312,7 @@ const Module1_2: React.FC = () => {
               <summary className="cursor-pointer font-semibold text-blue-600">Show Sample Answer</summary>
               <div className="mt-3 text-sm space-y-2">
                 <p>Proof by counterexample can only disprove universal claims, not prove them, because of the logical asymmetry in universal quantification. A universal statement "for all x, P(x)" asserts that P holds for infinitely many (or at least many) values, so checking finite examples—even millions—leaves infinitely many unchecked cases.</p>
-                <p>A classic example is the conjecture "all numbers of the form 2⁽²ⁿ⁾ + 1 are prime" (Fermat numbers). For n = 0, 1, 2, 3, 4, we get 3, 5, 17, 257, 65537—all prime! This held for every tested case for centuries. But when n = 5, we get 2³² + 1 = 4,294,967,297 = 641 × 6,700,417, which is composite. This single counterexample disproved the conjecture that seemed true for all tested cases.</p>
+                <p>A classic example is the conjecture "all numbers of the form 2<sup>(2<sup>n</sup>)</sup> + 1 are prime" (Fermat numbers). For n = 0, 1, 2, 3, 4, we get 3, 5, 17, 257, 65537—all prime! This held for every tested case for centuries. But when n = 5, we get 2<sup>32</sup> + 1 = 4,294,967,297 = 641 × 6,700,417, which is composite. This single counterexample disproved the conjecture that seemed true for all tested cases.</p>
                 <p>This illustrates why examples support but don't prove: they can never cover all cases, while a single counterexample definitively disproves universality.</p>
               </div>
             </details>
