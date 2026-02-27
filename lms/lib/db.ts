@@ -20,7 +20,7 @@ const options: MongoClientOptions = {
 
 // Global singleton to survive hot-module-replacement in dev AND cold starts in Vercel
 declare global {
-   
+
   var _mongoClientPromise: Promise<MongoClient> | undefined;
 }
 
@@ -67,13 +67,15 @@ export async function getDb(dbName?: string) {
 
 async function createIndexes(db: ReturnType<MongoClient["db"]>) {
   await Promise.all([
-    // Users collection
+    // Users collection - Added text index for fast management searches
     db.collection("users").createIndex({ email: 1 }, { unique: false }),
-    db.collection("users").createIndex({ email: 1, isAdmin: 1 }),
+    db.collection("users").createIndex({ isAdmin: 1, email: 1 }), // Helps categorization stats
+    db.collection("users").createIndex({ fullName: "text", email: "text" }),
 
     // Progress collection — most queried by userEmail + subject
     db.collection("progress").createIndex({ userEmail: 1, subject: 1 }),
     db.collection("progress").createIndex({ userEmail: 1, subject: 1, unitId: 1, moduleId: 1 }, { unique: true }),
+    db.collection("progress").createIndex({ percentage: -1, userEmail: 1 }), // Helps Dashboard Performer analysis
 
     // Feedback collection
     db.collection("feedback").createIndex({ createdAt: -1 }),

@@ -149,7 +149,7 @@ const Module2_14: React.FC = () => {
           <li>1 ≤ n ≤ 10⁵</li>
           <li>-10⁹ ≤ arr[i] ≤ 10⁹</li>
         </ul>
-
+        
         <Quiz
           title="Module 2.14 Quiz: Quick Sort Assignment Prep"
           questions={[

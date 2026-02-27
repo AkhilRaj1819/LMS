@@ -217,7 +217,7 @@ export default function Timetable() {
       {/* RIGHT DETAIL VIEW */}
       <div className="flex-1 relative p-10 overflow-hidden bg-dot-grid flex flex-col">
         <AnimatePresence mode="wait">
-          {currentPeriod?.subject === "Lunch Break" ? (
+          {selected?.subject === "Lunch Break" ? (
             <motion.div
               key="lunch-break-view"
               initial={{ opacity: 0, scale: 0.98 }}

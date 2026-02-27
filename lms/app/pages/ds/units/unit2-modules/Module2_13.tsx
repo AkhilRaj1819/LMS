@@ -89,6 +89,7 @@ const Module2_13: React.FC = () => {
           Quick Sort can be implemented using two approaches: recursive and iterative. Both achieve the same result but differ in their implementation style.
         </p>
 
+
         <p className="mb-4">
           Let's visualize how quick sort functions before moving to the two approaches.
         </p>
@@ -134,6 +135,7 @@ return recursive_quick_sort(less) + [pivot] + recursive_quick_sort(greater)`}</c
 sorted_list = recursive_quick_sort(unsorted_list)
 print("Sorted list:", sorted_list)`}</code>
         </pre>
+
 
         <p className="mb-4 font-semibold">What this code does:</p>
         <ul className="list-disc ml-6 mb-6 space-y-2">
@@ -257,6 +259,7 @@ print("Sorted list:", sorted_list)`}</code>
         <p className="mb-6">
           <strong>Merge Sort:</strong> It also divides and conquers, but in a different way. It is known for its stability and guaranteed O(n log n) time complexity.
         </p>
+        
 
         <Quiz
           title="Module 2.13 Quiz: Quick Sort Algorithm"
@@ -316,6 +319,29 @@ print("Sorted list:", sorted_list)`}</code>
           <li>Sorted: 1, 2, 3, 4, 5, 6</li>
           <li>Reverse: 10, 9, 8, 7, 6, 5</li>
           <li>Analyze the time complexity of Quick Sort for different input scenarios.</li>
+        </ul>
+      </section>
+      <section className="content-section">
+        <h3>Practice Problems</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a href="https://www.geeksforgeeks.org/dsa/quicksort-using-random-pivoting/" target="_blank" className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-emerald-500 hover:bg-emerald-50 transition-all group">
+            <h4 className="font-bold text-gray-800 group-hover:text-emerald-600">quick Sort using random pivoting</h4>
+            <p className="text-xs text-gray-500">GeeksforGeeks • Medium</p>
+          </a>
+          <a href="https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/" target="_blank" className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-emerald-500 hover:bg-emerald-50 transition-all group">
+            <h4 className="font-bold text-gray-800 group-hover:text-emerald-600">quick Sort algorithm</h4>
+            <p className="text-xs text-gray-500">GeeksforGeeks • Medium</p>
+          </a>
+        </div>
+      </section>
+      <section className="content-section">
+        <h3>Key Takeaways</h3>
+        <ul className="list-disc ml-6 mb-6 space-y-2">
+          <li><strong>Quick Sort:</strong> A divide-and-conquer algorithm that sorts an array by partitioning it around a pivot element.</li>
+          <li><strong>Time Complexity:</strong> O(n log n) on average, O(n²) in the worst case.</li>
+          <li><strong>Space Complexity:</strong> O(log n) for the recursion stack.</li>
+          <li><strong>Pivot Selection:</strong> The choice of pivot significantly affects performance.</li>
+          <li><strong>Stability:</strong> Not a stable sorting algorithm.</li>
         </ul>
       </section>
     </div>

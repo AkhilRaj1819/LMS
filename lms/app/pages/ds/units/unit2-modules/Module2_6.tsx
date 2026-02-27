@@ -119,6 +119,7 @@ Notes.txt file`}</code>
         <p className="mb-6 font-semibold text-lg">
           This is a bit Tricky question try to solve it !!
         </p>
+        
 
         <Quiz
           title="Module 2.6 Quiz: File System Traversal"

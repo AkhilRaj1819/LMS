@@ -22,8 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedModule, onModuleSelect, isOpe
         'Non-deterministic Finite Automata (NFA)',
         'Text Search using Finite Automata',
         'Regular Expressions',
-        'Finite Automata with ε-Transitions',
-        'Unit 1 Final Synthesis'
+        'Finite Automata with ε-Transitions'
       ]
     },
     {

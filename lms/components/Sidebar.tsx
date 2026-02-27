@@ -4,6 +4,7 @@ import { useSession, signOut } from "next-auth/react";
 import { useState, useEffect, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { LayoutGrid, BookOpen, MessageSquare, CheckSquare, LogOut } from "lucide-react";
 
 interface SidebarProps {
@@ -30,11 +31,13 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       {/* LOGO SECTION */}
       <div className="pt-12 pb-10 px-10 flex items-center justify-between">
         <div className="flex items-center">
-          <div className="w-52">
-            <img
+          <div className="w-52 h-12 relative">
+            <Image
               src="/images/ggu-techwing.png"
               alt="GGU Logo"
-              className="w-full h-auto"
+              fill
+              className="object-contain"
+              priority
             />
           </div>
         </div>
@@ -49,13 +52,13 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       <div className="px-10 mb-8 py-2">
         <div className="flex items-center gap-4">
           <div className="relative">
-            <div className="w-14 h-14 rounded-full border-2 border-[#3E73C1] p-0.5 overflow-hidden">
+            <div className="w-14 h-14 rounded-full border-2 border-[#3E73C1] p-0.5 overflow-hidden relative">
               {session?.user?.image ? (
-                <img
+                <Image
                   src={session.user.image}
-                  className="w-full h-full rounded-full object-cover bg-slate-50"
+                  fill
+                  className="rounded-full object-cover bg-slate-50"
                   alt="Profile"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden'); }}
                 />
               ) : null}
               <div className={`w-full h-full rounded-full bg-[#3E73C1] flex items-center justify-center ${session?.user?.image ? 'hidden' : ''}`}>
@@ -64,7 +67,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
                 </span>
               </div>
             </div>
-            <div className="absolute top-1/2 -right-0.5 w-3.5 h-3.5 bg-[#4ADE80] rounded-full border-2 border-white shadow-sm -translate-y-1/2" />
+
           </div>
           <div>
             <p className="text-[#3E73C1] font-black text-base truncate max-w-[120px]">{session?.user?.name || "Student"}</p>

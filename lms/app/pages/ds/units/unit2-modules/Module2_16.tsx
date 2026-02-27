@@ -106,6 +106,7 @@ const Module2_16: React.FC = () => {
             </tbody>
           </table>
         </div>
+        
 
         <Quiz
           title="Module 2.16 Quiz: Two-Pointer Collision Pattern"

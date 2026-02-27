@@ -51,6 +51,7 @@ const Module1_15: React.FC = () => {
           </div>
         </div>
       </section>
+      
 
       <Quiz
         title="Module 1.15 Quiz: Sieve of Eratosthenes"

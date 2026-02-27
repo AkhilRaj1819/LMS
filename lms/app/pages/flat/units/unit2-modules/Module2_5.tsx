@@ -1,666 +1,1081 @@
+
 'use client';
 import React, { useState } from 'react';
 import Quiz from '../../components/Quiz';
-import {
-    CheckCircle,
-    HelpCircle,
-    BookOpen,
-    Cpu,
-    PlayCircle,
-    AlertTriangle,
-    Code,
-    Layout,
-    Table,
-    Terminal,
-    ChevronRight,
-    Info
-} from 'lucide-react';
+
 
 const Module2_5: React.FC = () => {
-    // Toggle state for solutions/model answers
-    const [showSolution, setShowSolution] = useState<Record<string, boolean>>({});
-
-    const toggleSolution = (id: string) => {
-        setShowSolution(prev => ({ ...prev, [id]: !prev[id] }));
-    };
-
     return (
         <div className="module-content">
-            {/* 1. Header */}
+            {/* Lesson Header */}
             <div className="lesson-header">
-                <div className="lesson-number-badge font-bold">2.5</div>
+                <div className="lesson-number-badge">2.5</div>
                 <div className="lesson-title-main">
-                    <h1>Decision Properties of Regular Languages</h1>
-                    <p className="text-sm mt-2">Subject: Theory of Computation | Unit: Unit-2: Regular Languages | Level: Expert Comprehensive</p>
+                    <h1>⚖️ Decision Properties of Regular Languages</h1>
                 </div>
             </div>
 
             {/* Learning Objectives */}
             <section className="content-section">
-                <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl shadow-sm">
-                    <p className="font-bold text-blue-900 mb-4 flex items-center gap-2">
-                        <span className="text-xl">🎯</span> What You'll Master
-                    </p>
-                    <ul className="space-y-3">
-                        {[
-                            { id: 1, title: "Membership Testing", desc: "Apply decision algorithms to determine if a given string belongs to a regular language." },
-                            { id: 2, title: "Emptiness and Finiteness", desc: "Design and analyze algorithms to test whether a regular language is empty, finite, or infinite." },
-                            { id: 3, title: "Equivalence Testing", desc: "Implement procedures to check equivalence between two regular languages using minimization and state comparison techniques." },
-                            { id: 4, title: "Containment and Equality", desc: "Evaluate containment relationships and subset testing between regular languages." },
-                            { id: 5, title: "DFA Minimization", desc: "Construct minimized DFAs using state equivalence and partition refinement algorithms." }
-                        ].map(obj => (
-                            <li key={obj.id} className="flex gap-4 items-start">
-                                <div className="bg-blue-600 text-white font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5">{obj.id}</div>
-                                <div>
-                                    <p className="text-sm font-bold text-blue-950 mb-0.5">{obj.title}</p>
-                                    <p className="text-xs text-blue-800/70 leading-relaxed">{obj.desc}</p>
-                                </div>
-                            </li>
-                        ))}
+                <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
+                    <p className="font-semibold">🎯 What You'll Master - Learning Objectives</p>
+                    <ul className="list-disc ml-6 mt-2 space-y-1">
+                        <li>Apply decision algorithms to determine if a given string belongs to a regular language (Membership Problem)</li>
+                        <li>Design and analyze algorithms to test whether a regular language is empty, finite, or infinite (Emptiness and Finiteness Problems)</li>
+                        <li>Implement procedures to check equivalence between two regular languages using minimization and state comparison techniques</li>
+                        <li>Evaluate containment relationships between regular languages (Subset and Equality Testing)</li>
+                        <li>Construct minimized DFAs using state equivalence and partition refinement algorithms</li>
                     </ul>
                 </div>
             </section>
 
             {/* Why This Topic Matters */}
             <section className="content-section">
-                <div className="bg-gradient-to-r from-orange-50 to-amber-50 border-l-4 border-orange-500 p-6 rounded-r-xl shadow-sm mb-8">
-                    <h2 className="text-xl font-bold text-orange-900 mb-4 flex items-center gap-2">
-                        <span className="text-2xl">🔥</span> Why This Topic Matters
-                    </h2>
-                    <p className="text-gray-700 leading-relaxed mb-4 text-sm">
-                        Imagine you're a compiler designer building a lexical analyzer that needs to recognize valid tokens in a programming language. How do you verify that your finite automaton correctly accepts all valid identifiers and rejects invalid ones? Or consider you're developing a network protocol that must validate packet formats against a specification—how can you algorithmically prove that your implementation matches the specification exactly?
-                    </p>
-                    <p className="text-gray-700 leading-relaxed mb-6 text-sm">
-                        Decision properties of regular languages provide the theoretical foundation and practical algorithms to answer these critical questions. They allow us to mechanically verify properties of regular languages without guesswork or exhaustive testing.
-                    </p>
+                <h3>🔥 Why This Topic Matters</h3>
+                <p>
+                    Imagine you're a compiler designer building a lexical analyzer that needs to recognize valid tokens in a programming language. How do you verify that your finite automaton correctly accepts all valid identifiers and rejects invalid ones? Or consider you're developing a network protocol that must validate packet formats against a specification—how can you algorithmically prove that your implementation matches the specification exactly?
+                </p>
+                <p className="mt-2">
+                    Decision properties of regular languages provide the theoretical foundation and practical algorithms to answer these critical questions. They allow us to mechanically verify properties of regular languages without guesswork or exhaustive testing. These algorithms are not just theoretical curiosities—they form the backbone of compiler construction, formal verification, network protocol analysis, and software testing tools used in industry every day.
+                </p>
+                <p className="mt-2">
+                    Understanding decision properties is essential for GATE exams, technical interviews at top tech companies, and research in formal methods. The algorithms you'll learn—reachability analysis, state minimization, equivalence testing—are fundamental tools that appear repeatedly in advanced computer science courses and real-world applications.
+                </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {[
-                            { title: "Compiler Design", desc: "Lexical analyzer verification and token validation (Lex, Flex tools)" },
-                            { title: "Formal Verification", desc: "Proving correctness of hardware circuits and communication protocols" },
-                            { title: "Software Testing", desc: "Generating test cases that cover all states in a specification" },
-                            { title: "Network Security", desc: "Verifying firewall rules and intrusion detection patterns" }
-                        ].map((app, i) => (
-                            <div key={i} className="bg-white/60 p-4 rounded-lg border border-orange-100">
-                                <p className="font-bold text-orange-800 text-xs mb-1">{app.title}</p>
-                                <p className="text-[11px] text-gray-600">{app.desc}</p>
-                            </div>
-                        ))}
+                <h4 className="mt-4 font-semibold">💡 Real-World Applications:</h4>
+                <ul className="list-disc ml-6 space-y-1">
+                    <li><strong>Compiler Design:</strong> Lexical analyzer verification and token validation (Lex, Flex tools)</li>
+                    <li><strong>Formal Verification:</strong> Proving correctness of hardware circuits and communication protocols</li>
+                    <li><strong>Software Testing:</strong> Generating test cases that cover all states in a specification</li>
+                    <li><strong>Network Security:</strong> Verifying firewall rules and intrusion detection patterns</li>
+                    <li><strong>Database Query Optimization:</strong> Checking equivalence of regular path queries</li>
+                </ul>
+            </section>
+
+            {/* Deep Dive */}
+            <section className="content-section">
+                <h3>📖 Deep Dive: Understanding the Concept</h3>
+                
+                <h4 className="mt-4 font-semibold">Definition & Fundamentals</h4>
+                <p>
+                    Decision properties are algorithmic procedures that answer yes/no questions about formal languages. For regular languages, these decision problems are particularly important because they are <strong>decidable</strong>—meaning there exist algorithms that always terminate with a correct answer. This is in contrast to more complex language classes (like context-free or recursively enumerable languages) where many decision problems are undecidable.
+                </p>
+                <p className="mt-2">
+                    Think of decision properties as diagnostic tools for regular languages. Just as a doctor uses various tests to diagnose a patient's condition, we use decision algorithms to diagnose properties of languages. The key insight is that because regular languages have multiple equivalent representations (DFA, NFA, Regular Expression, Regular Grammar), we can choose the most convenient representation for each decision problem.
+                </p>
+                <p className="mt-2">
+                    The fundamental decision problems for regular languages include:
+                </p>
+                <ul className="list-disc ml-6 space-y-1">
+                    <li><strong>Membership:</strong> Given a string w and language L, is w ∈ L?</li>
+                    <li><strong>Emptiness:</strong> Is L = ∅ (does the language contain any strings)?</li>
+                    <li><strong>Finiteness:</strong> Is L finite or infinite?</li>
+                    <li><strong>Equivalence:</strong> Given L₁ and L₂, is L₁ = L₂?</li>
+                    <li><strong>Containment:</strong> Is L₁ ⊆ L₂?</li>
+                </ul>
+
+                <h4 className="mt-6 font-semibold">📌 Key Terminology:</h4>
+                <ul className="list-disc ml-6 space-y-1">
+                    <li><strong>Decidable Problem:</strong> A problem for which an algorithm exists that always halts with a correct yes/no answer</li>
+                    <li><strong>Reachable State:</strong> A state that can be reached from the start state by some input string</li>
+                    <li><strong>Product Automaton:</strong> A DFA constructed from two DFAs that simulates both simultaneously</li>
+                    <li><strong>State Equivalence:</strong> Two states are equivalent if they cannot be distinguished by any input string</li>
+                    <li><strong>Distinguishing String:</strong> An input string that causes two states to lead to different acceptance outcomes</li>
+                    <li><strong>Myhill-Nerode Theorem:</strong> Characterizes regular languages by the number of equivalence classes of indistinguishable strings</li>
+                </ul>
+            </section>
+
+            {/* Decision Problems Hierarchy */}
+            <section className="content-section">
+                <h3>How It Works: The Mechanism Explained</h3>
+
+                <div className="flex flex-col items-center my-6">
+                    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 max-w-5xl">
+                        <h4 className="text-center font-bold text-lg mb-4">Decision Problems Hierarchy</h4>
+                        <svg width="900" height="400" viewBox="0 0 900 400" className="mx-auto">
+                            <defs>
+                                <marker id="arrowDecision" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" />
+                                </marker>
+                            </defs>
+
+                            {/* Root Node */}
+                            <rect x="350" y="20" width="200" height="50" fill="#dbeafe" stroke="#3b82f6" strokeWidth="3" rx="5" />
+                            <text x="450" y="50" textAnchor="middle" fontSize="16" fontWeight="bold">Decision Properties</text>
+
+                            {/* Level 1 - Five Problems */}
+                            <rect x="50" y="120" width="140" height="50" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" rx="5" />
+                            <text x="120" y="150" textAnchor="middle" fontSize="14" fontWeight="bold">Membership</text>
+
+                            <rect x="220" y="120" width="140" height="50" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" rx="5" />
+                            <text x="290" y="150" textAnchor="middle" fontSize="14" fontWeight="bold">Emptiness</text>
+
+                            <rect x="390" y="120" width="140" height="50" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" rx="5" />
+                            <text x="460" y="150" textAnchor="middle" fontSize="14" fontWeight="bold">Finiteness</text>
+
+                            <rect x="560" y="120" width="140" height="50" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" rx="5" />
+                            <text x="630" y="150" textAnchor="middle" fontSize="14" fontWeight="bold">Equivalence</text>
+
+                            <rect x="730" y="120" width="140" height="50" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" rx="5" />
+                            <text x="800" y="150" textAnchor="middle" fontSize="14" fontWeight="bold">Containment</text>
+
+                            {/* Arrows from root to problems */}
+                            <line x1="450" y1="70" x2="120" y2="120" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowDecision)" />
+                            <line x1="450" y1="70" x2="290" y2="120" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowDecision)" />
+                            <line x1="450" y1="70" x2="460" y2="120" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowDecision)" />
+                            <line x1="450" y1="70" x2="630" y2="120" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowDecision)" />
+                            <line x1="450" y1="70" x2="800" y2="120" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowDecision)" />
+
+                            {/* Level 2 - Solutions */}
+                            <rect x="30" y="220" width="180" height="60" fill="#dcfce7" stroke="#16a34a" strokeWidth="2" rx="5" />
+                            <text x="120" y="245" textAnchor="middle" fontSize="13" fontWeight="bold">Simulate DFA</text>
+                            <text x="120" y="265" textAnchor="middle" fontSize="11">O(|w|) time</text>
+
+                            <rect x="200" y="220" width="180" height="60" fill="#dcfce7" stroke="#16a34a" strokeWidth="2" rx="5" />
+                            <text x="290" y="245" textAnchor="middle" fontSize="13" fontWeight="bold">Reachability</text>
+                            <text x="290" y="265" textAnchor="middle" fontSize="13" fontWeight="bold">Analysis</text>
+
+                            <rect x="370" y="220" width="180" height="60" fill="#dcfce7" stroke="#16a34a" strokeWidth="2" rx="5" />
+                            <text x="460" y="245" textAnchor="middle" fontSize="13" fontWeight="bold">Cycle Detection</text>
+                            <text x="460" y="265" textAnchor="middle" fontSize="11">O(|Q| × |Σ|)</text>
+
+                            <rect x="540" y="220" width="180" height="60" fill="#dcfce7" stroke="#16a34a" strokeWidth="2" rx="5" />
+                            <text x="630" y="245" textAnchor="middle" fontSize="13" fontWeight="bold">Minimization +</text>
+                            <text x="630" y="265" textAnchor="middle" fontSize="13" fontWeight="bold">Comparison</text>
+
+                            <rect x="710" y="220" width="180" height="60" fill="#dcfce7" stroke="#16a34a" strokeWidth="2" rx="5" />
+                            <text x="800" y="245" textAnchor="middle" fontSize="13" fontWeight="bold">L₁ ∩ L₂' = ∅</text>
+                            <text x="800" y="265" textAnchor="middle" fontSize="11">Product automaton</text>
+
+                            {/* Arrows to solutions */}
+                            <line x1="120" y1="170" x2="120" y2="220" stroke="#16a34a" strokeWidth="2" markerEnd="url(#arrowDecision)" />
+                            <line x1="290" y1="170" x2="290" y2="220" stroke="#16a34a" strokeWidth="2" markerEnd="url(#arrowDecision)" />
+                            <line x1="460" y1="170" x2="460" y2="220" stroke="#16a34a" strokeWidth="2" markerEnd="url(#arrowDecision)" />
+                            <line x1="630" y1="170" x2="630" y2="220" stroke="#16a34a" strokeWidth="2" markerEnd="url(#arrowDecision)" />
+                            <line x1="800" y1="170" x2="800" y2="220" stroke="#16a34a" strokeWidth="2" markerEnd="url(#arrowDecision)" />
+
+                            {/* Complexity annotations */}
+                            <rect x="250" y="330" width="400" height="50" fill="#f3f4f6" stroke="#9ca3af" strokeWidth="1" rx="5" />
+                            <text x="450" y="350" textAnchor="middle" fontSize="12" fontWeight="bold">All decision problems for regular languages are</text>
+                            <text x="450" y="368" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#16a34a">DECIDABLE with polynomial time complexity</text>
+                        </svg>
+                        <p className="text-center text-sm text-gray-600 mt-4">Figure 1: Decision problems for regular languages and their solution approaches</p>
                     </div>
                 </div>
             </section>
 
-            {/* Deep Dive: Decision Properties */}
+            {/* Membership Problem */}
             <section className="content-section">
-                <h2 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-3">
-                    <Layout className="w-8 h-8 text-indigo-600" />
-                    Deep Dive: Decision Properties
-                </h2>
+                <h3>The Membership Problem</h3>
+                <p>
+                    The Membership Problem asks: Given a DFA D and a string w, does D accept w? This is the most fundamental decision problem and has a straightforward solution.
+                </p>
+                <p className="mt-2">
+                    <strong>Algorithm:</strong> Simulate the DFA on input w starting from the initial state. For each symbol in w, follow the corresponding transition. After processing all symbols, check if the current state is an accepting state.
+                </p>
+                <p className="mt-2">
+                    <strong>Time Complexity:</strong> O(|w|) — linear in the length of the input string. This is optimal since we must examine each character.
+                </p>
 
-                <div className="space-y-6">
-                    <div className="bg-white border rounded-2xl p-6 shadow-sm">
-                        <h3 className="text-lg font-bold text-gray-800 mb-4 border-b pb-2">Definition & Fundamentals</h3>
-                        <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                            Decision properties are algorithmic procedures that answer yes/no questions about formal languages. For regular languages, these decision problems are particularly important because they are <strong>decidable</strong>—meaning there exist algorithms that always terminate with a correct answer.
-                        </p>
-                        <div className="bg-indigo-50 p-4 rounded-xl text-xs space-y-3 font-medium border-l-4 border-indigo-400">
-                            <p>Think of decision properties as <strong>diagnostic tools</strong>. Just as a doctor uses various tests, we use decision algorithms to diagnose properties of languages. The key insight is that because regular languages have multiple equivalent representations, we can choose the most convenient representation for each problem.</p>
-                        </div>
-                    </div>
+                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mt-4">
+                    <p className="text-sm font-semibold mb-2">Membership Algorithm</p>
+                    <pre className="text-sm">
+                        <code>{`function Membership(DFA D, string w):
+    // Start at initial state
+    state ← D.initial_state
+    
+    // Process each symbol in the input
+    for each symbol c in w:
+        if transition exists from state on c:
+            state ← D.transition[state][c]
+        else:
+            return false  // No transition = reject
+    
+    // Check if final state is accepting
+    return state ∈ D.accepting_states`}</code>
+                    </pre>
+                </div>
+            </section>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-slate-50 p-6 rounded-2xl border">
-                            <h4 className="font-black text-xs uppercase text-slate-500 mb-4 tracking-widest flex items-center gap-2">
-                                <Terminal className="w-4 h-4" /> fundamental decision problems
-                            </h4>
-                            <ul className="space-y-3">
-                                {[
-                                    { term: "Membership", desc: "Given a string w and language L, is w ∈ L?" },
-                                    { term: "Emptiness", desc: "Is L = ∅ (does the language contain any strings)?" },
-                                    { term: "Finiteness", desc: "Is L finite or infinite?" },
-                                    { term: "Equivalence", desc: "Given L₁ and L₂, is L₁ = L₂?" },
-                                    { term: "Containment", desc: "Is L₁ ⊆ L₂?" }
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3">
-                                        <ChevronRight className="w-3 h-3 text-indigo-500" />
-                                        <span className="text-xs text-gray-700"><strong>{item.term}:</strong> {item.desc}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+            {/* Emptiness Problem */}
+            <section className="content-section">
+                <h3>The Emptiness Problem</h3>
+                <p>
+                    The Emptiness Problem asks: Is the language recognized by a DFA empty? In other words, does the DFA accept any string at all?
+                </p>
+                <p className="mt-2">
+                    <strong>Key Insight:</strong> A DFA accepts at least one string if and only if there exists a path from the initial state to some accepting state. This reduces to a reachability problem in a directed graph.
+                </p>
+                <p className="mt-2">
+                    <strong>Algorithm:</strong> Perform a graph traversal (BFS or DFS) starting from the initial state. If we can reach any accepting state, the language is non-empty; otherwise, it's empty.
+                </p>
 
-                        <div className="bg-slate-50 p-6 rounded-2xl border">
-                            <h4 className="font-black text-xs uppercase text-slate-500 mb-4 tracking-widest flex items-center gap-2">
-                                <Info className="w-4 h-4" /> 📌 key terminology
-                            </h4>
-                            <ul className="space-y-3">
-                                {[
-                                    { term: "Decidable Problem", desc: "Algorithm exists that always halts with correct yes/no answer." },
-                                    { term: "Reachable State", desc: "State that can be reached from the start state." },
-                                    { term: "Product Automaton", desc: "DFA that simulates two DFAs simultaneously." },
-                                    { term: "State Equivalence", desc: "Two states that cannot be distinguished by any input string." },
-                                    { term: "Myhill-Nerode Theorem", desc: "Characterizes regular languages via equivalence classes." }
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300" />
-                                        <p className="text-xs text-gray-700"><strong>{item.term}:</strong> {item.desc}</p>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mt-4">
+                    <p className="text-sm font-semibold mb-2">Emptiness Algorithm</p>
+                    <pre className="text-sm">
+                        <code>{`function IsEmpty(DFA D):
+    // BFS/DFS to find reachable states
+    visited ← empty set
+    queue ← [D.initial_state]
+    
+    while queue is not empty:
+        state ← queue.dequeue()
+        
+        // Check if we found an accepting state
+        if state ∈ D.accepting_states:
+            return false  // Language is NOT empty
+        
+        // Explore all transitions
+        for each symbol c in D.alphabet:
+            next_state ← D.transition[state][c]
+            if next_state ∉ visited:
+                visited.add(next_state)
+                queue.enqueue(next_state)
+    
+    return true  // No accepting state reachable`}</code>
+                    </pre>
+                </div>
+
+                <p className="mt-4">
+                    <strong>Time Complexity:</strong> O(|Q| × |Σ|) where |Q| is the number of states and |Σ| is the alphabet size. We visit each state at most once and examine all outgoing transitions.
+                </p>
+            </section>
+
+            {/* Finiteness Problem */}
+            <section className="content-section">
+                <h3>The Finiteness Problem</h3>
+                <p>
+                    The Finiteness Problem asks: Is the language recognized by a DFA finite or infinite?
+                </p>
+                <p className="mt-2">
+                    <strong>Key Insight:</strong> A regular language is infinite if and only if its DFA accepts some string that passes through a cycle (loop) on the way to an accepting state. If all paths to accepting states are simple paths (no cycles), the language is finite.
+                </p>
+                <p className="mt-2">
+                    <strong>Algorithm:</strong> First, remove all states that cannot reach an accepting state (they're irrelevant). Then, check if there's a cycle among the remaining reachable states. If a cycle exists, the language is infinite.
+                </p>
+
+                <div className="flex flex-col items-center my-6">
+                    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 max-w-4xl">
+                        <h4 className="text-center font-bold text-lg mb-4">Finiteness Detection</h4>
+                        <svg width="700" height="500" viewBox="0 0 700 500" className="mx-auto">
+                            <defs>
+                                <marker id="arrowFlow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#374151" />
+                                </marker>
+                            </defs>
+
+                            {/* Start */}
+                            <ellipse cx="350" cy="40" rx="60" ry="25" fill="#10b981" stroke="#065f46" strokeWidth="2" />
+                            <text x="350" y="47" textAnchor="middle" fill="white" fontWeight="bold">Start</text>
+
+                            {/* Decision 1: Reachable from start? */}
+                            <path d="M 350 90 L 430 140 L 350 190 L 270 140 Z" fill="#fef08a" stroke="#eab308" strokeWidth="2" />
+                            <text x="350" y="135" textAnchor="middle" fontSize="12" fontWeight="bold">Reachable from</text>
+                            <text x="350" y="150" textAnchor="middle" fontSize="12" fontWeight="bold">start?</text>
+                            <line x1="350" y1="65" x2="350" y2="90" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowFlow)" />
+
+                            {/* No path - Ignore State */}
+                            <rect x="500" y="115" width="140" height="50" fill="#fecaca" stroke="#dc2626" strokeWidth="2" rx="5" />
+                            <text x="570" y="145" textAnchor="middle" fontSize="13" fontWeight="bold">Ignore State</text>
+                            <line x1="430" y1="140" x2="500" y2="140" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowFlow)" />
+                            <text x="465" y="135" fontSize="12" fontWeight="bold" fill="#dc2626">No</text>
+
+                            {/* Decision 2: Can reach accepting? */}
+                            <path d="M 350 240 L 430 290 L 350 340 L 270 290 Z" fill="#fef08a" stroke="#eab308" strokeWidth="2" />
+                            <text x="350" y="285" textAnchor="middle" fontSize="12" fontWeight="bold">Can reach</text>
+                            <text x="350" y="300" textAnchor="middle" fontSize="12" fontWeight="bold">accepting?</text>
+                            <line x1="350" y1="190" x2="350" y2="240" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowFlow)" />
+                            <text x="360" y="215" fontSize="12" fontWeight="bold" fill="#10b981">Yes</text>
+
+                            {/* No path - Ignore State */}
+                            <line x1="430" y1="290" x2="570" y2="165" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowFlow)" />
+                            <text x="500" y="225" fontSize="12" fontWeight="bold" fill="#dc2626">No</text>
+
+                            {/* Decision 3: Has cycle? */}
+                            <path d="M 350 390 L 430 440 L 350 490 L 270 440 Z" fill="#fef08a" stroke="#eab308" strokeWidth="2" />
+                            <text x="350" y="445" textAnchor="middle" fontSize="12" fontWeight="bold">Has cycle?</text>
+                            <line x1="350" y1="340" x2="350" y2="390" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowFlow)" />
+                            <text x="360" y="365" fontSize="12" fontWeight="bold" fill="#10b981">Yes</text>
+
+                            {/* INFINITE */}
+                            <rect x="480" y="415" width="160" height="50" fill="#bbf7d0" stroke="#16a34a" strokeWidth="2" rx="5" />
+                            <text x="560" y="435" textAnchor="middle" fontSize="13" fontWeight="bold">INFINITE</text>
+                            <text x="560" y="453" textAnchor="middle" fontSize="13" fontWeight="bold">Language</text>
+                            <line x1="430" y1="440" x2="480" y2="440" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowFlow)" />
+                            <text x="455" y="435" fontSize="12" fontWeight="bold" fill="#10b981">Yes</text>
+
+                            {/* FINITE */}
+                            <rect x="60" y="415" width="160" height="50" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2" rx="5" />
+                            <text x="140" y="435" textAnchor="middle" fontSize="13" fontWeight="bold">FINITE</text>
+                            <text x="140" y="453" textAnchor="middle" fontSize="13" fontWeight="bold">Language</text>
+                            <line x1="270" y1="440" x2="220" y2="440" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowFlow)" />
+                            <text x="245" y="435" fontSize="12" fontWeight="bold" fill="#dc2626">No</text>
+                        </svg>
+                        <p className="text-center text-sm text-gray-600 mt-4">Figure 2: Decision flow for finiteness problem</p>
                     </div>
                 </div>
             </section>
 
-            {/* Decision Problems Hierarchy Visual */}
+            {/* Equivalence Problem */}
             <section className="content-section">
-                <h3 className="text-lg font-bold text-gray-800 mb-6 flex items-center gap-2">
-                    <Table className="w-5 h-5 text-indigo-500" />
-                    Decision Problems Hierarchy
-                </h3>
-                <div className="bg-white border rounded-3xl p-8 flex flex-col items-center justify-center relative shadow-sm overflow-hidden">
-                    <div className="absolute inset-0 bg-slate-50/50 opacity-30"></div>
+                <h3>The Equivalence Problem</h3>
+                <p>
+                    The Equivalence Problem asks: Given two DFAs D₁ and D₂, do they recognize the same language?
+                </p>
+                <p className="mt-2">
+                    <strong>Key Insight:</strong> Two DFAs are equivalent if and only if their minimized forms are isomorphic (identical up to state renaming). Alternatively, we can use the product construction to build a DFA that recognizes the symmetric difference of the two languages—if this language is empty, the original DFAs are equivalent.
+                </p>
 
-                    <div className="relative z-10 w-full max-w-2xl">
-                        <div className="bg-indigo-600 text-white p-3 rounded-xl text-center font-black text-sm uppercase tracking-widest mb-10 w-64 mx-auto shadow-lg">
-                            Decision Properties
-                        </div>
+                <div className="mt-4 bg-blue-50 p-4 rounded">
+                    <p className="font-semibold">Algorithm (Using Minimization):</p>
+                    <ol className="list-decimal ml-6 mt-2 text-sm space-y-1">
+                        <li>Minimize both DFAs using state equivalence partitioning</li>
+                        <li>Check if the minimized DFAs are isomorphic (same structure)</li>
+                    </ol>
+                </div>
 
-                        <div className="grid grid-cols-5 gap-4">
-                            {[
-                                { name: "Membership", sub: "Simulate DFA" },
-                                { name: "Emptiness", sub: "Reachability" },
-                                { name: "Finiteness", sub: "Cycle Detection" },
-                                { name: "Equivalence", sub: "Minimization" },
-                                { name: "Containment", sub: "L1 ∩ L2' = ∅" }
-                            ].map((item, i) => (
-                                <div key={i} className="flex flex-col items-center">
-                                    <div className="h-10 w-0.5 bg-indigo-100 mb-0"></div>
-                                    <div className="bg-white border-2 border-indigo-100 p-3 rounded-xl text-center w-full min-h-[80px] flex flex-col justify-center shadow-sm">
-                                        <p className="text-[10px] font-black text-indigo-600 mb-1">{item.name}</p>
-                                        <p className="text-[9px] text-gray-400 leading-tight">{item.sub}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <p className="mt-8 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Figure 1: Decision problems for regular languages and their solution approaches</p>
+                <div className="mt-4 bg-green-50 p-4 rounded">
+                    <p className="font-semibold">Algorithm (Using Product Construction):</p>
+                    <ol className="list-decimal ml-6 mt-2 text-sm space-y-1">
+                        <li>Construct DFA D that accepts (L₁ ∩ L₂') ∪ (L₁' ∩ L₂) (symmetric difference)</li>
+                        <li>Test if L(D) = ∅ using the emptiness algorithm</li>
+                    </ol>
+                </div>
+
+                <div className="mt-4 bg-yellow-50 border-l-4 border-yellow-500 p-4">
+                    <p className="font-semibold">⚠️ Important Note:</p>
+                    <p className="text-sm mt-2">The minimization approach is more efficient in practice. The table-filling algorithm for DFA minimization runs in O(|Q|² × |Σ|) time, while the product construction creates a DFA with |Q₁| × |Q₂| states.</p>
                 </div>
             </section>
 
-            {/* 1. Membership Problem */}
+            {/* DFA Minimization */}
             <section className="content-section">
-                <div className="bg-white border-2 border-indigo-50 rounded-3xl overflow-hidden shadow-sm">
-                    <div className="bg-indigo-600 p-4 px-8 text-white flex justify-between items-center">
-                        <h3 className="text-lg font-black uppercase tracking-widest">01. The Membership Problem</h3>
-                        <span className="bg-white/20 px-3 py-1 rounded-full text-[10px] font-bold">Time: O(|w|)</span>
-                    </div>
-                    <div className="p-8 space-y-6">
-                        <p className="text-sm text-gray-600 leading-relaxed">
-                            The Membership Problem asks: Given a DFA <strong>D</strong> and a string <strong>w</strong>, does <strong>D</strong> accept <strong>w</strong>? This is the most fundamental decision problem.
-                        </p>
-                        <div className="flex gap-8 items-start">
-                            <div className="flex-1 space-y-4">
-                                <div className="bg-slate-50 p-4 rounded-xl border">
-                                    <p className="text-xs font-bold text-slate-800 mb-2">Algorithm Strategy:</p>
-                                    <p className="text-xs text-gray-600 leading-relaxed italic">
-                                        Simulate the DFA on input w starting from initial state. For each symbol in w, follow transitions. Check if final state is accepting.
-                                    </p>
-                                </div>
-                                <div className="bg-green-50 p-4 rounded-xl border border-green-100 text-xs text-green-800 italic">
-                                    <strong>Efficiency:</strong> Linear time O(|w|) is optimal as we must examine each character once.
-                                </div>
-                            </div>
-                            <div className="flex-1 bg-slate-50 border-2 border-slate-200 rounded-2xl p-6 text-slate-700 font-mono text-[10px] leading-relaxed relative shadow-inner">
-                                <div className="absolute top-2 right-4 text-indigo-500 font-black tracking-widest opacity-60">PSEUDOCODE</div>
-                                <p className="text-indigo-600 font-bold mb-2">function Membership(D, w):</p>
-                                <p className="pl-4">state = D.start</p>
-                                <p className="pl-4">for each char c in w:</p>
-                                <p className="pl-8">if exists(state, c):</p>
-                                <p className="pl-12">state = delta(state, c)</p>
-                                <p className="pl-8">else: return false</p>
-                                <p className="pl-4 mt-2 font-bold text-indigo-600">return state in F</p>
-                            </div>
-                        </div>
-                    </div>
+                <h3>DFA Minimization: The Table-Filling Algorithm</h3>
+                <p>
+                    DFA minimization is crucial for equivalence testing. The table-filling algorithm (also known as the Myhill-Nerode algorithm) identifies and merges equivalent states.
+                </p>
+                <p className="mt-2">
+                    <strong>Definition:</strong> Two states p and q are distinguishable if there exists a string w such that exactly one of δ(p, w) and δ(q, w) is an accepting state.
+                </p>
+
+                <div className="mt-4 bg-blue-50 p-4 rounded">
+                    <p className="font-semibold">Algorithm:</p>
+                    <ol className="list-decimal ml-6 mt-2 text-sm space-y-1">
+                        <li>Initialize: Mark all pairs (accepting, non-accepting) as distinguishable</li>
+                        <li>Iterate: For each unmarked pair (p, q), check if any input symbol leads to a marked pair. If so, mark (p, q) as distinguishable.</li>
+                        <li>Repeat until no new pairs are marked</li>
+                        <li>Merge all unmarked pairs (these are equivalent states)</li>
+                    </ol>
                 </div>
-            </section>
 
-            {/* 2. Emptiness Problem */}
-            <section className="content-section">
-                <div className="bg-white border-2 border-emerald-50 rounded-3xl overflow-hidden shadow-sm">
-                    <div className="bg-emerald-600 p-4 px-8 text-white flex justify-between items-center">
-                        <h3 className="text-lg font-black uppercase tracking-widest">02. The Emptiness Problem</h3>
-                        <span className="bg-white/20 px-3 py-1 rounded-full text-[10px] font-bold">Strategy: Reachability</span>
-                    </div>
-                    <div className="p-8">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div className="space-y-4">
-                                <p className="text-sm text-gray-600">
-                                    Is L = ∅? This reduces to a <strong>directed graph reachability</strong> problem. A language is empty if no path exists from start to any final state.
-                                </p>
-                                <div className="bg-emerald-50 p-5 rounded-2xl border border-emerald-100">
-                                    <p className="text-[10px] font-black text-emerald-800 uppercase mb-3 text-center">Implementation Steps</p>
-                                    <ol className="text-xs space-y-3 text-emerald-900 font-medium">
-                                        <li className="flex gap-2"><span>1.</span> Perform BFS/DFS from start state</li>
-                                        <li className="flex gap-2"><span>2.</span> Keep track of visited states</li>
-                                        <li className="flex gap-2"><span>3.</span> If any state in F is visited ➔ Not Empty</li>
-                                        <li className="flex gap-2"><span>4.</span> If traversal ends without F ➔ Empty</li>
-                                    </ol>
-                                </div>
-                            </div>
-                            <div className="bg-slate-50 border-2 border-slate-200 rounded-2xl p-6 text-slate-700 font-mono text-[10px] leading-relaxed relative shadow-inner">
-                                <div className="absolute top-2 right-4 text-emerald-600 font-black tracking-widest opacity-60">GRAPH TRAVERSAL</div>
-                                <p className="text-emerald-700 font-bold mb-2">function IsEmpty(D):</p>
-                                <p className="pl-4">visited = {'{D.start}'}</p>
-                                <p className="pl-4">queue = [D.start]</p>
-                                <p className="pl-4">while queue not empty:</p>
-                                <p className="pl-8">curr = queue.pop()</p>
-                                <p className="pl-8">if curr in D.F: return <span className="text-rose-600 font-bold">false</span></p>
-                                <p className="pl-8">for next in adj(curr):</p>
-                                <p className="pl-12">if next not in visited:</p>
-                                <p className="pl-16">visited.add(next)</p>
-                                <p className="pl-16">queue.push(next)</p>
-                                <p className="pl-4 mt-2 font-bold text-emerald-700">return <span className="text-emerald-600 font-bold">true</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* 3. Finiteness Problem */}
-            <section className="content-section">
-                <h3 className="text-xl font-bold mb-6 flex items-center gap-2 uppercase tracking-tighter">
-                    <HelpCircle className="w-6 h-6 text-orange-500" />
-                    03. The Finiteness Problem
-                </h3>
-                <div className="bg-white border rounded-3xl p-8 shadow-sm">
-                    <p className="text-sm text-gray-600 mb-8">
-                        A language is <strong>infinite</strong> if the DFA contains a <strong>cycle</strong> on a path from the start state to an accepting state.
-                    </p>
-                    <div className="flex flex-col items-center">
-                        <div className="flex flex-wrap justify-center gap-4 relative z-10 w-full mb-10">
-                            {[
-                                { step: "Start", result: "Reachable?" },
-                                { step: "Yes", result: "Reach Accept?" },
-                                { step: "Yes", result: "Has Cycle?" },
-                                { step: "Yes", result: "INFINITE", highlight: true },
-                                { step: "No", result: "FINITE", secondary: true }
-                            ].map((s, i) => (
-                                <React.Fragment key={i}>
-                                    <div className={`p-4 rounded-xl border-2 flex flex-col items-center min-w-[120px] ${s.highlight ? 'bg-red-600 border-red-500 text-white shadow-lg scale-110' : s.secondary ? 'bg-emerald-600 border-emerald-500 text-white' : 'bg-white border-slate-100'}`}>
-                                        <p className="text-[10px] font-black uppercase opacity-60 mb-1">{s.step}</p>
-                                        <p className="text-xs font-bold whitespace-nowrap">{s.result}</p>
-                                    </div>
-                                    {i < 3 && <div className="self-center text-slate-300 font-bold">➔</div>}
-                                </React.Fragment>
-                            ))}
-                        </div>
-                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest text-center">Figure 2: Decision flow for finiteness problem</p>
-                    </div>
-                </div>
-            </section>
-
-            {/* Table Filling Algorithm (Minimization) */}
-            <section className="content-section">
-                <div className="bg-white border-2 border-slate-200 rounded-[3rem] p-12 text-slate-900 shadow-xl relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500 opacity-5 rounded-full -mr-48 -mt-48 blur-3xl"></div>
-                    <div className="flex justify-between items-start relative z-10 mb-10">
-                        <div>
-                            <h3 className="text-3xl font-black uppercase tracking-[0.2em] mb-2 text-indigo-700">DFA Minimization</h3>
-                            <p className="text-xs text-indigo-500 font-bold font-mono uppercase tracking-widest opacity-60">The Table-Filling Algorithm (Myhill-Nerode)</p>
-                        </div>
-                        <div className="bg-indigo-600 text-white px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest shadow-lg shadow-indigo-100 italic">Complexity: O(|Q|² × |Σ|)</div>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 relative z-10">
-                        <div className="space-y-6">
-                            <p className="text-sm text-slate-500 leading-relaxed italic border-l-4 border-indigo-600 pl-6 py-2 bg-indigo-50/50 rounded-r-xl font-medium">
-                                "Two states p and q are distinguishable if there exists a string w such that exactly one of δ(p, w) and δ(q, w) is an accepting state."
-                            </p>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {[
-                                    { step: "01", title: "Initialize", desc: "Mark all pairs (accepting, non-accepting) as distinguishable." },
-                                    { step: "02", title: "Iterate", desc: "For each unmarked pair (p, q), if any symbol leads to a marked pair, mark (p, q)." },
-                                    { step: "03", title: "Converge", desc: "Repeat until no new marks can be made. Unmarked pairs are equivalent." },
-                                    { step: "04", title: "Merge", desc: "Construct a new DFA where each set of equivalent states is a single state." }
-                                ].map((item, i) => (
-                                    <div key={i} className="bg-indigo-50/30 border border-indigo-100 p-5 rounded-2xl group/item hover:bg-white transition-all shadow-sm">
-                                        <div className="text-xl font-black text-indigo-600/30 group-hover/item:text-indigo-600 transition-colors mb-2">{item.step}</div>
-                                        <div>
-                                            <p className="text-xs font-black text-slate-900 uppercase tracking-widest mb-1">{item.title}</p>
-                                            <p className="text-[10px] text-slate-500 leading-relaxed font-medium">{item.desc}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="bg-slate-50 rounded-[2.5rem] p-8 border-2 border-slate-200 font-mono text-[10px] leading-relaxed shadow-inner">
-                            <p className="text-indigo-600 mb-6 font-black tracking-[0.3em] uppercase border-b pb-2">Algorithm Definition</p>
-                            <p className="text-indigo-700 font-bold border-l-2 border-indigo-200 pl-4 py-1 mb-2 bg-indigo-50/50">function <span className="text-rose-600">Minimize</span>(DFA D):</p>
-                            <div className="space-y-1">
-                                <p className="pl-4 text-slate-400 italic"># Phase 1: Distinguishable Base Case</p>
-                                <p className="pl-4">for each pair (p, q) in Q:</p>
-                                <p className="pl-8">if p in F <span className="text-indigo-600 font-bold">XOR</span> q in F:</p>
-                                <p className="pl-12 opacity-80 decoration-indigo-400/30 underline underline-offset-4 font-black">table[p][q] = DISTINGUISHABLE</p>
-
-                                <p className="pl-4 mt-6 text-slate-400 italic"># Phase 2: Refinement Loop</p>
-                                <p className="pl-4">while <span className="text-emerald-600 font-bold italic">changed</span>:</p>
-                                <p className="pl-8">changed = <span className="text-rose-600">false</span></p>
-                                <p className="pl-8">for each unmarked (p, q):</p>
-                                <p className="pl-12">for each symbol a in σ:</p>
-                                <p className="pl-16">p_next = δ(p, a)</p>
-                                <p className="pl-16">q_next = δ(q, a)</p>
-                                <p className="pl-16">if table[p_next][q_next] == <span className="font-black text-indigo-600 uppercase tracking-tighter">DIST</span>:</p>
-                                <p className="pl-20 py-0.5 px-2 bg-emerald-50 text-emerald-700 rounded-lg inline-block">table[p][q] = DIST</p>
-                                <p className="pl-20 text-emerald-600 font-bold">changed = true</p>
-
-                                <p className="pl-4 mt-8 text-indigo-600 font-black border-t pt-4">return <span className="italic uppercase decoration-2 underline">QuotientConstruction</span>(D, table)</p>
-                            </div>
-                        </div>
-                    </div>
+                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mt-4">
+                    <p className="text-sm font-semibold mb-2">Table-Filling Algorithm</p>
+                    <pre className="text-sm">
+                        <code>{`function MinimizeDFA(DFA D):
+    // Initialize table
+    for each pair (p, q) where p < q:
+        if p ∈ F xor q ∈ F:  // One accepting, one not
+            table[p][q] ← MARKED
+        else:
+            table[p][q] ← UNMARKED
+    
+    // Iteratively mark distinguishable pairs
+    changed ← true
+    while changed:
+        changed ← false
+        for each unmarked pair (p, q):
+            for each symbol a in Σ:
+                p_next ← δ(p, a)
+                q_next ← δ(q, a)
+                if table[p_next][q_next] is MARKED:
+                    table[p][q] ← MARKED
+                    changed ← true
+    
+    // Merge equivalent (unmarked) states
+    return construct_minimized_DFA(D, table)`}</code>
+                    </pre>
                 </div>
             </section>
 
             {/* Common Misconceptions */}
             <section className="content-section">
-                <div className="bg-red-50 border-2 border-red-100 rounded-3xl p-8">
-                    <h3 className="text-lg font-black text-red-900 mb-6 flex items-center gap-2 uppercase tracking-tight">
-                        <AlertTriangle className="w-8 h-8 text-red-600" />
-                        Common Misconceptions
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {[
-                            { q: "Equivalence vs. Size", a: "Two DFAs are equivalent if they recognize the same language, regardless of state count. Only minimized forms are unique structure-wise." },
-                            { q: "Cycles vs. Infinity", a: "Cycles only make a language infinite if they lead to an accepting state. 'Dead' cycles don't affect finiteness." },
-                            { q: "Complement Regularity", a: "Regular languages are fully closed under complement. Swapping Final/Non-Final in a DFA always works." },
-                            { q: "Minimality Uniqueness", a: "Minimal DFAs are unique up to state renaming (isomorphism) but not unique in physical state labeling." }
-                        ].map((m, i) => (
-                            <div key={i} className="flex gap-4">
-                                <span className="text-2xl font-black text-red-200">?</span>
-                                <div>
-                                    <p className="text-xs font-bold text-red-900 mb-1">{m.q}</p>
-                                    <p className="text-[10px] text-red-700 leading-relaxed italic opacity-80">{m.a}</p>
-                                </div>
-                            </div>
-                        ))}
+                <h3>⚠️ Common Misconceptions</h3>
+
+                <div className="space-y-4">
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">Misconception #1: "Two DFAs are equivalent if they have the same number of states."</h4>
+                        <p className="text-sm mt-2"><strong>Reality:</strong> The number of states is irrelevant. Two DFAs can have different numbers of states but recognize the same language. Equivalence depends on the languages recognized, not the structure. Only minimized DFAs with the same number of states might be equivalent.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">Misconception #2: "If a DFA has cycles, its language is always infinite."</h4>
+                        <p className="text-sm mt-2"><strong>Reality:</strong> A cycle only makes the language infinite if it's on a path to an accepting state. Cycles in "dead" portions of the DFA (states that cannot reach accepting states) don't affect finiteness.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">Misconception #3: "The complement of a regular language is not regular."</h4>
+                        <p className="text-sm mt-2"><strong>Reality:</strong> Regular languages are closed under complement. Given a DFA for language L, simply swap accepting and non-accepting states to get a DFA for L'.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">Misconception #4: "DFA minimization always produces a unique result regardless of the algorithm used."</h4>
+                        <p className="text-sm mt-2"><strong>Reality:</strong> While the number of states in the minimal DFA is unique (by the Myhill-Nerode theorem), the actual structure may have variations due to state renaming. However, all minimal DFAs for the same language are isomorphic.</p>
                     </div>
                 </div>
             </section>
 
-            {/* Videos Section */}
+            {/* Video Resources */}
             <section className="content-section">
-                <h2 className="text-3xl font-black mb-10 border-b-4 pb-4 border-slate-200 flex justify-between items-end uppercase text-slate-900">
-                    Learn Through Videos
-                    <PlayCircle className="w-10 h-10 text-indigo-600 mb-1" />
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {[
-                        { id: "84oNUttWlN4", ch: "Neso Academy", dur: "15m", title: "Decision Properties Overview", desc: "Covers membership, emptiness, finiteness, and equivalence." },
-                        { id: "jN8zvENdjBg", ch: "Gate Smashers", dur: "12m", title: "DFA Minimization Algorithm", desc: "Step-by-step table-filling algorithm with worked examples." },
-                        { id: "upu_TeZImN0", ch: "Computer Science", dur: "18m", title: "Myhill-Nerode Theorem", desc: "Foundation of state equivalence and DFA minimality." },
-                        { id: "nB8_6k1uC_Q", ch: "Abdul Bari", dur: "14m", title: "Equivalence of Languages", desc: "Product construction method and practicality." }
-                    ].map(v => (
-                        <div key={v.id} className="bg-white border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all group border-b-8 border-b-indigo-500">
-                            <div className="aspect-video bg-slate-100 relative">
-                                <iframe className="w-full h-full opacity-90 group-hover:opacity-100" src={`https://www.youtube.com/embed/${v.id}`} allowFullScreen></iframe>
-                                <div className="absolute bottom-2 right-2 bg-white/90 backdrop-blur px-2 py-0.5 rounded text-[8px] font-black text-slate-900 shadow-sm">{v.dur}</div>
-                            </div>
-                            <div className="p-6">
-                                <p className="text-[8px] font-black text-indigo-600 uppercase tracking-[0.2em] mb-2">{v.ch}</p>
-                                <h4 className="text-sm font-black text-slate-900 mb-3 leading-tight group-hover:text-indigo-600 transition-colors">{v.title}</h4>
-                                <p className="text-[10px] text-slate-500 leading-relaxed font-medium italic">{v.desc}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
+                <h3>Learn Through Videos</h3>
+                <p>Watch these carefully selected videos to reinforce your understanding with visual explanations and animations.</p>
 
-            {/* Worked Examples Section */}
-            <section className="content-section bg-slate-50 p-8 rounded-[3rem] border border-slate-100 mt-12">
-                <h2 className="text-3xl font-black text-slate-900 mb-10 flex items-center gap-4">
-                    <CheckCircle className="w-10 h-10 text-emerald-500" />
-                    See It In Action: Worked Examples
-                </h2>
-
-                <div className="space-y-12">
-                    {/* Example 1 */}
-                    <div className="bg-white border-2 border-slate-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                        <div className="bg-slate-50 p-4 px-8 text-slate-500 text-[10px] font-black tracking-[0.3em] flex justify-between items-center group border-b border-slate-100">
-                            <span className="text-indigo-600 font-serif italic">EXAMPLE 1: MEMBERSHIP</span>
-                            <span className="text-slate-400 group-hover:translate-x-1 transition-transform">DFA SIMULATION</span>
-                        </div>
-                        <div className="p-8">
-                            <div className="flex flex-col md:flex-row gap-10">
-                                <div className="flex-1 space-y-4">
-                                    <p className="text-xs font-black text-indigo-600 uppercase tracking-widest">Problem Statement</p>
-                                    <p className="text-sm text-gray-800 leading-relaxed italic">
-                                        "Given string w = 'abba' and a DFA where: <br />
-                                        delta(q0,a)=q1, delta(q0,b)=q0, delta(q1,a)=q1, delta(q1,b)=q2, delta(q2,a)=q1, delta(q2,b)=q0. <br />
-                                        Initial: q0, Accepting: {'{q2}'}. Is w accepted?"
-                                    </p>
-                                </div>
-                                <div className="flex-1 space-y-3">
-                                    <p className="text-xs font-black text-emerald-600 uppercase tracking-widest">Execution Trace</p>
-                                    {[
-                                        { s: "Initial", r: "q0" },
-                                        { s: "Read 'a'", r: "q1" },
-                                        { s: "Read 'b'", r: "q2" },
-                                        { s: "Read 'b'", r: "q0" },
-                                        { s: "Read 'a'", r: "q1" }
-                                    ].map((row, i) => (
-                                        <div key={i} className="flex justify-between items-center bg-slate-50 p-2 px-4 rounded-xl border border-slate-100">
-                                            <span className="text-[10px] text-slate-500 font-bold">{row.s}</span>
-                                            <span className="text-xs font-mono font-black text-indigo-600">{row.r}</span>
-                                        </div>
-                                    ))}
-                                    <div className="bg-red-50 p-3 rounded-xl border border-red-100 text-[10px] font-black text-red-600 text-center uppercase">
-                                        REJECT: Final state q1 not in {'{q2}'}
-                                    </div>
-                                </div>
-                            </div>
+                <div className="space-y-6 mt-4">
+                    <div>
+                        <h4 className="font-semibold mb-2">📚 Decision Properties of Regular Languages</h4>
+                        <p className="text-sm mb-2">Neso Academy - 15 minutes</p>
+                        <p className="text-sm mb-2"><strong>What you'll learn:</strong> Comprehensive overview of membership, emptiness, finiteness, and equivalence problems with clear examples.</p>
+                        <div className="flex justify-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/k0oTpJNFJ6A?si=eJktPFVDbjxjMguf" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                         </div>
                     </div>
 
-                    {/* Example 2: Emptiness */}
-                    <div className="bg-white border-2 border-slate-100 rounded-3xl overflow-hidden shadow-sm">
-                        <div className="bg-slate-50 p-4 px-8 text-slate-500 text-[10px] font-black tracking-[0.3em] flex justify-between items-center border-b border-slate-100">
-                            <span className="text-emerald-600 font-serif italic">EXAMPLE 2: EMPTINESS</span>
-                            <span className="text-slate-400">REACHABILITY</span>
-                        </div>
-                        <div className="p-8 space-y-4">
-                            <p className="text-xs font-black text-indigo-600 uppercase tracking-widest">Problem Statement</p>
-                            <p className="text-sm text-gray-800 italic">"Does a DFA with accepting state q2 reachable from q0 via 'ab' have an empty language?"</p>
-                            <div className="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 flex gap-6 items-center">
-                                <div className="w-12 h-12 bg-white rounded-full border-2 border-emerald-500 flex items-center justify-center font-black text-emerald-600 shadow-sm">q0</div>
-                                <div className="flex-1 h-0.5 bg-emerald-200 relative">
-                                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-black text-emerald-500">ab</span>
-                                </div>
-                                <div className="w-12 h-12 bg-white rounded-full border-4 border-double border-emerald-500 flex items-center justify-center font-black text-emerald-600 shadow-sm">q2</div>
-                                <div className="bg-white p-4 rounded-xl shadow-sm text-center">
-                                    <p className="text-[10px] font-black mb-1">RESULT</p>
-                                    <p className="text-emerald-600 font-black uppercase text-xs">NOT EMPTY</p>
-                                </div>
-                            </div>
+                    <div>
+                        <h4 className="font-semibold mb-2">🎬 DFA Minimization Algorithm</h4>
+                        <p className="text-sm mb-2">Gate Smashers - 12 minutes</p>
+                        <p className="text-sm mb-2"><strong>What you'll learn:</strong> Step-by-step table-filling algorithm with worked examples and optimization techniques.</p>
+                        <div className="flex justify-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/rGxyc-CJGRk?si=uPRxxiASqhHTlx05" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                         </div>
                     </div>
 
-                    {/* Minimization Table-Filling Example */}
-                    <div className="bg-white border-2 border-slate-100 rounded-3xl overflow-hidden shadow-sm">
-                        <div className="bg-slate-50 p-4 px-8 text-slate-500 text-[10px] font-black tracking-[0.3em] flex justify-between items-center border-b border-slate-100">
-                            <span className="text-indigo-600 font-serif italic">EXAMPLE 3: MINIMIZATION</span>
-                            <span className="text-slate-400">TABLE-FILLING</span>
+                    <div>
+                        <h4 className="font-semibold mb-2">💻 Myhill-Nerode Theorem Explained</h4>
+                        <p className="text-sm mb-2">Computer Science - 18 minutes</p>
+                        <p className="text-sm mb-2"><strong>What you'll learn:</strong> Deep dive into the theoretical foundation of DFA minimization and state equivalence.</p>
+                        <div className="flex justify-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/UiXkJUTkp44?si=gb5Y5nFtzGf4xUwX" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                         </div>
-                        <div className="p-8">
-                            <p className="text-xs text-gray-500 mb-6 italic leading-relaxed">
-                                Summary: We start by marking pairs of (Accepting, Non-Accepting). Then iteratively check if any input leads to a marked pair. If all pairs get marked, the DFA is already minimal.
-                            </p>
-                            <div className="flex flex-wrap gap-4 justify-center">
-                                {["(A,D) Initial", "(A,F) Initial", "(B,E) propagate via '0'", "(D,F) propagate via '1'"].map((label, i) => (
-                                    <div key={i} className="bg-slate-100 p-2 px-4 rounded-lg border text-[10px] font-bold text-slate-600 flex items-center gap-2">
-                                        <div className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></div>
-                                        {label}
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="mt-8 p-6 bg-indigo-50 border border-indigo-100 rounded-2xl text-indigo-900 text-center shadow-inner">
-                                <p className="text-[10px] font-black uppercase tracking-widest opacity-50 mb-2">Conclusion</p>
-                                <p className="text-xs font-black leading-relaxed italic">No unmarked pairs remain ➔ All states are distinguishable ➔ Original DFA is Minimal.</p>
-                            </div>
+                    </div>
+
+                    <div>
+                        <h4 className="font-semibold mb-2">💧 Equivalence of Regular Languages</h4>
+                        <p className="text-sm mb-2">Abdul Bari - 14 minutes</p>
+                        <p className="text-sm mb-2"><strong>What you'll learn:</strong> Product construction method and practical algorithms for testing language equivalence.</p>
+                        <div className="flex justify-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/nX4JrcHgpZY?si=7lYw-jNX7ufq7KZH" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Python Implementation Section */}
-            <section className="content-section mt-16">
-                <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-2xl font-black text-gray-900 uppercase flex items-center gap-4">
-                        <Code className="w-8 h-8 text-indigo-600" />
-                        Algorithm Implementation
-                    </h2>
-                    <span className="text-[10px] font-black text-slate-400 tracking-widest uppercase">PRODUCTION READY CODE</span>
-                </div>
-
-                <div className="bg-slate-50 rounded-[3rem] overflow-hidden shadow-xl relative border-2 border-slate-200">
-                    <div className="bg-slate-100 p-4 px-8 text-slate-400 text-[10px] font-black flex justify-between border-b border-slate-200">
-                        <span className="flex items-center gap-2 italic text-indigo-600">
-                            dfa_algorithms.py
-                        </span>
-                        <div className="flex gap-2">
-                            <div className="w-2.5 h-2.5 rounded-full bg-slate-200"></div>
-                            <div className="w-2.5 h-2.5 rounded-full bg-slate-200"></div>
-                            <div className="w-2.5 h-2.5 rounded-full bg-slate-200"></div>
-                        </div>
-                    </div>
-                    <div className="p-10 font-mono text-[11px] text-slate-700 leading-6 max-h-[500px] overflow-y-auto no-scrollbar">
-                        <p className="text-gray-500 italic mb-4"># Complete implementation of DFA decision algorithms</p>
-                        <p className="text-indigo-400 mb-4">from collections import deque</p>
-
-                        <div className="space-y-1">
-                            <p><span className="text-indigo-600">class</span> <span className="text-slate-900 font-black decoration-indigo-500/30 underline decoration-4 underline-offset-4">DFA</span>:</p>
-                            <p className="pl-4"><span className="text-indigo-600">def</span> <span className="text-emerald-600 font-bold">__init__</span>(self, states, alphabet, transitions, start, accepting):</p>
-                            <p className="pl-8 text-gray-400"># Transition structure: Dictionary {'{(state, symbol): next_state}'}</p>
-                            <p className="pl-8">self.states = states</p>
-                            <p className="pl-8">self.delta = transitions</p>
-                            <p className="pl-8">self.start = start</p>
-                            <p className="pl-8">self.F = set(accepting)</p>
-
-                            <p className="pl-4 mt-6 text-emerald-400 italic"># 1. Membership Problem - O(|w|)</p>
-                            <p className="pl-4"><span className="text-indigo-400">def</span> <span className="text-emerald-400">membership</span>(self, w):</p>
-                            <p className="pl-8">curr = self.start</p>
-                            <p className="pl-8"><span className="text-indigo-400">for</span> symb <span className="text-indigo-400">in</span> w:</p>
-                            <p className="pl-12">curr = self.delta.get((curr, symb))</p>
-                            <p className="pl-12"><span className="text-indigo-400">if not</span> curr: <span className="text-indigo-400">return False</span></p>
-                            <p className="pl-8"><span className="text-indigo-400">return</span> curr <span className="text-indigo-400">in</span> self.F</p>
-
-                            <p className="pl-4 mt-6 text-emerald-400 italic"># 2. Emptiness Problem - Reachability Analysis</p>
-                            <p className="pl-4"><span className="text-indigo-400">def</span> <span className="text-emerald-400">is_empty</span>(self):</p>
-                            <p className="pl-8">visited, queue = {'{self.start}'}, deque([self.start])</p>
-                            <p className="pl-8"><span className="text-indigo-400">while</span> queue:</p>
-                            <p className="pl-12">u = queue.popleft()</p>
-                            <p className="pl-12"><span className="text-indigo-400">if</span> u <span className="text-indigo-400">in</span> self.F: <span className="text-indigo-400">return False</span></p>
-                            <p className="pl-12"><span className="text-indigo-400">for</span> symb <span className="text-indigo-400">in</span> self.alphabet:</p>
-                            <p className="pl-16">v = self.delta.get((u, symb))</p>
-                            <p className="pl-16"><span className="text-indigo-400">if</span> v <span className="text-indigo-400">and</span> v <span className="text-indigo-400">not in</span> visited:</p>
-                            <p className="pl-20">visited.add(v)</p>
-                            <p className="pl-20">queue.append(v)</p>
-                            <p className="pl-8"><span className="text-indigo-400">return True</span></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Module Quiz */}
+            {/* Worked Examples */}
             <section className="content-section">
-                <h2 className="text-2xl font-bold mb-6">Module 2.5 Mastery Quiz</h2>
-                <div className="bg-white p-6 rounded-xl border-2 border-slate-100 shadow-sm transition-all hover:shadow-md">
-                    <Quiz
-                        title="Decision Properties Quiz"
-                        questions={[
-                            {
-                                question: "What is the time complexity of the membership problem for a DFA?",
-                                options: ["O(|Q| × |Σ|)", "O(|w|) linear in string length", "O(|Q|²)", "O(2^|Q|)"],
-                                correctAnswer: 1,
-                                explanation: "The membership test simply simulates the DFA on the input string, processing one symbol at a time, giving O(|w|) time complexity."
-                            },
-                            {
-                                question: "A DFA's language is infinite if and only if:",
-                                options: ["It has more than 5 states", "It has any cycle", "A cycle exists on a path from start to an accept state", "It accepts ε"],
-                                correctAnswer: 2,
-                                explanation: "The language is infinite iff there's a cycle on some path from the start state to an accepting state, allowing arbitrarily long accepted strings."
-                            },
-                            {
-                                question: "Which of the following decision problems for regular languages is NOT decidable?",
-                                options: ["Membership", "Emptiness", "Equivalence", "None of the above (all are decidable)"],
-                                correctAnswer: 3,
-                                explanation: "All standard decision problems for regular languages (membership, emptiness, finiteness, equivalence, containment) are decidable."
-                            },
-                            {
-                                question: "The minimal DFA for a regular language is:",
-                                options: ["Unique up to state renaming", "Unique including state names", "Infinite in structure", "Depends on NFA original size"],
-                                correctAnswer: 0,
-                                explanation: "The minimal DFA for a regular language is unique up to isomorphism (state renaming). This is a fundamental result in automata theory."
-                            },
-                            {
-                                question: "Time complexity of the table-filling minimization algorithm is:",
-                                options: ["O(|Q|)", "O(|Q|² × |Σ|)", "O(|Q|³)", "Exponential"],
-                                correctAnswer: 1,
-                                explanation: "The table-filling algorithm considers all pairs of states O(|Q|²) and for each pair checks transitions for each symbol O(|Σ|), giving O(|Q|² × |Σ|)."
-                            }
-                        ]}
-                        subject="FLAT"
-                        unitId={2}
-                        moduleId={5}
-                    />
-                </div>
-            </section>
+                <h3>See It In Action: Worked Examples</h3>
 
-            {/* Quick Reference Cheat Sheet */}
-            <section className="content-section">
-                <div className="bg-white border shadow-sm rounded-3xl overflow-hidden">
-                    <div className="bg-slate-800 p-4 px-8 text-white flex items-center justify-between">
-                        <h3 className="font-black uppercase tracking-widest text-sm">📄 Quick Reference Cheat Sheet</h3>
-                        <div className="flex gap-2">
-                            {['PDF', 'PRINT', 'SVG'].map(btn => (
-                                <span key={btn} className="bg-white/10 px-2 py-0.5 rounded text-[8px] font-bold cursor-pointer hover:bg-white/20">{btn}</span>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="p-8">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div>
-                                <h4 className="font-black text-indigo-600 text-[10px] uppercase mb-4 tracking-tighter">Algorithm Complexities</h4>
-                                <ul className="space-y-3 font-mono text-[11px] font-bold">
-                                    <li className="flex justify-between border-b border-slate-50 pb-2"><span>Membership</span> <span className="text-indigo-500">O(|w|)</span></li>
-                                    <li className="flex justify-between border-b border-slate-50 pb-2"><span>Emptiness</span> <span className="text-indigo-500">O(|Q|×|Σ|)</span></li>
-                                    <li className="flex justify-between border-b border-slate-50 pb-2"><span>Finiteness</span> <span className="text-indigo-500">O(|Q|×|Σ|)</span></li>
-                                    <li className="flex justify-between border-b border-slate-50 pb-2"><span>Minimization</span> <span className="text-indigo-500">O(|Q|²×|Σ|)</span></li>
+                <div className="space-y-6">
+                    <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <h4 className="font-semibold text-lg">Worked Example 1: Membership Testing</h4>
+                        <p className="mt-2"><strong>📝 Problem Statement</strong></p>
+                        <p className="text-sm mt-1">Given the DFA below and string w = "abba", determine if w ∈ L(D).</p>
+                        <p className="text-sm mt-2"><strong>DFA Specification:</strong></p>
+                        <ul className="list-disc ml-6 text-sm">
+                            <li>States: Q = {'{'}q₀, q₁, q₂{'}'}</li>
+                            <li>Alphabet: Σ = {'{'}a, b{'}'}</li>
+                            <li>Initial state: q₀</li>
+                            <li>Accepting states: F = {'{'}q₂{'}'}</li>
+                            <li>Transitions: δ(q₀, a) = q₁, δ(q₀, b) = q₀, δ(q₁, a) = q₁, δ(q₁, b) = q₂, δ(q₂, a) = q₁, δ(q₂, b) = q₀</li>
+                        </ul>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-blue-600">🔍 Step-by-Step Solution</summary>
+                            <div className="mt-3 text-sm space-y-1">
+                                <p><strong>Step 1:</strong> Start at initial state q₀</p>
+                                <p><strong>Step 2:</strong> Read 'a': δ(q₀, a) = q₁. Current state: q₁</p>
+                                <p><strong>Step 3:</strong> Read 'b': δ(q₁, b) = q₂. Current state: q₂</p>
+                                <p><strong>Step 4:</strong> Read 'b': δ(q₂, b) = q₀. Current state: q₀</p>
+                                <p><strong>Step 5:</strong> Read 'a': δ(q₀, a) = q₁. Current state: q₁</p>
+                                <p><strong>Step 6:</strong> String exhausted. Final state: q₁</p>
+                                <p className="mt-2"><strong>✅ Final Answer:</strong> q₁ ∉ F, therefore w = "abba" ∉ L(D). The DFA rejects this string.</p>
+                                <p className="mt-2"><strong>💡 Key Insights:</strong></p>
+                                <ul className="list-disc ml-6">
+                                    <li>The DFA processes exactly |w| = 4 transitions—one per symbol</li>
+                                    <li>Each transition is deterministic (exactly one next state per symbol)</li>
+                                    <li>The acceptance depends only on the final state, not the path taken</li>
                                 </ul>
                             </div>
-                            <div>
-                                <h4 className="font-black text-indigo-600 text-[10px] uppercase mb-4 tracking-tighter">Decision Summary</h4>
-                                <ul className="space-y-3 text-[11px] font-medium leading-relaxed italic text-gray-400">
-                                    <li><strong>Infinity:</strong> Path to Final State + Cycle</li>
-                                    <li><strong>Equivalence:</strong> Minimized isomorphism test</li>
-                                    <li><strong>Containment:</strong> Intersection with complement</li>
-                                </ul>
+                        </details>
+                    </div>
+
+                    <div className="bg-green-50 border-l-4 border-green-400 p-4">
+                        <h4 className="font-semibold text-lg">Worked Example 2: Emptiness Testing</h4>
+                        <p className="mt-2"><strong>📝 Problem Statement</strong></p>
+                        <p className="text-sm mt-1">Determine if the language of the following DFA is empty.</p>
+                        <p className="text-sm mt-2">DFA with accepting state q₂ (green)</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-green-600">🔍 Step-by-Step Solution</summary>
+                            <div className="mt-3 text-sm space-y-1">
+                                <p><strong>Step 1:</strong> Start BFS from initial state q₀</p>
+                                <p><strong>Step 2:</strong> From q₀: can reach q₀ (on 'b') and q₁ (on 'a')</p>
+                                <p><strong>Step 3:</strong> From q₁: can reach q₁ (on 'a') and q₂ (on 'b')</p>
+                                <p><strong>Step 4:</strong> q₂ is an accepting state!</p>
+                                <p className="mt-2"><strong>✅ Final Answer:</strong> Accepting state q₂ is reachable from q₀ via path q₀ → q₁ → q₂ on input "ab". Therefore, L(D) ≠ ∅. The language is NOT empty.</p>
                             </div>
-                            <div className="bg-indigo-50 p-6 rounded-2xl flex flex-col items-center justify-center text-center">
-                                <BookOpen className="w-8 h-8 text-indigo-600 mb-2" />
-                                <p className="text-[10px] font-black uppercase text-indigo-900 tracking-widest">Chapter 02.5 complete</p>
-                                <p className="text-[9px] text-indigo-400 mt-1 uppercase font-bold">Theory of Computation</p>
+                        </details>
+                    </div>
+
+                    <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <h4 className="font-semibold text-lg">Worked Example 3: DFA Minimization</h4>
+                        <p className="mt-2"><strong>📝 Problem Statement</strong></p>
+                        <p className="text-sm mt-1">Minimize the following DFA using the table-filling algorithm.</p>
+                        <p className="text-sm mt-2">DFA with accepting states D and F (green)</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-yellow-600">🔍 Step-by-Step Solution</summary>
+                            <div className="mt-3 text-sm space-y-1">
+                                <p><strong>Step 1 - Initialize:</strong> Mark pairs where one state is accepting and other is not: (A,D), (A,F), (B,D), (B,F), (C,D), (C,F), (E,D), (E,F) are all MARKED</p>
+                                <p><strong>Step 2 - Check (A,B):</strong> On '0': A→B, B→A (both unmarked). On '1': A→C, B→D. Since (C,D) is MARKED, mark (A,B)</p>
+                                <p><strong>Step 3 - Check (A,C):</strong> On '0': A→B, C→E. On '1': A→C, C→A. Both pairs (B,E) and (C,A) unmarked for now.</p>
+                                <p><strong>Step 4 - Check (A,E):</strong> On '0': A→B, E→E. On '1': A→C, E→F. Since (C,F) is MARKED, mark (A,E)</p>
+                                <p><strong>Step 5 - Check (B,C):</strong> On '0': B→A, C→E. Since (A,E) now MARKED, mark (B,C)</p>
+                                <p><strong>Step 6 - Check (B,E):</strong> On '0': B→A, E→E. Since (A,E) MARKED, mark (B,E)</p>
+                                <p><strong>Step 7 - Check (C,E):</strong> On '0': C→E, E→E. On '1': C→A, E→F. Since (A,F) MARKED, mark (C,E)</p>
+                                <p><strong>Step 8 - Check (D,F):</strong> Both are accepting states. On '0': D→E, F→F. On '1': D→F, F→F. Need to check (E,F)—MARKED, so mark (D,F)</p>
+                                <p className="mt-2"><strong>✅ Final Answer:</strong> After complete analysis, no pairs remain unmarked. All states are distinguishable. The DFA is already minimal with 6 states.</p>
                             </div>
-                        </div>
+                        </details>
+                    </div>
+
+                    <div className="bg-purple-50 border-l-4 border-purple-400 p-4">
+                        <h4 className="font-semibold text-lg">Worked Example 4: Equivalence Testing</h4>
+                        <p className="mt-2"><strong>📝 Problem Statement</strong></p>
+                        <p className="text-sm mt-1">Determine if the following two DFAs are equivalent.</p>
+                        <p className="text-sm mt-2"><strong>DFA D₁:</strong> States {'{'}A,B{'}'}, A initial, B accepting, δ(A,0)=B, δ(A,1)=A, δ(B,0)=B, δ(B,1)=B</p>
+                        <p className="text-sm mt-2"><strong>DFA D₂:</strong> States {'{'}P,Q,R{'}'}, P initial, Q accepting, δ(P,0)=Q, δ(P,1)=P, δ(Q,0)=R, δ(Q,1)=Q, δ(R,0)=R, δ(R,1)=R</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-purple-600">🔍 Step-by-Step Solution (Product Construction)</summary>
+                            <div className="mt-3 text-sm space-y-1">
+                                <p><strong>Step 1:</strong> Build product automaton with states {'{'}(A,P), (A,Q), (A,R), (B,P), (B,Q), (B,R){'}'}</p>
+                                <p><strong>Step 2:</strong> Initial state: (A,P). Accepting states where exactly one component accepts: {'{'}(A,Q), (B,P), (B,R){'}'}</p>
+                                <p><strong>Step 3:</strong> Check reachability from (A,P): (A,P) →(0)→ (B,Q) →(0)→ (B,R) →(0)→ (B,R). State (B,R) is accepting!</p>
+                                <p className="mt-2"><strong>✅ Final Answer:</strong> Since an accepting state in the product automaton is reachable, the symmetric difference is non-empty. Therefore, L(D₁) ≠ L(D₂). The DFAs are NOT equivalent.</p>
+                            </div>
+                        </details>
                     </div>
                 </div>
             </section>
 
-            <div className="mt-16 py-8 border-t text-center opacity-30">
-                <p className="text-[10px] font-black uppercase tracking-[1em]">Unit 2.5 | Module Complete</p>
-            </div>
+            {/* Code Implementation */}
+            <section className="content-section">
+                <h3>💻 Code Implementation</h3>
+                <p className="mb-4">This section provides complete, working implementations of decision property algorithms in Python. These implementations are designed for clarity and educational value.</p>
+
+                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto">
+                    <p className="text-sm font-semibold mb-2">Decision Properties Implementation</p>
+                    <pre className="text-sm">
+                        <code>{`# ============================================
+# Decision Properties of Regular Languages
+# Complete Implementation in Python
+# ============================================
+
+from collections import deque, defaultdict
+
+class DFA:
+    def __init__(self, states, alphabet, transitions, initial, accepting):
+        self.states = states
+        self.alphabet = alphabet
+        self.transitions = transitions  # dict: (state, symbol) -> state
+        self.initial = initial
+        self.accepting = set(accepting)
+    
+    def membership(self, w):
+        """Test if string w is in L(D) - O(|w|)"""
+        state = self.initial
+        for c in w:
+            state = self.transitions.get((state, c))
+            if state is None:
+                return False
+        return state in self.accepting
+    
+    def is_empty(self):
+        """Test if L(D) is empty - O(|Q|×|Σ|)"""
+        visited = set()
+        queue = deque([self.initial])
+        
+        while queue:
+            state = queue.popleft()
+            if state in self.accepting:
+                return False  # Found accepting state
+            if state in visited:
+                continue
+            visited.add(state)
+            
+            for c in self.alphabet:
+                next_state = self.transitions.get((state, c))
+                if next_state and next_state not in visited:
+                    queue.append(next_state)
+        
+        return True  # No accepting state reachable
+    
+    def is_finite(self):
+        """Test if L(D) is finite - O(|Q|×|Σ|)"""
+        # Find states that can reach accepting states
+        useful = set()
+        for acc in self.accepting:
+            useful.add(acc)
+        
+        changed = True
+        while changed:
+            changed = False
+            for (s, c), t in self.transitions.items():
+                if t in useful and s not in useful:
+                    useful.add(s)
+                    changed = True
+        
+        # Check for cycles among useful states
+        def has_cycle(start):
+            visited, rec_stack = set(), set()
+            
+            def dfs(u):
+                visited.add(u)
+                rec_stack.add(u)
+                for c in self.alphabet:
+                    v = self.transitions.get((u, c))
+                    if v in useful:
+                        if v not in visited:
+                            if dfs(v):
+                                return True
+                        elif v in rec_stack:
+                            return True
+                rec_stack.remove(u)
+                return False
+            
+            return dfs(start)
+        
+        return not has_cycle(self.initial)
+
+# Example usage
+if __name__ == "__main__":
+    # DFA that accepts strings ending with '01'
+    dfa = DFA(
+        states={'q0', 'q1', 'q2'},
+        alphabet={'0', '1'},
+        transitions={
+            ('q0', '0'): 'q1', ('q0', '1'): 'q0',
+            ('q1', '0'): 'q1', ('q1', '1'): 'q2',
+            ('q2', '0'): 'q1', ('q2', '1'): 'q0'
+        },
+        initial='q0',
+        accepting={'q2'}
+    )
+    
+    # Test membership
+    print(f"'101' in L(D): {dfa.membership('101')}")  # True
+    print(f"'111' in L(D): {dfa.membership('111')}")  # False
+    
+    # Test emptiness
+    print(f"L(D) empty: {dfa.is_empty()}")  # False
+    
+    # Test finiteness
+    print(f"L(D) finite: {dfa.is_finite()}")  # False (infinite)`}</code>
+                    </pre>
+                </div>
+
+                <div className="mt-4 bg-green-50 border-l-4 border-green-500 p-4">
+                    <h4 className="font-semibold">💡 Optimization Tips:</h4>
+                    <ul className="list-disc ml-6 mt-2 text-sm space-y-1">
+                        <li>Use adjacency lists instead of dictionaries for faster transition lookups in large DFAs</li>
+                        <li>For repeated queries on the same DFA, cache reachability results</li>
+                        <li>Bit manipulation can speed up state set operations for DFAs with many states</li>
+                        <li>Tarjan's algorithm is more efficient than naive DFS for cycle detection</li>
+                    </ul>
+                </div>
+            </section>
+
+            {/* Problem-Solving Practice */}
+            <section className="content-section">
+                <h3>📚 Problem-Solving Practice</h3>
+
+                <div className="space-y-6">
+                    <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <h4 className="font-semibold text-lg">📘 Easy Problem</h4>
+                        <p className="mt-2"><strong>Problem:</strong> Given a DFA with 5 states where the only accepting state is unreachable from the initial state, what is the language of this DFA?</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-blue-600">Show Solution</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Solution:</strong></p>
+                                <p><strong>Step 1:</strong> The accepting state is unreachable from the initial state</p>
+                                <p><strong>Step 2:</strong> By definition, no string can lead to the accepting state</p>
+                                <p><strong>Step 3:</strong> Therefore, no string is accepted by this DFA</p>
+                                <p className="mt-2"><strong>Final Answer:</strong> L(D) = ∅ (the empty language). The DFA accepts no strings.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <h4 className="font-semibold text-lg">📙 Medium Problem</h4>
+                        <p className="mt-2"><strong>Problem:</strong> A DFA has states {'{'}A, B, C, D{'}'} with A as initial and D as the only accepting state. Transitions: δ(A,0)=B, δ(A,1)=A, δ(B,0)=C, δ(B,1)=A, δ(C,0)=D, δ(C,1)=B, δ(D,0)=D, δ(D,1)=C. Is the language finite or infinite?</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-yellow-600">Show Solution</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Solution:</strong></p>
+                                <p><strong>Step 1:</strong> Identify accepting state: D</p>
+                                <p><strong>Step 2:</strong> Check if D is reachable: A →(0)→ B →(0)→ C →(0)→ D. Yes!</p>
+                                <p><strong>Step 3:</strong> Check for cycles among useful states: D has a self-loop on '0' (δ(D,0)=D)</p>
+                                <p><strong>Step 4:</strong> Since D (accepting) has a self-loop and is reachable, the language is infinite</p>
+                                <p className="mt-2"><strong>Final Answer:</strong> The language is INFINITE. Strings like "000", "0000", "00000", etc. are all accepted (loop at D allows arbitrary extension).</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-400 p-4">
+                        <h4 className="font-semibold text-lg">📕 Hard Problem</h4>
+                        <p className="mt-2"><strong>Problem:</strong> Given two DFAs D₁ and D₂ with n₁ and n₂ states respectively, what is the maximum number of states in the product automaton used for equivalence testing? What is the time complexity of the equivalence test?</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-red-600">Show Solution</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Solution:</strong></p>
+                                <p><strong>Step 1:</strong> The product automaton has states that are pairs (q₁, q₂) where q₁ ∈ Q₁ and q₂ ∈ Q₂</p>
+                                <p><strong>Step 2:</strong> Maximum states = |Q₁| × |Q₂| = n₁ × n₂</p>
+                                <p><strong>Step 3:</strong> For equivalence, we test emptiness of the product automaton</p>
+                                <p><strong>Step 4:</strong> Emptiness testing is O(|Q| × |Σ|) = O(n₁ × n₂ × |Σ|)</p>
+                                <p className="mt-2"><strong>Final Answer:</strong> Maximum states in product automaton: n₁ × n₂. Time complexity of equivalence test: O(n₁ × n₂ × |Σ|).</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            {/* Common Pitfalls */}
+            <section className="content-section">
+                <h3>Common Pitfalls & How to Avoid Them</h3>
+                <p>Learn from common mistakes students make when learning this topic. Understanding these pitfalls will help you avoid them in exams and practical applications.</p>
+
+                <div className="space-y-4 mt-4">
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">🚫 Pitfall #1: Confusing "reachable" with "useful" in finiteness testing</h4>
+                        <p className="text-sm mt-2"><strong>What students do wrong:</strong> Check for cycles among all reachable states, not just those that can reach accepting states.</p>
+                        <p className="text-sm mt-2"><strong>Why it's wrong:</strong> Cycles in "dead" states (that cannot reach accepting states) don't contribute to infinite languages.</p>
+                        <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> First compute "useful" states (those that can reach accepting states), then check for cycles only among useful states.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">🚫 Pitfall #2: Forgetting to check both directions in equivalence</h4>
+                        <p className="text-sm mt-2"><strong>What students do wrong:</strong> Only check if L₁ ⊆ L₂ but forget to verify L₂ ⊆ L₁.</p>
+                        <p className="text-sm mt-2"><strong>Why it's wrong:</strong> Equivalence requires both subset relationships. L₁ ⊆ L₂ alone doesn't guarantee L₁ = L₂.</p>
+                        <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> Use symmetric difference: L₁ = L₂ iff (L₁ ∩ L₂') ∪ (L₁' ∩ L₂) = ∅.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">🚫 Pitfall #3: Assuming all accepting states must be equivalent</h4>
+                        <p className="text-sm mt-2"><strong>What students do wrong:</strong> Think that all accepting states can be merged during minimization.</p>
+                        <p className="text-sm mt-2"><strong>Why it's wrong:</strong> Accepting states may have different future behaviors. Two accepting states are only equivalent if all continuations lead to the same acceptance pattern.</p>
+                        <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> Apply the table-filling algorithm systematically. Don't make assumptions—let the algorithm determine equivalence.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">🚫 Pitfall #4: Confusing DFA minimization with NFA conversion</h4>
+                        <p className="text-sm mt-2"><strong>What students do wrong:</strong> Try to apply DFA minimization techniques directly to NFAs.</p>
+                        <p className="text-sm mt-2"><strong>Why it's wrong:</strong> NFA minimization is more complex. The table-filling algorithm assumes deterministic transitions.</p>
+                        <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> Always convert NFA to DFA first (using subset construction), then minimize.</p>
+                    </div>
+                </div>
+
+                <div className="mt-6 bg-blue-50 p-4 rounded">
+                    <h4 className="font-semibold">💡 Exam Tips:</h4>
+                    <ul className="list-disc ml-6 mt-2 text-sm space-y-1">
+                        <li><strong>Complexity questions:</strong> Memorize the time complexities: Membership O(|w|), Emptiness O(|Q|×|Σ|), Minimization O(|Q|²×|Σ|)</li>
+                        <li><strong>Minimization problems:</strong> Create the table systematically. Mark (accepting, non-accepting) pairs first, then propagate.</li>
+                        <li><strong>Finiteness testing:</strong> Remember: cycle + reachable from start + can reach accepting = infinite</li>
+                        <li><strong>Equivalence testing:</strong> Product construction or minimization + comparison both work</li>
+                        <li><strong>Proof questions:</strong> Use the Myhill-Nerode theorem for theoretical questions about minimality</li>
+                    </ul>
+                </div>
+            </section>
+
+            {/* Quick Reference */}
+            <section className="content-section">
+                <h3>📄 Quick Reference Cheat Sheet</h3>
+                <p>Save this page for quick review! Here's everything you need to remember at a glance.</p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div className="bg-blue-50 p-4 rounded">
+                        <h4 className="font-semibold mb-2">🔑 Key Definitions</h4>
+                        <ul className="text-sm space-y-1">
+                            <li><strong>Decidable:</strong> Algorithm exists that always halts with correct answer</li>
+                            <li><strong>Reachable state:</strong> Can be reached from initial state</li>
+                            <li><strong>Useful state:</strong> Can reach an accepting state</li>
+                            <li><strong>Equivalent states:</strong> No distinguishing string exists</li>
+                            <li><strong>Symmetric difference:</strong> (L₁ - L₂) ∪ (L₂ - L₁)</li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-green-50 p-4 rounded">
+                        <h4 className="font-semibold mb-2">📐 Time Complexities</h4>
+                        <ul className="text-sm space-y-1">
+                            <li><strong>Membership:</strong> O(|w|)</li>
+                            <li><strong>Emptiness:</strong> O(|Q| × |Σ|)</li>
+                            <li><strong>Finiteness:</strong> O(|Q| × |Σ|)</li>
+                            <li><strong>Equivalence:</strong> O(|Q₁| × |Q₂| × |Σ|)</li>
+                            <li><strong>Minimization:</strong> O(|Q|² × |Σ|)</li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-purple-50 p-4 rounded">
+                        <h4 className="font-semibold mb-2">⚙️ Decision Algorithms</h4>
+                        <ul className="text-sm space-y-1">
+                            <li><strong>Membership:</strong> Simulate DFA on input</li>
+                            <li><strong>Emptiness:</strong> BFS/DFS from initial state</li>
+                            <li><strong>Finiteness:</strong> Check for cycles in useful states</li>
+                            <li><strong>Equivalence:</strong> Product automaton + emptiness</li>
+                            <li><strong>Containment:</strong> L₁ ∩ L₂' = ∅ test</li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-yellow-50 p-4 rounded">
+                        <h4 className="font-semibold mb-2">✅ Minimization Steps</h4>
+                        <ol className="list-decimal ml-4 text-sm space-y-1">
+                            <li>Remove unreachable states</li>
+                            <li>Mark (accepting, non-accepting) pairs</li>
+                            <li>Iteratively mark distinguishable pairs</li>
+                            <li>Merge unmarked (equivalent) states</li>
+                            <li>Update transitions</li>
+                        </ol>
+                    </div>
+
+                    <div className="bg-red-50 p-4 rounded">
+                        <h4 className="font-semibold mb-2">⚠️ Common Mistakes</h4>
+                        <ul className="text-sm space-y-1">
+                            <li>❌ Checking cycles in dead states</li>
+                            <li>❌ Forgetting L₂ ⊆ L₁ in equivalence</li>
+                            <li>❌ Assuming all accepting states merge</li>
+                            <li>❌ Confusing reachable vs useful</li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-indigo-50 p-4 rounded">
+                        <h4 className="font-semibold mb-2">🎯 Key Theorems</h4>
+                        <ul className="text-sm space-y-1">
+                            <li><strong>Myhill-Nerode:</strong> Minimal DFA is unique</li>
+                            <li><strong>Closure:</strong> Regular languages closed under all Boolean operations</li>
+                            <li><strong>Pumping Lemma:</strong> For proving non-regularity</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            {/* Advanced Topics */}
+            <section className="content-section">
+                <h3>Go Deeper: Advanced Topics & Resources</h3>
+
+                <h4 className="mt-4 font-semibold">Advanced Concepts</h4>
+
+                <div className="space-y-4 mt-4">
+                    <div className="bg-gray-50 border-l-4 border-gray-400 p-4">
+                        <h4 className="font-semibold">🔬 Advanced Topic 1: Hopcroft's Algorithm for DFA Minimization</h4>
+                        <p className="text-sm mt-2">Hopcroft's algorithm achieves O(|Q| log |Q| × |Σ|) time complexity for DFA minimization, improving on the O(|Q|² × |Σ|) table-filling algorithm. It uses a partition refinement approach that processes only the necessary state pairs. This is the algorithm used in production compiler tools like Lex and Flex.</p>
+                        <p className="text-sm mt-2"><strong>Learn more:</strong> Search "Hopcroft DFA minimization algorithm"</p>
+                    </div>
+
+                    <div className="bg-gray-50 border-l-4 border-gray-400 p-4">
+                        <h4 className="font-semibold">🔬 Advanced Topic 2: Learning DFAs from Examples (Angluin's L* Algorithm)</h4>
+                        <p className="text-sm mt-2">What if we don't have a DFA but only examples of strings that should/shouldn't be accepted? Angluin's L* algorithm learns the minimal DFA for a regular language using membership queries and equivalence queries. This has applications in software verification and specification mining.</p>
+                        <p className="text-sm mt-2"><strong>Learn more:</strong> Search "Angluin L* algorithm learning DFA"</p>
+                    </div>
+
+                    <div className="bg-gray-50 border-l-4 border-gray-400 p-4">
+                        <h4 className="font-semibold">🔬 Advanced Topic 3: Succinctness of Different Representations</h4>
+                        <p className="text-sm mt-2">While DFAs, NFAs, and regular expressions all describe regular languages, they differ dramatically in succinctness. There exist languages where the minimal NFA has n states but the minimal DFA requires 2^n states. Similarly, some regular expressions convert to exponentially larger DFAs.</p>
+                        <p className="text-sm mt-2"><strong>Learn more:</strong> Search "regular language succinctness DFA NFA blowup"</p>
+                    </div>
+                </div>
+
+                <h4 className="mt-6 font-semibold">📚 Recommended Resources</h4>
+
+                <div className="mt-4 bg-blue-50 p-4 rounded">
+                    <p className="font-semibold">Textbooks:</p>
+                    <ul className="list-disc ml-6 mt-2 text-sm space-y-1">
+                        <li>"Introduction to the Theory of Computation" by Michael Sipser - Chapter 1: Regular Languages</li>
+                        <li>"Automata Theory, Languages, and Computation" by Hopcroft, Motwani, Ullman - Chapter 4: Properties of Regular Languages</li>
+                        <li>"Elements of the Theory of Computation" by Lewis and Papadimitriou</li>
+                    </ul>
+                </div>
+
+                <div className="mt-4 bg-green-50 p-4 rounded">
+                    <p className="font-semibold">Online Courses:</p>
+                    <ul className="list-disc ml-6 mt-2 text-sm space-y-1">
+                        <li><strong>Coursera:</strong> "Automata Theory" by Stanford (Jeff Ullman)</li>
+                        <li><strong>MIT OCW:</strong> 6.045J Automata, Computability, and Complexity</li>
+                        <li><strong>Neso Academy:</strong> Theory of Computation playlist on YouTube</li>
+                    </ul>
+                </div>
+            </section>
+
+            {/* Interview Preparation */}
+            <section className="content-section">
+                <h3>💼 Interview Preparation</h3>
+
+                <div className="space-y-6">
+                    <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <h4 className="font-semibold">Interview Question 1:</h4>
+                        <p className="mt-2">"How would you test if two regular expressions are equivalent?"</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-blue-600">Show Approach</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>How to approach:</strong> Convert both regexes to DFAs, minimize them, then compare.</p>
+                                <p><strong>Key points to mention:</strong></p>
+                                <ul className="list-disc ml-6">
+                                    <li>Regular expressions → NFAs (Thompson's construction)</li>
+                                    <li>NFAs → DFAs (subset construction)</li>
+                                    <li>Minimize DFAs (table-filling algorithm)</li>
+                                    <li>Check isomorphism of minimized DFAs</li>
+                                    <li>Mention complexity at each step</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className="bg-green-50 border-l-4 border-green-400 p-4">
+                        <h4 className="font-semibold">Interview Question 2:</h4>
+                        <p className="mt-2">"Design an algorithm to find the shortest string accepted by a DFA."</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-green-600">Show Approach</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>How to approach:</strong> Use BFS on the state graph.</p>
+                                <p><strong>Key points:</strong></p>
+                                <ul className="list-disc ml-6">
+                                    <li>BFS from initial state until reaching an accepting state</li>
+                                    <li>Track path to reconstruct the string</li>
+                                    <li>Time complexity: O(|Q| × |Σ|)</li>
+                                    <li>If no accepting state reachable, language is empty</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            {/* University Exam Practice */}
+            <section className="content-section">
+                <h3>📝 University Exam Practice</h3>
+                <p>Practice with these university-style exam questions. These reflect the format and difficulty of actual exams.</p>
+
+                <div className="space-y-6 mt-4">
+                    <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <h4 className="font-semibold">Question 1: Short Answer (5 marks) - [Time: 7 minutes]</h4>
+                        <p className="mt-2">Define the emptiness problem for regular languages and describe an algorithm to solve it. What is its time complexity?</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-blue-600">Show Marking Scheme & Model Answer</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Marking Scheme:</strong></p>
+                                <ul className="list-disc ml-6">
+                                    <li>Definition of emptiness problem: 1 mark</li>
+                                    <li>Algorithm description (BFS/DFS): 2 marks</li>
+                                    <li>Correctness explanation: 1 mark</li>
+                                    <li>Time complexity: 1 mark</li>
+                                </ul>
+                                <p className="mt-2"><strong>Model Answer:</strong></p>
+                                <p><strong>Definition:</strong> The emptiness problem asks whether a given DFA accepts any strings at all (i.e., whether L(D) = ∅).</p>
+                                <p><strong>Algorithm:</strong> Perform BFS or DFS from the initial state. If any accepting state is reachable, the language is non-empty; otherwise, it's empty.</p>
+                                <p><strong>Correctness:</strong> A DFA accepts a string iff there's a path from the initial state to an accepting state. Reachability analysis finds such paths.</p>
+                                <p><strong>Complexity:</strong> O(|Q| × |Σ|) where |Q| is the number of states and |Σ| is the alphabet size.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <h4 className="font-semibold">Question 2: Problem Solving (10 marks) - [Time: 15 minutes]</h4>
+                        <p className="mt-2">Minimize the following DFA using the table-filling algorithm. Show all steps clearly.</p>
+                        <p className="text-sm mt-2">States: {'{'}A, B, C, D{'}'}, Initial: A, Accepting: {'{'}C, D{'}'}</p>
+                        <p className="text-sm">Transitions: δ(A,0)=B, δ(A,1)=A, δ(B,0)=C, δ(B,1)=D, δ(C,0)=C, δ(C,1)=A, δ(D,0)=B, δ(D,1)=D</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-yellow-600">Show Marking Scheme & Complete Solution</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Marking Scheme:</strong></p>
+                                <ul className="list-disc ml-6">
+                                    <li>Initial marking (accepting vs non-accepting): 2 marks</li>
+                                    <li>Iterative marking steps: 5 marks</li>
+                                    <li>Final equivalent state identification: 2 marks</li>
+                                    <li>Minimized DFA construction: 1 mark</li>
+                                </ul>
+                                <p className="mt-2"><strong>Complete Solution:</strong></p>
+                                <p><strong>Step 1 - Initialize:</strong> Mark (A,C), (A,D), (B,C), (B,D) as accepting/non-accepting pairs.</p>
+                                <p><strong>Step 2 - Check remaining pairs:</strong></p>
+                                <ul className="list-disc ml-6">
+                                    <li>(A,B): On 0→(B,C) marked, so mark (A,B)</li>
+                                    <li>(C,D): On 0→(C,B), on 1→(A,D) marked, so mark (C,D)</li>
+                                </ul>
+                                <p><strong>Result:</strong> All pairs marked. No states are equivalent. The DFA is already minimal.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-400 p-4">
+                        <h4 className="font-semibold">Question 3: Analytical (15 marks) - [Time: 20 minutes]</h4>
+                        <p className="mt-2">Prove that the equivalence problem for regular languages is decidable. Describe two different approaches and compare their time complexities.</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-red-600">Show Marking Scheme & Model Answer</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Marking Scheme:</strong></p>
+                                <ul className="list-disc ml-6">
+                                    <li>Proof that equivalence is decidable: 3 marks</li>
+                                    <li>Approach 1 (minimization + comparison): 4 marks</li>
+                                    <li>Approach 2 (product construction): 4 marks</li>
+                                    <li>Complexity analysis: 3 marks</li>
+                                    <li>Comparison: 1 mark</li>
+                                </ul>
+                                <p className="mt-2"><strong>Model Answer:</strong></p>
+                                <p><strong>Proof of decidability:</strong> Given DFAs D₁ and D₂, we can construct a DFA for L(D₁) ⊕ L(D₂) (symmetric difference). L(D₁) = L(D₂) iff this language is empty. Since emptiness is decidable, equivalence is decidable.</p>
+                                <p><strong>Approach 1 - Minimization:</strong> Minimize both DFAs. If minimized forms are isomorphic (same structure, possibly renamed states), languages are equal. Complexity: O(|Q₁|² × |Σ|) + O(|Q₂|² × |Σ|) for minimization.</p>
+                                <p><strong>Approach 2 - Product Construction:</strong> Build DFA for (L₁ ∩ L₂') ∪ (L₁' ∩ L₂). Test emptiness. Complexity: O(|Q₁| × |Q₂| × |Σ|).</p>
+                                <p><strong>Comparison:</strong> Product construction is simpler to implement. Minimization is more efficient when DFAs are large and very different.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            {/* MCQ Practice */}
+            <section className="content-section" id="quiz">
+                <h3>MCQ Practice</h3>
+                <Quiz 
+                    title="MCQ Practice: Decision Properties"
+                    subject="Theory of Computation"
+                    unitId={2}
+                    moduleId={5}
+                    questions={[
+                        {
+                            question: "Which decision problem for regular languages is solved by checking if an accepting state is reachable from the initial state?",
+                            options: ["Membership", "Emptiness", "Finiteness", "Equivalence"],
+                            correctAnswer: 1,
+                            explanation: "The Emptiness Problem is solved by determining if any accepting state is reachable from the start state using graph traversal (BFS/DFS)."
+                        },
+                        {
+                            question: "What is the time complexity of testing membership of a string w in a language represented by a DFA?",
+                            options: ["O(1)", "O(|w|)", "O(|Q|)", "O(|Q| * |Σ|)"],
+                            correctAnswer: 1,
+                            explanation: "Membership testing in a DFA involves simulating the transitions for each character in the string, which takes O(|w|) time."
+                        },
+                        {
+                            question: "A regular language is infinite if and only if its minimized DFA contains a cycle that is:",
+                            options: ["Anywhere in the machine", "Only at the start state", "Among reachable states that can also reach an accepting state", "Only between two accepting states"],
+                            correctAnswer: 2,
+                            explanation: "A cycle must be 'useful'—it must be reachable from the start and lead to an accepting state—for the language to be infinite."
+                        },
+                        {
+                            question: "Which algorithm is commonly used to test the equivalence of two regular languages using symmetric difference?",
+                            options: ["Table-filling algorithm", "Powersets construction", "Product construction", "Myhill-Nerode theorem"],
+                            correctAnswer: 2,
+                            explanation: "The Product Construction can be used to build a DFA that accepts the symmetric difference of two languages. If that DFA's language is empty, the original languages are equivalent."
+                        },
+                        {
+                            question: "The problem of determining if a regular language contains a specific number of strings is:",
+                            options: ["Undecidable", "Decidable in exponential time", "Decidable in polynomial time", "Decidable only for small alphabets"],
+                            correctAnswer: 2,
+                            explanation: "All standard decision problems for regular languages, including counting or properties like emptiness/finiteness, are decidable in polynomial time."
+                        }
+                    ]}
+                />
+            </section>
         </div>
+
     );
 };
 

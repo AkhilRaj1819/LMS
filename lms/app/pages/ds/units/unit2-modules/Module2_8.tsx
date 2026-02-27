@@ -194,6 +194,19 @@ function merge(left, right)
         <p className="mb-6">
           Think of sorting a deck of cards. With Merge Sort, you split the deck in half, then split each half, and so on until you have piles of single cards (which are already sorted). Then, you merge the piles back together in order.
         </p>
+        <section className="content-section">
+          <h3>Practice Problems</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="https://leetcode.com/problems/sort-an-array/description/" target="_blank" className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-emerald-500 hover:bg-emerald-50 transition-all group">
+              <h4 className="font-bold text-gray-800 group-hover:text-emerald-600">Sort an Array</h4>
+              <p className="text-xs text-gray-500">LeetCode • Medium</p>
+            </a>
+            <a href="https://leetcode.com/problems/merge-sorted-array/description/" target="_blank" className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-emerald-500 hover:bg-emerald-50 transition-all group">
+              <h4 className="font-bold text-gray-800 group-hover:text-emerald-600">Merge Sorted Array</h4>
+              <p className="text-xs text-gray-500">LeetCode • Easy</p>
+            </a>
+          </div>
+        </section>
 
         <Quiz
           title="Module 2.8 Quiz: Sorting Fundamentals & Merge Sort"

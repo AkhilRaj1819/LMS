@@ -149,6 +149,15 @@ const Module2_12: React.FC = () => {
           <li>1 ≤ n ≤ 10⁵</li>
           <li>-10⁹ ≤ arr[i] ≤ 10⁹</li>
         </ul>
+        <section className="content-section">
+          <h3>Practice Problems</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="https://leetcode.com/problems/merge-sorted-array/description/" target="_blank" className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-emerald-500 hover:bg-emerald-50 transition-all group">
+              <h4 className="font-bold text-gray-800 group-hover:text-emerald-600">Merge Sorted Array</h4>
+              <p className="text-xs text-gray-500">LeetCode • Easy</p>
+            </a>
+          </div>
+        </section>
 
         <Quiz
           title="Module 2.12 Quiz: Merge Sort Mastery"
