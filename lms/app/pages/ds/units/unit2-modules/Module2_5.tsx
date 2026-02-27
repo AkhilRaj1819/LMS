@@ -112,6 +112,15 @@ END FUNCTION`}</code>
             <li>This is the power of divide and conquer</li>
           </ul>
         </div>
+        <section className="content-section">
+          <h3>Practice Problems</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="https://leetcode.com/problems/powx-n/description/" target="_blank" className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-emerald-500 hover:bg-emerald-50 transition-all group">
+              <h4 className="font-bold text-gray-800 group-hover:text-emerald-600">Pow(x, n)</h4>
+              <p className="text-xs text-gray-500">LeetCode • Medium</p>
+            </a>
+          </div>
+        </section>
 
         <Quiz
           title="Module 2.5 Quiz: Efficient Power Calculation"

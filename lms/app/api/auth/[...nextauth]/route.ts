@@ -84,11 +84,7 @@ export const authOptions: NextAuthOptions = {
                     token.currentSemester = dbUser.currentSemester;
                     token.phoneNumber = dbUser.phoneNumber;
 
-                    // UPDATED: Track online status
-                    await db.collection("users").updateOne(
-                        { _id: dbUser._id },
-                        { $set: { lastActive: new Date() } }
-                    );
+
 
                     // Prioritize database fullName, sync from Google if empty
                     if (dbUser.fullName) {
@@ -100,13 +96,24 @@ export const authOptions: NextAuthOptions = {
                         );
                         token.name = user.name;
                     }
-                } else if (user) {
-                    // Non-GGU user logic - only relevant during sign-in
+                } else if (user && user.email) {
+                    // NEW: Auto-register anyone who logs in
+                    const newUser = {
+                        email: user.email,
+                        fullName: user.name || "",
+                        isAdmin: false,
+                        isGuest: !user.email.endsWith("@ggu.edu.in"),
+                        createdAt: new Date(),
+                        currentSemester: 1
+                    };
+                    const result = await db.collection("users").insertOne(newUser);
+
+                    token.id = result.insertedId.toString();
                     token.isAdmin = false;
                     token.email = user.email;
-                    token.hasAdminRecord = false;
-                    token.hasStudentRecord = false;
                     token.name = user.name;
+                    token.hasStudentRecord = true;
+                    token.hasAdminRecord = false;
                 }
             }
 

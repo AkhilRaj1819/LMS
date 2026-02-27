@@ -99,6 +99,7 @@ const Module2_7: React.FC = () => {
         <p className="mb-6">
           They're foundational for problems like finding subsets, solving combinatorial puzzles, and optimizing operations in dynamic programming.
         </p>
+        
 
         <Quiz
           title="Module 2.7 Quiz: Subsequences & Recursion"

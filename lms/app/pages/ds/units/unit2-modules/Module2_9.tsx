@@ -103,6 +103,15 @@ const Module2_9: React.FC = () => {
         <p className="mb-6">
           Don't worry if this feels slow at first. Sorting problems help build comparison logic, which is a foundation for many advanced algorithms.
         </p>
+        <section className="content-section">
+          <h3>Practice Problems</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="https://leetcode.com/problems/sort-an-array/description/" target="_blank" className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-emerald-500 hover:bg-emerald-50 transition-all group">
+              <h4 className="font-bold text-gray-800 group-hover:text-emerald-600">Sort an Array</h4>
+              <p className="text-xs text-gray-500">LeetCode • Medium</p>
+            </a>
+          </div>
+        </section>
 
         <Quiz
           title="Module 2.9 Quiz: Sorting an Array (Bubble Sort)"

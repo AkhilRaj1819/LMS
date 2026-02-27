@@ -22,7 +22,7 @@ import Footer from "@/components/Footer";
 export default function AdminDashboard() {
   const { data: session } = useSession();
   const router = useRouter();
-  const [stats, setStats] = useState({ total: 0, students: 0, onlineStudents: 0, offlineStudents: 0, admins: 0, guests: 0 });
+  const [stats, setStats] = useState({ total: 0, students: 0, admins: 0, guests: 0 });
   const [leavesCount, setLeavesCount] = useState(0);
   const [feedbackCount, setFeedbackCount] = useState(0);
   const [recentLeaves, setRecentLeaves] = useState<any[]>([]);
@@ -156,114 +156,18 @@ export default function AdminDashboard() {
 
   const fetchStats = async () => {
     try {
-      const [usersRes, leavesRes, feedbackRes, progressRes] = await Promise.all([
-        fetch("/api/users/students"),
-        fetch("/api/leaves"),
-        fetch("/api/feedback"),
-        fetch("/api/progress?all=true")
-      ]);
+      const res = await fetch("/api/admin/stats");
+      const data = await res.json();
 
-      const usersData = await usersRes.json();
-      const leavesData = await leavesRes.json();
-      const feedbackData = await feedbackRes.json();
-      const progressData = await progressRes.json();
-
-      if (usersData.ok) {
-        const studentUsers = usersData.data.filter((u: any) =>
-          !u.isAdmin &&
-          u.email?.toLowerCase().endsWith("@ggu.edu.in") &&
-          u.email?.toLowerCase() !== "admin@ggu.edu.in"
-        );
-
-        const guestUsers = usersData.data.filter((u: any) =>
-          !u.isAdmin &&
-          !u.email?.toLowerCase().endsWith("@ggu.edu.in") &&
-          u.email?.toLowerCase() !== "admin@ggu.edu.in"
-        );
-
-        const now = new Date();
-        const onlineThreshold = 5 * 60 * 1000; // 5 minutes
-
-        const onlineCount = studentUsers.filter((u: any) => {
-          if (!u.lastActive) return false;
-          return (now.getTime() - new Date(u.lastActive).getTime()) < onlineThreshold;
-        }).length;
-
-        setStats({
-          total: usersData.data.length,
-          students: studentUsers.length,
-          onlineStudents: onlineCount,
-          offlineStudents: studentUsers.length - onlineCount,
-          admins: usersData.data.filter((u: any) => u.isAdmin || u.email?.toLowerCase() === "admin@ggu.edu.in").length,
-          guests: guestUsers.length
-        });
-      }
-
-      setLeavesCount(Array.isArray(leavesData) ? leavesData.length : 0);
-      setRecentLeaves(Array.isArray(leavesData) ? leavesData.slice(0, 3) : []);
-
-      setFeedbackCount(Array.isArray(feedbackData) ? feedbackData.length : 0);
-      setRecentFeedback(Array.isArray(feedbackData) ? feedbackData.slice(0, 3) : []);
-
-      if (progressData.success && Array.isArray(progressData.data)) {
-
-
-        const studentScores: any = {};
-        const subjectStats: any = {};
-        const studentUniqueAttempts: any = {};
-
-        progressData.data.forEach((p: any) => {
-          if (!p.subject) return;
-
-          const key = `${p.userEmail}-${p.subject}-${p.unitId}-${p.moduleId}`;
-
-          if (!studentUniqueAttempts[p.userEmail]) {
-            studentUniqueAttempts[p.userEmail] = new Set();
-          }
-
-          if (!studentUniqueAttempts[p.userEmail].has(key)) {
-            studentUniqueAttempts[p.userEmail].add(key);
-
-            if (!studentScores[p.userEmail]) {
-              studentScores[p.userEmail] = { email: p.userEmail, total: 0, count: 0 };
-            }
-            studentScores[p.userEmail].total += p.percentage;
-            studentScores[p.userEmail].count++;
-          }
-
-          const subjectKey = `${p.userEmail}-${p.subject}-${p.unitId}-${p.moduleId}`;
-          if (!subjectStats[p.subject]) {
-            subjectStats[p.subject] = { subject: p.subject, uniqueAttempts: new Set(), totalScore: 0 };
-          }
-          if (!subjectStats[p.subject].uniqueAttempts.has(subjectKey)) {
-            subjectStats[p.subject].uniqueAttempts.add(subjectKey);
-            subjectStats[p.subject].totalScore += p.percentage;
-          }
-        });
-
-        const lowPerformersData = Object.values(studentScores)
-          .map((s: any) => ({ ...s, avg: s.total / s.count }))
-          .filter((s: any) => s.avg < 60)
-          .sort((a: any, b: any) => a.avg - b.avg)
-          .slice(0, 5);
-
-        const topPerformersData = Object.values(studentScores)
-          .map((s: any) => ({ ...s, avg: s.total / s.count }))
-          .filter((s: any) => s.count >= 3)
-          .sort((a: any, b: any) => b.avg - a.avg)
-          .slice(0, 5);
-
-        const subjectCompletionData = Object.values(subjectStats)
-          .map((s: any) => ({
-            subject: s.subject,
-            attempts: s.uniqueAttempts.size,
-            avgScore: (s.totalScore / s.uniqueAttempts.size).toFixed(1)
-          }))
-          .sort((a: any, b: any) => b.attempts - a.attempts);
-
-        setLowPerformers(lowPerformersData);
-        setTopPerformers(topPerformersData);
-        setSubjectCompletion(subjectCompletionData);
+      if (data.ok) {
+        setStats(data.stats.users);
+        setLeavesCount(data.stats.leaves.count);
+        setRecentLeaves(data.stats.leaves.recent);
+        setFeedbackCount(data.stats.feedback.count);
+        setRecentFeedback(data.stats.feedback.recent);
+        setLowPerformers(data.stats.performance.lowPerformers);
+        setTopPerformers(data.stats.performance.topPerformers);
+        setSubjectCompletion(data.stats.performance.subjectCompletion);
       }
     } catch (error) {
       console.error("Failed to fetch stats", error);
@@ -326,16 +230,9 @@ export default function AdminDashboard() {
               <div className="flex items-end justify-between">
                 <div>
                   <h3 className="text-3xl font-bold text-blue-600 tracking-tighter">{stats.students}</h3>
-                  <div className="flex items-center gap-2 mt-1">
-                    <p className="text-[9px] font-bold text-emerald-600 uppercase tracking-tight bg-emerald-50 px-1.5 py-0.5 rounded-md border border-emerald-100">
-                      {stats.onlineStudents} Online
-                    </p>
-                    <p className="text-[9px] font-bold text-slate-400 uppercase tracking-tight bg-slate-50 px-1.5 py-0.5 rounded-md border border-slate-100">
-                      {stats.offlineStudents} Offline
-                    </p>
-                  </div>
+                  <p className="text-[10px] font-bold text-slate-500 mt-1 uppercase tracking-tight">Enrolled</p>
                 </div>
-                <div className={`w-2 h-2 rounded-full mb-2 ${stats.onlineStudents > 0 ? 'bg-emerald-500 animate-pulse' : 'bg-slate-300'}`} />
+                <Users className="w-5 h-5 text-blue-600 mb-1 opacity-20 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
 

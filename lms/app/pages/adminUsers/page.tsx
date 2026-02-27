@@ -1,10 +1,10 @@
 "use client";
 
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, UserPlus, ShieldPlus, Search, Edit2, Trash2, Phone, GraduationCap, X, Menu } from "lucide-react";
+import { Users, UserPlus, ShieldPlus, Search, Edit2, Trash2, Phone, GraduationCap, X, Menu, LogOut } from "lucide-react";
 import AdminSidebar from "../../../components/AdminSidebar";
 import Footer from "@/components/Footer";
 
@@ -12,40 +12,56 @@ export default function AdminUsers() {
     const { data: session } = useSession();
     const router = useRouter();
     const [users, setUsers] = useState<any[]>([]);
+    const [stats, setStats] = useState({ total: 0, students: 0, admins: 0, guests: 0 });
     const [newUserEmail, setNewUserEmail] = useState("");
     const [newAdminEmail, setNewAdminEmail] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
+    const [isSearching, setIsSearching] = useState(false);
     const [editUser, setEditUser] = useState<any>(null);
     const [editForm, setEditForm] = useState({ fullName: "", phoneNumber: "", currentSemester: 1 });
-    const [currentTime, setCurrentTime] = useState(new Date());
 
-    useEffect(() => {
-        const timer = setInterval(() => setCurrentTime(new Date()), 30000);
-        return () => clearInterval(timer);
-    }, []);
-
-    const isUserOnline = (user: any) => {
-        if (!user.lastActive) return false;
-        const onlineThreshold = 5 * 60 * 1000; // Give them 5 mins buffer
-        return (currentTime.getTime() - new Date(user.lastActive).getTime()) < onlineThreshold;
-    };
 
     useEffect(() => {
         if (session?.user?.isAdmin === false) {
             router.push("/");
         } else if (session?.user?.isAdmin) {
             fetchUsers();
-            const interval = setInterval(fetchUsers, 30000);
-            return () => clearInterval(interval);
+            fetchInitialStats();
         }
     }, [session, router]);
 
-    const fetchUsers = async () => {
-        const res = await fetch("/api/users/students");
+    // Handle searching with debounce
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (session?.user?.isAdmin) {
+                fetchUsers(searchQuery);
+            }
+        }, 300); // 300ms debounce
+        return () => clearTimeout(timer);
+    }, [searchQuery]);
+
+    const fetchInitialStats = async () => {
+        const res = await fetch("/api/admin/stats");
+        const data = await res.json();
+        if (data.ok && data.stats) {
+            setStats({
+                total: data.stats.users.total,
+                students: data.stats.users.students,
+                admins: data.stats.users.admins,
+                guests: data.stats.users.guests
+            });
+        }
+    };
+
+    const fetchUsers = async (query = "") => {
+        setIsSearching(true);
+        const url = query ? `/api/users/students?q=${encodeURIComponent(query)}` : "/api/users/students";
+        const res = await fetch(url);
         const data = await res.json();
         if (data.ok) {
             setUsers(data.data);
         }
+        setIsSearching(false);
     };
 
     const addUser = async () => {
@@ -93,10 +109,6 @@ export default function AdminUsers() {
 
 
     const updateUser = async () => {
-        if (!editForm.fullName.trim() || !editForm.phoneNumber.trim()) {
-            alert("Please fill in all fields");
-            return;
-        }
         const res = await fetch("/api/users/update", {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -126,6 +138,15 @@ export default function AdminUsers() {
         }
     };
 
+    const handleSignOut = async () => {
+        try {
+            await fetch('/api/users/logout', { method: 'POST' });
+        } catch (error) {
+            console.error('Logout error:', error);
+        }
+        signOut({ callbackUrl: '/pages/login' });
+    };
+
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     return (
@@ -145,11 +166,18 @@ export default function AdminUsers() {
                             </button>
                             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1E3A8A]">Manage Users</h2>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-6">
                             <div className="flex flex-col items-end">
                                 <p className="text-[10px] font-bold uppercase text-[#888] tracking-widest leading-none">Admin</p>
                                 <p className="text-sm font-bold text-[#3E73C1] mt-1">{session?.user?.email}</p>
                             </div>
+                            <button
+                                onClick={handleSignOut}
+                                className="flex items-center gap-2 bg-rose-50 border border-rose-100 text-rose-600 px-4 py-2 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-rose-100 transition-all cursor-pointer group"
+                            >
+                                <LogOut className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
+                                Sign Out
+                            </button>
                         </div>
                     </div>
 
@@ -172,7 +200,7 @@ export default function AdminUsers() {
                             <div>
                                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Students</p>
                                 <h3 className="text-2xl font-bold text-[#121212] tracking-tighter">
-                                    {users.filter(u => !u.isAdmin && u.email?.toLowerCase().endsWith("@ggu.edu.in") && u.email?.toLowerCase() !== "admin@ggu.edu.in").length}
+                                    {stats.students || users.filter(u => !u.isAdmin && u.email?.toLowerCase().endsWith("@ggu.edu.in")).length}
                                 </h3>
                             </div>
                         </div>
@@ -183,7 +211,7 @@ export default function AdminUsers() {
                             <div>
                                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Admins</p>
                                 <h3 className="text-2xl font-bold text-[#121212] tracking-tighter">
-                                    {users.filter(u => u.isAdmin || u.email?.toLowerCase() === "admin@ggu.edu.in").length}
+                                    {stats.admins || users.filter(u => u.isAdmin).length}
                                 </h3>
                             </div>
                         </div>
@@ -194,7 +222,7 @@ export default function AdminUsers() {
                             <div>
                                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Guests</p>
                                 <h3 className="text-2xl font-bold text-[#121212] tracking-tighter">
-                                    {users.filter(u => !u.isAdmin && !u.email?.toLowerCase().endsWith("@ggu.edu.in") && u.email?.toLowerCase() !== "admin@ggu.edu.in").length}
+                                    {stats.guests || users.filter(u => !u.isAdmin && !u.email?.toLowerCase().endsWith("@ggu.edu.in")).length}
                                 </h3>
                             </div>
                         </div>
@@ -257,92 +285,6 @@ export default function AdminUsers() {
                     </div>
 
 
-                    {/* LIVE USER REGISTRY SECTION */}
-                    <div className="bg-white border border-[#E5E2D9] rounded-[2.5rem] p-8 shadow-sm mb-12">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-10">
-                            <div className="flex items-center gap-3">
-                                <div className="w-2 h-8 bg-emerald-500 rounded-full animate-pulse" />
-                                <h3 className="text-xl font-bold text-[#121212] tracking-tight uppercase">Logged In Users</h3>
-                                <span className="bg-emerald-50 text-emerald-600 text-[10px] px-2 py-0.5 rounded-full border border-emerald-100 font-bold uppercase tracking-widest ml-2">Live Monitor</span>
-                            </div>
-                            <div className="relative max-w-md w-full">
-                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-                                <input
-                                    type="text"
-                                    placeholder="Search live users..."
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="w-full bg-[#F8F6F1] border border-[#E5E2D9] pl-12 pr-4 py-3 rounded-2xl text-sm font-bold focus:ring-2 focus:ring-[#3E73C1]/20 outline-none transition-all"
-                                />
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {users.filter(user => {
-                                const matchesSearch = user.fullName?.toLowerCase().includes(searchQuery.toLowerCase()) || user.email.toLowerCase().includes(searchQuery.toLowerCase());
-                                return matchesSearch && isUserOnline(user);
-                            }).map((user) => (
-                                <div key={user._id} className="group relative bg-[#F8F6F1]/50 border border-[#E5E2D9] rounded-[2rem] p-6 hover:bg-white hover:border-[#3E73C1]/30 transition-all duration-300">
-                                    <div className="flex justify-between items-start mb-4">
-                                        <div className="flex-1 min-w-0">
-                                            <h4 className="font-bold text-base text-[#121212] truncate tracking-tight">{user.fullName || "Not Set"}</h4>
-                                            <p className="text-xs font-bold text-slate-500 truncate lowercase opacity-70">{user.email}</p>
-                                        </div>
-                                        <span className={`px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest border ${user.isAdmin
-                                            ? 'bg-indigo-50 border-indigo-100 text-indigo-600'
-                                            : user.isGuest
-                                                ? 'bg-emerald-50 border-emerald-100 text-emerald-600'
-                                                : 'bg-blue-50 border-blue-100 text-blue-600'
-                                            }`}>
-                                            {user.isAdmin ? "Admin" : user.isGuest ? "Guest" : "Student"}
-                                        </span>
-                                    </div>
-
-                                    <div className="space-y-2 mb-8 bg-white p-4 rounded-2xl border border-[#E5E2D9]/50">
-                                        <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                                            <Phone className="w-3.5 h-3.5 text-[#3E73C1]" />
-                                            {user.phoneNumber || "N/A"}
-                                        </div>
-                                        {!user.isAdmin && (
-                                            <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-slate-500">
-                                                <GraduationCap className="w-3.5 h-3.5 text-[#3E73C1]" />
-                                                Semester 0{user.currentSemester}
-                                            </div>
-                                        )}
-                                    </div>
-
-                                    <div className="flex gap-2">
-                                        <button
-                                            onClick={() => user.email !== "admin@ggu.edu.in" && openEditModal(user)}
-                                            className={`flex-1 flex items-center justify-center gap-2 bg-white border border-[#E5E2D9] text-slate-600 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all ${user.email === "admin@ggu.edu.in"
-                                                ? "opacity-50 cursor-not-allowed"
-                                                : "hover:border-[#3E73C1] hover:text-[#3E73C1] cursor-pointer"}`}
-                                            disabled={user.email === "admin@ggu.edu.in"}
-                                        >
-                                            <Edit2 className="w-3.5 h-3.5" />
-                                            {user.email === "admin@ggu.edu.in" ? "Protected" : "Edit"}
-                                        </button>
-                                        {user.email !== "admin@ggu.edu.in" && (
-                                            <button
-                                                onClick={() => deleteUser(user.email)}
-                                                className="group/del flex items-center justify-center bg-rose-50 border border-rose-100 hover:bg-rose-600 hover:border-rose-600 p-3 rounded-xl transition-all cursor-pointer"
-                                            >
-                                                <Trash2 className="w-4 h-4 text-rose-600 group-hover/del:text-white" />
-                                            </button>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
-                            {users.filter(user => isUserOnline(user)).length === 0 && (
-                                <div className="col-span-full py-20 flex flex-col items-center justify-center bg-[#F8F6F1]/50 rounded-[2rem] border-2 border-dashed border-[#E5E2D9]">
-                                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm">
-                                        <Users className="w-8 h-8 text-slate-300" />
-                                    </div>
-                                    <p className="text-slate-400 font-bold text-sm uppercase tracking-widest">No users online right now</p>
-                                </div>
-                            )}
-                        </div>
-                    </div>
 
                     {/* ALL USERS IN DATABASE SECTION */}
                     <div className="bg-white border border-[#E5E2D9] rounded-[2.5rem] p-8 shadow-sm">
@@ -350,11 +292,24 @@ export default function AdminUsers() {
                             <div className="flex items-center gap-3">
                                 <div className="w-2 h-8 bg-[#3E73C1] rounded-full" />
                                 <h3 className="text-xl font-bold text-[#121212] tracking-tight uppercase">Total Users Present In Database</h3>
-                                <span className="bg-blue-50 text-[#3E73C1] text-[10px] px-2 py-0.5 rounded-full border border-blue-100 font-bold uppercase tracking-widest ml-2">{users.length} Total</span>
+                                <div className="flex items-center gap-2 ml-2">
+                                    <span className="bg-blue-50 text-[#3E73C1] text-[10px] px-2 py-0.5 rounded-full border border-blue-100 font-bold uppercase tracking-widest">{users.length} {searchQuery ? 'Results' : 'Total'}</span>
+                                    {isSearching && <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: 'linear' }} className="w-3 h-3 border-2 border-[#3E73C1] border-t-transparent rounded-full" />}
+                                </div>
+                            </div>
+                            <div className="relative max-w-md w-full">
+                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                                <input
+                                    type="text"
+                                    placeholder="Search users..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="w-full bg-[#F8F6F1] border border-[#E5E2D9] pl-12 pr-4 py-3 rounded-2xl text-sm font-bold focus:ring-2 focus:ring-[#3E73C1]/20 outline-none transition-all"
+                                />
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
                             {users.map((user) => (
                                 <div key={`db-${user._id}`} className="flex items-center gap-4 bg-[#F8F6F1]/30 border border-[#E5E2D9] p-5 rounded-2xl hover:bg-white hover:border-[#3E73C1]/20 transition-all group">
                                     <div className="w-12 h-12 rounded-full bg-white border border-[#E5E2D9] flex items-center justify-center text-[12px] font-bold text-[#3E73C1] shrink-0 shadow-sm">
@@ -379,10 +334,66 @@ export default function AdminUsers() {
                                                 );
                                             })()}
                                         </div>
+                                        <div className="flex items-center gap-4 mt-2">
+                                            <div className="flex items-center gap-1.5">
+                                                <Phone className="w-2.5 h-2.5 text-slate-400" />
+                                                <span className="text-[9px] font-bold text-slate-500">{user.phoneNumber || "No Phone"}</span>
+                                            </div>
+                                            {!user.isAdmin && user.email?.toLowerCase() !== 'admin@ggu.edu.in' && (
+                                                <div className="flex items-center gap-1.5">
+                                                    <GraduationCap className="w-2.5 h-2.5 text-slate-400" />
+                                                    <span className="text-[9px] font-bold text-slate-500">S0{user.currentSemester || 1}</span>
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
-                                    <div className={`w-2 h-2 rounded-full shrink-0 ${isUserOnline(user) ? 'bg-emerald-500 animate-pulse' : 'bg-slate-300'}`} />
+                                    <div className="flex items-center gap-2 shrink-0">
+                                        {user.email !== "admin@ggu.edu.in" && (
+                                            <>
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        openEditModal(user);
+                                                    }}
+                                                    className="p-2 text-slate-300 hover:text-[#3E73C1] hover:bg-blue-50 rounded-lg transition-all cursor-pointer"
+                                                    title="Edit User"
+                                                >
+                                                    <Edit2 className="w-4 h-4" />
+                                                </button>
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        deleteUser(user.email);
+                                                    }}
+                                                    className="p-2 text-slate-300 hover:text-rose-500 hover:bg-rose-50 rounded-lg transition-all cursor-pointer"
+                                                    title="Delete User"
+                                                >
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            </>
+                                        )}
+                                    </div>
                                 </div>
                             ))}
+                            {users.length === 0 && !isSearching && (
+                                <div className="col-span-full py-20 flex flex-col items-center justify-center bg-[#F8F6F1]/50 rounded-[2rem] border-2 border-dashed border-[#E5E2D9]">
+                                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm">
+                                        <Users className="w-8 h-8 text-slate-300" />
+                                    </div>
+                                    <p className="text-slate-400 font-bold text-sm uppercase tracking-widest">No users found matching your search</p>
+                                </div>
+                            )}
+
+                            {isSearching && users.length === 0 && (
+                                <div className="col-span-full py-20 flex flex-col items-center justify-center">
+                                    <motion.div
+                                        animate={{ rotate: 360 }}
+                                        transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+                                        className="w-10 h-10 border-4 border-[#3E73C1] border-t-transparent rounded-full mb-4"
+                                    />
+                                    <p className="text-[#3E73C1] font-bold text-sm uppercase tracking-widest animate-pulse">Searching Database...</p>
+                                </div>
+                            )}
                         </div>
                     </div>
                     <Footer

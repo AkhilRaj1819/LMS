@@ -1,1022 +1,1019 @@
+
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Quiz from '../../components/Quiz';
-import {
-    CheckCircle,
-    HelpCircle,
-    BookOpen,
-    Cpu,
-    PlayCircle,
-    AlertTriangle,
-    Code,
-    Layout,
-    Table,
-    Terminal,
-    ChevronRight,
-    Info,
-    Layers,
-    Zap,
-    BarChart,
-    Target,
-    Trophy,
-    Award
-} from 'lucide-react';
+
 
 const Module2_6: React.FC = () => {
-    // Toggle state for solutions
-    const [showSolution, setShowSolution] = useState<Record<string, boolean>>({});
-
-    const toggleSolution = (id: string) => {
-        setShowSolution(prev => ({ ...prev, [id]: !prev[id] }));
-    };
-
     return (
-        <div className="module-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            {/* 1. Header */}
-            <div className="lesson-header mb-12">
-                <div className="flex items-center gap-6 mb-4">
-                    <div className="lesson-number-badge font-black text-2xl h-16 w-16 bg-white text-indigo-600 border-2 border-indigo-600 rounded-2xl flex items-center justify-center shadow-indigo-100 shadow-xl transform -rotate-3 hover:rotate-0 transition-transform cursor-default">2.6</div>
-                    <div className="lesson-title-main">
-                        <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight leading-none mb-2 underline decoration-indigo-500/30 decoration-8 underline-offset-8">Minimization of Finite Automata</h1>
-                        <p className="text-slate-500 font-medium">Subject: Theory of Computation | Unit-2: Regular Languages | Level: Expert Comprehensive</p>
-                    </div>
+        <div className="module-content">
+            {/* Lesson Header */}
+            <div className="lesson-header">
+                <div className="lesson-number-badge">2.6</div>
+                <div className="lesson-title-main">
+                    <h1>⚖️ Equivalence and Minimization of Finite Automata</h1>
                 </div>
             </div>
 
             {/* Learning Objectives */}
-            <section className="content-section mb-16">
-                <div className="bg-indigo-50 border-l-8 border-indigo-600 p-8 rounded-r-3xl shadow-lg relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <Target className="w-40 h-40 text-indigo-900" />
-                    </div>
-                    <p className="font-black text-indigo-900 mb-6 flex items-center gap-3 uppercase tracking-widest text-sm">
-                        <span className="bg-indigo-600 p-1.5 rounded-lg text-white"><CheckCircle className="w-5 h-5" /></span> What You'll Master
-                    </p>
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {[
-                            { id: 1, title: "State Equivalence", desc: "Apply the table-filling algorithm to determine state equivalence and minimize DFAs by merging indistinguishable states." },
-                            { id: 2, title: "Myhill-Nerode Theorem", desc: "State and apply the Myhill-Nerode theorem to prove regularity and determine minimal state counts." },
-                            { id: 3, title: "Quotient Construction", desc: "Construct the quotient DFA from equivalence classes and prove its uniqueness up to isomorphism." },
-                            { id: 4, title: "Equivalence Testing", desc: "Prove that two DFAs are equivalent using distinguishability arguments and product construction." },
-                            { id: 5, title: "Algorithm Analysis", desc: "Analyze time/space complexity of minimization (O(n²|Σ|)) and apply to real-world pattern matching." }
-                        ].map(obj => (
-                            <li key={obj.id} className="flex gap-4 items-start bg-white/50 p-4 rounded-2xl border border-indigo-100/50 hover:bg-white transition-colors">
-                                <span className="bg-indigo-600 text-white font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5">{obj.id}</span>
-                                <div>
-                                    <p className="text-sm font-black text-indigo-950 mb-1 leading-tight">{obj.title}</p>
-                                    <p className="text-[11px] text-indigo-800/70 leading-relaxed font-medium">{obj.desc}</p>
-                                </div>
-                            </li>
-                        ))}
+            <section className="content-section">
+                <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
+                    <p className="font-semibold">🎯 What You'll Master - Learning Objectives</p>
+                    <ul className="list-disc ml-6 mt-2 space-y-1">
+                        <li>Apply the table-filling algorithm to determine state equivalence and minimize DFAs by merging indistinguishable states</li>
+                        <li>State and apply the Myhill-Nerode theorem to prove regularity of languages and determine the minimal number of states required</li>
+                        <li>Construct the quotient DFA from equivalence classes and prove that the minimal DFA is unique up to isomorphism</li>
+                        <li>Prove that two DFAs are equivalent by showing they accept the same language using distinguishability arguments</li>
+                        <li>Analyze the time and space complexity of DFA minimization algorithms and apply them to real-world pattern matching problems</li>
                     </ul>
                 </div>
             </section>
 
             {/* Why This Topic Matters */}
-            <section className="content-section mb-16">
-                <div className="bg-gradient-to-br from-indigo-50 via-white to-slate-50 p-10 rounded-[3rem] text-slate-900 border-2 border-indigo-100 shadow-xl relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-indigo-500/5 group-hover:bg-indigo-500/10 transition-colors"></div>
-                    <div className="relative z-10">
-                        <h2 className="text-3xl font-black mb-8 flex items-center gap-4 text-indigo-700">
-                            Why This Topic Matters
-                        </h2>
-                        <div className="space-y-6 text-slate-600 leading-relaxed font-medium">
-                            <p className="text-sm">
-                                Imagine you're designing a lexical analyzer for a compiler that recognizes keywords, identifiers, and operators. Your initial DFA might have 50 states, but after careful analysis, you discover that 20 of those states are redundant—they behave identically for all possible inputs. By eliminating these redundant states, you reduce memory usage by 40% and improve processing speed significantly.
-                            </p>
-                            <p className="text-sm">
-                                DFA minimization is not just an academic exercise—it's a <strong>fundamental optimization technique</strong>. In hardware design, minimizing a finite state machine reduces flip-flops. In software, it reduces the memory footprint of pattern matching (grep, regex engines).
-                            </p>
-                        </div>
+            <section className="content-section">
+                <h3>🔥 Why This Topic Matters</h3>
+                <p>
+                    Imagine you're designing a lexical analyzer for a compiler that recognizes keywords, identifiers, and operators. Your initial DFA might have 50 states, but after careful analysis, you discover that 20 of those states are redundant—they behave identically for all possible inputs. By eliminating these redundant states, you reduce memory usage by 40% and improve processing speed significantly.
+                </p>
+                <p className="mt-2">
+                    DFA minimization is not just an academic exercise—it's a fundamental optimization technique with real-world applications. In hardware design, minimizing a finite state machine reduces the number of flip-flops needed. In software, it reduces the memory footprint of pattern matching algorithms used in grep, regular expression engines, and network packet filters. The Myhill-Nerode theorem, which underlies minimization, also provides a powerful tool for proving that certain languages are not regular.
+                </p>
+                <p className="mt-2">
+                    Understanding equivalence and minimization is essential for anyone working with formal languages, compiler design, or digital logic. These concepts appear frequently in competitive exams (GATE, GRE CS), technical interviews at top tech companies, and advanced computer science courses. Mastering them will give you a deeper understanding of the fundamental limits of computation.
+                </p>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-                            {[
-                                { title: "Compilers", icon: <Terminal />, desc: "token recognition" },
-                                { title: "Network IDS", icon: <Layers />, desc: "pattern matching" },
-                                { title: "Hardware", icon: <Cpu />, desc: "FPGA design" },
-                                { title: "Regex Engines", icon: <Code />, desc: "optimizing Grep" }
-                            ].map((app, i) => (
-                                <div key={i} className="bg-white p-4 rounded-2xl border border-indigo-100 shadow-sm hover:shadow-indigo-100 hover:shadow-md transition-all text-center">
-                                    <div className="bg-indigo-100 w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-3 text-indigo-600">{app.icon}</div>
-                                    <p className="text-xs font-black uppercase text-indigo-700 mb-1">{app.title}</p>
-                                    <p className="text-[10px] text-slate-500 italic">{app.desc}</p>
-                                </div>
-                            ))}
-                        </div>
+                <h4 className="mt-4 font-semibold">💡 Real-World Applications:</h4>
+                <ul className="list-disc ml-6 space-y-1">
+                    <li>Compiler lexical analyzers (lex/flex tools use minimized DFAs for token recognition)</li>
+                    <li>Network intrusion detection systems (Snort, Suricata use optimized pattern matching)</li>
+                    <li>Hardware finite state machines (FPGA designs benefit from reduced state count)</li>
+                    <li>Regular expression engines (grep, Perl, Python's re module apply minimization)</li>
+                </ul>
+            </section>
+
+            {/* Deep Dive */}
+            <section className="content-section">
+                <h3>📖 Deep Dive: Understanding the Concept</h3>
+                
+                <h4 className="mt-4 font-semibold">Definition & Fundamentals</h4>
+                <p>
+                    Two states p and q in a DFA are called <strong>equivalent</strong> (or indistinguishable) if for every input string w ∈ Σ*, the transitions from both states on w lead to either both accepting states or both non-accepting states. Formally:
+                </p>
+
+                <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4">
+                    <p className="font-semibold">Definition: State Equivalence</p>
+                    <p className="mt-2">States p and q are equivalent (written p ≡ q) if for all w ∈ Σ*:</p>
+                    <p className="text-center mt-2 text-lg">δ̂(p, w) ∈ F ⟺ δ̂(q, w) ∈ F</p>
+                </div>
+
+                <p className="mt-4">
+                    If there exists any string w that distinguishes p from q (i.e., one leads to acceptance and the other to rejection), we say p and q are <strong>distinguishable</strong>. The string w is called a <strong>distinguishing string</strong>.
+                </p>
+
+                <p className="mt-2">
+                    The goal of DFA minimization is to construct an equivalent DFA with the smallest possible number of states. Remarkably, for any regular language, this minimal DFA is unique (up to renaming of states). This uniqueness is guaranteed by the Myhill-Nerode theorem, which provides both a characterization of regular languages and an algorithmic foundation for minimization.
+                </p>
+
+                <h4 className="mt-6 font-semibold">📌 Key Terminology:</h4>
+                <ul className="list-disc ml-6 space-y-1">
+                    <li><strong>Equivalent States:</strong> States that behave identically on all input strings (accept/reject the same suffixes)</li>
+                    <li><strong>Distinguishable States:</strong> States for which there exists at least one string leading to different acceptance outcomes</li>
+                    <li><strong>Minimal DFA:</strong> A DFA with the smallest possible number of states that recognizes a given language</li>
+                    <li><strong>Unreachable States:</strong> States that cannot be reached from the initial state on any input</li>
+                    <li><strong>Dead State:</strong> A non-accepting state from which no accepting state is reachable</li>
+                    <li><strong>Quotient DFA:</strong> The DFA formed by merging equivalent states into equivalence classes</li>
+                </ul>
+
+                <div className="flex flex-col items-center my-6">
+                    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 max-w-4xl">
+                        <h4 className="text-center font-bold text-lg mb-4">Concept: State Equivalence</h4>
+                        <svg width="700" height="400" viewBox="0 0 700 400" className="mx-auto">
+                            <defs>
+                                <marker id="arrowEquiv" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" />
+                                </marker>
+                            </defs>
+
+                            {/* State p */}
+                            <circle cx="150" cy="150" r="50" fill="#dbeafe" stroke="#3b82f6" strokeWidth="3" />
+                            <text x="150" y="145" textAnchor="middle" fontSize="18" fontWeight="bold">State p</text>
+                            <text x="150" y="165" textAnchor="middle" fontSize="14" fill="#3b82f6">p</text>
+
+                            {/* State q */}
+                            <circle cx="550" cy="150" r="50" fill="#dbeafe" stroke="#3b82f6" strokeWidth="3" />
+                            <text x="550" y="145" textAnchor="middle" fontSize="18" fontWeight="bold">State q</text>
+                            <text x="550" y="165" textAnchor="middle" fontSize="14" fill="#3b82f6">q</text>
+
+                            {/* Equivalence symbol */}
+                            <text x="350" y="160" textAnchor="middle" fontSize="40" fontWeight="bold" fill="#16a34a">≡</text>
+
+                            {/* Arrow from p with w */}
+                            <line x1="150" y1="200" x2="150" y2="280" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowEquiv)" />
+                            <text x="170" y="240" fontSize="16" fontWeight="bold" fill="#3b82f6">w</text>
+
+                            {/* Arrow from q with w */}
+                            <line x1="550" y1="200" x2="550" y2="280" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowEquiv)" />
+                            <text x="570" y="240" fontSize="16" fontWeight="bold" fill="#3b82f6">w</text>
+
+                            {/* Result for p */}
+                            <rect x="80" y="290" width="140" height="60" fill="#dcfce7" stroke="#16a34a" strokeWidth="2" rx="5" />
+                            <text x="150" y="315" textAnchor="middle" fontSize="13" fontWeight="bold">δ̂(p, w) ∈ F</text>
+                            <text x="150" y="335" textAnchor="middle" fontSize="11">Accept/Reject</text>
+
+                            {/* Result for q */}
+                            <rect x="480" y="290" width="140" height="60" fill="#dcfce7" stroke="#16a34a" strokeWidth="2" rx="5" />
+                            <text x="550" y="315" textAnchor="middle" fontSize="13" fontWeight="bold">δ̂(q, w) ∈ F</text>
+                            <text x="550" y="335" textAnchor="middle" fontSize="11">Accept/Reject</text>
+
+                            {/* Equivalence condition */}
+                            <rect x="150" y="360" width="400" height="30" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" rx="5" />
+                            <text x="350" y="380" textAnchor="middle" fontSize="13" fontWeight="bold">Both accept or both reject for ALL strings w</text>
+                        </svg>
+                        <p className="text-center text-sm text-gray-600 mt-4">Figure 1: Two states p and q are equivalent if they accept/reject the same set of suffixes.</p>
                     </div>
                 </div>
             </section>
 
-            {/* Deep Dive: Theory */}
-            <section className="content-section mb-16">
-                <h2 className="text-3xl font-black text-slate-900 mb-10 flex items-center gap-4">
-                    <BookOpen className="w-10 h-10 text-indigo-600" />
-                    Deep Dive: Equivalence & Minimization
-                </h2>
+            {/* How It Works */}
+            <section className="content-section">
+                <h3>How DFA Minimization Works: The Table-Filling Algorithm</h3>
+                <p>
+                    The most practical algorithm for DFA minimization is the <strong>Table-Filling Algorithm</strong> (also called the partition refinement or Myhill-Nerode construction). This algorithm systematically identifies distinguishable state pairs through an iterative process.
+                </p>
+                <p className="mt-2">
+                    <strong>The Core Idea:</strong> We maintain a table of all state pairs. Initially, we mark pairs where one state is accepting and the other is not—these are immediately distinguishable (by the empty string ε). Then we iteratively mark additional pairs: if states p and q transition to already-marked distinguishable states on some input symbol, then p and q are also distinguishable.
+                </p>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                    <div className="space-y-8">
-                        <div className="bg-white border-2 border-slate-100 p-8 rounded-[2.5rem] shadow-sm relative group overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full -mr-16 -mt-16 group-hover:scale-125 transition-transform"></div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-6 border-b pb-2 relative z-10">State Equivalence</h3>
-                            <p className="text-sm text-slate-600 leading-relaxed mb-6 relative z-10 italic">
-                                "Two states p and q in a DFA are equivalent (indistinguishable) if for every input string w, the transitions from both lead to either both accepting or both non-accepting states."
-                            </p>
-                            <div className="bg-indigo-50 text-indigo-700 p-6 rounded-2xl font-mono text-xs border border-indigo-100 shadow-inner relative z-10">
-                                <p className="text-indigo-400 mb-2 uppercase text-[10px] tracking-widest font-black">Formal Definition</p>
-                                <p className="text-lg">δ̂(p, w) ∈ F ⟺ δ̂(q, w) ∈ F</p>
-                            </div>
-                        </div>
+                <div className="flex flex-col items-center my-6">
+                    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 max-w-4xl">
+                        <h4 className="text-center font-bold text-lg mb-4">Table-Filling Algorithm Flowchart</h4>
+                        <svg width="600" height="900" viewBox="0 0 600 900" className="mx-auto">
+                            <defs>
+                                <marker id="arrowTable" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#374151" />
+                                </marker>
+                            </defs>
 
-                        <div className="bg-amber-50 border-l-8 border-amber-500 p-8 rounded-r-[2.5rem] shadow-sm">
-                            <h4 className="text-[10px] font-black uppercase text-amber-700 mb-4 tracking-widest flex items-center gap-2">
-                                <Info className="w-4 h-4" /> 📌 Key Terminology
-                            </h4>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {[
-                                    { t: "Equivalent States", d: "Behave identically on all input strings." },
-                                    { t: "Distinguishable", d: "A string exists leading to different outcomes." },
-                                    { t: "Minimal DFA", d: "The smallest machine with no redundant states." },
-                                    { t: "Quotient DFA", d: "Formed by merging equivalence classes." },
-                                    { t: "Unreachable", d: "States that cannot be reached from q₀." },
-                                    { t: "Isomorphism", d: "Unique machine structure up to renaming." }
-                                ].map((item, i) => (
-                                    <div key={i} className="flex gap-3">
-                                        <ChevronRight className="w-3 h-3 text-amber-600 mt-1 shrink-0" />
-                                        <div>
-                                            <p className="text-[11px] font-black text-amber-900 leading-none mb-1">{item.t}</p>
-                                            <p className="text-[10px] text-amber-800/70 leading-tight">{item.d}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+                            {/* Start */}
+                            <ellipse cx="300" cy="30" rx="100" ry="25" fill="#10b981" stroke="#065f46" strokeWidth="2" />
+                            <text x="300" y="37" textAnchor="middle" fill="white" fontWeight="bold">Start: DFA M</text>
 
-                    <div className="flex flex-col items-center">
-                        <div className="bg-white border-2 border-slate-100 p-8 rounded-3xl w-full flex flex-col items-center shadow-xl relative mt-4">
-                            <div className="absolute top-4 left-4 bg-indigo-100 text-indigo-700 text-[10px] font-black px-3 py-1 rounded-full uppercase">Concept: Equivalence</div>
-                            <div className="flex gap-16 items-center mt-12 mb-12">
-                                <div className="flex flex-col items-center gap-2">
-                                    <div className="w-16 h-16 rounded-full border-4 border-indigo-600 flex items-center justify-center font-black bg-white shadow-lg shadow-indigo-100 text-indigo-600">p</div>
-                                    <p className="text-[10px] font-bold uppercase text-slate-400 tracking-tighter">State p</p>
-                                </div>
-                                <div className="flex flex-col items-center relative gap-2">
-                                    <div className="text-3xl font-black text-slate-200">≡</div>
-                                    <div className="w-20 h-0.5 bg-slate-200"></div>
-                                    <span className="absolute -bottom-4 text-[9px] font-black text-indigo-500 bg-white px-2 uppercase italic tracking-widest">Equality of Outcome</span>
-                                </div>
-                                <div className="flex flex-col items-center gap-2">
-                                    <div className="w-16 h-16 rounded-full border-4 border-indigo-500 flex items-center justify-center font-black bg-white shadow-lg shadow-indigo-100 text-indigo-500">q</div>
-                                    <p className="text-[10px] font-bold uppercase text-slate-400 tracking-tighter">State q</p>
-                                </div>
-                            </div>
-                            <div className="text-center space-y-2 border-t pt-6 w-full mt-4">
-                                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-3">Figure 1: Comparison Logic</p>
-                                <div className="flex justify-center gap-8">
-                                    <div className="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-50 p-2 px-4 rounded-xl border">
-                                        <div className="w-2 h-2 rounded-full bg-emerald-500"></div> w → ACCEPT
-                                    </div>
-                                    <div className="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-50 p-2 px-4 rounded-xl border">
-                                        <div className="w-2 h-2 rounded-full bg-red-500"></div> w → REJECT
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            {/* Remove Unreachable */}
+                            <rect x="200" y="80" width="200" height="50" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2" rx="5" />
+                            <text x="300" y="100" textAnchor="middle" fontSize="13" fontWeight="bold">Remove Unreachable</text>
+                            <text x="300" y="118" textAnchor="middle" fontSize="13" fontWeight="bold">States</text>
+                            <line x1="300" y1="55" x2="300" y2="80" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowTable)" />
+
+                            {/* Create Table */}
+                            <rect x="200" y="160" width="200" height="50" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2" rx="5" />
+                            <text x="300" y="180" textAnchor="middle" fontSize="13" fontWeight="bold">Create Table of</text>
+                            <text x="300" y="198" textAnchor="middle" fontSize="13" fontWeight="bold">State Pairs</text>
+                            <line x1="300" y1="130" x2="300" y2="160" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowTable)" />
+
+                            {/* Mark Final-NonFinal */}
+                            <rect x="200" y="240" width="200" height="50" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" rx="5" />
+                            <text x="300" y="260" textAnchor="middle" fontSize="13" fontWeight="bold">Mark Final-NonFinal</text>
+                            <text x="300" y="278" textAnchor="middle" fontSize="13" fontWeight="bold">Pairs</text>
+                            <line x1="300" y1="210" x2="300" y2="240" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowTable)" />
+
+                            {/* Decision: Any Unmarked Pairs? */}
+                            <path d="M 300 320 L 400 380 L 300 440 L 200 380 Z" fill="#fef08a" stroke="#eab308" strokeWidth="2" />
+                            <text x="300" y="375" textAnchor="middle" fontSize="12" fontWeight="bold">Any Unmarked</text>
+                            <text x="300" y="390" textAnchor="middle" fontSize="12" fontWeight="bold">Pairs?</text>
+                            <line x1="300" y1="290" x2="300" y2="320" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowTable)" />
+
+                            {/* No - Merge */}
+                            <rect x="200" y="770" width="200" height="50" fill="#dcfce7" stroke="#16a34a" strokeWidth="2" rx="5" />
+                            <text x="300" y="790" textAnchor="middle" fontSize="13" fontWeight="bold">Merge Unmarked</text>
+                            <text x="300" y="808" textAnchor="middle" fontSize="13" fontWeight="bold">Pairs</text>
+                            <line x1="200" y1="380" x2="100" y2="380" stroke="#374151" strokeWidth="2" />
+                            <line x1="100" y1="380" x2="100" y2="795" stroke="#374151" strokeWidth="2" />
+                            <line x1="100" y1="795" x2="200" y2="795" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowTable)" />
+                            <text x="150" y="375" fontSize="12" fontWeight="bold" fill="#ef4444">No</text>
+
+                            {/* Yes - Check Each Pair */}
+                            <rect x="200" y="490" width="200" height="50" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2" rx="5" />
+                            <text x="300" y="510" textAnchor="middle" fontSize="13" fontWeight="bold">Check Each</text>
+                            <text x="300" y="528" textAnchor="middle" fontSize="13" fontWeight="bold">Unmarked Pair</text>
+                            <line x1="300" y1="440" x2="300" y2="490" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowTable)" />
+                            <text x="310" y="465" fontSize="12" fontWeight="bold" fill="#10b981">Yes</text>
+
+                            {/* Decision: Transitions Lead to Marked? */}
+                            <path d="M 300 570 L 400 630 L 300 690 L 200 630 Z" fill="#fef08a" stroke="#eab308" strokeWidth="2" />
+                            <text x="300" y="620" textAnchor="middle" fontSize="11" fontWeight="bold">Transitions Lead</text>
+                            <text x="300" y="635" textAnchor="middle" fontSize="11" fontWeight="bold">to Marked?</text>
+                            <line x1="300" y1="540" x2="300" y2="570" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowTable)" />
+
+                            {/* Yes - Mark This Pair */}
+                            <rect x="440" y="605" width="140" height="50" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" rx="5" />
+                            <text x="510" y="625" textAnchor="middle" fontSize="12" fontWeight="bold">Mark This Pair</text>
+                            <text x="510" y="643" textAnchor="middle" fontSize="12" fontWeight="bold">as Distinguishable</text>
+                            <line x1="400" y1="630" x2="440" y2="630" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowTable)" />
+                            <text x="420" y="625" fontSize="12" fontWeight="bold" fill="#10b981">Yes</text>
+
+                            {/* Loop back */}
+                            <line x1="510" y1="655" x2="510" y2="380" stroke="#374151" strokeWidth="2" />
+                            <line x1="510" y1="380" x2="400" y2="380" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowTable)" />
+
+                            {/* No - Continue */}
+                            <line x1="300" y1="690" x2="300" y2="720" stroke="#374151" strokeWidth="2" />
+                            <line x1="300" y1="720" x2="450" y2="720" stroke="#374151" strokeWidth="2" />
+                            <line x1="450" y1="720" x2="450" y2="380" stroke="#374151" strokeWidth="2" />
+                            <line x1="450" y1="380" x2="400" y2="380" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowTable)" />
+                            <text x="310" y="710" fontSize="12" fontWeight="bold" fill="#ef4444">No</text>
+
+                            {/* Construct Minimized DFA */}
+                            <rect x="200" y="840" width="200" height="50" fill="#dcfce7" stroke="#16a34a" strokeWidth="2" rx="5" />
+                            <text x="300" y="860" textAnchor="middle" fontSize="13" fontWeight="bold">Construct Minimized</text>
+                            <text x="300" y="878" textAnchor="middle" fontSize="13" fontWeight="bold">DFA</text>
+                            <line x1="300" y1="820" x2="300" y2="840" stroke="#374151" strokeWidth="2" markerEnd="url(#arrowTable)" />
+
+                            {/* End */}
+                            <ellipse cx="300" cy="870" rx="60" ry="25" fill="#ef4444" stroke="#991b1b" strokeWidth="2" />
+                            <text x="300" y="877" textAnchor="middle" fill="white" fontWeight="bold">End</text>
+                        </svg>
+                        <p className="text-center text-sm text-gray-600 mt-4">Figure 2: The iterative table-filling algorithm for DFA minimization.</p>
                     </div>
                 </div>
-            </section>
 
-            {/* Table Filling Algorithm */}
-            <section className="content-section mb-16">
-                <div className="bg-white border-2 border-slate-200 rounded-[3rem] p-12 text-slate-900 shadow-xl relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500 opacity-5 rounded-full -mr-48 -mt-48 blur-3xl"></div>
+                <div className="space-y-4 mt-4">
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
+                        <h4 className="font-semibold">Step 1: Remove Unreachable States</h4>
+                        <p className="text-sm mt-2">First, eliminate any states that cannot be reached from the initial state. These states don't affect the language recognized.</p>
+                    </div>
 
-                    <div className="flex flex-col lg:flex-row gap-16 items-start relative z-10">
-                        <div className="flex-1 space-y-8">
-                            <div>
-                                <h3 className="text-3xl font-black text-indigo-700 uppercase tracking-tight mb-4 flex items-center gap-4">
-                                    <Terminal className="w-10 h-10" /> The Table-Filling Algorithm
-                                </h3>
-                                <p className="text-slate-500 text-sm italic font-medium leading-relaxed border-l-4 border-indigo-600 pl-6 py-2 bg-indigo-50/50 rounded-r-xl">
-                                    "The core idea: Systematically identify distinguishable state pairs. Initially, identify Final/Non-Final pairs. Then iteratively expand based on transitions."
-                                </p>
-                            </div>
+                    <div className="bg-green-50 border-l-4 border-green-500 p-4">
+                        <h4 className="font-semibold">Step 2: Initialize the Table</h4>
+                        <p className="text-sm mt-2">Create a triangular table with all state pairs (p, q) where p &lt; q. Mark pairs where one state is in F and the other is not.</p>
+                    </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {[
-                                    { s: "Step 1", t: "Remove Unreachable", d: "BFS/DFS from start state to eliminate dead weight." },
-                                    { s: "Step 2", t: "Initialize Table", d: "Mark pairs (p, q) where exactly one is in F." },
-                                    { s: "Step 3", t: "Iterate Marking", d: "If (δ(p,a), δ(q,a)) is marked, then p and q are marked." },
-                                    { s: "Step 4", t: "Merge Classes", d: "Unmarked pairs are equivalent. Merge into super-states." }
-                                ].map((step, i) => (
-                                    <div key={i} className="bg-indigo-50/30 border border-indigo-100 p-5 rounded-2xl group/item hover:bg-white transition-all shadow-sm">
-                                        <div className="flex justify-between items-center mb-2">
-                                            <span className="text-[9px] font-black text-indigo-600 uppercase tracking-widest">{step.s}</span>
-                                            <Zap className="w-3 h-3 text-indigo-600 opacity-0 group-hover/item:opacity-100" />
-                                        </div>
-                                        <p className="text-sm font-bold text-slate-900 mb-2 leading-none uppercase">{step.t}</p>
-                                        <p className="text-[10px] text-slate-500 leading-relaxed font-medium">{step.d}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+                    <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+                        <h4 className="font-semibold">Step 3: Iterative Marking</h4>
+                        <p className="text-sm mt-2">For each unmarked pair (p, q), check all input symbols a. If (δ(p,a), δ(q,a)) is marked, then mark (p, q).</p>
+                    </div>
 
-                        <div className="w-full lg:w-[400px] shrink-0">
-                            <div className="bg-white border-2 border-slate-100 p-8 rounded-[2.5rem] shadow-lg relative overflow-hidden h-full">
-                                <div className="absolute top-4 left-4 bg-indigo-100 text-indigo-600 text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">Visualizing the Loop</div>
-                                <div className="flex flex-col items-center gap-6 mt-12 py-4">
-                                    {[
-                                        { l: "Init Table: (F, Non-F)", c: "indigo" },
-                                        { l: "Loop: Check Unmarked (p,q)", c: "blue" },
-                                        { l: "Check δ(p,a) and δ(q,a)", c: "amber" },
-                                        { l: "If Successor Marked → Mark (p,q)", l2: "Repeat until stable", c: "emerald" }
-                                    ].map((box, i) => (
-                                        <React.Fragment key={i}>
-                                            <div className="bg-indigo-50/50 border-2 border-indigo-100 p-4 rounded-xl w-full text-center group hover:border-indigo-600 transition-all">
-                                                <p className="text-[10px] font-bold text-slate-900">{box.l}</p>
-                                                {box.l2 && <p className="text-[9px] text-indigo-400 font-medium italic mt-1">{box.l2}</p>}
-                                            </div>
-                                            {i < 3 && <div className="w-0.5 h-6 bg-white/10"></div>}
-                                        </React.Fragment>
-                                    ))}
-                                </div>
-                                <p className="text-[9px] font-black text-slate-600 uppercase tracking-[0.4em] mt-8 text-center italic">Figure 2: Iterative Refinement</p>
-                            </div>
-                        </div>
+                    <div className="bg-purple-50 border-l-4 border-purple-500 p-4">
+                        <h4 className="font-semibold">Step 4: Repeat</h4>
+                        <p className="text-sm mt-2">Continue Step 3 until no new pairs can be marked in a complete pass.</p>
+                    </div>
+
+                    <div className="bg-pink-50 border-l-4 border-pink-500 p-4">
+                        <h4 className="font-semibold">Step 5: Merge Equivalent States</h4>
+                        <p className="text-sm mt-2">All unmarked pairs represent equivalent states. Merge each equivalence class into a single state in the minimized DFA.</p>
                     </div>
                 </div>
             </section>
 
             {/* Myhill-Nerode Theorem */}
-            <section className="content-section mb-16">
-                <div className="bg-gradient-to-r from-indigo-600 to-blue-700 rounded-3xl p-1 shadow-2xl overflow-hidden group">
-                    <div className="bg-white rounded-[1.4rem] p-10 overflow-hidden relative">
-                        <div className="absolute right-0 top-0 p-8 opacity-5 group-hover:scale-110 transition-transform">
-                            <BarChart className="w-48 h-48 text-indigo-900" />
-                        </div>
-                        <h3 className="text-3xl font-black text-slate-900 mb-8 flex items-center gap-4 relative z-10">
-                            <span className="bg-indigo-600 p-2 rounded-xl text-white"><Layers className="w-8 h-8" /></span>
-                            The Myhill-Nerode Theorem
-                        </h3>
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 relative z-10">
-                            <div className="lg:col-span-2 space-y-6">
-                                <p className="text-slate-600 text-sm leading-relaxed border-l-4 border-slate-200 pl-6 italic font-medium">
-                                    "One of the most elegant result in automata theory. It provides a complete characterization of regular languages and establishes the theoretical foundation for minimization."
-                                </p>
-                                <div className="bg-slate-50 p-8 rounded-3xl border shadow-inner">
-                                    <p className="text-[10px] font-black uppercase text-indigo-600 mb-4 tracking-widest">📐 Formal Statement</p>
-                                    <p className="text-sm font-bold text-slate-800 leading-relaxed space-y-4">
-                                        For a language L ⊆ Σ*, the following are equivalent:
-                                    </p>
-                                    <ul className="mt-4 space-y-3">
-                                        {[
-                                            "L is regular (recognized by some DFA).",
-                                            "The set of equivalence classes of the relation ≡L is finite.",
-                                            "There exists a unique minimal DFA with exactly |Σ*/≡L| states."
-                                        ].map((pt, i) => (
-                                            <li key={i} className="flex gap-4 text-[11px] font-medium text-slate-700">
-                                                <div className="bg-indigo-100 text-indigo-600 font-black h-5 w-5 rounded flex items-center justify-center shrink-0 uppercase">{String.fromCharCode(97 + i)}</div>
-                                                {pt}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="space-y-6">
-                                <div className="bg-indigo-100 text-indigo-900 p-6 rounded-3xl shadow-sm border border-indigo-200">
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest text-indigo-600 mb-4 font-mono">≡L RELATION</h4>
-                                    <p className="text-[11px] leading-relaxed text-indigo-800 italic mb-4">"x ≡L y iff for all z ∈ Σ*, xz ∈ L ⟺ yz ∈ L"</p>
-                                    <p className="text-[10px] font-medium leading-relaxed text-indigo-700/70">Two strings are equivalent if they can be followed by the exact same suffixes to stay within L.</p>
-                                </div>
-                                <div className="bg-indigo-50 p-6 rounded-3xl border border-indigo-100 text-center">
-                                    <p className="text-[10px] font-black uppercase text-indigo-600 mb-2">Key Insight</p>
-                                    <p className="text-[11px] font-bold text-indigo-900 leading-relaxed">Number of equivalence classes = States in minimal DFA</p>
-                                </div>
-                            </div>
-                        </div>
+            <section className="content-section">
+                <h3>The Myhill-Nerode Theorem</h3>
+                <p>
+                    The Myhill-Nerode theorem is one of the most elegant and powerful results in automata theory. It provides a complete characterization of regular languages and establishes the theoretical foundation for DFA minimization.
+                </p>
+
+                <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-4">
+                    <p className="font-semibold">Myhill-Nerode Theorem</p>
+                    <p className="mt-2">For a language L ⊆ Σ*, the following are equivalent:</p>
+                    <ol className="list-decimal ml-6 mt-2 space-y-1">
+                        <li>L is regular (recognized by some DFA)</li>
+                        <li>The set of equivalence classes of the relation ≡<sub>L</sub> is finite</li>
+                        <li>There exists a DFA with exactly |Σ*/≡<sub>L</sub>| states that recognizes L</li>
+                    </ol>
+                    <p className="mt-2">Furthermore, this DFA is the unique minimal DFA (up to isomorphism) for L.</p>
+                </div>
+
+                <p className="mt-4">
+                    The relation ≡<sub>L</sub> (Myhill-Nerode equivalence) is defined as: x ≡<sub>L</sub> y if and only if for all z ∈ Σ*, xz ∈ L ⟺ yz ∈ L. In other words, two strings are equivalent if they can be followed by exactly the same set of suffixes to produce strings in L.
+                </p>
+
+                <p className="mt-2">
+                    The theorem tells us that the number of equivalence classes equals the minimum number of states needed. This gives us both a way to prove languages non-regular (show infinitely many equivalence classes) and a way to construct the minimal DFA (each equivalence class becomes one state).
+                </p>
+            </section>
+
+            {/* Quotient Construction */}
+            <section className="content-section">
+                <h3>The Quotient Construction</h3>
+
+                <div className="flex flex-col items-center my-6">
+                    <div className="bg-white border-2 border-gray-300 rounded-lg p-6 max-w-5xl">
+                        <h4 className="text-center font-bold text-lg mb-4">Quotient Construction: Merging Equivalent States</h4>
+                        <svg width="900" height="400" viewBox="0 0 900 400" className="mx-auto">
+                            <defs>
+                                <marker id="arrowQuot" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" />
+                                </marker>
+                            </defs>
+
+                            {/* Original DFA */}
+                            <text x="150" y="30" textAnchor="middle" fontSize="16" fontWeight="bold">Original DFA</text>
+
+                            {/* States in original DFA */}
+                            <circle cx="80" cy="100" r="30" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2" />
+                            <text x="80" y="105" textAnchor="middle" fontSize="14" fontWeight="bold">q₀</text>
+
+                            <circle cx="220" cy="100" r="30" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2" />
+                            <text x="220" y="105" textAnchor="middle" fontSize="14" fontWeight="bold">q₁</text>
+
+                            <circle cx="150" cy="200" r="30" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" />
+                            <text x="150" y="205" textAnchor="middle" fontSize="14" fontWeight="bold">q₂</text>
+
+                            <circle cx="150" cy="300" r="30" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" />
+                            <text x="150" y="305" textAnchor="middle" fontSize="14" fontWeight="bold">q₃</text>
+
+                            <circle cx="80" cy="300" r="30" fill="#dbeafe" stroke="#3b82f6" strokeWidth="2" />
+                            <text x="80" y="305" textAnchor="middle" fontSize="14" fontWeight="bold">q₄</text>
+
+                            {/* Equivalence classes */}
+                            <rect x="40" y="60" width="210" height="270" fill="none" stroke="#3b82f6" strokeWidth="2" strokeDasharray="5,5" rx="10" />
+                            <text x="150" y="350" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#3b82f6">Class A: {'{'}q₀, q₁, q₄{'}'}</text>
+
+                            <rect x="120" y="170" width="80" height="160" fill="none" stroke="#f59e0b" strokeWidth="2" strokeDasharray="5,5" rx="10" />
+                            <text x="160" y="365" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#f59e0b">Class B: {'{'}q₂, q₃{'}'}</text>
+
+                            {/* Merge arrow */}
+                            <text x="450" y="200" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#16a34a">Merge →</text>
+
+                            {/* Minimized DFA */}
+                            <text x="750" y="30" textAnchor="middle" fontSize="16" fontWeight="bold">Minimized DFA</text>
+
+                            {/* State A */}
+                            <circle cx="650" cy="150" r="50" fill="#dbeafe" stroke="#3b82f6" strokeWidth="3" />
+                            <text x="650" y="145" textAnchor="middle" fontSize="18" fontWeight="bold">A</text>
+                            <text x="650" y="165" textAnchor="middle" fontSize="11">{'{'}q₀,q₁,q₄{'}'}</text>
+
+                            {/* State B */}
+                            <circle cx="850" cy="250" r="50" fill="#fef3c7" stroke="#f59e0b" strokeWidth="3" />
+                            <text x="850" y="245" textAnchor="middle" fontSize="18" fontWeight="bold">B</text>
+                            <text x="850" y="265" textAnchor="middle" fontSize="11">{'{'}q₂,q₃{'}'}</text>
+
+                            {/* Transitions */}
+                            <path d="M 690 170 Q 750 210 810 240" fill="none" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowQuot)" />
+                            <text x="750" y="200" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#3b82f6">0,1</text>
+
+                            {/* Self loop on A */}
+                            <path d="M 620 120 Q 600 90 650 90 Q 700 90 680 120" fill="none" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrowQuot)" />
+                            <text x="650" y="75" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#3b82f6">...</text>
+
+                            {/* Self loop on B */}
+                            <path d="M 880 280 Q 910 310 850 310 Q 790 310 820 280" fill="none" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrowQuot)" />
+                            <text x="850" y="335" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#f59e0b">...</text>
+                        </svg>
+                        <p className="text-center text-sm text-gray-600 mt-4">Figure 3: Merging equivalent states into equivalence classes to form the minimized DFA.</p>
                     </div>
                 </div>
             </section>
 
-            {/* Worked Example 1 */}
-            <section className="content-section mb-16">
-                <h2 className="text-2xl font-black text-slate-900 mb-10 flex items-center gap-4 uppercase tracking-tighter">
-                    <PlayCircle className="w-8 h-8 text-emerald-500" />
-                    Worked Example 1: Basic Minimization
-                </h2>
-                <div className="bg-white border-2 border-slate-100 rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-shadow relative">
-                    <div className="bg-indigo-50 p-4 px-10 flex justify-between items-center text-indigo-900 border-b border-indigo-100">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-indigo-600">Step-by-Step Analysis</span>
-                        <div className="flex gap-2">
-                            <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                            <div className="w-2 h-2 rounded-full bg-amber-400"></div>
-                            <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
-                        </div>
+            {/* Key Components */}
+            <section className="content-section">
+                <h3>Key Components & Architecture</h3>
+
+                <div className="space-y-4 mt-4">
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
+                        <h4 className="font-semibold">Component 1: The Equivalence Relation</h4>
+                        <p className="text-sm mt-2">The foundation of minimization is the equivalence relation on states. This relation partitions the state set into disjoint equivalence classes. Two states are in the same class if and only if they are indistinguishable. The relation is reflexive (every state is equivalent to itself), symmetric (if p ≡ q then q ≡ p), and transitive (if p ≡ q and q ≡ r then p ≡ r).</p>
                     </div>
-                    <div className="p-10 space-y-10">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                            <div className="md:col-span-1 bg-slate-50 p-6 rounded-3xl border">
-                                <p className="text-[10px] font-black uppercase text-indigo-600 mb-4 tracking-widest">DFA SPECIFICATION</p>
-                                <div className="space-y-4 font-mono text-xs">
-                                    <div className="flex justify-between border-b pb-1"><span>States</span> <span>{'{A,B,C,D,E,F}'}</span></div>
-                                    <div className="flex justify-between border-b pb-1"><span>Σ</span> <span>{'{0,1}'}</span></div>
-                                    <div className="flex justify-between border-b pb-1"><span>Start</span> <span>A</span></div>
-                                    <div className="flex justify-between border-b pb-1"><span>Finals</span> <span className="text-emerald-600">{'{C,E}'}</span></div>
-                                </div>
-                                <div className="mt-8">
-                                    <p className="text-[9px] font-black text-slate-400 mb-2 tracking-widest uppercase">Transition Matrix</p>
-                                    <table className="w-full text-[10px] border-collapse">
-                                        <thead><tr className="border-b"><th>S</th><th>0</th><th>1</th></tr></thead>
-                                        <tbody className="text-center font-bold">
-                                            <tr className="border-b py-1"><td>A</td><td>B</td><td>C</td></tr>
-                                            <tr className="border-b"><td>B</td><td>A</td><td>D</td></tr>
-                                            <tr className="border-b bg-emerald-50"><td>C*</td><td>E</td><td>F</td></tr>
-                                            <tr className="border-b"><td>D</td><td>E</td><td>F</td></tr>
-                                            <tr className="border-b bg-emerald-50"><td>E*</td><td>E</td><td>F</td></tr>
-                                            <tr className="border-b"><td>F</td><td>F</td><td>F</td></tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
 
-                            <div className="md:col-span-2 space-y-6">
-                                <div className="bg-indigo-50 p-8 rounded-3xl text-indigo-950 border border-indigo-100/50 shadow-sm">
-                                    <h4 className="text-sm font-black uppercase tracking-widest text-indigo-700 mb-6 flex justify-between">
-                                        Algorithm Execution Trace
-                                        <BarChart className="w-4 h-4 opacity-40" />
-                                    </h4>
-                                    <div className="space-y-6">
-                                        <div className="flex gap-6">
-                                            <div className="text-2xl font-black text-indigo-200">01</div>
-                                            <div>
-                                                <p className="text-xs font-bold text-indigo-900 uppercase tracking-widest mb-1">Base Case (ε-String Marking)</p>
-                                                <p className="text-[11px] text-indigo-800/70 leading-relaxed font-medium">Mark all pairs where one is Final (C, E) and the other is not. <br /> Result: (A,C), (A,E), (B,C), (B,E), (D,C), (D,E)... are all <strong>marked</strong>.</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex gap-6 border-t border-indigo-100/50 pt-6">
-                                            <div className="text-2xl font-black text-indigo-200">02</div>
-                                            <div>
-                                                <p className="text-xs font-bold text-indigo-900 uppercase tracking-widest mb-1">First Pass (Length-1 Distinguishability)</p>
-                                                <p className="text-[11px] text-indigo-800/70 leading-relaxed font-medium italic underline decoration-indigo-400/30">Analyzing Pair (A,B):</p>
-                                                <div className="text-[10px] bg-white p-3 rounded-xl mt-2 font-mono text-indigo-600 border border-indigo-100 shadow-sm">
-                                                    δ(A,1)=C (Final), δ(B,1)=D (Non-Final) → <span className="text-emerald-600 font-black tracking-widest">Marked!</span> <br />
-                                                    <span className="text-slate-400">Conclusion: A is distinguishable from B via string '1'.</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="flex gap-6 border-t border-indigo-100/50 pt-6">
-                                            <div className="text-2xl font-black text-indigo-200">03</div>
-                                            <div>
-                                                <p className="text-xs font-bold text-indigo-900 uppercase tracking-widest mb-1">Equivalence Discovery</p>
-                                                <p className="text-[11px] text-indigo-800/70 leading-relaxed font-medium">Analyzing Pair (C,E): both lead to E on '0' and F on '1'. Since their outcomes are identical state transitions, <strong>they will never be marked.</strong></p>
-                                                <div className="bg-emerald-50 text-emerald-700 p-3 rounded-xl mt-3 text-[10px] font-black border border-emerald-200 uppercase tracking-[0.2em] flex items-center gap-2">
-                                                    <CheckCircle className="w-3 h-3" /> RESULT: C ≡ E (Merged State)
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="bg-green-50 border-l-4 border-green-500 p-4">
+                        <h4 className="font-semibold">Component 2: The Distinguishability Relation</h4>
+                        <p className="text-sm mt-2">This is the complement of equivalence. We say p is distinguishable from q with string w if exactly one of δ̂(p, w) and δ̂(q, w) is accepting. The table-filling algorithm computes the reflexive, symmetric closure of this relation.</p>
+                    </div>
 
-                        <div className="bg-slate-50 p-8 rounded-[2rem] border-2 border-dashed border-slate-200 text-center">
-                            <h5 className="text-[10px] font-black uppercase text-slate-400 mb-6 tracking-[0.5em]">Minimized Machine Result</h5>
-                            <div className="flex flex-wrap justify-center gap-12 items-center">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full border-4 border-slate-200 flex items-center justify-center font-black text-xs text-slate-400">6</div>
-                                    <p className="text-[10px] font-bold uppercase tracking-tighter">Original States</p>
-                                </div>
-                                <div className="text-2xl font-black text-indigo-200">➔</div>
-                                <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full border-4 border-indigo-600 flex items-center justify-center font-black text-xs text-indigo-600">5</div>
-                                    <p className="text-[10px] font-bold uppercase tracking-tighter text-indigo-600">Minimized States</p>
-                                </div>
-                            </div>
-                            <p className="text-[10px] text-slate-500 italic mt-6">C and E merged into a single state [CE]. F serves as a dead state.</p>
-                        </div>
+                    <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
+                        <h4 className="font-semibold">Component 3: The Quotient DFA</h4>
+                        <p className="text-sm mt-2">Given a DFA M = (Q, Σ, δ, q₀, F) and the equivalence relation ≡, the quotient DFA M/≡ = (Q/≡, Σ, δ', [q₀], F') is defined by:</p>
+                        <ul className="list-disc ml-6 mt-2 text-sm">
+                            <li>Q/≡ = {'{'}[q] : q ∈ Q{'}'} (equivalence classes as states)</li>
+                            <li>δ'([q], a) = [δ(q, a)] (well-defined by equivalence)</li>
+                            <li>F' = {'{'}[q] : q ∈ F{'}'} (equivalence classes containing final states)</li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-purple-50 border-l-4 border-purple-500 p-4">
+                        <h4 className="font-semibold">Component 4: Uniqueness and Isomorphism</h4>
+                        <p className="text-sm mt-2">The Myhill-Nerode theorem guarantees that the minimal DFA is unique up to isomorphism. Two DFAs are isomorphic if there exists a bijection between their states that preserves the initial state, final states, and transitions. This means any two minimal DFAs for the same language are essentially the same machine with different state labels.</p>
                     </div>
                 </div>
             </section>
 
-            {/* Code Block */}
-            <section className="content-section mb-16">
-                <div className="flex justify-between items-end mb-8">
+            {/* Common Misconceptions */}
+            <section className="content-section">
+                <h3>⚠️ Common Misconceptions</h3>
+
+                <div className="space-y-4">
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">Misconception #1: "NFA minimization is the same as DFA minimization."</h4>
+                        <p className="text-sm mt-2"><strong>Reality:</strong> NFAs do not have unique minimal forms. A regular language can have multiple non-isomorphic minimal NFAs. The uniqueness property only holds for DFAs.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">Misconception #2: "The minimal DFA always has fewer transitions than the original."</h4>
+                        <p className="text-sm mt-2"><strong>Reality:</strong> While states are reduced, transitions may actually increase in some cases. The primary optimization is in state count, which affects memory usage in implementations.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">Misconception #3: "Two DFAs are equivalent if they have the same number of states."</h4>
+                        <p className="text-sm mt-2"><strong>Reality:</strong> Equivalence depends on recognizing the same language, not on structural similarity. Two DFAs with different numbers of states can be equivalent, and two with the same number can recognize different languages.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">Misconception #4: "The table-filling algorithm marks all distinguishable pairs in one pass."</h4>
+                        <p className="text-sm mt-2"><strong>Reality:</strong> The algorithm is iterative. A pair might not be marked in early passes but becomes distinguishable once its successor pairs are marked. Multiple passes are often needed.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Video Resources */}
+            <section className="content-section">
+                <h3>Learn Through Videos</h3>
+                <p>Watch these carefully selected videos to reinforce your understanding with visual explanations and step-by-step demonstrations.</p>
+
+                <div className="space-y-6 mt-4">
                     <div>
-                        <h2 className="text-3xl font-black text-slate-900 uppercase flex items-center gap-4">
-                            <Code className="w-10 h-10 text-indigo-600" />
-                            Python Implementation
-                        </h2>
-                        <p className="text-xs text-slate-400 font-bold tracking-widest mt-2 uppercase">PRODUCTION READY TABLE-FILLING LOGIC</p>
-                    </div>
-                    <span className="bg-emerald-100 text-emerald-700 text-[9px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest border border-emerald-200">Validated: Python 3.10+</span>
-                </div>
-
-                <div className="bg-slate-50 rounded-[3rem] overflow-hidden shadow-xl relative group border-2 border-slate-200">
-                    <div className="absolute top-0 right-0 p-8 opacity-5 font-black text-indigo-400 text-9xl -mr-16 -mt-16 select-none group-hover:opacity-10 transition-opacity">Py</div>
-                    <div className="bg-white p-4 px-10 flex justify-between items-center border-b border-slate-100 backdrop-blur-xl">
-                        <div className="flex gap-2 items-center">
-                            <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                            <div className="w-3 h-3 rounded-full bg-amber-400"></div>
-                            <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                            <span className="ml-4 text-[10px] text-slate-400 font-mono font-bold tracking-widest">dfa_minimizer.py</span>
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <span className="text-[8px] font-black text-indigo-600 uppercase tracking-widest bg-indigo-100 px-3 py-1 rounded-full border border-indigo-200">O(n²|Σ|)</span>
+                        <h4 className="font-semibold mb-2">📚 DFA Minimization - Table Filling Method</h4>
+                        <p className="text-sm mb-2">Neso Academy - 15 minutes</p>
+                        <p className="text-sm mb-2"><strong>What you'll learn:</strong> Complete walkthrough of the table-filling algorithm with clear visual demonstrations of marking distinguishable state pairs.</p>
+                        <div className="flex justify-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/rGxyc-CJGRk?si=Ac8cM-p-2FKx_UkV" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                         </div>
                     </div>
-                    <div className="p-10 font-mono text-[11px] text-slate-700 leading-relaxed max-h-[600px] overflow-y-auto no-scrollbar scroll-smooth bg-white/50">
-                        <div className="space-y-1">
-                            {/* Class Def */}
-                            <p><span className="text-indigo-600 font-bold">def</span> <span className="text-emerald-600 font-bold">minimize_dfa</span>(dfa):</p>
-                            <p className="pl-6 text-slate-400 italic"># 1. Initialize Table (n x n)</p>
-                            <p className="pl-6">n = len(dfa.states)</p>
-                            <p className="pl-6">table = [[<span className="text-indigo-600">False</span>] * n <span className="text-indigo-600">for</span> _ <span className="text-indigo-600">in</span> range(n)]</p>
 
-                            <p className="pl-6 mt-6 text-slate-400 italic"># 2. Base Case: Mark Final-NonFinal pairs</p>
-                            <p className="pl-6"><span className="text-indigo-600">for</span> i <span className="text-indigo-600">in</span> range(n):</p>
-                            <p className="pl-12"><span className="text-indigo-600">for</span> j <span className="text-indigo-600">in</span> range(i + 1, n):</p>
-                            <p className="pl-18"><span className="text-indigo-600">if</span> (dfa.is_final(i) != dfa.is_final(j)):</p>
-                            <p className="pl-24">table[i][j] = <span className="text-indigo-600">True</span></p>
+                    <div>
+                        <h4 className="font-semibold mb-2">🎬 Myhill-Nerode Theorem Explained</h4>
+                        <p className="text-sm mb-2">Gate Smashers - 12 minutes</p>
+                        <p className="text-sm mb-2"><strong>What you'll learn:</strong> The theoretical foundation of DFA minimization, equivalence classes, and how to prove languages non-regular.</p>
+                        <div className="flex justify-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/UiXkJUTkp44?si=BqB0pFduUAeFkjfr" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                        </div>
+                    </div>
 
-                            <p className="pl-6 mt-6 text-slate-400 italic"># 3. Iterative Refinement</p>
-                            <p className="pl-6">changed = <span className="text-indigo-600 text-bold font-bold uppercase italic">True</span></p>
-                            <p className="pl-6"><span className="text-indigo-600">while</span> changed:</p>
-                            <p className="pl-12">changed = <span className="text-indigo-600">False</span></p>
-                            <p className="pl-12"><span className="text-indigo-600">for</span> i <span className="text-indigo-600">in</span> range(n):</p>
-                            <p className="pl-18"><span className="text-indigo-600">for</span> j <span className="text-indigo-600">in</span> range(i + 1, n):</p>
-                            <p className="pl-24"><span className="text-indigo-600">if not</span> table[i][j]:</p>
-                            <p className="pl-30"><span className="text-indigo-600">for</span> symbol <span className="text-indigo-600">in</span> dfa.alphabet:</p>
-                            <p className="pl-36">p_next = dfa.transition(i, symbol)</p>
-                            <p className="pl-36">q_next = dfa.transition(j, symbol)</p>
-                            <p className="pl-36"><span className="text-indigo-600">if</span> table[p_next][q_next]:</p>
-                            <p className="pl-42 text-emerald-600 font-bold">table[i][j] = True</p>
-                            <p className="pl-42 text-emerald-600 font-bold">changed = True</p>
-                            <p className="pl-42 text-indigo-600">break</p>
-
-                            <p className="pl-6 mt-6 text-slate-400 italic"># 4. Result: Unmarked pairs represent equivalent states</p>
-                            <p className="pl-6"><span className="text-indigo-600">return</span> identify_classes(table)</p>
+                    <div>
+                        <h4 className="font-semibold mb-2">💻 DFA Equivalence and Minimization Examples</h4>
+                        <p className="text-sm mb-2">Jenny's Lectures CS IT - 18 minutes</p>
+                        <p className="text-sm mb-2"><strong>What you'll learn:</strong> Multiple worked examples showing how to minimize DFAs and prove equivalence between different automata.</p>
+                        <div className="flex justify-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/0XaGAkY09Wc?si=XkOECAVxA5VDR-ft" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Examples 2 & 3 Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-                {/* Example 2: Non-regularity */}
-                <div className="bg-white border-2 border-slate-100 p-8 rounded-[3rem] shadow-sm relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/5 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform"></div>
-                    <div className="flex items-center gap-4 mb-8">
-                        <span className="bg-red-600 text-white font-black text-[10px] px-3 py-1 rounded-full uppercase tracking-widest">Example 2</span>
-                        <h4 className="text-xl font-bold text-slate-900 border-b-2 border-red-200">Proving Non-Regularity</h4>
-                    </div>
-                    <p className="text-sm font-bold text-slate-800 mb-6 italic leading-relaxed">
-                        "Prove L = {'{0ⁿ1ⁿ : n ≥ 0}'} is not regular using Myhill-Nerode."
-                    </p>
-                    <div className="space-y-4">
-                        <div className="flex gap-4 items-start">
-                            <div className="bg-red-100 text-red-600 font-black text-[9px] w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-1">1</div>
-                            <p className="text-[11px] text-slate-600 leading-relaxed font-medium">Consider strings of type <strong>0ⁱ</strong>. For any i ≠ j, take extension <strong>z = 1ⁱ</strong>.</p>
-                        </div>
-                        <div className="flex gap-4 items-start">
-                            <div className="bg-red-100 text-red-600 font-black text-[9px] w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-1">2</div>
-                            <p className="text-[11px] text-slate-600 leading-relaxed font-medium">0ⁱ·1ⁱ = 0ⁱ1ⁱ ∈ L, while 0ʲ·1ⁱ = 0ʲ1ⁱ ∉ L. Thus 1ⁱ distinguishes 0ⁱ from 0ʲ.</p>
-                        </div>
-                        <div className="bg-red-50 border border-red-100 p-4 rounded-2xl text-[10px] font-black text-red-700 text-center uppercase tracking-widest">
-                            Infinitely many classes ➔ Not Regular
-                        </div>
-                    </div>
-                </div>
+            {/* Worked Examples */}
+            <section className="content-section">
+                <h3>Worked Examples: Minimization in Action</h3>
 
-                {/* Example 3: Equivalence Testing */}
-                <div className="bg-white border-2 border-slate-100 p-8 rounded-[3rem] shadow-sm relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform"></div>
-                    <div className="flex items-center gap-4 mb-8">
-                        <span className="bg-blue-600 text-white font-black text-[10px] px-3 py-1 rounded-full uppercase tracking-widest">Example 3</span>
-                        <h4 className="text-xl font-bold text-slate-900 border-b-2 border-blue-200">DFA Equivalence Testing</h4>
-                    </div>
-                    <p className="text-sm font-bold text-slate-800 mb-6 italic leading-relaxed">
-                        "Test if M₁ (2 states) and M₂ (3 states) recognize the same language."
-                    </p>
-                    <div className="bg-slate-50 rounded-2xl p-6 border shadow-inner">
-                        <h5 className="text-[9px] font-black uppercase text-indigo-600 mb-4 tracking-widest">Product Trace</h5>
-                        <div className="space-y-3">
-                            {[
-                                { p: "(p₀, q₀)", d: "Init state: Non-final (M₁) / Non-final (M₂) ✅" },
-                                { p: "δ((p₀,q₀), 1)", d: "Moves to (p₁, q₁) - BOTH Accepting states ✅" },
-                                { p: "δ((p₁,q₁), 0)", d: "Moves to (p₁, q₂) - BOTH Accepting states ✅" }
-                            ].map((trace, i) => (
-                                <div key={i} className="flex gap-4 items-center bg-white/50 p-2 rounded-xl border">
-                                    <span className="text-[10px] font-mono font-black text-blue-600 w-16 shrink-0">{trace.p}</span>
-                                    <span className="text-[10px] text-slate-500 font-medium italic">{trace.d}</span>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="mt-6 p-3 bg-blue-600 rounded-xl text-white text-center text-[10px] font-black uppercase tracking-widest">
-                            Result: DFAs are Equivalent
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Common Pitfalls Section */}
-            <section className="content-section mb-16">
-                <div className="bg-rose-50 border-2 border-rose-100 rounded-[3rem] p-10 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-8 opacity-10">
-                        <AlertTriangle className="w-40 h-40 text-rose-300" />
-                    </div>
-                    <h2 className="text-2xl font-black text-rose-900 mb-10 flex items-center gap-4 uppercase tracking-tight">
-                        Common Pitfalls & How to Avoid
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-                        {[
-                            { q: "NFA is NOT DFA", a: "Uniqueness and the table-filling algorithm apply only to DFAs. Minimizing NFAs is PSPACE-complete." },
-                            { q: "Unreachable States", a: "Failing to remove unreachable states creates spurious classes. Always run BFS/DFS from q₀ first." },
-                            { q: "Premature Convergence", a: "Iterate the table-filling until NO new marks are added in a complete pass. Single passes often fail." },
-                            { q: "Isomorphism Concept", a: "Two DFAs with matching structure but different labels are essentially the same (isomorphic)." }
-                        ].map((m, i) => (
-                            <div key={i} className="flex gap-4 bg-white/40 backdrop-blur border border-rose-200 p-6 rounded-2xl group hover:bg-white transition-all">
-                                <span className="text-2xl font-black text-rose-200 group-hover:text-rose-400 transition-colors">0{i + 1}</span>
-                                <div>
-                                    <p className="text-xs font-black text-rose-950 mb-1 uppercase tracking-widest">{m.q}</p>
-                                    <p className="text-[10px] text-rose-800 leading-relaxed font-medium italic opacity-70 border-l-2 border-rose-200 pl-4">{m.a}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-
-            {/* Videos Section */}
-            <section className="content-section mb-16 px-4">
-                <h2 className="text-3xl font-black mb-10 border-b-4 pb-4 border-indigo-600/30 flex justify-between items-end uppercase text-slate-900">
-                    Learn Through Videos
-                    <PlayCircle className="w-10 h-10 text-indigo-600 mb-1" />
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {[
-                        { id: "84oNUttWlN4", title: "DFA Minimization - Table Filling", author: "Neso Academy", dur: "15:20", desc: "Complete walkthrough with visual table step-by-step." },
-                        { id: "jN8zvENdjBg", title: "Myhill-Nerode Foundation", author: "Gate Smashers", dur: "12:45", desc: "Deep theoretical insight into equivalence classes." },
-                        { id: "upu_TeZImN0", title: "Minimization Examples", author: "Jenny's Lectures", dur: "18:10", desc: "Practical problem solving for university & competitive exams." }
-                    ].map(v => (
-                        <div key={v.id} className="bg-white border rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all group flex flex-col h-full border-b-8 border-b-indigo-500">
-                            <div className="aspect-video bg-slate-100 relative">
-                                <iframe className="w-full h-full opacity-90 group-hover:opacity-100 transition-opacity" src={`https://www.youtube.com/embed/${v.id}`} allowFullScreen></iframe>
-                                <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black text-slate-900 flex items-center gap-2 shadow-sm">
-                                    <PlayCircle className="w-3 h-3 text-red-500" /> {v.dur}
-                                </div>
-                            </div>
-                            <div className="p-8 flex flex-col flex-1">
-                                <p className="text-[10px] font-black text-indigo-600 uppercase tracking-widest mb-2 font-mono">{v.author}</p>
-                                <h4 className="text-base font-black text-slate-900 mb-4 leading-tight group-hover:text-indigo-600 transition-colors">{v.title}</h4>
-                                <p className="text-[11px] text-slate-500 leading-relaxed font-medium mb-6 italic">{v.desc}</p>
-                                <div className="mt-auto pt-4 border-t border-slate-50">
-                                    <button className="text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-indigo-600 transition-colors flex items-center gap-2">
-                                        Mark as Watched <CheckCircle className="w-3 h-3" />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-
-            {/* Comparison & Analysis */}
-            <section className="content-section mb-16">
-                <div className="bg-white border-2 border-slate-100 rounded-[3rem] overflow-hidden shadow-xl">
-                    <div className="bg-slate-50 p-8 px-12 text-slate-900 border-b border-slate-100 flex justify-between items-center">
-                        <div>
-                            <h2 className="text-2xl font-black uppercase tracking-widest text-indigo-700 font-serif italic">Comparison & Analysis</h2>
-                            <p className="text-slate-400 text-xs font-bold mt-1 uppercase tracking-tighter">Algorithm Performance & Practicality</p>
-                        </div>
-                        <Table className="w-10 h-10 text-indigo-600 opacity-20" />
-                    </div>
-                    <div className="p-10">
-                        <div className="overflow-x-auto">
-                            <table className="w-full text-left border-collapse">
-                                <thead>
-                                    <tr className="border-b-2 border-slate-200">
-                                        <th className="py-4 px-6 text-[10px] font-black uppercase tracking-widest text-slate-400">Aspect</th>
-                                        <th className="py-4 px-6 text-[10px] font-black uppercase tracking-widest text-indigo-600">Table-Filling</th>
-                                        <th className="py-4 px-6 text-[10px] font-black uppercase tracking-widest text-emerald-600">Partition Refinement</th>
-                                        <th className="py-4 px-6 text-[10px] font-black uppercase tracking-widest text-rose-600">Brzozowski's</th>
+                <div className="space-y-6">
+                    <div className="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <h4 className="font-semibold text-lg">Example 1: Basic DFA Minimization</h4>
+                        <p className="mt-2"><strong>📝 Problem Statement</strong></p>
+                        <p className="text-sm mt-1">Minimize the following DFA with states {'{'}A, B, C, D, E, F{'}'}, alphabet {'{'}0, 1{'}'}, initial state A, and final states {'{'}C, E{'}'}:</p>
+                        <div className="overflow-x-auto mt-2">
+                            <table className="min-w-full border-collapse border border-gray-300 text-xs">
+                                <thead className="bg-gray-100">
+                                    <tr>
+                                        <th className="border border-gray-300 p-2">State</th>
+                                        <th className="border border-gray-300 p-2">0</th>
+                                        <th className="border border-gray-300 p-2">1</th>
+                                        <th className="border border-gray-300 p-2">Final?</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-slate-100">
-                                    {[
-                                        { aspect: "Time Complexity", c1: "O(n² × |Σ|)", c2: "O(n log n)", c3: "O(2ⁿ) worst case" },
-                                        { aspect: "Space Complexity", c1: "O(n²)", c2: "O(n)", c3: "O(n)" },
-                                        { aspect: "Implementation", c1: "✓ Simple & Intuitive", c2: "✗ Complex", c3: "✓ Very Simple" },
-                                        { aspect: "Best For", c1: "Teaching, small DFAs", c2: "Large DFAs, Production", c3: "Theoretical Insight" },
-                                        { aspect: "Key Idea", c1: "Mark distinguishable pairs", c2: "Iterative refinement", c3: "Reverse, Det, Repeat" },
-                                        { aspect: "Practical Use", c1: "Educational (JFLAP)", c2: "Compilers (lex/flex)", c3: "Rarely in practice" }
-                                    ].map((row, i) => (
-                                        <tr key={i} className="hover:bg-white transition-colors">
-                                            <td className="py-4 px-6 text-xs font-black text-slate-900 uppercase tracking-tighter">{row.aspect}</td>
-                                            <td className="py-4 px-6 text-xs font-medium text-slate-600 italic">{row.c1}</td>
-                                            <td className="py-4 px-6 text-xs font-bold text-slate-700">{row.c2}</td>
-                                            <td className="py-4 px-6 text-xs font-medium text-slate-500">{row.c3}</td>
-                                        </tr>
-                                    ))}
+                                <tbody>
+                                    <tr><td className="border border-gray-300 p-2">A</td><td className="border border-gray-300 p-2">B</td><td className="border border-gray-300 p-2">C</td><td className="border border-gray-300 p-2">No</td></tr>
+                                    <tr className="bg-gray-50"><td className="border border-gray-300 p-2">B</td><td className="border border-gray-300 p-2">A</td><td className="border border-gray-300 p-2">D</td><td className="border border-gray-300 p-2">No</td></tr>
+                                    <tr><td className="border border-gray-300 p-2">C</td><td className="border border-gray-300 p-2">E</td><td className="border border-gray-300 p-2">F</td><td className="border border-gray-300 p-2">Yes</td></tr>
+                                    <tr className="bg-gray-50"><td className="border border-gray-300 p-2">D</td><td className="border border-gray-300 p-2">E</td><td className="border border-gray-300 p-2">F</td><td className="border border-gray-300 p-2">No</td></tr>
+                                    <tr><td className="border border-gray-300 p-2">E</td><td className="border border-gray-300 p-2">E</td><td className="border border-gray-300 p-2">F</td><td className="border border-gray-300 p-2">Yes</td></tr>
+                                    <tr className="bg-gray-50"><td className="border border-gray-300 p-2">F</td><td className="border border-gray-300 p-2">F</td><td className="border border-gray-300 p-2">F</td><td className="border border-gray-300 p-2">No</td></tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div className="mt-8 p-6 bg-indigo-50 rounded-2xl border border-indigo-100 flex gap-4 items-start">
-                            <div className="bg-indigo-600 p-2 rounded-lg text-white">
-                                <Zap className="w-4 h-4" />
-                            </div>
-                            <div>
-                                <p className="text-xs font-black text-indigo-900 uppercase mb-1">Expert Takeaway</p>
-                                <p className="text-xs text-indigo-800/70 leading-relaxed italic">While Table-Filling is the standard for university exams due to its clear state-by-state marking process, industry-grade tools like <strong>Flex</strong> use Hopcroft's algorithm to handle automata with thousands of states efficiently.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Interview & Exam Excellence */}
-            <section className="content-section mb-16">
-                <div className="flex items-center gap-4 mb-10">
-                    <div className="bg-amber-500 p-3 rounded-2xl text-white shadow-lg shadow-amber-200">
-                        <Trophy className="w-8 h-8" />
-                    </div>
-                    <div>
-                        <h2 className="text-3xl font-black text-slate-900 uppercase">Interview & Exam Excellence</h2>
-                        <p className="text-slate-500 font-medium">Master the most frequently asked professional and academic questions.</p>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Interview Prep */}
-                    <div className="space-y-6">
-                        <h3 className="text-xl font-bold text-slate-800 flex items-center gap-3 px-2">
-                            <span className="w-2 h-8 bg-amber-500 rounded-full"></span>
-                            💼 Interview Preparation
-                        </h3>
-
-                        {[
-                            {
-                                id: "int-1",
-                                q: "Design a minimal DFA for strings ending in '01'",
-                                approach: "States represent the suffix seen so far: q₀ (no relevant suffix), q₁ (ends in 0), q₂ (ends in 01, accepting).",
-                                trans: [
-                                    "From q₀: 0→q₁, 1→q₀",
-                                    "From q₁: 0→q₁, 1→q₂",
-                                    "From q₂: 0→q₁, 1→q₀"
-                                ],
-                                verify: "All 3 states are distinguishable (q₀ by ε, q₁ by 1, q₂ by ε)."
-                            },
-                            {
-                                id: "int-2",
-                                q: "Prove that minimal DFA is unique",
-                                approach: "Use Myhill-Nerode. The equivalence classes of ≡L are uniquely determined by L. Each minimal DFA must have exactly one state per equivalence class, with transitions determined by the equivalence relation.",
-                                insight: "Any two minimal DFAs have a bijection between states preserving structure—hence isomorphic."
-                            }
-                        ].map((item, idx) => (
-                            <div key={idx} className="bg-white border-2 border-slate-100 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all">
-                                <p className="text-sm font-bold text-slate-900 mb-4">Question {idx + 1}: {item.q}</p>
-                                <button
-                                    onClick={() => toggleSolution(item.id)}
-                                    className="text-[10px] font-black uppercase tracking-widest text-indigo-600 mb-4 flex items-center gap-2 hover:text-indigo-800 transition-colors"
-                                >
-                                    {showSolution[item.id] ? "Hide Approach" : "Show Approach"}
-                                </button>
-                                {showSolution[item.id] && (
-                                    <div className="bg-slate-50 rounded-2xl p-5 border border-slate-100 space-y-4">
-                                        <div>
-                                            <p className="text-[10px] font-black uppercase text-slate-400 mb-2 tracking-widest">How to approach:</p>
-                                            <p className="text-xs text-slate-600 leading-relaxed italic">{item.approach}</p>
-                                        </div>
-                                        {item.trans && (
-                                            <div>
-                                                <p className="text-[10px] font-black uppercase text-slate-400 mb-2 tracking-widest">Transitions:</p>
-                                                <ul className="text-xs text-slate-600 font-mono space-y-1">
-                                                    {item.trans.map((t, i) => <li key={i}>{t}</li>)}
-                                                </ul>
-                                            </div>
-                                        )}
-                                        {item.verify && (
-                                            <div className="pt-2 border-t border-slate-200">
-                                                <p className="text-[10px] font-black uppercase text-emerald-600 mb-1 tracking-widest">Verify minimality:</p>
-                                                <p className="text-xs text-slate-600">{item.verify}</p>
-                                            </div>
-                                        )}
-                                        {item.insight && (
-                                            <div className="pt-2 border-t border-slate-200">
-                                                <p className="text-[10px] font-black uppercase text-blue-600 mb-1 tracking-widest">Key insight:</p>
-                                                <p className="text-xs text-slate-600">{item.insight}</p>
-                                            </div>
-                                        )}
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Exam Practice */}
-                    <div className="space-y-6">
-                        <h3 className="text-xl font-bold text-slate-800 flex items-center gap-3 px-2">
-                            <span className="w-2 h-8 bg-indigo-600 rounded-full"></span>
-                            📝 University Exam Practice
-                        </h3>
-
-                        {[
-                            {
-                                id: "exam-1",
-                                q: "Question 1: Short Answer (5 marks)",
-                                text: "\"Define state equivalence in a DFA and explain why the relation is an equivalence relation.\"",
-                                scheme: [
-                                    "Correct definition of state equivalence: 2 marks",
-                                    "Reflexivity explanation: 1 mark",
-                                    "Symmetry explanation: 1 mark",
-                                    "Transitivity explanation: 1 mark"
-                                ],
-                                answer: [
-                                    "Definition: States p and q are equivalent (p ≡ q) if for all strings w ∈ Σ*, δ̂(p,w) ∈ F ⟺ δ̂(q,w) ∈ F. That is, they accept/reject the same set of suffixes.",
-                                    "Reflexive: p ≡ p since δ̂(p,w) ∈ F ⟺ δ̂(p,w) ∈ F is always true.",
-                                    "Symmetric: If p ≡ q, then δ̂(p,w) ∈ F ⟺ δ̂(q,w) ∈ F, which is equivalent to δ̂(q,w) ∈ F ⟺ δ̂(p,w) ∈ F, so q ≡ p.",
-                                    "Transitive: If p ≡ q and q ≡ r, then for all w: δ̂(p,w) ∈ F ⟺ δ̂(q,w) ∈ F ⟺ δ̂(r,w) ∈ F, so p ≡ r."
-                                ]
-                            },
-                            {
-                                id: "exam-2",
-                                q: "Question 2: Problem Solving (10 marks)",
-                                text: "\"Minimize the following DFA using the table-filling algorithm. Show all steps of your work.\"",
-                                subtext: "States: {A, B, C, D, E}, Initial: A, Final: {C, E}. Transitions: δ(A,0)=B, δ(A,1)=C, δ(B,0)=A, δ(B,1)=D, δ(C,0)=E, δ(C,1)=E, δ(D,0)=E, δ(D,1)=E, δ(E,0)=E, δ(E,1)=E",
-                                scheme: [
-                                    "Initial marking (Final-NonFinal): 2 marks",
-                                    "First pass through table: 3 marks",
-                                    "Second pass (if needed): 2 marks",
-                                    "Correct identification of equivalent states: 2 marks",
-                                    "Correct minimized DFA: 1 mark"
-                                ],
-                                answer: [
-                                    "Initial marking: Mark (A,C), (A,E), (B,C), (B,E), (D,C), (D,E) - all Final-NonFinal pairs.",
-                                    "First pass: (A,B): δ(A,0)=B, δ(B,0)=A (unmarked); δ(A,1)=C, δ(B,1)=D. (C,D): C∈F, D∉F → marked. So mark (A,B).",
-                                    "(A,D): δ(A,0)=B, δ(D,0)=E. (B,E) marked. Mark (A,D).",
-                                    "(B,D): δ(B,0)=A, δ(D,0)=E. (A,E) marked. Mark (B,D).",
-                                    "(C,E): δ(C,0)=E, δ(E,0)=E; δ(C,1)=E, δ(E,1)=E. Unmarked!",
-                                    "Result: C ≡ E. Merge to get 4-state minimized DFA."
-                                ]
-                            },
-                            {
-                                id: "exam-3",
-                                q: "Question 3: Proof (15 marks)",
-                                text: "\"State and prove the Myhill-Nerode theorem. Use it to prove that L = {aⁿbⁿ : n ≥ 0} is not regular.\"",
-                                scheme: [
-                                    "Correct statement of theorem: 3 marks",
-                                    "Proof sketch (→ direction): 4 marks",
-                                    "Proof sketch (← direction): 4 marks",
-                                    "Correct application to {aⁿbⁿ}: 4 marks"
-                                ],
-                                answer: [
-                                    "Theorem: L is regular ⟺ ≡L has finitely many equivalence classes.",
-                                    "Proof (→): If L is regular, some DFA M recognizes it. States of minimal DFA correspond to equivalence classes of ≡L, so finitely many classes.",
-                                    "Proof (←): If ≡L has k equivalence classes, construct DFA with k states (one per class). Transitions and final states are well-defined.",
-                                    "Application: For L = {aⁿbⁿ}, consider S = {aⁿ : n ≥ 0}. For i ≠ j, aⁱ and aʲ are distinguished by bⁱ (aⁱbⁱ ∈ L but aʲbⁱ ∉ L). Infinitely many classes → L not regular."
-                                ]
-                            }
-                        ].map((item, idx) => (
-                            <div key={idx} className="bg-white border-2 border-slate-100 rounded-3xl p-6 shadow-sm">
-                                <p className="text-xs font-black text-indigo-600 mb-2 uppercase tracking-widest">{item.q}</p>
-                                <p className="text-sm font-bold text-slate-800 mb-4 leading-relaxed font-serif italic">{item.text}</p>
-                                {item.subtext && <p className="text-[11px] text-slate-500 mb-4 bg-slate-50 p-3 rounded-xl border border-dashed">{item.subtext}</p>}
-                                <button
-                                    onClick={() => toggleSolution(item.id)}
-                                    className="text-[10px] font-black uppercase tracking-widest text-emerald-600 mb-4 flex items-center gap-2 hover:text-emerald-800 transition-colors"
-                                >
-                                    {showSolution[item.id] ? "Hide Marking Scheme & Answer" : "Show Marking Scheme & Model Answer"}
-                                </button>
-                                {showSolution[item.id] && (
-                                    <div className="space-y-4">
-                                        <div className="bg-emerald-50 rounded-2xl p-5 border border-emerald-100">
-                                            <p className="text-[10px] font-black uppercase text-emerald-800 mb-3 tracking-widest">Marking Scheme:</p>
-                                            <ul className="text-xs text-emerald-900/70 space-y-1">
-                                                {item.scheme.map((s, i) => <li key={i} className="flex gap-2"><span>-</span> {s}</li>)}
-                                            </ul>
-                                        </div>
-                                        <div className="bg-white rounded-2xl p-5 border-2 border-indigo-100 shadow-xl ring-4 ring-indigo-50">
-                                            <p className="text-[10px] font-black uppercase text-indigo-600 mb-3 tracking-widest">Model Answer:</p>
-                                            <div className="text-xs text-slate-700 font-medium space-y-3 leading-relaxed">
-                                                {item.answer.map((a, i) => <p key={i}>{a}</p>)}
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Advanced Challenge Problems */}
-            <section className="content-section mb-16">
-                <div className="flex items-center gap-4 mb-10">
-                    <div className="bg-rose-600 p-3 rounded-2xl text-white shadow-lg shadow-rose-200">
-                        <Award className="w-8 h-8" />
-                    </div>
-                    <div>
-                        <h2 className="text-3xl font-black text-slate-900 uppercase">Advanced Challenge Problems</h2>
-                        <p className="text-slate-500 font-medium">Solve these high-difficulty problems to achieve true mastery.</p>
-                    </div>
-                </div>
-
-                <div className="space-y-8">
-                    {[
-                        {
-                            id: "challenge-1",
-                            category: "Non-Regularity Proof",
-                            title: "Myhill-Nerode & Non-Regular Languages",
-                            q: "Use the Myhill-Nerode theorem to show that L = {ww : w ∈ {0,1}*} is not regular.",
-                            steps: [
-                                "Consider the set of strings S = {0ⁿ1 : n ≥ 0} = {1, 01, 001, 0001, ...}.",
-                                "For any i ≠ j, we show 0ⁱ1 and 0ʲ1 are distinguishable. Take z = 0ⁱ1.",
-                                "Then 0ⁱ1 · 0ⁱ1 = 0ⁱ10ⁱ1 ∈ L (it's of the form ww with w = 0ⁱ1).",
-                                "But 0ʲ1 · 0ⁱ1 = 0ʲ10ⁱ1 ∉ L (since j ≠ i, this cannot be written as ww).",
-                                "Therefore, each string 0ⁿ1 is in a different equivalence class, giving infinitely many classes.",
-                                "By Myhill-Nerode, L is not regular."
-                            ],
-                            insight: "We found an infinite set of pairwise distinguishable strings, proving non-regularity."
-                        },
-                        {
-                            id: "challenge-2",
-                            category: "Theoretical Bound",
-                            title: "Minimal DFA Bounds",
-                            q: "Prove that if two DFAs M₁ and M₂ with n₁ and n₂ states respectively recognize the same language, then there exists a DFA with at most min(n₁, n₂) states that recognizes that language.",
-                            steps: [
-                                "By the Myhill-Nerode theorem, there exists a unique (up to isomorphism) minimal DFA M for the language L.",
-                                "Let M have k states. By definition of minimality, k ≤ n₁ and k ≤ n₂ (otherwise M₁ or M₂ would have fewer states than the minimal DFA, contradiction).",
-                                "Therefore k ≤ min(n₁, n₂).",
-                                "The minimal DFA M has at most min(n₁, n₂) states and recognizes L."
-                            ],
-                            insight: "The minimal DFA serves as the upper bound on states needed."
-                        },
-                        {
-                            id: "challenge-3",
-                            category: "Combinatorial State Count",
-                            title: "Divisibility Constraints & Cross Product",
-                            q: "Find the minimum number of states for a DFA recognizing L = {w ∈ {0,1}* : number of 0s is divisible by 2 and number of 1s is divisible by 3}.",
-                            steps: [
-                                "A DFA for 'number of 0s mod 2' requires 2 states (q₀, q₁).",
-                                "A DFA for 'number of 1s mod 3' requires 3 states (p₀, p₁, p₂).",
-                                "The combined DFA (intersection) is formed using the product construction, with states as pairs (qᵢ, pⱼ).",
-                                "The number of states in the product DFA is 2 × 3 = 6.",
-                                "Since the languages are independent and the moduli are coprime, these 6 states are pairwise distinguishable."
-                            ],
-                            insight: "State count for independent properties is the product of their individual minimal states."
-                        },
-                        {
-                            id: "challenge-4",
-                            category: "Formal Proof",
-                            title: "Quotient Construction & Isomorphism",
-                            q: "Prove that the quotient construction L/≡ gives the unique minimal DFA.",
-                            steps: [
-                                "Myhill-Nerode states that every regular language L has a finite number of equivalence classes under ≡L.",
-                                "The quotient construction creates one state for each equivalence class [x].",
-                                "Transitions [x] → [xa] are well-defined because if x ≡L y, then xa ≡L ya.",
-                                "Any DFA recognizing L must have at least as many states as there are equivalence classes (Myhill-Nerode).",
-                                "Since the quotient DFA has exactly one state per class, it is minimal."
-                            ],
-                            insight: "The states of the minimal DFA are essentially the 'irreducible memory' of the language."
-                        }
-                    ].map((prob, idx) => (
-                        <div key={idx} className="bg-white border-2 border-slate-100 rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-indigo-100/50 transition-all border-b-8 border-b-rose-100">
-                            <div className="bg-slate-50 p-4 px-10 flex justify-between items-center text-slate-900 border-b border-slate-100">
-                                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-indigo-600">{prob.category}</p>
-                                <span className="bg-rose-50 text-rose-600 text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shrink-0 border border-rose-100 font-sans">HARD PROBLEM</span>
-                            </div>
-                            <div className="p-8">
-                                <h4 className="text-lg font-black text-slate-900 mb-4">{prob.title}</h4>
-                                <div className="bg-rose-50 border-l-4 border-rose-500 p-5 rounded-r-xl mb-6">
-                                    <p className="text-sm font-bold text-rose-900 leading-relaxed italic font-serif leading-7">{prob.q}</p>
-                                </div>
-                                <button
-                                    onClick={() => toggleSolution(prob.id)}
-                                    className="text-[11px] font-black uppercase tracking-widest text-indigo-600 mb-6 flex items-center gap-2 hover:text-indigo-800 transition-colors"
-                                >
-                                    {showSolution[prob.id] ? "Hide Solution" : "Show Full Solution"}
-                                </button>
-                                {showSolution[prob.id] && (
-                                    <div className="space-y-6">
-                                        <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                                            <p className="text-[10px] font-black uppercase text-slate-400 mb-4 tracking-widest">Step-by-Step Proof:</p>
-                                            <ul className="space-y-4">
-                                                {prob.steps.map((step, i) => (
-                                                    <li key={i} className="flex gap-4 items-start">
-                                                        <span className="bg-indigo-600 text-white text-[9px] font-black w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 shadow-lg shadow-indigo-100">{i + 1}</span>
-                                                        <p className="text-xs text-slate-700 leading-relaxed font-medium">{step}</p>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                        <div className="bg-emerald-50 border-2 border-emerald-100 p-4 rounded-xl flex items-center gap-4">
-                                            <div className="bg-emerald-500 p-2 rounded-lg text-white shrink-0">
-                                                <Info className="w-4 h-4" />
-                                            </div>
-                                            <p className="text-xs font-black text-emerald-900 italic tracking-tight">Key Insight: {prob.insight}</p>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Quick Reference Cheat Sheet */}
-            <section className="content-section mb-16">
-                <div className="bg-white border-2 border-indigo-100 shadow-2xl rounded-[3rem] overflow-hidden">
-                    <div className="bg-indigo-50 p-6 px-10 text-indigo-900 flex items-center justify-between border-b border-indigo-100">
-                        <h3 className="font-extrabold uppercase tracking-[0.3em] text-sm flex items-center gap-3 italic">
-                            <BookOpen className="w-5 h-5 text-indigo-600" />
-                            Quick Reference Cheat Sheet
-                        </h3>
-                        <div className="flex gap-4">
-                            {['PDF', 'PRINT'].map(btn => (
-                                <span key={btn} className="bg-indigo-600 text-white px-4 py-1 rounded-full text-[10px] font-black cursor-pointer hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-100">{btn}</span>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="p-12">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                            <div className="space-y-6">
-                                <h4 className="font-black text-indigo-600 text-[11px] uppercase tracking-tighter border-b pb-2">Definitions</h4>
-                                <ul className="space-y-3 text-[11px] font-medium leading-relaxed italic text-slate-500">
-                                    <li><strong>Equivalent:</strong> δ̂(p,w) ∈ F ⇔ δ̂(q,w) ∈ F</li>
-                                    <li><strong>Distinguishable:</strong> Outcome differs for some w.</li>
-                                    <li><strong>Quotient:</strong> Grouping equivalent states.</li>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-blue-600">🔍 Step-by-Step Solution</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Step 1:</strong> Remove unreachable states. All states are reachable from A, so we keep all 6 states.</p>
+                                <p><strong>Step 2:</strong> Initialize the table. Create pairs and mark Final-NonFinal pairs: (A,C), (A,E), (B,C), (B,E), (D,C), (D,E), (F,C), (F,E) are all marked (distinguishable by ε).</p>
+                                <p><strong>Step 3:</strong> First pass. Check unmarked pairs:</p>
+                                <ul className="list-disc ml-6 text-xs">
+                                    <li>(A,B): δ(A,0)=B, δ(B,0)=A (unmarked); δ(A,1)=C, δ(B,1)=D. C is final, D is not → (C,D) marked! Mark (A,B).</li>
+                                    <li>(A,D): δ(A,0)=B, δ(D,0)=E. (B,E) is marked. Mark (A,D).</li>
+                                    <li>(C,E): δ(C,0)=E, δ(E,0)=E; δ(C,1)=F, δ(E,1)=F. Both transitions go to same states. Unmarked - equivalent!</li>
                                 </ul>
+                                <p><strong>Step 4:</strong> Second pass. Check remaining unmarked pairs: (B,F) and (C,E).</p>
+                                <p><strong>Step 5:</strong> Merge equivalent states. Only (C,E) remains unmarked. Merge C and E into a single state [CE].</p>
+                                <p className="mt-2"><strong>✅ Minimized DFA:</strong></p>
+                                <p>States: {'{'}A, B, D, F, [CE]{'}'}</p>
+                                <p>Final states: {'{'}[CE]{'}'}</p>
+                                <p><strong>States reduced from 6 to 5.</strong></p>
                             </div>
-                            <div className="space-y-6">
-                                <h4 className="font-black text-indigo-600 text-[11px] uppercase tracking-tighter border-b pb-2">Algorithm Quick Steps</h4>
-                                <ul className="space-y-3 text-[11px] font-bold text-slate-700">
-                                    <li>1. Remove Unreachable (BFS)</li>
-                                    <li>2. Mark (F, Non-F) pairs</li>
-                                    <li>3. Propagate marks iteratively</li>
-                                    <li>4. Merge unmarked into super-states</li>
+                        </details>
+                    </div>
+
+                    <div className="bg-green-50 border-l-4 border-green-400 p-4">
+                        <h4 className="font-semibold text-lg">Example 2: Using Myhill-Nerode to Prove Non-Regularity</h4>
+                        <p className="mt-2"><strong>📝 Problem Statement</strong></p>
+                        <p className="text-sm mt-1">Prove that the language L = {'{'}0ⁿ1ⁿ : n ≥ 0{'}'} is not regular using the Myhill-Nerode theorem.</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-green-600">🔍 Proof</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Step 1:</strong> Understand the goal. By Myhill-Nerode, if L is regular, then ≡<sub>L</sub> has finitely many equivalence classes. We'll show infinitely many equivalence classes exist.</p>
+                                <p><strong>Step 2:</strong> Consider strings of the form 0ⁿ. For any i ≠ j, consider strings 0ⁱ and 0ʲ.</p>
+                                <p><strong>Step 3:</strong> Find a distinguishing extension. Take z = 1ⁱ. Then:</p>
+                                <ul className="list-disc ml-6">
+                                    <li>0ⁱ · 1ⁱ = 0ⁱ1ⁱ ∈ L</li>
+                                    <li>0ʲ · 1ⁱ = 0ʲ1ⁱ ∉ L (since i ≠ j)</li>
                                 </ul>
+                                <p><strong>Step 4:</strong> Conclude distinguishability. For every i ≠ j, the string 1ⁱ distinguishes 0ⁱ from 0ʲ. Therefore, each 0ⁱ is in a different equivalence class.</p>
+                                <p><strong>Step 5:</strong> Final conclusion. Since there are infinitely many strings 0ⁿ (one for each n ≥ 0), there are infinitely many equivalence classes. By Myhill-Nerode, L is not regular.</p>
+                                <p className="mt-2"><strong>💡 Key Insight:</strong> The Myhill-Nerode theorem provides a general technique for proving non-regularity: find an infinite set of pairwise distinguishable strings. This is often easier than using the pumping lemma!</p>
                             </div>
-                            <div className="bg-slate-50 p-8 rounded-[2rem] flex flex-col items-center justify-center text-center group border-2 border-dashed border-indigo-200 hover:border-indigo-600 transition-colors">
-                                <BookOpen className="w-12 h-12 text-indigo-600 mb-4 animate-bounce" />
-                                <p className="text-[11px] font-black uppercase text-slate-900 tracking-widest leading-none mb-2">Module 2.6 complete</p>
-                                <p className="text-[9px] text-indigo-400 uppercase font-black tracking-widest leading-none">Minimization Mastered</p>
+                        </details>
+                    </div>
+
+                    <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                        <h4 className="font-semibold text-lg">Example 3: DFA Equivalence Testing</h4>
+                        <p className="mt-2"><strong>📝 Problem Statement</strong></p>
+                        <p className="text-sm mt-1">Determine if the following two DFAs are equivalent (recognize the same language).</p>
+                        <p className="text-sm mt-2"><strong>DFA M₁:</strong> States {'{'}p, q{'}'}, Σ = {'{'}0,1{'}'}, p₀ = p, F = {'{'}q{'}'}</p>
+                        <ul className="list-disc ml-6 text-xs">
+                            <li>δ(p,0) = p, δ(p,1) = q</li>
+                            <li>δ(q,0) = q, δ(q,1) = q</li>
+                        </ul>
+                        <p className="text-sm mt-2"><strong>DFA M₂:</strong> States {'{'}a, b, c{'}'}, Σ = {'{'}0,1{'}'}, q₀ = a, F = {'{'}b, c{'}'}</p>
+                        <ul className="list-disc ml-6 text-xs">
+                            <li>δ(a,0) = a, δ(a,1) = b</li>
+                            <li>δ(b,0) = c, δ(b,1) = b</li>
+                            <li>δ(c,0) = c, δ(c,1) = c</li>
+                        </ul>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-yellow-600">🔍 Solution</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Step 1:</strong> Apply the product construction. Create pairs (state from M₁, state from M₂) and check if initial pair is equivalent.</p>
+                                <p><strong>Step 2:</strong> Check initial pair (p, a). Both are non-accepting, so potentially equivalent.</p>
+                                <p><strong>Step 3:</strong> Check transitions from (p, a).</p>
+                                <ul className="list-disc ml-6 text-xs">
+                                    <li>On 0: (δ(p,0), δ(a,0)) = (p, a) - same pair</li>
+                                    <li>On 1: (δ(p,1), δ(a,1)) = (q, b) - need to check</li>
+                                </ul>
+                                <p><strong>Step 4:</strong> Check pair (q, b). q ∈ F₁, b ∈ F₂ - both accepting! Potentially equivalent.</p>
+                                <p><strong>Step 5:</strong> Check pair (q, c). Both accepting. Transitions: (q, c) on 0→(q,c), on 1→(q,c). Self-loop, no new pairs.</p>
+                                <p><strong>Step 6:</strong> Conclusion. All reachable pairs have matching acceptance. The DFAs are equivalent.</p>
                             </div>
-                        </div>
+                        </details>
                     </div>
                 </div>
             </section>
 
-            {/* Module Quiz */}
+            {/* Code Implementation */}
             <section className="content-section">
-                <h2 className="text-2xl font-bold mb-6">Module 2.6 Mastery Quiz</h2>
-                <div className="bg-white p-6 rounded-xl border-2 border-slate-100 shadow-sm transition-all hover:shadow-md">
-                    <Quiz
-                        title="State Minimization Quiz"
-                        questions={[
-                            {
-                                question: "What is the first step in minimizing a DFA?",
-                                options: ["Mark all accepting state pairs", "Remove unreachable states", "Merge all equivalent states", "Construct the product automaton"],
-                                correctAnswer: 1,
-                                explanation: "The first step is to remove unreachable states (via BFS/DFS from the start state), as they don't contribute to the language."
-                            },
-                            {
-                                question: "In the table-filling algorithm, which pairs are initially marked as distinguishable?",
-                                options: ["Pairs of accepting states", "Pairs where one state is accepting and the other is not", "All pairs of non-accepting states", "Pairs with different outgoing transitions"],
-                                correctAnswer: 1,
-                                explanation: "Pairs (p, q) where exactly one of p, q is an accepting state are initially marked as distinguishable, since they differ on the empty string."
-                            },
-                            {
-                                question: "The minimal DFA for a regular language is:",
-                                options: ["Not necessarily unique", "Unique up to isomorphism (state renaming)", "Always has exactly |Σ| states", "The same as the NFA"],
-                                correctAnswer: 1,
-                                explanation: "The Myhill-Nerode theorem guarantees that the minimal DFA is unique up to isomorphism for any given regular language."
-                            },
-                            {
-                                question: "When does the table-filling algorithm terminate?",
-                                options: ["After exactly |Q| iterations", "When no new pairs are marked in a pass", "When all pairs are marked", "After |Σ| iterations"],
-                                correctAnswer: 1,
-                                explanation: "The algorithm terminates when a complete pass over all unmarked pairs produces no new marks — a fixed-point has been reached."
-                            },
-                            {
-                                question: "What is the relationship between equivalence classes and minimal DFA states?",
-                                options: ["Each equivalence class becomes one state in the minimal DFA", "Equivalence classes are discarded during minimization", "Each state maps to multiple equivalence classes", "There is no relationship"],
-                                correctAnswer: 0,
-                                explanation: "Each equivalence class of indistinguishable states becomes exactly one state in the minimal DFA. This is the core of the quotient construction."
-                            }
-                        ]}
-                        subject="FLAT"
-                        unitId={2}
-                        moduleId={6}
-                    />
+                <h3>💻 Code Implementation</h3>
+                <p className="mb-4">Here's a complete Python implementation of the table-filling algorithm for DFA minimization. This code is fully functional and can be used to minimize any DFA.</p>
+
+                <div className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto">
+                    <p className="text-sm font-semibold mb-2">DFA Minimization - Table Filling Algorithm</p>
+                    <pre className="text-sm">
+                        <code>{`# ============================================
+# DFA Minimization using Table-Filling Algorithm
+# Language: Python 3
+# Description: Minimizes a DFA by merging equivalent states
+# ============================================
+
+class DFA:
+    def __init__(self, states, alphabet, transitions, start, finals):
+        self.states = states        # Set of state names
+        self.alphabet = alphabet    # Set of input symbols
+        self.trans = transitions    # Dict: (state, symbol) -> state
+        self.start = start          # Initial state
+        self.finals = finals        # Set of final states
+    
+    def delta(self, state, symbol):
+        """Transition function"""
+        return self.trans.get((state, symbol), None)
+    
+    def get_reachable_states(self):
+        """Remove unreachable states using BFS"""
+        reachable = {self.start}
+        queue = [self.start]
+        
+        while queue:
+            state = queue.pop(0)
+            for a in self.alphabet:
+                next_state = self.delta(state, a)
+                if next_state and next_state not in reachable:
+                    reachable.add(next_state)
+                    queue.append(next_state)
+        return reachable
+    
+    def minimize(self):
+        """Minimize DFA using table-filling algorithm"""
+        # Step 1: Keep only reachable states
+        reachable = self.get_reachable_states()
+        states = list(reachable)
+        n = len(states)
+        
+        # Step 2: Initialize distinguishability table
+        table = [[False] * n for _ in range(n)]
+        
+        # Step 3: Mark Final-NonFinal pairs
+        for i in range(n):
+            for j in range(i + 1, n):
+                if (states[i] in self.finals) != (states[j] in self.finals):
+                    table[i][j] = table[j][i] = True
+        
+        # Step 4: Iteratively mark distinguishable pairs
+        changed = True
+        while changed:
+            changed = False
+            for i in range(n):
+                for j in range(i + 1, n):
+                    if not table[i][j]:
+                        for a in self.alphabet:
+                            next_i = states.index(self.delta(states[i], a))
+                            next_j = states.index(self.delta(states[j], a))
+                            if table[next_i][next_j]:
+                                table[i][j] = table[j][i] = True
+                                changed = True
+                                break
+        
+        # Step 5: Build equivalence classes
+        equiv_classes = []
+        visited = [False] * n
+        
+        for i in range(n):
+            if not visited[i]:
+                equiv_class = [states[i]]
+                visited[i] = True
+                for j in range(i + 1, n):
+                    if not table[i][j]:
+                        equiv_class.append(states[j])
+                        visited[j] = True
+                equiv_classes.append(equiv_class)
+        
+        # Step 6: Build minimized DFA
+        new_states = [tuple(sorted(cls)) for cls in equiv_classes]
+        new_start = next(s for s in new_states if self.start in s)
+        new_finals = {s for s in new_states if any(q in self.finals for q in s)}
+        
+        new_trans = {}
+        for cls in equiv_classes:
+            rep = cls[0]
+            new_state = tuple(sorted(cls))
+            for a in self.alphabet:
+                next_state = self.delta(rep, a)
+                for target_cls in equiv_classes:
+                    if next_state in target_cls:
+                        new_trans[(new_state, a)] = tuple(sorted(target_cls))
+                        break
+        
+        return DFA(set(new_states), self.alphabet, new_trans, new_start, new_finals)
+
+# Example Usage
+if __name__ == "__main__":
+    dfa = DFA(
+        states={'A', 'B', 'C', 'D', 'E'},
+        alphabet={'0', '1'},
+        transitions={
+            ('A', '0'): 'B', ('A', '1'): 'C',
+            ('B', '0'): 'A', ('B', '1'): 'D',
+            ('C', '0'): 'E', ('C', '1'): 'E',
+            ('D', '0'): 'E', ('D', '1'): 'E',
+            ('E', '0'): 'E', ('E', '1'): 'E',
+        },
+        start='A',
+        finals={'C', 'E'}
+    )
+    
+    minimized = dfa.minimize()
+    print(f"States reduced from {len(dfa.states)} to {len(minimized.states)}")`}</code>
+                    </pre>
+                </div>
+
+                <div className="mt-4 bg-blue-50 p-4 rounded">
+                    <h4 className="font-semibold">⏱️ Complexity Analysis:</h4>
+                    <ul className="list-disc ml-6 mt-2 text-sm space-y-1">
+                        <li><strong>Time Complexity:</strong> O(n² × |Σ|) where n is the number of states and |Σ| is the alphabet size</li>
+                        <li><strong>Space Complexity:</strong> O(n²) for the distinguishability table</li>
+                        <li><strong>Best Case:</strong> O(n²) - when all states are immediately distinguishable</li>
+                        <li><strong>Worst Case:</strong> O(n² × |Σ| × iterations) - when many passes are needed</li>
+                        <li><strong>Average Case:</strong> O(n² × |Σ|) - typically converges in few iterations</li>
+                    </ul>
+                </div>
+
+                <div className="mt-4 bg-red-50 p-4 rounded">
+                    <h4 className="font-semibold">⚠️ Common Implementation Mistakes:</h4>
+                    <div className="space-y-3 mt-2 text-sm">
+                        <div>
+                            <p><strong>Mistake #1: Forgetting to remove unreachable states first</strong></p>
+                            <p className="text-xs mt-1"><strong>Wrong:</strong> Running the algorithm on all states including unreachable ones.</p>
+                            <p className="text-xs"><strong>Correct:</strong> Always perform BFS/DFS from the start state first.</p>
+                        </div>
+                        <div>
+                            <p><strong>Mistake #2: Not iterating until convergence</strong></p>
+                            <p className="text-xs mt-1"><strong>Wrong:</strong> Making only one pass through the table.</p>
+                            <p className="text-xs"><strong>Correct:</strong> Continue iterating until no new marks are added in a complete pass.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <div className="py-20 border-t text-center opacity-30 mt-20">
-                <p className="text-[11px] font-black uppercase tracking-[2em] text-slate-900">Unit 2.6 | State Minimization | End</p>
-            </div>
+            {/* Interview Preparation */}
+            <section className="content-section">
+                <h3>Interview Preparation</h3>
+
+                <div className="space-y-6">
+                    <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4">
+                        <h4 className="font-semibold text-lg">Interview Question 1: Design a minimal DFA for strings ending in '01'</h4>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-indigo-600">Show Approach</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>How to approach:</strong> States represent the suffix seen so far: q₀ (no relevant suffix), q₁ (ends in 0), q₂ (ends in 01, accepting).</p>
+                                <p><strong>Transitions:</strong></p>
+                                <ul className="list-disc ml-6">
+                                    <li>From q₀: 0→q₁, 1→q₀</li>
+                                    <li>From q₁: 0→q₁, 1→q₂</li>
+                                    <li>From q₂: 0→q₁, 1→q₀</li>
+                                </ul>
+                                <p><strong>Verify minimality:</strong> All 3 states are distinguishable (q₀ by ε, q₁ by 1, q₂ by ε).</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4">
+                        <h4 className="font-semibold text-lg">Interview Question 2: Prove that minimal DFA is unique</h4>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-indigo-600">Show Approach</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>How to approach:</strong> Use Myhill-Nerode. The equivalence classes of ≡L are uniquely determined by L. Each minimal DFA must have exactly one state per equivalence class, with transitions determined by the equivalence relation.</p>
+                                <p><strong>Key insight:</strong> Any two minimal DFAs have a bijection between states preserving structure—hence isomorphic.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            {/* University Exam Practice */}
+            <section className="content-section">
+                <h3>📝 University Exam Practice</h3>
+
+                <div className="space-y-6">
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
+                        <h4 className="font-semibold text-lg">Question 1: Short Answer (5 marks)</h4>
+                        <p className="mt-2 text-sm">"Define state equivalence in a DFA and explain why the relation is an equivalence relation."</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-blue-600">Show Marking Scheme & Model Answer</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Marking Scheme:</strong></p>
+                                <ul className="list-disc ml-6 text-xs">
+                                    <li>Definition of state equivalence: 2 marks</li>
+                                    <li>Reflexive property: 1 mark</li>
+                                    <li>Symmetric property: 1 mark</li>
+                                    <li>Transitive property: 1 mark</li>
+                                </ul>
+                                <p className="mt-2"><strong>Model Answer:</strong></p>
+                                <p>Two states p and q are equivalent (p ≡ q) if for all strings w ∈ Σ*, δ̂(p,w) ∈ F ⟺ δ̂(q,w) ∈ F.</p>
+                                <p>This is an equivalence relation because:</p>
+                                <ul className="list-disc ml-6">
+                                    <li><strong>Reflexive:</strong> Every state p is equivalent to itself (p ≡ p)</li>
+                                    <li><strong>Symmetric:</strong> If p ≡ q, then q ≡ p</li>
+                                    <li><strong>Transitive:</strong> If p ≡ q and q ≡ r, then p ≡ r</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className="bg-green-50 border-l-4 border-green-500 p-4">
+                        <h4 className="font-semibold text-lg">Question 2: Problem Solving (10 marks)</h4>
+                        <p className="mt-2 text-sm">"Minimize the following DFA using the table-filling algorithm. Show all steps of your work."</p>
+                        <p className="mt-2 text-sm"><strong>States:</strong> {'{'}A, B, C, D, E{'}'}, <strong>Initial:</strong> A, <strong>Final:</strong> {'{'}C, E{'}'}</p>
+                        <p className="text-sm"><strong>Transitions:</strong> δ(A,0)=B, δ(A,1)=C, δ(B,0)=A, δ(B,1)=D, δ(C,0)=E, δ(C,1)=E, δ(D,0)=E, δ(D,1)=E, δ(E,0)=E, δ(E,1)=E</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-green-600">Show Marking Scheme & Complete Solution</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Marking Scheme:</strong></p>
+                                <ul className="list-disc ml-6 text-xs">
+                                    <li>Initial marking (Final-NonFinal): 2 marks</li>
+                                    <li>First pass through table: 3 marks</li>
+                                    <li>Second pass (if needed): 2 marks</li>
+                                    <li>Correct identification of equivalent states: 2 marks</li>
+                                    <li>Correct minimized DFA: 1 mark</li>
+                                </ul>
+                                <p className="mt-2"><strong>Complete Solution:</strong></p>
+                                <p><strong>Initial marking:</strong> Mark (A,C), (A,E), (B,C), (B,E), (D,C), (D,E) - all Final-NonFinal pairs.</p>
+                                <p><strong>First pass:</strong></p>
+                                <ul className="list-disc ml-6 text-xs">
+                                    <li>(A,B): δ(A,0)=B, δ(B,0)=A (unmarked); δ(A,1)=C, δ(B,1)=D. (C,D): C∈F, D∉F → marked. So mark (A,B).</li>
+                                    <li>(A,D): δ(A,0)=B, δ(D,0)=E. (B,E) marked. Mark (A,D).</li>
+                                    <li>(B,D): δ(B,0)=A, δ(D,0)=E. (A,E) marked. Mark (B,D).</li>
+                                    <li>(C,E): δ(C,0)=E, δ(E,0)=E; δ(C,1)=E, δ(E,1)=E. Unmarked!</li>
+                                </ul>
+                                <p><strong>Result:</strong> C ≡ E. Merge to get 4-state minimized DFA.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className="bg-purple-50 border-l-4 border-purple-500 p-4">
+                        <h4 className="font-semibold text-lg">Question 3: Proof (15 marks)</h4>
+                        <p className="mt-2 text-sm">"State and prove the Myhill-Nerode theorem. Use it to prove that L = {'{'}aⁿbⁿ : n ≥ 0{'}'} is not regular."</p>
+                        <details className="mt-3">
+                            <summary className="cursor-pointer font-semibold text-purple-600">Show Marking Scheme & Model Answer</summary>
+                            <div className="mt-3 text-sm space-y-2">
+                                <p><strong>Marking Scheme:</strong></p>
+                                <ul className="list-disc ml-6 text-xs">
+                                    <li>Correct statement of theorem: 3 marks</li>
+                                    <li>Proof sketch (→ direction): 4 marks</li>
+                                    <li>Proof sketch (← direction): 4 marks</li>
+                                    <li>Correct application to {'{'}aⁿbⁿ{'}'}: 4 marks</li>
+                                </ul>
+                                <p className="mt-2"><strong>Model Answer:</strong></p>
+                                <p><strong>Theorem:</strong> L is regular ⟺ ≡L has finitely many equivalence classes.</p>
+                                <p><strong>Proof (→):</strong> If L is regular, some DFA M recognizes it. States of minimal DFA correspond to equivalence classes of ≡L, so finitely many classes.</p>
+                                <p><strong>Proof (←):</strong> If ≡L has k equivalence classes, construct DFA with k states (one per class). Transitions and final states are well-defined.</p>
+                                <p><strong>Application:</strong> For L = {'{'}aⁿbⁿ{'}'}, consider S = {'{'}aⁿ : n ≥ 0{'}'}. For i ≠ j, aⁱ and aʲ are distinguished by bⁱ (aⁱbⁱ ∈ L but aʲbⁱ ∉ L). Infinitely many classes → L not regular.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+            {/* Common Pitfalls */}
+            <section className="content-section">
+                <h3>Common Pitfalls & How to Avoid Them</h3>
+
+                <div className="space-y-4">
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">🚫 Pitfall #1: Confusing state equivalence with state equality</h4>
+                        <p className="text-sm mt-2"><strong>What students do wrong:</strong> Assume equivalent states must be identical or have identical transitions.</p>
+                        <p className="text-sm mt-2"><strong>Why it's wrong:</strong> Equivalent states can have different transitions as long as those transitions lead to equivalent states.</p>
+                        <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> Remember: p ≡ q means they behave the same on all suffixes, not that they are the same state.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">🚫 Pitfall #2: Forgetting to check all input symbols</h4>
+                        <p className="text-sm mt-2"><strong>What students do wrong:</strong> In the table-filling algorithm, only check one input symbol instead of all.</p>
+                        <p className="text-sm mt-2"><strong>Why it's wrong:</strong> States might be equivalent on some symbols but distinguishable on others.</p>
+                        <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> Always check transitions on ALL symbols in the alphabet for each unmarked pair.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">🚫 Pitfall #3: Stopping the algorithm too early</h4>
+                        <p className="text-sm mt-2"><strong>What students do wrong:</strong> Make only one pass through the table and declare remaining unmarked pairs equivalent.</p>
+                        <p className="text-sm mt-2"><strong>Why it's wrong:</strong> New distinguishable pairs may be discovered in later passes as more pairs get marked.</p>
+                        <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> Continue iterating until a complete pass makes no new marks.</p>
+                    </div>
+
+                    <div className="bg-red-50 border-l-4 border-red-500 p-4">
+                        <h4 className="font-semibold">🚫 Pitfall #4: Using Myhill-Nerode incorrectly for non-regularity proofs</h4>
+                        <p className="text-sm mt-2"><strong>What students do wrong:</strong> Show some strings are distinguishable, but not infinitely many.</p>
+                        <p className="text-sm mt-2"><strong>Why it's wrong:</strong> Finitely many distinguishable strings doesn't prove non-regularity—you need infinitely many equivalence classes.</p>
+                        <p className="text-sm mt-2"><strong>✅ How to avoid it:</strong> Find an infinite family of pairwise distinguishable strings (like {'{'}0ⁿ : n ≥ 0{'}'}).</p>
+                    </div>
+                </div>
+
+                <div className="mt-6 bg-blue-50 p-4 rounded">
+                    <h4 className="font-semibold">💡 Exam Tips:</h4>
+                    <ul className="list-disc ml-6 mt-2 text-sm space-y-1">
+                        <li><strong>Table-filling:</strong> Always show all passes, not just the final result</li>
+                        <li><strong>Myhill-Nerode proofs:</strong> Clearly identify the infinite set of distinguishable strings</li>
+                        <li><strong>Equivalence testing:</strong> Use the product construction systematically</li>
+                        <li><strong>Minimization:</strong> Remember to remove unreachable states first</li>
+                        <li><strong>Time management:</strong> For large DFAs, look for patterns rather than checking every pair</li>
+                    </ul>
+                </div>
+            </section>
+
+            {/* Quick Reference */}
+            <section className="content-section">
+                <h3>📄 Quick Reference Cheat Sheet</h3>
+                <p>Save this section for quick review! Here's everything you need to remember at a glance.</p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div className="bg-white border p-4 rounded">
+                        <h4 className="font-semibold text-blue-600">Key Definitions</h4>
+                        <ul className="text-sm space-y-1 mt-2">
+                            <li><strong>State Equivalence:</strong> p ≡ q ⟺ ∀w ∈ Σ*, δ̂(p,w) ∈ F ⟺ δ̂(q,w) ∈ F</li>
+                            <li><strong>k-Equivalence:</strong> p ≡ₖ q ⟺ equivalent on strings of length ≤ k</li>
+                            <li><strong>Myhill-Nerode:</strong> L regular ⟺ ≡L has finite index</li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-white border p-4 rounded">
+                        <h4 className="font-semibold text-green-600">Table-Filling Algorithm</h4>
+                        <ol className="text-sm space-y-1 mt-2 list-decimal ml-4">
+                            <li>Mark all (p,q) where p ∈ F, q ∉ F</li>
+                            <li>For unmarked (p,q), check δ(p,a), δ(q,a) for all a</li>
+                            <li>If any pair is marked, mark (p,q)</li>
+                            <li>Repeat until no changes</li>
+                            <li>Unmarked pairs are equivalent</li>
+                        </ol>
+                    </div>
+
+                    <div className="bg-white border p-4 rounded">
+                        <h4 className="font-semibold text-purple-600">Complexity</h4>
+                        <ul className="text-sm space-y-1 mt-2">
+                            <li><strong>Time:</strong> O(n² × |Σ|)</li>
+                            <li><strong>Space:</strong> O(n²)</li>
+                            <li><strong>Hopcroft's:</strong> O(n log n)</li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-white border p-4 rounded">
+                        <h4 className="font-semibold text-orange-600">Common Exam Questions</h4>
+                        <ul className="text-sm space-y-1 mt-2">
+                            <li>✓ Minimize given DFA</li>
+                            <li>✓ Prove language non-regular</li>
+                            <li>✓ Test state equivalence</li>
+                            <li>✓ Find minimal DFA for pattern</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            {/* Advanced Topics */}
+            <section className="content-section">
+                <h3>🚀 Go Deeper: Advanced Topics & Resources</h3>
+
+                <h4 className="mt-4 font-semibold">Advanced Concepts</h4>
+                <div className="space-y-4 mt-4">
+                    <div className="bg-purple-50 border-l-4 border-purple-500 p-4">
+                        <h4 className="font-semibold">🔬 Advanced Topic 1: Hopcroft's Algorithm</h4>
+                        <p className="text-sm mt-2">Hopcroft's algorithm achieves O(n log n) time complexity by using a partition refinement approach with sophisticated data structures. Instead of checking all pairs, it maintains a partition of states and refines it based on splitting blocks. This is the algorithm used in production compiler tools.</p>
+                    </div>
+
+                    <div className="bg-purple-50 border-l-4 border-purple-500 p-4">
+                        <h4 className="font-semibold">🔬 Advanced Topic 2: Brzozowski's Algorithm</h4>
+                        <p className="text-sm mt-2">Brzozowski's algorithm uses a remarkably simple approach: reverse the DFA, determinize (subset construction), reverse again, and determinize once more. The result is the minimal DFA. While elegant, this can have exponential worst-case complexity.</p>
+                    </div>
+
+                    <div className="bg-purple-50 border-l-4 border-purple-500 p-4">
+                        <h4 className="font-semibold">🔬 Advanced Topic 3: NFA Minimization</h4>
+                        <p className="text-sm mt-2">Unlike DFAs, NFAs do not have unique minimal forms. Finding a minimal NFA for a regular language is PSPACE-complete (much harder than DFA minimization). This is why practical tools typically convert to DFA first, then minimize.</p>
+                    </div>
+                </div>
+
+                <h4 className="mt-6 font-semibold">📚 Recommended Resources</h4>
+                <div className="mt-4 space-y-3">
+                    <div>
+                        <p className="font-semibold text-sm">Books:</p>
+                        <ul className="list-disc ml-6 text-sm space-y-1">
+                            <li>"Introduction to the Theory of Computation" by Michael Sipser - Chapter 1.4 (The standard reference)</li>
+                            <li>"Automata Theory, Languages, and Computation" by Hopcroft, Motwani, Ullman - Chapter 4</li>
+                            <li>"Introduction to Automata Theory, Languages, and Computation" by Hopcroft & Ullman</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p className="font-semibold text-sm">Online Resources:</p>
+                        <ul className="list-disc ml-6 text-sm space-y-1">
+                            <li>JFLAP (jflap.org) - Interactive DFA minimization tool</li>
+                            <li>Automata Tutor - Practice problems with instant feedback</li>
+                            <li>CS Stack Exchange - Theory of Computation Q&A</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            {/* MCQ Practice */}
+            <section className="content-section" id="quiz">
+                <h3>MCQ Practice</h3>
+                <Quiz 
+                    title="MCQ Practice: Equivalence and Minimization"
+                    subject="Theory of Computation"
+                    unitId={2}
+                    moduleId={6}
+                    questions={[
+                        {
+                            question: "Two states p and q are equivalent if for every input string w, the transitions from p and q on w lead to:",
+                            options: ["The same state", "Different states", "Either both accepting or both non-accepting states", "At least one accepting state"],
+                            correctAnswer: 2,
+                            explanation: "State equivalence means they behave indistinguishably regarding acceptance for all possible suffixes."
+                        },
+                        {
+                            question: "What is the primary objective of DFA minimization?",
+                            options: ["To convert a DFA into an NFA", "To find a DFA with the minimum possible number of states for a given language", "To remove all transitions from the DFA", "To increase the states for better clarity"],
+                            correctAnswer: 1,
+                            explanation: "Minimization yields the smallest possible DFA for a regular language, ensuring uniqueness up to isomorphism."
+                        },
+                        {
+                            question: "Which theorem provides the theoretical foundation for DFA minimality and uniqueness?",
+                            options: ["Pumping Lemma", "Rice's Theorem", "Myhill-Nerode Theorem", "Cook-Levin Theorem"],
+                            correctAnswer: 2,
+                            explanation: "The Myhill-Nerode theorem characterizes regular languages by the number of equivalence classes, which corresponds exactly to the states in a minimal DFA."
+                        },
+                        {
+                            question: "In the table-filling algorithm, which types of state pairs are marked as distinguishable initially (basis step)?",
+                            options: ["All pairs of states", "Pairs where both states are accepting", "Pairs where one state is accepting and the other is non-accepting", "States reachable from the start state"],
+                            correctAnswer: 2,
+                            explanation: "States are immediately distinguishable if one accepts and the other rejects the empty string ε."
+                        },
+                        {
+                            question: "If two DFAs are minimized and found to be isomorphic, what can we conclude?",
+                            options: ["They recognize different languages", "One is more efficient than the other", "They recognize the same language (are equivalent)", "They have different numbers of states"],
+                            correctAnswer: 2,
+                            explanation: "Isomorphism of minimal DFAs implies they represent the same regular language, as the minimal DFA is unique."
+                        }
+                    ]}
+                />
+            </section>
         </div>
+
     );
 };
 

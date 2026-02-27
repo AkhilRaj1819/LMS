@@ -49,6 +49,15 @@ const Module2_21: React.FC = () => {
         <p className="mb-6">
           To solve this problem, you will need knowledge of unordered_sets(for C++) and sets (for python). By using maps in C++, you can store each character and it's frequency. Frequency of each letter is the number of times it occurs in a string. This way you can keep track of frequencies of each character in a window. If the frequency of any character increases more than 1, then shift the window until that character.
         </p>
+        <section className="content-section">
+        <h3>Practice Problems</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/description/" target="_blank" className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-emerald-500 hover:bg-emerald-50 transition-all group">
+            <h4 className="font-bold text-gray-800 group-hover:text-emerald-600">longest substring without repeating characters</h4>
+            <p className="text-xs text-gray-500">LeetCode • Medium</p>
+          </a>
+        </div>
+      </section>
 
         <Quiz
           title="Module 2.21 Quiz: Longest Substring Without Repeating Characters"

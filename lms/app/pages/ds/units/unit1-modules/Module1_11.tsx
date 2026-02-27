@@ -54,6 +54,16 @@ const Module1_11: React.FC = () => {
         </div>
       </section>
 
+      <section className="content-section">
+        <h3>Practice Problems</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a href="https://leetcode.com/problems/contains-duplicate/description/" target="_blank" className="p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-emerald-500 hover:bg-emerald-50 transition-all group">
+            <h4 className="font-bold text-gray-800 group-hover:text-emerald-600">Contains Duplicate</h4>
+            <p className="text-xs text-gray-500">LeetCode • Easy</p>
+          </a>
+        </div>
+      </section>
+
       <Quiz
         title="Module 1.11 Quiz: Duplicate Detection"
         questions={[

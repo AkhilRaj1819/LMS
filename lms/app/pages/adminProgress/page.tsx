@@ -15,7 +15,9 @@ export default function AdminProgress() {
   const [selectedStudent, setSelectedStudent] = useState<string | null>(null);
   const [progress, setProgress] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isSearching, setIsSearching] = useState(false);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+  const [studentSearch, setStudentSearch] = useState("");
 
   const courseStructure: any = {
     DS: {
@@ -364,13 +366,26 @@ export default function AdminProgress() {
     }
   }, [session]);
 
-  const fetchStudents = async () => {
-    const res = await fetch("/api/users/students");
+  // Handle searching with debounce
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (session?.user?.isAdmin) {
+        fetchStudents(studentSearch);
+      }
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [studentSearch]);
+
+  const fetchStudents = async (query = "") => {
+    setIsSearching(true);
+    const url = query ? `/api/users/students?q=${encodeURIComponent(query)}` : "/api/users/students";
+    const res = await fetch(url);
     const data = await res.json();
     if (data.ok) {
       setStudents(data.data.filter((u: any) => !u.isAdmin));
     }
     setLoading(false);
+    setIsSearching(false);
   };
 
   const fetchProgress = async (email: string) => {
@@ -424,7 +439,7 @@ export default function AdminProgress() {
   };
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [studentSearch, setStudentSearch] = useState("");
+
 
   if (loading) {
     return (
@@ -437,10 +452,7 @@ export default function AdminProgress() {
     );
   }
 
-  const filteredStudents = students.filter(s =>
-    s.fullName?.toLowerCase().includes(studentSearch.toLowerCase()) ||
-    s.email?.toLowerCase().includes(studentSearch.toLowerCase())
-  );
+  const filteredStudents = students; // Data is already filtered by the API
 
   return (
     <div className="min-h-screen bg-[#F8F6F1] text-[#121212] font-sans">
