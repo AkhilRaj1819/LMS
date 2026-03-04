@@ -42,13 +42,13 @@ const Module1_1: React.FC = () => {
         </p>
 
         <img
-          src="https://kq-storage.s3.ap-south-1.amazonaws.com/Operating%2BSystems/os_overview_diag.png"
+          src="https://pxl-uoweduau.terminalfour.net/prod01/channel_3/assets/contributed/deputy-vice-chancellor---academic/learning-co-op/technology-and-software/uow230703.png"
           alt="Operating system between hardware and applications"
           className="lesson-image"
           style={{
             display: 'block',
             margin: '32px auto',
-            maxWidth: '100%',
+            maxWidth: '50%',
             height: 'auto'
           }}
         />

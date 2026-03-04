@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic"; // Kept dynamic so admins get real-time stats (at 50 users, the aggregations will run perfectly fast)
 
 export async function GET() {
     try {

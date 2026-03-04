@@ -176,7 +176,7 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
             ))}
           </div>
           <p className="text-[10px] font-bold text-[#AAA] uppercase">
-            {completedPercentage}% Completed • {masteryPercentage}% Mastery
+            {completedPercentage}% Completed
           </p>
         </div>
       </div>

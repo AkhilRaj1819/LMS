@@ -47,8 +47,13 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .sidebar {
@@ -381,7 +386,8 @@
   font-weight: 400;
 }
 
-.content-section ul, .content-section ol {
+.content-section ul,
+.content-section ol {
   line-height: 1.8;
   color: #616161;
   margin: 20px 0;
@@ -529,7 +535,8 @@
   gap: 16px;
 }
 
-.prev-module-btn, .next-module-btn {
+.prev-module-btn,
+.next-module-btn {
   padding: 0;
   background: transparent;
   color: #616161;
@@ -545,7 +552,8 @@
   gap: 6px;
 }
 
-.prev-module-btn:hover, .next-module-btn:hover {
+.prev-module-btn:hover,
+.next-module-btn:hover {
   color: #2B2B2B;
   background: transparent;
 }
@@ -1203,20 +1211,92 @@
 
 /* Course Overview Responsive Styles */
 @media (max-width: 768px) {
-  .lms-dashboard { padding: 24px 16px; }
-  .lms-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .header-right { align-items: flex-start; width: 100%; }
-  .progress-bar-container { align-items: flex-start; }
-  .progress-segments { width: 100%; justify-content: space-between; }
-  .segment { flex: 1; margin: 0 1px; min-width: 4px; }
-  .tab-navigation { gap: 16px; overflow-x: auto; padding-bottom: 8px; white-space: nowrap; -webkit-overflow-scrolling: touch; margin-bottom: 30px; }
-  .unit-header-block { flex-direction: column; gap: 16px; align-items: flex-start; padding-right: 32px; }
-  .expand-indicator { top: 16px; right: 0; }
-  .module-badge { width: 64px; height: 64px; flex-direction: row; align-items: center; gap: 8px; padding: 0 8px; border-radius: 8px; }
-  .badge-label { margin-bottom: 0; }
-  .badge-number { font-size: 1.5rem; }
-  .lessons-timeline { padding-left: 16px; }
-  .lessons-timeline::before { left: -4px; }
-  .lesson-item { flex-direction: column; gap: 8px; padding: 12px; }
-  .lesson-badge { position: static; margin-bottom: 8px; border-radius: 4px; }
+  .lms-dashboard {
+    padding: 24px 16px;
+  }
+
+  .lms-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .header-right {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .progress-bar-container {
+    align-items: flex-start;
+  }
+
+  .progress-segments {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .segment {
+    flex: 1;
+    margin: 0 1px;
+    min-width: 4px;
+  }
+
+  .tab-navigation {
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 30px;
+  }
+
+  .unit-header-block {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    padding-right: 32px;
+  }
+
+  .expand-indicator {
+    top: 16px;
+    right: 0;
+  }
+
+  .module-badge {
+    width: 64px;
+    height: 64px;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 0 8px;
+    border-radius: 8px;
+  }
+
+  .badge-label {
+    margin-bottom: 0;
+  }
+
+  .badge-number {
+    font-size: 1.5rem;
+  }
+
+  .lessons-timeline {
+    padding-left: 16px;
+  }
+
+  .lessons-timeline::before {
+    left: -4px;
+  }
+
+  .lesson-item {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .lesson-badge {
+    position: static;
+    margin-bottom: 8px;
+    border-radius: 4px;
+  }
 }
