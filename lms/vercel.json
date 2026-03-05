@@ -1,8 +1,8 @@
 {
-  "buildCommand": "cd lms && npm install && next build",
+  "installCommand": "cd lms && npm ci",
+  "buildCommand": "cd lms && npm run build",
   "outputDirectory": "lms/.next",
   "framework": "nextjs",
-  "installCommand": "cd lms && npm install",
   "functions": {
     "app/api/**": {
       "maxDuration": 30
