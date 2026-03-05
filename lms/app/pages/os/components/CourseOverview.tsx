@@ -194,7 +194,7 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
             ))}
           </div>
           <p className="text-[10px] font-bold text-[#AAA] uppercase">
-            {completedPercentage}% Completed • {masteryPercentage}% Mastery
+            {completedPercentage}% Completed
           </p>
         </div>
       </div>
@@ -284,9 +284,9 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
                             onClick={() => onModuleSelect(unit.id, idx + 1)}
                           >
                             {/* Green square badge with number */}
-                            <div className={`absolute -left-[57px] top-0 w-8 h-8 rounded flex items-center justify-center text-[11px] font-bold text-white transition-all shadow-sm ${isCompleted ? 'bg-emerald-500' : 'bg-[#121212]'
+                            <div className={`absolute -left-[57px] top-0 w-8 h-8 rounded flex items-center justify-center text-[10px] font-bold text-white transition-all shadow-sm ${isCompleted ? 'bg-emerald-500' : 'bg-[#121212]'
                               }`}>
-                              {module.id}
+                              {unit.id}.{idx + 1}
                             </div>
 
                             <div className="flex-1">

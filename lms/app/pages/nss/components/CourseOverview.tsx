@@ -6,12 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Heart,
   LayoutGrid,
+  ArrowLeft,
   ChevronDown,
   HelpCircle,
   Menu,
-  CheckCircle2,
-  Cpu,
-  ArrowLeft,
   Users
 } from "lucide-react";
 import { useRouter } from 'next/navigation';
@@ -115,10 +113,8 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
   ];
 
   const completedModules = studentProgress.length;
-  const masteryModules = studentProgress.filter(p => p.percentage >= 80).length;
   const totalModules = units.reduce((acc, unit) => acc + unit.modules.length, 0);
   const completedPercentage = totalModules > 0 ? Math.round((completedModules / totalModules) * 100) : 0;
-  const masteryPercentage = totalModules > 0 ? Math.round((masteryModules / totalModules) * 100) : 0;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-10 py-12 font-sans">
@@ -153,7 +149,7 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
             ))}
           </div>
           <p className="text-[10px] font-bold text-[#AAA] uppercase">
-            {completedPercentage}% Completed • {masteryPercentage}% Mastery
+            {completedPercentage}% Completed
           </p>
         </div>
       </div>
@@ -211,12 +207,12 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
                       className="flex items-center justify-between group cursor-pointer"
                       onClick={() => setExpandedUnit(expandedUnit === unit.id ? null : unit.id)}
                     >
-                      <h2 className="text-2xl font-bold text-[#121212] group-hover:text-emerald-600 transition-colors">{unit.title}</h2>
+                      <h2 className="text-2xl font-bold text-[#121212] group-hover:text-emerald-600 transition-colors uppercase tracking-tight">{unit.title}</h2>
                       <div className={`w-8 h-8 rounded-full border border-[#EEE] flex items-center justify-center transition-all duration-300 ${expandedUnit === unit.id ? 'rotate-180 bg-[#121212] text-white border-[#121212]' : 'text-[#AAA] hover:border-[#CCC]'}`}>
                         <ChevronDown className="w-4 h-4" />
                       </div>
                     </div>
-                    <p className="text-[15px] text-[#888] font-medium leading-relaxed max-w-4xl mt-2">
+                    <p className="text-[15px] text-[#888] font-medium leading-relaxed max-w-4xl mt-2 opacity-80">
                       {unit.description}
                     </p>
                   </div>
@@ -279,6 +275,9 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
       <style jsx global>{`
         body {
           background-color: #FFFFFF !important;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+          height: 0px;
         }
       `}</style>
     </div>

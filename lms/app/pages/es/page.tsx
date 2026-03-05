@@ -10,6 +10,7 @@ import Unit3 from './units/Unit3';
 import Unit4 from './units/Unit4';
 import Unit5 from './units/Unit5';
 import './styles.css';
+import Footer from '@/components/Footer';
 
 function EnvironmentalScienceContent() {
   const router = useRouter();
@@ -56,30 +57,31 @@ function EnvironmentalScienceContent() {
   return (
     <div className="flex">
       <div className="os-container flex-1">
-      {selectedModule && (
-        <>
-          <button 
-            className={`burger-menu ${isSidebarOpen ? 'hidden' : ''}`} 
-            onClick={() => setIsSidebarOpen(true)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-          
-          <Sidebar 
-            selectedModule={selectedModule}
-            onModuleSelect={handleModuleSelect}
-            isOpen={isSidebarOpen}
-            onClose={() => setIsSidebarOpen(false)}
-          />
-        </>
-      )}
-      
-      <main className={`os-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
-        {renderContent()}
-      </main>
-    </div>
+        {selectedModule && (
+          <>
+            <button
+              className={`burger-menu ${isSidebarOpen ? 'hidden' : ''}`}
+              onClick={() => setIsSidebarOpen(true)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <Sidebar
+              selectedModule={selectedModule}
+              onModuleSelect={handleModuleSelect}
+              isOpen={isSidebarOpen}
+              onClose={() => setIsSidebarOpen(false)}
+            />
+          </>
+        )}
+
+        <main className={`os-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+          {renderContent()}
+          <Footer/>
+        </main>
+      </div>
     </div>
   );
 }

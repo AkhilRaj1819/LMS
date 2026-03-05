@@ -1,7 +1,7 @@
 'use client';
+
 import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import MainSidebar from '@/components/Sidebar';
 import Sidebar from './components/Sidebar';
 import CourseOverview from './components/CourseOverview';
 import Footer from '@/components/Footer';
@@ -56,7 +56,7 @@ function NSSContent() {
 
   return (
     <div className="flex">
-      <div className="os-container flex-1">
+      <div className="nss-container flex-1">
         {selectedModule && (
           <>
             <button
@@ -67,7 +67,6 @@ function NSSContent() {
               <span></span>
               <span></span>
             </button>
-
             <Sidebar
               selectedModule={selectedModule}
               onModuleSelect={handleModuleSelect}
@@ -76,15 +75,14 @@ function NSSContent() {
             />
           </>
         )}
-
-        <main className={`os-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+        <main className={`nss-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
           {renderContent()}
           <Footer />
         </main>
       </div>
     </div>
   );
-};
+}
 
 export default function NSSPage() {
   return (

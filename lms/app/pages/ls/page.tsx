@@ -1,7 +1,7 @@
 'use client';
+
 import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import MainSidebar from '@/components/Sidebar';
 import Sidebar from './components/Sidebar';
 import CourseOverview from './components/CourseOverview';
 import Unit1 from './units/Unit1';
@@ -56,33 +56,31 @@ function LSContent() {
   return (
     <div className="flex">
       <div className="ls-container flex-1">
-      {selectedModule && (
-        <>
-          <button 
-            className={`burger-menu ${isSidebarOpen ? 'hidden' : ''}`} 
-            onClick={() => setIsSidebarOpen(true)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-          
-          <Sidebar 
-            selectedModule={selectedModule}
-            onModuleSelect={handleModuleSelect}
-            isOpen={isSidebarOpen}
-            onClose={() => setIsSidebarOpen(false)}
-          />
-        </>
-      )}
-      
-      <main className={`ls-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
-        {renderContent()}
-      </main>
-    </div>
+        {selectedModule && (
+          <>
+            <button
+              className={`burger-menu ${isSidebarOpen ? 'hidden' : ''}`}
+              onClick={() => setIsSidebarOpen(true)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <Sidebar
+              selectedModule={selectedModule}
+              onModuleSelect={handleModuleSelect}
+              isOpen={isSidebarOpen}
+              onClose={() => setIsSidebarOpen(false)}
+            />
+          </>
+        )}
+        <main className={`ls-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+          {renderContent()}
+        </main>
+      </div>
     </div>
   );
-};
+}
 
 export default function LSPage() {
   return (

@@ -64,6 +64,7 @@ export default function AdminLogin() {
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full pl-12 pr-6 py-4 bg-[#F9F9F9] border border-[#E5E2D9] rounded-2xl text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500/10 transition-all placeholder:text-[#BBB]"
                 required
+                suppressHydrationWarning
               />
             </div>
           </div>
@@ -79,6 +80,7 @@ export default function AdminLogin() {
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full pl-12 pr-6 py-4 bg-[#F9F9F9] border border-[#E5E2D9] rounded-2xl text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500/10 transition-all placeholder:text-[#BBB]"
                 required
+                suppressHydrationWarning
               />
             </div>
           </div>

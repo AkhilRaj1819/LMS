@@ -9,7 +9,7 @@ const uri = process.env.MONGODB_URI;
 // Optimized options for free MongoDB Atlas M0 tier (max 500 connections)
 // With 50 students, we want a small pool to stay within limits
 const options: MongoClientOptions = {
-  maxPoolSize: 10,        // Max 10 connections per serverless instance
+  maxPoolSize: 10,        // For 50 concurrent students, 10 connections per lambda ensures lightning-fast queries without hitting the 500 global limit.
   minPoolSize: 1,         // Keep 1 connection alive
   maxIdleTimeMS: 30000,   // Close idle connections after 30s
   serverSelectionTimeoutMS: 5000, // Fail fast if Atlas unreachable
