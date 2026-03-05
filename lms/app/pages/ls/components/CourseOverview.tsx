@@ -8,9 +8,10 @@ import {
   LayoutGrid,
   ArrowLeft,
   ChevronDown,
+  HelpCircle,
+  Menu,
 } from "lucide-react";
 import { useRouter } from 'next/navigation';
-import MainSidebar from '@/components/Sidebar';
 
 interface CourseOverviewProps {
   onModuleSelect: (unitId: number, moduleId: number) => void;
@@ -108,178 +109,178 @@ const CourseOverview: React.FC<CourseOverviewProps> = ({ onModuleSelect }) => {
   ];
 
   const completedModules = studentProgress.length;
-  const masteryModules = studentProgress.filter(p => p.percentage >= 80).length;
   const totalModules = units.reduce((acc, unit) => acc + unit.modules.length, 0);
   const completedPercentage = totalModules > 0 ? Math.round((completedModules / totalModules) * 100) : 0;
-  const masteryPercentage = totalModules > 0 ? Math.round((masteryModules / totalModules) * 100) : 0;
 
   return (
-    <div className="flex bg-white min-h-screen">
-      <div className="fixed left-0 top-0 h-screen z-50">
-        <MainSidebar />
+    <div className="max-w-7xl mx-auto px-4 sm:px-10 py-12 font-sans">
+      {/* BACK TO LIVEBOOKS */}
+      <button
+        onClick={() => router.push('/pages/livebooks')}
+        className="flex items-center gap-2 text-sm font-bold text-[#AAA] hover:text-[#121212] transition-colors mb-8 group"
+      >
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        Back to Livebooks
+      </button>
+
+      {/* HEADER SECTION */}
+      <div className="flex flex-col sm:flex-row justify-between items-start gap-6 mb-8">
+        <div className="flex items-center gap-4">
+          <div className="w-8 h-8 flex items-center justify-center text-indigo-600 border-2 border-indigo-600 rounded-lg rotate-[30deg]">
+            <div className="-rotate-[30deg]">
+              <Globe className="w-4 h-4" />
+            </div>
+          </div>
+          <h1 className="text-2xl font-bold text-[#2B2B2B] tracking-tight">Language Systems</h1>
+        </div>
+
+        <div className="flex flex-col items-end gap-2">
+          <div className="flex gap-1">
+            {[...Array(20)].map((_, i) => (
+              <div
+                key={i}
+                className={`w-2 h-2 rounded-full transition-colors ${(i + 1) * 5 <= completedPercentage ? 'bg-indigo-500' : 'bg-[#E5E2D9]'
+                  }`}
+              />
+            ))}
+          </div>
+          <p className="text-[10px] font-bold text-[#AAA] uppercase">
+            {completedPercentage}% Completed
+          </p>
+        </div>
       </div>
 
-      <div className="flex-1 pl-[280px]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-10 py-12 font-sans">
-          {/* BACK TO LIVEBOOKS */}
-          <button
-            onClick={() => router.push('/pages/livebooks')}
-            className="flex items-center gap-2 text-sm font-bold text-[#AAA] hover:text-[#121212] transition-colors mb-8 group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Livebooks
-          </button>
+      {/* TABS */}
+      <div className="flex items-center justify-between border-b border-[#EEE] mb-12">
+        <div className="flex items-center gap-10">
+          {[
+            { id: 'learning-path', label: 'Learning Path', icon: <Menu className="w-4 h-4" /> },
+            { id: 'sessions', label: 'Sessions', icon: <LayoutGrid className="w-4 h-4" /> },
+            { id: 'assessments', label: 'Assessments', icon: <div className="text-lg leading-none">+</div> },
+            { id: 'about', label: 'About', icon: <HelpCircle className="w-4 h-4" /> }
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex items-center gap-2 py-4 text-sm font-bold transition-all relative ${activeTab === tab.id
+                ? 'text-[#121212]'
+                : 'text-[#888] hover:text-[#121212]'
+                }`}
+            >
+              {tab.icon}
+              {tab.label}
+              {activeTab === tab.id && (
+                <motion.div
+                  layoutId="activeTabUnderlineLS"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#121212]"
+                />
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
 
-          {/* HEADER SECTION */}
-          <div className="flex flex-col sm:flex-row justify-between items-start gap-6 mb-8">
-            <div className="flex items-center gap-4">
-              <h1 className="text-2xl font-bold text-[#2B2B2B] tracking-tight uppercase">Language Systems</h1>
-            </div>
+      {/* CONTENT AREA */}
+      <div className="space-y-16">
+        {activeTab === 'learning-path' ? (
+          units.map((unit) => {
+            const isUnitFinished = unit.modules.every((_, idx) =>
+              studentProgress.some(p => p.unitId === unit.id && p.moduleId === idx + 1 && p.completed)
+            );
 
-            <div className="flex flex-col items-end gap-2">
-              <div className="flex gap-1">
-                {[...Array(20)].map((_, i) => (
-                  <div
-                    key={i}
-                    className={`w-2 h-2 rounded-full transition-colors ${(i + 1) * 5 <= completedPercentage ? 'bg-indigo-500' : 'bg-[#E5E2D9]'
-                      }`}
-                  />
-                ))}
-              </div>
-              <p className="text-[10px] font-bold text-[#AAA] uppercase">
-                {completedPercentage}% Completed • {masteryPercentage}% Mastery
-              </p>
-            </div>
-          </div>
+            return (
+              <div key={unit.id} className="relative group/unit">
+                {/* UNIT HEADER ROW */}
+                <div className="flex items-start gap-8 mb-12">
+                  {/* UNIT SQUARE BADGE */}
+                  <div className={`w-20 h-20 border border-[#E5E2D9] rounded flex flex-col items-center justify-center shrink-0 bg-white transition-colors duration-500 ${isUnitFinished ? 'border-emerald-500 ring-4 ring-emerald-50/50' : ''
+                    }`}>
+                    <span className="text-[10px] font-bold text-[#AAA] uppercase tracking-wider mb-1">UNIT</span>
+                    <span className="text-4xl font-bold text-[#121212] leading-none">{unit.id}</span>
+                  </div>
 
-          {/* TABS */}
-          <div className="flex items-center justify-between border-b border-[#EEE] mb-12">
-            <div className="flex items-center gap-10">
-              {[
-                { id: 'learning-path', label: 'Learning Path' },
-                { id: 'about', label: 'About' }
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 py-4 text-sm font-bold transition-all relative ${activeTab === tab.id
-                    ? 'text-[#121212]'
-                    : 'text-[#888] hover:text-[#121212]'
-                    }`}
-                >
-                  {tab.label}
-                  {activeTab === tab.id && (
-                    <motion.div
-                      layoutId="activeTabUnderlineLS"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600"
-                    />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* CONTENT AREA */}
-          <div className="space-y-16">
-            {activeTab === 'learning-path' ? (
-              units.map((unit) => {
-                const isUnitFinished = unit.modules.every((_, idx) =>
-                  studentProgress.some(p => p.unitId === unit.id && p.moduleId === idx + 1 && p.completed)
-                );
-
-                return (
-                  <div key={unit.id} className="relative group/unit">
-                    {/* UNIT HEADER ROW */}
-                    <div className="flex items-start gap-8 mb-12">
-                      <div className={`w-20 h-20 border border-[#E5E2D9] rounded flex flex-col items-center justify-center shrink-0 bg-white transition-colors duration-500 ${isUnitFinished ? 'border-indigo-500 ring-4 ring-indigo-50/50' : ''
-                        }`}>
-                        <span className="text-[10px] font-bold text-[#AAA] uppercase tracking-wider mb-1">UNIT</span>
-                        <span className="text-4xl font-bold text-[#121212] leading-none">{unit.id}</span>
-                      </div>
-
-                      <div className="flex-1">
-                        <div
-                          className="flex items-center justify-between group cursor-pointer"
-                          onClick={() => setExpandedUnit(expandedUnit === unit.id ? null : unit.id)}
-                        >
-                          <div className="flex items-center gap-3">
-                            <h2 className="text-2xl font-bold text-[#121212] group-hover:text-indigo-600 transition-colors uppercase tracking-tight">{unit.title}</h2>
-                          </div>
-                          <div className={`w-8 h-8 rounded-full border border-[#EEE] flex items-center justify-center transition-all duration-300 ${expandedUnit === unit.id ? 'rotate-180 bg-indigo-600 text-white border-indigo-600' : 'text-[#AAA] hover:border-[#CCC]'}`}>
-                            <ChevronDown className="w-4 h-4" />
-                          </div>
-                        </div>
-                        <p className="text-[15px] text-[#888] font-medium leading-relaxed max-w-4xl mt-2 italic">
-                          {unit.description}
-                        </p>
+                  <div className="flex-1">
+                    <div
+                      className="flex items-center justify-between group cursor-pointer"
+                      onClick={() => setExpandedUnit(expandedUnit === unit.id ? null : unit.id)}
+                    >
+                      <h2 className="text-2xl font-bold text-[#121212] group-hover:text-emerald-600 transition-colors uppercase tracking-tight">{unit.title}</h2>
+                      <div className={`w-8 h-8 rounded-full border border-[#EEE] flex items-center justify-center transition-all duration-300 ${expandedUnit === unit.id ? 'rotate-180 bg-[#121212] text-white border-[#121212]' : 'text-[#AAA] hover:border-[#CCC]'}`}>
+                        <ChevronDown className="w-4 h-4" />
                       </div>
                     </div>
-
-                    {/* SUBMODULES TIMELINE */}
-                    <AnimatePresence>
-                      {expandedUnit === unit.id && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="relative pl-10 ml-10 border-l border-dashed border-[#E5E2D9] space-y-12 pb-8"
-                        >
-                          {unit.modules.map((module, idx) => {
-                            const moduleRecord = studentProgress.find(p => p.unitId === unit.id && p.moduleId === idx + 1);
-                            const isCompleted = moduleRecord?.completed || false;
-
-                            return (
-                              <div
-                                key={module.id}
-                                className="relative group/module cursor-pointer pt-1"
-                                onClick={() => onModuleSelect(unit.id, idx + 1)}
-                              >
-                                {/* Module badge with number */}
-                                <div className={`absolute -left-[57px] top-0 w-8 h-8 rounded flex items-center justify-center text-[11px] font-bold text-white transition-all shadow-sm ${isCompleted ? 'bg-indigo-600' : 'bg-[#121212]'
-                                  }`}>
-                                  {module.id}
-                                </div>
-
-                                <div className="flex-1">
-                                  <h3 className="text-[17px] font-bold text-[#121212] group-hover/module:translate-x-1 transition-transform inline-block">
-                                    {module.title}
-                                    {isCompleted && moduleRecord?.score !== undefined && (
-                                      <span className="ml-3 text-[10px] font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                                        Score: {moduleRecord.score}/{moduleRecord.totalQuestions}
-                                      </span>
-                                    )}
-                                  </h3>
-                                  <p className="text-sm text-[#AAA] font-medium leading-relaxed mt-1 block italic opacity-80">
-                                    {module.description}
-                                  </p>
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    <p className="text-[15px] text-[#888] font-medium leading-relaxed max-w-4xl mt-2 opacity-80">
+                      {unit.description}
+                    </p>
                   </div>
-                );
-              })
-            ) : (
-              <div className="bg-[#FBFAF8] rounded-[3rem] border border-[#EAE8E0] p-32 flex flex-col items-center justify-center text-center">
-                <div className="w-20 h-20 bg-white rounded-[2rem] border border-[#EAE8E0] shadow-sm flex items-center justify-center text-[#CCC] mb-8">
-                  <LayoutGrid className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-bold text-[#121212] mb-4 uppercase tracking-tighter">Content coming soon</h3>
-                <p className="text-[#888] font-medium max-w-sm leading-relaxed">
-                  We are currently finalizing the high-fidelity materials for this section. Please check back next week.
-                </p>
+
+                {/* SUBMODULES TIMELINE */}
+                <AnimatePresence>
+                  {expandedUnit === unit.id && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="relative pl-10 ml-10 border-l border-dashed border-[#E5E2D9] space-y-12 pb-8"
+                    >
+                      {unit.modules.map((module, idx) => {
+                        const moduleRecord = studentProgress.find(p => p.unitId === unit.id && p.moduleId === idx + 1);
+                        const isCompleted = moduleRecord?.completed || false;
+
+                        return (
+                          <div
+                            key={module.id}
+                            className="relative group/module cursor-pointer pt-1"
+                            onClick={() => onModuleSelect(unit.id, idx + 1)}
+                          >
+                            {/* Indigo square badge with number */}
+                            <div className={`absolute -left-[57px] top-0 w-8 h-8 rounded flex items-center justify-center text-[10px] font-bold text-white transition-all shadow-sm ${isCompleted ? 'bg-emerald-500' : 'bg-[#121212]'
+                              }`}>
+                              {unit.id}.{idx + 1}
+                            </div>
+
+                            <div className="flex-1">
+                              <h3 className="text-[17px] font-bold text-[#121212] group-hover/module:translate-x-1 transition-transform inline-block">
+                                {module.title}
+                                {isCompleted && moduleRecord?.score !== undefined && (
+                                  <span className="ml-3 text-[10px] font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                    Score: {moduleRecord.score}/{moduleRecord.totalQuestions}
+                                  </span>
+                                )}
+                              </h3>
+                              <p className="text-sm text-[#AAA] font-medium leading-relaxed mt-1 block opacity-80">
+                                {module.description}
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            )}
+            );
+          })
+        ) : (
+          <div className="bg-[#FBFAF8] rounded-[3rem] border border-[#EAE8E0] p-32 flex flex-col items-center justify-center text-center">
+            <div className="w-20 h-20 bg-white rounded-[2rem] border border-[#EAE8E0] shadow-sm flex items-center justify-center text-[#CCC] mb-8">
+              <LayoutGrid className="w-10 h-10" />
+            </div>
+            <h3 className="text-2xl font-bold text-[#121212] mb-4 uppercase tracking-tighter">Content coming soon</h3>
+            <p className="text-[#888] font-medium max-w-sm leading-relaxed">
+              We are currently finalizing the high-fidelity materials for this section. Please check back next week.
+            </p>
           </div>
-        </div>
+        )}
       </div>
 
       <style jsx global>{`
         body {
           background-color: #FFFFFF !important;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+          height: 0px;
         }
       `}</style>
     </div>

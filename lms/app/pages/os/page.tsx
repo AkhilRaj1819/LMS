@@ -55,8 +55,8 @@ function OperatingSystemsContent() {
   };
 
   return (
-    <div className="flex">
-      <div className="os-container flex-1">
+    <div className="flex ">
+      <div className="os-container flex-1 flex-col">
         {selectedModule && (
           <>
             <button
@@ -73,12 +73,14 @@ function OperatingSystemsContent() {
               isOpen={isSidebarOpen}
               onClose={() => setIsSidebarOpen(false)}
             />
+
           </>
         )}
         <main className={`os-content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
           {renderContent()}
-          <Footer />
+
         </main>
+        <Footer />
       </div>
     </div>
   );

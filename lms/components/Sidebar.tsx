@@ -86,16 +86,27 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
               const isLocked = item.restricted;
               return (
                 <div key={item.path} className="relative pl-8">
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-pill"
+                      className="absolute inset-0 bg-[#F0F4F9] rounded-l-[1.5rem] shadow-lg shadow-blue-900/10"
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
+                  )}
                   <button
                     onClick={() => {
                       if (isLocked) return;
                       router.push(item.path);
                       if (onClose) onClose();
                     }}
-                    className={`w-full flex items-center gap-5 px-6 py-4 transition-all duration-300 ${isLocked
+                    className={`w-full flex items-center gap-5 px-6 py-4 transition-all duration-300 relative z-10 ${isLocked
                       ? "text-white/30 cursor-not-allowed"
                       : isActive
-                        ? "bg-[#F0F4F9] text-[#3E73C1] rounded-l-[1.5rem] shadow-lg shadow-blue-900/10"
+                        ? "text-[#3E73C1]"
                         : "text-white/90 hover:text-white cursor-pointer"
                       }`}
                   >

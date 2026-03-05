@@ -297,7 +297,7 @@ export default function Timetable() {
                   onClick={handleNavigation}
                   className="w-full py-3 bg-[#121212] text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:bg-[#333] transition-all cursor-pointer"
                 >
-                  Enter Integrated Session
+                  Enter the Course Overview
                 </button>
               </div>
             </motion.div>

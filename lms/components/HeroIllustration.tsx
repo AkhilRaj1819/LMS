@@ -5,7 +5,7 @@ import React from 'react';
 const HeroIllustration = () => {
     return (
         <div className="relative">
-            <svg width="450" height="320" viewBox="0 0 450 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto drop-shadow-[0_20px_50px_rgba(59,130,246,0.15)]">
+            <svg width="220" height="290" viewBox="0 0 450 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto drop-shadow-[0_20px_50px_rgba(59,130,246,0.15)]">
                 {/* Soft Shadow Base */}
                 <ellipse cx="225" cy="285" rx="120" ry="15" fill="black" fillOpacity="0.03" />
 

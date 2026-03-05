@@ -16,9 +16,9 @@ import {
   ArrowUpRight,
   Plus
 } from "lucide-react";
-import Sidebar from "@/components/Sidebar";
 import { useProgress } from "@/app/pages/useProgress";
 import Footer from "@/components/Footer";
+import { useSidebar } from "@/components/SidebarContext";
 
 interface LivebookCardProps {
   name: string;
@@ -93,7 +93,7 @@ function LivebookCard({ name, code, description, credits, totalModules, color, i
 export default function LivebooksPage() {
   const { data: session } = useSession();
   const [mounted, setMounted] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { setIsOpen: setIsSidebarOpen } = useSidebar();
   const [activeSemester, setActiveSemester] = useState(4);
 
   useEffect(() => {
@@ -170,103 +170,99 @@ export default function LivebooksPage() {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-[#F8F6F1] text-[#121212] font-sans selection:bg-blue-100">
-      <div className="flex relative">
-        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
-
-        <main className="flex-1 sm:ml-[280px] px-6 sm:px-16 py-6 sm:py-10 min-w-0 overflow-x-hidden">
-          {/* TOP NAV BAR */}
-          <div className="flex items-center justify-between mb-8 sm:mb-12">
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => setIsSidebarOpen(true)}
-                className="sm:hidden p-2 bg-white border border-[#E5E2D9] rounded-xl text-blue-600"
-              >
-                <Menu className="w-5 h-5" />
-              </button>
-              <h2 className="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-3">
-                <Library className="w-6 h-6 text-blue-600" />
-                Livebooks
-              </h2>
-            </div>
-            <div className="flex items-center gap-6">
-              <div className="hidden md:relative group md:block">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#AAA] group-focus-within:text-[#121212] transition-colors" />
-                <input
-                  type="text"
-                  placeholder="Search livebooks..."
-                  className="pl-11 pr-6 py-2.5 bg-white border border-[#E5E2D9] rounded-xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-blue-500/20 w-64 lg:w-80 transition-all"
-                />
-              </div>
+    <div className="text-[#121212] font-sans selection:bg-blue-100">
+      <main className="px-6 sm:px-16 py-6 sm:py-10 min-w-0 overflow-x-hidden w-full">
+        {/* TOP NAV BAR */}
+        <div className="flex items-center justify-between mb-8 sm:mb-12">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => setIsSidebarOpen(true)}
+              className="sm:hidden p-2 bg-white border border-[#E5E2D9] rounded-xl text-blue-600"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+            <h2 className="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-3">
+              <Library className="w-6 h-6 text-blue-600" />
+              Livebooks
+            </h2>
+          </div>
+          <div className="flex items-center gap-6">
+            <div className="hidden md:relative group md:block">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#AAA] group-focus-within:text-[#121212] transition-colors" />
+              <input
+                type="text"
+                placeholder="Search livebooks..."
+                className="pl-11 pr-6 py-2.5 bg-white border border-[#E5E2D9] rounded-xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-blue-500/20 w-64 lg:w-80 transition-all"
+              />
             </div>
           </div>
+        </div>
 
-          {/* PAGE HEADER */}
-          <section className="mb-12">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-2">Academic Curriculum</p>
-                <h1 className="text-3xl sm:text-4xl font-black text-[#121212]">Explore Your Courses</h1>
-              </div>
-
-              {/* Semester Selector Pills */}
-              <div className="flex p-1.5 bg-white border border-[#E5E2D9] rounded-2xl gap-1">
-                {[1, 2, 3, 4].map((sem) => (
-                  <button
-                    key={sem}
-                    onClick={() => setActiveSemester(sem)}
-                    className={`px-5 py-2 rounded-xl text-[10px] font-black uppercase tracking-tighter transition-all ${activeSemester === sem
-                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
-                      : 'text-[#888] hover:bg-[#F8F6F1] hover:text-[#121212]'
-                      }`}
-                  >
-                    Sem {sem}
-                  </button>
-                ))}
-              </div>
+        {/* PAGE HEADER */}
+        <section className="mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-2">Academic Curriculum</p>
+              <h1 className="text-3xl sm:text-4xl font-black text-[#121212]">Explore Your Courses</h1>
             </div>
-          </section>
 
-          {/* SUBJECT GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-12">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeSemester}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="contents"
-              >
-                {activeSemester === 4 ? (
-                  subjects.map((subject, i) => (
-                    <LivebookCard key={i} {...subject} />
-                  ))
-                ) : (
-                  <div className="col-span-full py-20 flex flex-col items-center justify-center text-center">
-                    <div className="w-20 h-20 bg-white rounded-[2rem] border border-[#E5E2D9] flex items-center justify-center mb-6">
-                      <Clock className="w-10 h-10 text-[#AAA]" />
-                    </div>
-                    <h3 className="text-xl font-black text-[#121212] mb-2">Curriculum Locked</h3>
-                    <p className="text-sm text-[#888] font-medium max-w-xs">
-                      Course materials for Semester {activeSemester} are currently archived. View Semester 4 for current content.
-                    </p>
+            {/* Semester Selector Pills */}
+            <div className="flex p-1.5 bg-white border border-[#E5E2D9] rounded-2xl gap-1">
+              {[1, 2, 3, 4].map((sem) => (
+                <button
+                  key={sem}
+                  onClick={() => setActiveSemester(sem)}
+                  className={`px-5 py-2 rounded-xl text-[10px] font-black uppercase tracking-tighter transition-all ${activeSemester === sem
+                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
+                    : 'text-[#888] hover:bg-[#F8F6F1] hover:text-[#121212]'
+                    }`}
+                >
+                  Sem {sem}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SUBJECT GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pb-12">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSemester}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="contents"
+            >
+              {activeSemester === 4 ? (
+                subjects.map((subject, i) => (
+                  <LivebookCard key={i} {...subject} />
+                ))
+              ) : (
+                <div className="col-span-full py-20 flex flex-col items-center justify-center text-center">
+                  <div className="w-20 h-20 bg-white rounded-[2rem] border border-[#E5E2D9] flex items-center justify-center mb-6">
+                    <Clock className="w-10 h-10 text-[#AAA]" />
                   </div>
-                )}
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                  <h3 className="text-xl font-black text-[#121212] mb-2">Curriculum Locked</h3>
+                  <p className="text-sm text-[#888] font-medium max-w-xs">
+                    Course materials for Semester {activeSemester} are currently archived. View Semester 4 for current content.
+                  </p>
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-          {/* FOOTER */}
-          <Footer
-            links={[
-              { label: "Curriculum", href: "#" },
-              { label: "Resources", href: "#" },
-              { label: "Help", href: "#" }
-            ]}
-            copyright="© 2026 GGU GGU LMS • Livebooks Interface"
-          />
-        </main>
-      </div>
+        {/* FOOTER */}
+        <Footer
+          links={[
+            { label: "Curriculum", href: "#" },
+            { label: "Resources", href: "#" },
+            { label: "Help", href: "#" }
+          ]}
+          copyright="© 2026 GGU GGU LMS • Livebooks Interface"
+        />
+      </main>
 
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
